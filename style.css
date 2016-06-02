@@ -1,0 +1,529 @@
+/*Building Header*/
+* { box-sizing: border-box;}
+/*--------------------------HEADER--------------------------*/
+body {
+    width: 1002px;
+    margin:auto;
+} /*fix body*/
+header {
+    position: relative;
+} /*fix header*/
+nav {
+    position: relative;
+    width: 1000px;
+    height: 72px;
+    background-color: #fffabe;
+} /* fix nav , add dims*/
+nav ul {
+    list-style-type: none;
+    position: absolute;
+    right: 2vw;
+    top: 1vh;
+    margin: 0 2vw;
+    display: inline-block;
+} /*nav link list: fix position, remove bullet*/
+nav ul li {
+    display: inline-block;
+    margin: 2vh 1.5vw;
+} /*line up nav links*/
+nav ul li a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #515151;
+}
+nav ul li a:hover {  color: #d42551;
+}
+.logo {
+    position: relative;
+    left: 2.5vw;
+    top: 2vh;
+} /*position logo*/
+.header-img {
+    width: 1000px;
+    height: 400px;
+}/*specify header image dimensions, position*/
+
+/*--------------------------END HEADER--------------------------*/
+/*------------------WELCOME PAGE - MAIN CONTENT-----------------*/
+/*------------WELCOME SECTION------------*/
+img[title=macarons-image] {
+    position: relative;
+    top: 10em;
+    left: 2em;
+}/*test - attribute value selector, more context*/
+.section-title {
+    position: relative;
+    left: 29%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #6A6969;}/*Section titles styling*/
+#index-welcome-para-title {
+    top: -11em;}
+#index-we-love-para-title {
+    top: -9em;}
+#index-samples-title {
+    top: -7em;}  /*Section titles positioning*/
+.para-style {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #6a6969;
+} /*Section paragraphs styling*/
+.para-welcome,
+.para-we-love-macaron {
+    position: relative;
+    left: 29%;
+    width: 66.6%;} /*Section paragraphs position*/
+.para-welcome {
+    top: -14em;}
+.para-we-love-macaron {
+    top: -11em;} /*Section paragraphs positioning*/
+/*------------SAMPLES SECTION------------*/
+.wrapper {
+    position: relative;
+    top: -3em;
+}
+.day {
+    width: 126px;
+    height: 140px;
+    background-color: #fffabe;
+    display: inline-block;
+    margin: auto .3em;
+    position: relative;
+    left: 9px
+} /*Style and position daily thumbnails*/
+.day-label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #6a6969;
+    position: absolute;
+    top: 1em;
+    padding-left: 10px;
+} /*day-label styling and position*/
+.time {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #6a6969;
+    width: 126px;
+    height: 33px;
+    position: absolute;
+    bottom: 68px;
+    padding-left: 10px;
+    padding-top: 7px;
+} /*time styling and position*/
+.flavor-top {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #6a6969;
+    width: 126px;
+    height: 33px;
+    position: absolute;
+    bottom: 34px;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+.flavor-top-img {
+    position: absolute;
+    top: .3em;
+    right: .5em;
+}
+.flavor-bottom {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #6a6969;
+    width: 126px;
+    height: 33px;
+    position: absolute;
+    bottom: 0;
+    padding-left: 10px;
+}
+.flavor-bottom-img {
+    position: absolute;
+    top: .3em;
+    right: .5em;
+}
+.flavor-bottom-mon,
+.flavor-bottom-wed,
+.flavor-bottom-fri,
+.flavor-bottom-sun {
+    color: white;
+    background-color: #824603;
+    padding-left: 10px;
+    padding-top: 2px;
+}/*colored-thumbnails bottoms*/
+.flavor-bottom-wed {
+    background-color: #df5277;
+}
+.flavor-bottom-fri {
+    background-color: #a2304e;
+}
+.flavor-bottom-sun {
+    background-color: #c39005;
+}/*---------------END WELCOME PAGE -MAIN CONTENT-----------*/
+/*-------------OUR MACARONS PAGE - MAIN CONTENT-----------------*/
+/*ARTICLE*/
+.our-macarons-main-content {
+    position: relative;
+    width: 1002px;}
+    /*SECTION - MAIN CONTENT*/
+ #our-macacrons-fresh-para-title {
+     position: absolute;
+     display: inline-block;
+     left: 2.6em;
+     top: 3em;
+}
+ .para-fresh {
+     position: absolute;
+     left: 3.8em;
+     top: 9em;
+     width: 91%;}
+    /*SECTION - MAIN CONTENT - CLASSICS LIST*/
+.section-main-content-classics {
+    width: 1002px;
+    height: 600px;
+    background-image: url("assets/images/our-macarons-background.png");
+    position: relative;
+}
+#our-macacrons-classics-para-title {
+    display: inline-block;
+    position: absolute;
+    bottom: 17.5em;
+    left: 2.6em;}
+.classics {
+    position: absolute;
+    bottom: 3.5em;
+    left: 4em;
+}/*ul-list of classics-position*/
+    /* SECTION - MAIN CONTENT - AFTER-PURCHASE*/
+.section-main-content-after-purchase {
+    width: 1000px;
+    height: 6.5em;
+    position: relative;
+}
+.para-after-purchase {
+    position: absolute;
+    bottom: 3.5em;
+    left: 4em;
+    width: 90%;
+    height: 2.5em;
+    margin: 0 auto;
+}/*---------END OUR MACARONS PAGE - MAIN CONTENT-----------------*/
+/*----------GIFTS & PARTIES PAGE - MAIN CONTENT-----------------*/
+    /*ARTICLE*/
+.gifts-party-main-content {
+    position: relative;
+    width: 1002px;}
+    /* SECTION - MAIN CONTENT - LETS-EAT */
+.section-main-content-lets-eat {
+    position: relative;
+    margin-top: -1em;
+}
+#lets-eat-para-title {
+    left: 2.6em;
+    top: 4.5em;
+}
+.para-lets-eat {
+    position: absolute;
+    left: 3.8em;
+    top: 10em;
+    width: 91%;
+}
+.email-style {
+    color: #df5277;
+}
+    /* WRAPPER */
+.background-wrapper {width: 1002px;
+    height: 600px;
+    background-image: url("assets/images/gifts-parties-background.png");
+    position: relative;
+    z-index: -10;
+    margin-bottom: 2em;
+    margin-top: 0;
+}
+    /* SECTION - MAIN CONTENT - GIFT BOXES */
+#gift-boxes-para-title {
+    left: 2.6em;
+    top: 9.5em;}
+.gift-box-para {
+    position: absolute;
+    left: 3.6em;
+    top: 17em;
+}
+.gift-box-list {
+    position: absolute;
+    left: 3em;
+    top: 18.8em;
+    width: 50%;
+}
+#party-tower-para-title {
+    position: absolute;
+    left: 2.6em;
+    top: 19em;
+}
+.para-party-tower {
+    position: absolute;
+    left: 3.6em;
+    top: 32em;
+    width: 50%;
+}
+.party-tower {
+    position: absolute;
+    left: 3.0em;
+    top: 36em;
+    width: 50%;
+} /*------END-GIFTS & PARTIES PAGE - MAIN CONTENT-----------------*/
+/*------------------CONTACT PAGE - MAIN CONTENT-----------------*/
+.contact-main-content {
+    position: relative;
+    height: 530px;
+}
+    /*BIZ HOURS SECTION*/
+.section-main-content-hours {
+    #border: 1px solid red;
+    position: relative;
+    height:auto;
+}
+#biz-hours-para-title {
+    display: inline-block;
+    left: 2.6em;
+    top: 4em;
+}
+.para-business-hours {
+    position: absolute;
+    left: 3.6em;
+    top: 11em;
+}
+    /*FORMS SECTION*/
+.form {
+    width: 310px;
+    position: absolute;
+    right: 281px;
+    display: inline-block;
+}
+.contact-form-title {
+    top: 1.2em;
+    left: 0;
+    margin-bottom: 2em;
+}
+.input-text {
+    width: 310px;
+    height: 35px;
+    background-color: #f5f5f5;
+    margin: .5em auto;}
+.message-text-area {
+    height: 70px;
+}
+.submit-button {
+    width: 155px;
+    height: 35px;
+    background-color: #f5f5f5;
+    position: absolute;
+    right: 0px;
+    bottom: -3em;
+}
+    /*IMAGE*/
+.img-container {
+    width: 280px;
+    height: 100%;
+    display:inline-block;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+img[title=contact-macarons-img] {
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position:absolute;
+}  /*--------------END-CONTACT PAGE - MAIN CONTENT-----------------*/
+/*--------------------------FOOTER------------------------------*/
+footer {
+    background-color: #df5277;
+    height: 80px;
+    width: 1000px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #FFFFFF;
+    position: relative;
+    bottom: 0px;
+}
+footer ul {
+    list-style: none;
+    width: 100%;
+    height:auto;
+}
+footer ul li {
+    display: inline-block;
+    margin: 1px;
+}
+.footer-mail {
+    position: absolute;
+    left: 10.7%;
+    top: 30%;}
+.footer-mail img {
+    margin-right: 7px;
+}/* order@email*/
+.footer-phone {
+    position: absolute;
+    left: 42.8%;
+    top: 30%;
+}
+.footer-phone img {
+    margin-right: 7px;
+}
+.footer-copyright {
+    position: absolute;
+    left: 38.3%;
+    top:60%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #ffffff;
+}/*phone+copyright*/
+.footer-facebook {
+    position: absolute;
+    right: 14.3%;
+    bottom: 0;
+    top: 30%;}
+.footer-facebook img {
+    margin-left: 12px;
+}
+.footer-twitter {
+    position: absolute;
+    right: 11.3%;
+    top: 30%;
+}
+/*******************************  php styling  *****************************/
+
+.today {
+    background-image: url('assets/images/july4_header.jpg');
+}
+.today_heading {
+    color: green;}
+.july4th {
+    background-image: url('assets/images/july4_header.jpg');
+}
+.july4th_heading {  color: blue;}
+.christmas {
+    background-image: url('assets/images/xmas_header.jpg');
+}
+.christmas_heading {
+    color: red;}
+.hidden{display: none;}
+
+/*FaceButt & Twitter*/
+/*++++++++++++++++++ MOBILE RESPONSIVE ++++++++++++++++++++++++*/
+/* Testing readability - layout of this section follows layout of html structure using indentation*/
+@media screen and (max-width: 375px) {
+    body {width: 98vw;}
+        .body-wrapper {
+            width: 98vw;
+            #height: auto;
+            margin: auto;
+            position: relative;
+
+        }
+        header {
+            width: 96vw;
+            margin: auto;
+            position: relative; #left: 1vw;
+
+        }
+            .logo {
+                position: relative;
+                top: 1vh;
+                display: block;
+                margin: 0 auto;
+            }
+            nav {
+                width: 96vw;
+            }
+            nav ul {
+                margin: 0 1em 0 0;
+                padding: 0;
+            }
+            nav ul li {
+                margin: 2.5em .5em 0 0;
+            }
+            nav ul li a {
+                font-size: .6em;
+                margin: 0 .2em;
+            }
+            .header-img {
+                width: 95vw;
+                height: auto;
+            }
+    .contact-main-content {
+            width: 96vw;
+            margin: auto;
+            position: relative;
+        }
+            .section-main-content-hours {
+                width: 94vw;
+                height: auto;
+                margin: auto;
+                display: block;
+                position: relative;
+            }
+                #biz-hours-para-title {
+                    position: absolute;
+                    top: 2em;
+                }
+                .para-business-hours {
+                    position: absolute;
+                    top: 8em;
+                }
+                #br-1625,
+                #br-949,
+                #br-order,
+                #br-send-questions {
+                    line-height: 2em;
+                } /*Testing - using line-height on <br> elements for spacing adjustments instead of using more paragraph tags in the html. EX: [ SF, CA 94115<br><br id="br-949">949.800.. ] instead of [ SF, CA 94115</p><p>949.800..</p> ]
+                     */
+            .form {
+                position: relative;
+                width: 94vw;
+                left: .1vw; /*if this property is changed or disabled, form section moves offscreen, can not figure out why*/
+                top: 70vh;
+            }
+                .input-text {
+                    margin: .5em 1.5em;
+                }
+                .submit-button {
+                    right: 1.5em;
+                }
+                img[title=contact-macarons-img] {
+                    visibility: hidden;
+                }
+        footer {
+            width: 98vw;
+            margin: auto;
+            position:absolute;
+            top: 250vh;
+        }
+            .footer-mail {
+            position: absolute;
+            top: 1em;
+            left: 3em;
+            }
+            .footer-phone{
+            position: absolute;
+            top: 1em;
+            left: 18em;
+            }
+            .footer-copyright{
+            position: absolute;
+            top: 5.7em;
+            margin: 0;
+            left: 6em;
+            }
+            .footer-facebook{
+            position: absolute;
+            top: 3em;
+            left: 10em;
+            }
+            .footer-twitter{
+            position: absolute;
+            top: 3em;
+            right: 11em;
+            }
+}
+/*This section is garbage bc even if it looks like it works, things are just muscled into place using absolute positioning.  The footer is 250vh from the top and the form section is 70vh from the top bc the form section behaves oddly in its positioning, if relative is used, and appears BELOW the body-wrapper.  Form section also has to be fixed with left:.1vw; or else it goes offscreen to the left, garbage..... */
