@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp" ng-controller="main_controller">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" value="NOT Micah Pham">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Welcome</title>
+</head>
+<body >
+<header>
+<nav>
+    <img class="logo" src="assets/images/logo.png" alt="logo" title="logo">
+    <ul>
+        <li><a href="index.html">WELCOME</a></li>
+        <li><a href="our_macarons.html">OUR MACARONS</a></li>
+        <li><a href="gifts_parties.html">GIFTS & PARTIES</a></li>
+        <li><a href="sign_in.html">SIGN IN</a></li>
+        <li><a href="cart.html">CART</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+</nav>
+</header>
+<div id="tmp_content">
+    <div ng-view></div>
+</div>
+<footer>
+    <ul>
+        <li class="footer-mail"><img src="assets/images/mail.png"> order@mboutique.com</li>
+        <li class="footer-phone"><img src="assets/images/phone.png"> 949.800-3111</li>
+        <li class="footer-copyright">Copyright © 2014 MBoutique. All rights reserved.</li>
+        <li class="footer-facebook">Follow us <img src="assets/images/facebook.png"></li>
+        <li class="footer-twitter"><img src="assets/images/twitter.png"></li>
+    </ul>
+</footer>
+<!--End footer-->
+</body>
+</html>
