@@ -1,4 +1,4 @@
-var app= angular.module("mainApp",['ngRoute']);
+var app = angular.module("mainApp", ['ngRoute']);
 
 app.config(function ($routeProvider) {
     $routeProvider
@@ -14,11 +14,11 @@ app.config(function ($routeProvider) {
                 templateUrl: 'gifts_parties.html',
                 controller: 'giftController'
         })
-            .when('/contact',{
+        .when('/contact',{
                 templateUrl: 'contact.html',
                 controller: 'contactController'
         })
-            .when('/cart',{
+        .when('/cart',{
                 templateUrl: 'cart.html',
                 controller: 'cartController'
         })
@@ -30,4 +30,22 @@ app.config(function ($routeProvider) {
                 redirectTo: '/'
         })
         );
+});
+app.controller('mainController',function () {
+
+});
+app.controller('macaronController',function () {
+
+});
+app.controller('giftController',function () {
+
+});
+app.controller('contactController',function () {
+
+});
+app.controller('cartController',function () {
+
+});
+app.controller('signinController',function () {
+
 });
