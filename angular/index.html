@@ -7,18 +7,18 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
     <script src="script.js"></script>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Welcome</title>
 </head>
 <body ng-app="mainApp">
-<header>
+<header ng-controller="mainController">
 <nav>
     <img class="logo" src="../assets/images/logo.png" alt="logo" title="logo">
     <ul>
         <li><a href="#welcome">WELCOME</a></li>
         <li><a href="#macarons">OUR MACARONS</a></li>
         <li><a href="#gifts">GIFTS & PARTIES</a></li>
-        <li><a href="#signin">SIGN IN</a></li>
+        <li><a href="#sign_in">SIGN IN</a></li>
         <li><a href="#cart">CART</a></li>
         <li><a href="#contact">CONTACT</a></li>
     </ul>

@@ -30,22 +30,18 @@ app.config(function ($routeProvider) {
                 redirectTo: '/'
         });
 });
-app.controller('mainController',function () {
-
-});
-app.controller('macaronController',function () {
-
-});
-app.controller('giftController',function () {
-
-});
-app.controller('contactController',function () {
-
-});
-app.controller('cartController',function () {
-
-});
-app.controller('signinController',function () {
-
+app.controller('mainController',function ($scope) {
+    $scope.banner = "../assets/images/welcome-image.png";
+}).controller('macaronController',function ($scope) {
+    $scope.banner = "../assets/images/our-macarons-image.png";
+    console.log("macarons");
+}).controller('giftController',function ($scope) {
+    $scope.banner = "../assets/images/gifts-parties-image.png";
+}).controller('contactController',function ($scope) {
+    $scope.banner = "../assets/images/contact-image.png";
+}).controller('cartController',function ($scope) {
+    $scope.banner = "../assets/images/welcome-image.png";
+}).controller('signinController',function ($scope) {
+    $scope.banner = "../assets/images/welcome-image.png";
 });
 
