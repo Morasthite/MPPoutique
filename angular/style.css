@@ -27,60 +27,62 @@ nav {
 .n_link {
     color: #515151;
 }
-/*--------------------------END HEADER--------------------------*/
-/*------------------WELCOME PAGE - MAIN CONTENT-----------------*/
+nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: inherit;
+    color:#df5277;
+}
 /*------------WELCOME SECTION------------*/
-/*img[title=macarons-image] {*/
+#welcome_side {
+    padding: 10% 5% 5% 5%;
+    height: 70vh;
+}
+h3 {
+    padding: 3%;
+}
+/*.section-title {*/
+    /*!*left: 29%;*!*/
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    /*font-size: 20px;*/
+    /*color: #6A6969;*/
+/*}!*Section titles styling*!*/
+/*#index-welcome-para-title {*/
+    /*top: -11em;*/
+/*}*/
+/*#index-we-love-para-title {*/
+    /*top: -9em;*/
+/*}*/
+/*#index-samples-title {*/
+    /*top: -7em;*/
+/*}  !*Section titles positioning*!*/
+/*.para-style {*/
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    /*font-size: 14px;*/
+    /*color: #6a6969;*/
+/*} !*Section paragraphs styling*!*/
+/*.para-welcome,*/
+/*.para-we-love-macaron {*/
     /*position: relative;*/
-    /*top: 10em;*/
-    /*left: 2em;*/
-/*}!*test - attribute value selector, more context*!*/
-.section-title {
-    position: relative;
-    left: 29%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    color: #6A6969;
-}/*Section titles styling*/
-#index-welcome-para-title {
-    top: -11em;
-}
-#index-we-love-para-title {
-    top: -9em;
-}
-#index-samples-title {
-    top: -7em;
-}  /*Section titles positioning*/
-.para-style {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    color: #6a6969;
-} /*Section paragraphs styling*/
-.para-welcome,
-.para-we-love-macaron {
-    position: relative;
-    left: 29%;
-    width: 66.6%;
-} /*Section paragraphs position*/
-.para-welcome {
-    top: -14em;
-}
-.para-we-love-macaron {
-    top: -11em;
-} /*Section paragraphs positioning*/
+    /*left: 29%;*/
+    /*width: 66.6%;*/
+/*} !*Section paragraphs position*!*/
+/*.para-welcome {*/
+    /*top: -14em;*/
+/*}*/
+/*.para-we-love-macaron {*/
+    /*top: -11em;*/
+/*} !*Section paragraphs positioning*!*/
 /*------------SAMPLES SECTION------------*/
-.wrapper {
-    position: relative;
-    top: -3em;
-}
+/*.wrapper {*/
+    /*position: relative;*/
+    /*top: -3em;*/
+/*}*/
 .day {
     width: 126px;
     height: 140px;
     background-color: #fffabe;
     display: inline-block;
     margin: auto .3em;
-    position: relative;
-    left: 9px
 } /*Style and position daily thumbnails*/
 .day-label {
     font-family: Arial, Helvetica, sans-serif;
@@ -332,59 +334,60 @@ nav {
 footer {
     background-color: #df5277;
     height: 80px;
-    width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
     color: #FFFFFF;
-    position: relative;
     bottom: 0;
+    margin-top: 2%;
+    padding: 1%;
 }
 footer ul {
     list-style: none;
     width: 100%;
-    height:auto;
 }
-footer ul li {
+.footer_info {
     display: inline-block;
-    margin: 1px;
 }
-.footer-mail {
-    position: absolute;
-    left: 10.7%;
-    top: 30%;
-}
-.footer-mail img {
-    margin-right: 7px;
-}/* order@email*/
-.footer-phone {
-    position: absolute;
-    left: 42.8%;
-    top: 30%;
-}
-.footer-phone img {
-    margin-right: 7px;
-}
-.footer-copyright {
-    position: absolute;
-    left: 38.3%;
-    top:60%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11px;
-    color: #ffffff;
-}/*phone+copyright*/
-.footer-facebook {
-    position: absolute;
-    right: 14.3%;
-    bottom: 0;
-    top: 30%;}
-.footer-facebook img {
-    margin-left: 12px;
-}
-.footer-twitter {
-    position: absolute;
-    right: 11.3%;
-    top: 30%;
-}
+/*footer ul li {*/
+    /*display: inline-block;*/
+    /*margin: 1%;*/
+/*}*/
+/*.footer-mail {*/
+    /*left: 10.7%;*/
+    /*top: 30%;*/
+/*}*/
+/*.footer-mail img {*/
+    /*margin-right: 7px;*/
+/*}!* order@email*!*/
+/*.footer-phone {*/
+    /*position: absolute;*/
+    /*left: 42.8%;*/
+    /*top: 30%;*/
+/*}*/
+/*.footer-phone img {*/
+    /*margin-right: 7px;*/
+/*}*/
+/*.footer-copyright {*/
+    /*position: absolute;*/
+    /*left: 38.3%;*/
+    /*top:60%;*/
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    /*font-size: 11px;*/
+    /*color: #ffffff;*/
+/*}!*phone+copyright*!*/
+/*.footer-facebook {*/
+    /*position: absolute;*/
+    /*right: 14.3%;*/
+    /*bottom: 0;*/
+    /*top: 30%;}*/
+/*.footer-facebook img {*/
+    /*margin-left: 12px;*/
+/*}*/
+/*.footer-twitter {*/
+    /*position: absolute;*/
+    /*right: 11.3%;*/
+    /*top: 30%;*/
+/*}*/
 /*******************************  php styling  *****************************/
 
 /*.today {*/
