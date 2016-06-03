@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en" ng-app="mainApp" ng-controller="mainController">
 <head>
     <meta charset="UTF-8">
-    <meta name="author" value="NOT Micah Pham">
+    <meta name="author" >
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.2.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
     <script src="script.js"></script>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Welcome</title>
 </head>
-<body ng-app="mainApp">
+<body>
 <header>
 <nav>
     <img class="logo" src="../assets/images/logo.png" alt="logo" title="logo">
@@ -23,6 +23,7 @@
         <li><a href="#contact">CONTACT</a></li>
     </ul>
 </nav>
+     <img class="header-img" src="{{banner}}"  >
 </header>
 <div id="tmp_content">
     <div ng-view></div>

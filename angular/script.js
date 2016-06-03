@@ -3,13 +3,13 @@ var app = angular.module("mainApp", ['ngRoute']);
 app.config(function ($routeProvider) {
     $routeProvider
         .when('/',{
-            templateUrl: 'index.html',
+            templateUrl: 'home.html',
             controller: 'mainController'
-        }
-        .when('/macarons'),{
-                templateUrl: 'our-macarons.html',
+        })
+        .when('/macarons',{
+                templateUrl: 'macarons.html',
                 controller: 'macaronController'
-        }
+        })
         .when('/gifts',{
                 templateUrl: 'gifts_parties.html',
                 controller: 'giftController'
@@ -28,8 +28,7 @@ app.config(function ($routeProvider) {
         })
         .otherwise({
                 redirectTo: '/'
-        })
-        );
+        });
 });
 app.controller('mainController',function () {
 
@@ -49,3 +48,4 @@ app.controller('cartController',function () {
 app.controller('signinController',function () {
 
 });
+
