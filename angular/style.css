@@ -8,6 +8,10 @@ body {
     max-width: 1002px;
     margin:auto;
 }
+a.n_link:active {
+    background-color: inherit;
+    color: #df5277;
+}
 .header-img {
     width: 100%;
 }
@@ -332,22 +336,33 @@ h3 {
 /*}  !*--------------END-CONTACT PAGE - MAIN CONTENT-----------------*!*/
 /*--------------------------FOOTER------------------------------*/
 footer {
+    height: 13vh;
     background-color: #df5277;
-    height: 80px;
-    font-family: Arial, Helvetica, sans-serif;
+    color: white;
     font-size: 12px;
-    color: #FFFFFF;
-    bottom: 0;
-    margin-top: 2%;
+    clear: both;
+}
+#footer{
+
+}
+ul{
+   list-style: none;
+}
+#inner_footer {
+    display: flex;
+    justify-content: space-around;
     padding: 1%;
 }
-footer ul {
-    list-style: none;
-    width: 100%;
-}
-.footer_info {
+#inner_footer li{
     display: inline-block;
 }
+.footer_img {
+    margin-left: 2em;
+}
+.footer_last_line {
+    text-align: center;
+}
+
 /*footer ul li {*/
     /*display: inline-block;*/
     /*margin: 1%;*/

@@ -28,7 +28,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="n_link" href="#welcome">WELCOME</a></li>
+                    <li><a class="n_link active" href="#welcome">WELCOME</a></li>
                     <li><a class="n_link" href="#macarons">OUR MACARONS</a></li>
                     <li><a class="n_link" href="#gifts">GIFTS & PARTIES</a></li>
                     <li><a class="n_link" href="#sign_in">SIGN IN</a></li>
@@ -42,13 +42,20 @@
     <div ng-view></div>
 </div>
 <footer class="col-xs-12">
-    <ul>
-        <li class="footer_info footer-mail"><img src="../assets/images/mail.png"> order@mboutique.com</li>
-        <li class="footer_info footer-phone"><img src="../assets/images/phone.png"> 949.800-3111</li>
-        <li class="footer_info footer-facebook">Follow us <img src="../assets/images/facebook.png"></li>
-        <li class="footer_info footer-twitter"><img src="../assets/images/twitter.png"></li>
-        <li class="footer-copyright">Copyright © 2014 MBoutique. All rights reserved.</li>
+    <ul id="footer">
+        <li>
+            <ul id="inner_footer">
+                <li><img src="../assets/images/mail.png"> order@mboutique.com</li>
+                <li><img src="../assets/images/phone.png" id="phone"> 949.800-3111</li>
+                <li> Follow us
+                    <img src="../assets/images/facebook.png" class="footer_img">
+                    <img src="../assets/images/twitter.png" class="footer_img">
+                </li>
+            </ul>
+        </li>
+        <li class="footer_last_line">Copyright &#169 2014 MBoutique. All rights reserved.</li>
     </ul>
+
 </footer>
 <!--End footer-->
 </body>
