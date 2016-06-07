@@ -342,9 +342,7 @@ footer {
     font-size: 12px;
     clear: both;
 }
-#footer{
 
-}
 ul{
    list-style: none;
 }
@@ -424,7 +422,14 @@ ul{
 /*FaceButt & Twitter*/
 /*++++++++++++++++++ MOBILE RESPONSIVE ++++++++++++++++++++++++*/
 /* Testing readability - layout of this section follows layout of html structure using indentation*/
-/*@media screen and (max-width: 375px) {*/
+@media screen and (max-width: 400px) {
+    #inner_footer, #inner_footer li {
+        padding: .5%;
+        display: block;
+        clear: both;
+    }
+
+}
     /*body {width: 98vw;}*/
     /*.body-wrapper {*/
         /*width: 98vw;*/
