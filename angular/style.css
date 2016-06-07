@@ -336,7 +336,7 @@ h3 {
 /*}  !*--------------END-CONTACT PAGE - MAIN CONTENT-----------------*!*/
 /*--------------------------FOOTER------------------------------*/
 footer {
-    height: 13vh;
+    height: 14vh;
     background-color: #df5277;
     color: white;
     font-size: 12px;
@@ -422,11 +422,22 @@ ul{
 /*FaceButt & Twitter*/
 /*++++++++++++++++++ MOBILE RESPONSIVE ++++++++++++++++++++++++*/
 /* Testing readability - layout of this section follows layout of html structure using indentation*/
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
+    footer {
+        padding: 0;
+        height: auto;
+        position: relative;
+        buttom: 0;
+    }
+    footer ul{
+        padding: 0;
+    }
     #inner_footer, #inner_footer li {
-        padding: .5%;
         display: block;
         clear: both;
+    }
+    #inner_footer li {
+        padding: 1.5% 0 0 4%;
     }
 
 }
