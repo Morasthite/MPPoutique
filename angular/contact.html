@@ -1,4 +1,4 @@
-<img class="header-img" src="{{banner}}">
+<div class="header-img" id="map"></div>
     <div class="contact-main-content" type = "text/ng-template">
         <div class="section-main-content-hours">
             <h1 class="section-title" id="biz-hours-para-title">Visit us!</h1>
@@ -21,20 +21,31 @@
             </p>
             <!--Testing using br and p elements instead of ul li-->
         </div>
-        <div class="form">
-            <form action="http://danielpaschal.com/learningfuze/reflect.php" method="post">
-                <h3 class="section-title contact-form-title">Contact Form</h3>
-                <input class="input-text para-style" type="text" name="name" placeholder="Name">
-                <input class="input-text para-style" type="email" name="email" placeholder="Email">
-                <input class="input-text para-style" type="text" name="phone" placeholder="Phone">
-                <input class="input-text para-style" type="text" name="subject" placeholder="Subject">
-                <textarea class="input-text para-style message-text-area" rows="4" cols="40" name="message"  placeholder="Message"></textarea>
-                <input class="submit-button" type="submit" value="SEND">
-            </form>
-        </div>
-        <div class="img-container">
-            <img title="contact-macarons-img" src="../assets/images/macarons-image.png">
-        </div>
+        <script>
+            function initMap() {
+                var mapDiv = document.getElementById('map');
+                var map = new google.maps.Map(mapDiv, {
+                    center: {lat: 44.540, lng: -78.546},
+                    zoom: 8
+                });
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq5JlU5HLLk6-lMPCuPezLWZfHNfnmxv4&callback=initMap"
+                async defer></script>
+        <!--<div class="form">-->
+            <!--<form action="http://danielpaschal.com/learningfuze/reflect.php" method="post">-->
+                <!--<h3 class="section-title contact-form-title">Contact Form</h3>-->
+                <!--<input class="input-text para-style" type="text" name="name" placeholder="Name">-->
+                <!--<input class="input-text para-style" type="email" name="email" placeholder="Email">-->
+                <!--<input class="input-text para-style" type="text" name="phone" placeholder="Phone">-->
+                <!--<input class="input-text para-style" type="text" name="subject" placeholder="Subject">-->
+                <!--<textarea class="input-text para-style message-text-area" rows="4" cols="40" name="message"  placeholder="Message"></textarea>-->
+                <!--<input class="submit-button" type="submit" value="SEND">-->
+            <!--</form>-->
+        <!--</div>-->
+        <!--<div class="img-container">-->
+            <!--<img title="contact-macarons-img" src="../assets/images/macarons-image.png">-->
+        <!--</div>-->
     </div>
     </div>
 

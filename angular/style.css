@@ -254,7 +254,7 @@ h3 {
     width: 50%;
 }
 #party-tower-para-title {
-    position: absolute;
+    /*position: absolute;*/
     left: 2.6em;
     top: 19em;
 }
@@ -281,16 +281,21 @@ h3 {
     position: relative;
     height:auto;
 }
-#biz-hours-para-title {
-    display: inline-block;
-    left: 2.6em;
-    top: 4em;
+#map {
+    width: 100%;
+    height: 40vh;
+    background-color: blue;
 }
-.para-business-hours {
-    position: absolute;
-    left: 3.6em;
-    top: 11em;
-}
+/*#biz-hours-para-title {*/
+    /*display: inline-block;*/
+    /*left: 2.6em;*/
+    /*top: 4em;*/
+/*}*/
+/*.para-business-hours {*/
+    /*position: absolute;*/
+    /*left: 3.6em;*/
+    /*top: 11em;*/
+/*}*/
 /*FORMS SECTION*/
 .form {
     width: 310px;
