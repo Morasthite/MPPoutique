@@ -46,45 +46,47 @@ app.controller('mainController',function ($scope) {
 });
 
 ///////////////////////////////////google map/////////////////////////
+var route = false;
 var userLocation = {
     lat : null,
     lng: null
 } ;
+var map_info={
+    user: null,
+    store: null,
+    map: null,
+    mapDiv: null
+}
+var map=null;
 function initMap() {
     getLocation();
-    console.log("user location1: ",userLocation);
     var mapDiv = document.getElementById('map');
+    map_info.mapDiv = mapDiv;
     var store=new google.maps.LatLng(33.532029,-117.702148);
-    var user = new google.maps.LatLng(userLocation.lat,userLocation.lng);
-    console.log("userLocation.lat: ", userLocation.lat, "userLocation.long: ", userLocation.lng);
-    console.log("store: ", store, "user", user);
+    map_info.store = store;
 
-    var trip = [store, user];
-    var map = new google.maps.Map(mapDiv, {
+
+    map = new google.maps.Map(mapDiv, {
         center: store,
-        zoom: 8,
+        zoom: 7,
          mapTypeId:google.maps.MapTypeId.ROADMAP
     });
+    map_info.map = map;
     var marker=new google.maps.Marker({
         position:map.center,
         animation:google.maps.Animation.BOUNCE
     });
     marker.setMap(map);
-    var usermarker=new google.maps.Marker({
-        position: user,
-    });
-    usermarker.setMap(map);
-    var infowindow = new google.maps.InfoWindow({
-        content:"You are here!"
-    });
-    infowindow.open(map,usermarker);
-    var flightPath=new google.maps.Polyline({
-        path:trip,
-        strokeColor:"#0000FF",
-        strokeOpacity:0.8,
-        strokeWeight:2
-    });
-    flightPath.setMap(map);
+
+    // var flightPath=new google.maps.Polyline({
+    //     path:trip,
+    //     strokeColor:"#0000FF",
+    //     strokeOpacity:0.8,
+    //     strokeWeight:2
+    // });
+    // flightPath.setMap(map);
+
+
 };
 function getLocation() {
     console.log("hello from inside getLocation()");
@@ -102,7 +104,36 @@ function showPosition(position) {
         lat: lat,
         lng: lon
     };
-    initMap();
-    //return userLocation;
-    console.log("user location: ",userLocation);
+    //initMap();
+    var user = new google.maps.LatLng(userLocation.lat, userLocation.lng);
+    map_info.user = user;
+    var trip = [map_info.store, map_info.user];
+
+    console.log("user location from inside show position: ", userLocation," map info: ",map_info);
+    var usermarker = new google.maps.Marker({
+        position: user,
+    });
+    usermarker.setMap(map_info.map);
+    var infowindow = new google.maps.InfoWindow({
+        content:"You are here!"
+    });
+    infowindow.open(map_info.map,usermarker);
+    var directionsService = new google.maps.DirectionsService();
+    var directionsDisplay = new google.maps.DirectionsRenderer;
+    directionsDisplay.setMap(map);
+    directionsService.route({
+        origin: map_info.user,
+        destination: map_info.store,
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC
+    }, function(response, status) {
+        if (status === google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+            directionsDisplay.setOptions( { suppressMarkers: true } );
+        } else {
+            window.alert('Directions request failed due to ' + status);
+        }
+    });
+
 };
+
