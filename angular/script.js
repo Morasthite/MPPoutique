@@ -78,15 +78,6 @@ function initMap() {
     });
     marker.setMap(map);
 
-    // var flightPath=new google.maps.Polyline({
-    //     path:trip,
-    //     strokeColor:"#0000FF",
-    //     strokeOpacity:0.8,
-    //     strokeWeight:2
-    // });
-    // flightPath.setMap(map);
-
-
 };
 function getLocation() {
     console.log("hello from inside getLocation()");

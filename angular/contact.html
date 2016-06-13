@@ -1,8 +1,8 @@
 <div class="header-img" id="map"></div>
-    <div class="contact-main-content" type = "text/ng-template">
-        <div class="section-main-content-hours">
+    <div class="contact-main-content row" type = "text/ng-template">
+        <div class="section-main-content-hours col-sm-4 col-xs-12">
             <h1 class="section-title" id="biz-hours-para-title">Visit us!</h1>
-            <p class="para-style para-business-hours">
+            <p class="para-style para-business-hours contact_divs">
                 Monday – Friday | 10am – 9pm<br>
                 Saturday | 10am – 8pm<br>
                 Sunday | 11am – 7pm<br>
@@ -23,20 +23,20 @@
                     async defer></script>
             <!--Testing using br and p elements instead of ul li-->
         </div>
-        <!--<div class="form">-->
-            <!--<form action="http://danielpaschal.com/learningfuze/reflect.php" method="post">-->
-                <!--<h3 class="section-title contact-form-title">Contact Form</h3>-->
-                <!--<input class="input-text para-style" type="text" name="name" placeholder="Name">-->
-                <!--<input class="input-text para-style" type="email" name="email" placeholder="Email">-->
-                <!--<input class="input-text para-style" type="text" name="phone" placeholder="Phone">-->
-                <!--<input class="input-text para-style" type="text" name="subject" placeholder="Subject">-->
-                <!--<textarea class="input-text para-style message-text-area" rows="4" cols="40" name="message"  placeholder="Message"></textarea>-->
-                <!--<input class="submit-button" type="submit" value="SEND">-->
-            <!--</form>-->
-        <!--</div>-->
-        <!--<div class="img-container">-->
-            <!--<img title="contact-macarons-img" src="../assets/images/macarons-image.png">-->
-        <!--</div>-->
+        <div class="form contact_divs col-sm-4 col-xs-12">
+            <form action="http://danielpaschal.com/learningfuze/reflect.php" method="post">
+                <h3 class="section-title contact-form-title">Contact Form</h3>
+                <input class="input-text para-style form-control" type="text" name="name" placeholder="Name">
+                <input class="input-text para-style form-control" type="email" name="email" placeholder="Email">
+                <input class="input-text para-style form-control" type="text" name="phone" placeholder="Phone">
+                <input class="input-text form-control" type="text" name="subject" placeholder="Subject">
+                <textarea class="input-text message-text-area form-control" rows="4" cols="40" name="message"  placeholder="Message"></textarea>
+                <input class="submit-button btn btn-default" type="submit" value="SEND">
+            </form>
+        </div>
+        <div class="img-container contact_divs col-sm-4 hidden-xs">
+            <img title="contact-macarons-img" src="../assets/images/macarons-image.png">
+        </div>
     </div>
     </div>
 
