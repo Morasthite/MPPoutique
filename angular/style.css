@@ -44,43 +44,7 @@ nav>li>a:focus, .nav>li>a:hover {
 h3 {
     padding: 3%;
 }
-/*.section-title {*/
-    /*!*left: 29%;*!*/
-    /*font-family: Arial, Helvetica, sans-serif;*/
-    /*font-size: 20px;*/
-    /*color: #6A6969;*/
-/*}!*Section titles styling*!*/
-/*#index-welcome-para-title {*/
-    /*top: -11em;*/
-/*}*/
-/*#index-we-love-para-title {*/
-    /*top: -9em;*/
-/*}*/
-/*#index-samples-title {*/
-    /*top: -7em;*/
-/*}  !*Section titles positioning*!*/
-/*.para-style {*/
-    /*font-family: Arial, Helvetica, sans-serif;*/
-    /*font-size: 14px;*/
-    /*color: #6a6969;*/
-/*} !*Section paragraphs styling*!*/
-/*.para-welcome,*/
-/*.para-we-love-macaron {*/
-    /*position: relative;*/
-    /*left: 29%;*/
-    /*width: 66.6%;*/
-/*} !*Section paragraphs position*!*/
-/*.para-welcome {*/
-    /*top: -14em;*/
-/*}*/
-/*.para-we-love-macaron {*/
-    /*top: -11em;*/
-/*} !*Section paragraphs positioning*!*/
-/*------------SAMPLES SECTION------------*/
-/*.wrapper {*/
-    /*position: relative;*/
-    /*top: -3em;*/
-/*}*/
+
 .day {
     width: 126px;
     height: 140px;
@@ -272,7 +236,7 @@ h3 {
 } /*------END-GIFTS & PARTIES PAGE - MAIN CONTENT-----------------*/
 /*------------------CONTACT PAGE - MAIN CONTENT-----------------*/
 .contact-main-content {
-    padding: 5% 1%;
+    padding: 5%;
     position: relative;
     /*height: 530px;*/
 }
@@ -281,74 +245,21 @@ h3 {
 }
 .input-text, .submit-button {
     margin: 2.5% 0;
+    background-color: #f5f5f5;
 }
-.para-style {
-    width: 70%;
+.input-text {
+    width: 90%;
 }
-/*!*BIZ HOURS SECTION*!*/
-/*.section-main-content-hours {*/
-    /*#border: 1px solid red;*/
-    /*position: relative;*/
-    /*height:auto;*/
-/*}*/
+
 #map {
     width: 100%;
     height: 70vh;
     background-color: #df5277;
 }
-/*img[src=""]{}*/
-/*#biz-hours-para-title {*/
-    /*display: inline-block;*/
-    /*left: 2.6em;*/
-    /*top: 4em;*/
-/*}*/
-/*.para-business-hours {*/
-    /*position: absolute;*/
-    /*left: 3.6em;*/
-    /*top: 11em;*/
-/*}*/
-/*FORMS SECTION*/
-/*.form {*/
-    /*width: 310px;*/
-    /*position: absolute;*/
-    /*right: 281px;*/
-    /*display: inline-block;*/
-/*}*/
-/*.contact-form-title {*/
-    /*top: 1.2em;*/
-    /*left: 0;*/
-    /*margin-bottom: 2em;*/
-/*}*/
-/*.input-text {*/
-    /*width: 310px;*/
-    /*height: 35px;*/
-    /*background-color: #f5f5f5;*/
-    /*margin: .5em auto;}*/
-/*.message-text-area {*/
-    /*height: 70px;*/
-/*}*/
-/*.submit-button {*/
-    /*width: 155px;*/
-    /*height: 35px;*/
-    /*background-color: #f5f5f5;*/
-    /*position: absolute;*/
-    /*right: 0px;*/
-    /*bottom: -3em;*/
-/*}*/
-/*!*IMAGE*!*/
-/*.img-container {*/
-    /*width: 280px;*/
-    /*height: 100%;*/
-    /*display:inline-block;*/
-    /*position: absolute;*/
-    /*bottom: 0;*/
-    /*right: 0;*/
-/*}*/
-/*img[title=contact-macarons-img] {*/
-    /*top: 53%;*/
-    /*left: 50%;*/
-    /*transform: translate(-50%, -50%);*/
-    /*position:absolute;*/
+.contact_img_container {
+    padding: 4% 0;
+}
+
 /*}  !*--------------END-CONTACT PAGE - MAIN CONTENT-----------------*!*/
 /*--------------------------FOOTER------------------------------*/
 footer {
@@ -438,6 +349,15 @@ ul{
 /*FaceButt & Twitter*/
 /*++++++++++++++++++ MOBILE RESPONSIVE ++++++++++++++++++++++++*/
 /* Testing readability - layout of this section follows layout of html structure using indentation*/
+@media screen and (max-width: 740px) {
+    .contact-main-content {
+        padding: 1%;
+        text-align: center;
+    }
+    form {
+        padding-left: 4%;
+    }
+}
 @media screen and (max-width: 500px) {
     footer {
         padding: 0;
