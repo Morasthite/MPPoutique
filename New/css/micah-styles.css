@@ -1,22 +1,39 @@
+/********************************   CART - page 1 - w/login   ***************************************/
 #sign-in, #sign-up, #guest-checkout, #cart {
-    border: 1px solid red;
+    #border: 1px solid red;
     height: 10vh;
-    padding-top: 10%;
+    #padding-top: 10%;
 }
-#sign-in button, #sign-up button, #guest-checkout button {
-    width: 80%;
+#sign-in button, #sign-up button, #guest-checkout button,
+#proceed-to-checkout button{
+    width: 100%;
     height: 5vh;
+    display: block;
+    margin: 15% auto;
+}
+#proceed-to-checkout {
+    bottom: 1vh;
+}
+#proceed-to-checkout button {
+    margin-left: 25%;
 }
 .cart {
     min-height: 80vh;
     position: relative;
 }
+#cart-table {
+    margin-bottom: 10vh;
+}
 .row {
-    border: 1px solid green;
+    #border: 1px solid green;
     height: auto;
     position: relative;
+    background: url("../images/cart-background.png");
+    background-size: cover;
 }
 #cart-table {
     position: relative;
     top: 5vh;
+    box-shadow:   5px 5px 5px 3px darkgray;
 }
+/********************************   END CART - page 1 - w/login   ***************************************/

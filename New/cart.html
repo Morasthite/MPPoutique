@@ -13,27 +13,28 @@
 </head>
 <body>
     <div class="container-fluid" id="cart-page">
-        <div class="row col-lg-offset-1 col-lg-10  col-sm-offset-1 col-sm-10  col-xs-offset-1 col-xs-10">
-            <div class="user-login col-lg-offset-2 col-lg-2  col-sm-offset-2 col-sm-2  col-xs-offset-1 col-xs-10" id="sign-in">
+        <div class="row col-lg-offset-1 col-lg-10  col-sm-offset-1 col-sm-10  col-xs-12">
+            <div class="user-login col-lg-offset-2 col-lg-2  col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="sign-in">
                 <!-- Raised button with ripple -->
                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
                     Log In
                 </button>
-            </div>
-            <div class="col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-10  col-xs-offset-1 col-xs-10" id="sign-up">
+            </div><!-- Log In Button-->
+            <div class="col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="sign-up">
                 <!-- Raised button with ripple -->
                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
                     Sign Up!
                 </button>
-            </div>
-            <div class="col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-10  col-xs-offset-1 col-xs-10" id="guest-checkout">
+            </div><!--Sign Up! Button-->
+            <div class="col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="guest-checkout">
                 <!-- Raised button with ripple -->
                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
                     Checkout As Guest
                 </button>
-            </div>
-            <div class="cart col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10" id="cart">
-                <table class="col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" id="cart-table">
+            </div><!-- Checkout As Guest Button-->
+            <!--------------- CART TABLE ------------>
+            <div class="cart col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="cart">
+                <table class="table-striped col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" id="cart-table">
                     <thead>
                     <tr>
                         <th class="mdl-data-table__cell--non-numeric">Flavor</th>
@@ -73,8 +74,15 @@
                         <td class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell--non-numeric">Total</td>
                         <td>$2324555.35</td>
                     </tr>
+
                     </tbody>
-                </table>
+                </table> <!-- Cart Table-->
+                <div class="col-lg-offset-7 col-lg-3 col-lg-offset-right-2 col-sm-offset-10 col-sm-2  col-xs-offset-1 col-xs-10" id="proceed-to-checkout">
+                    <!-- Raised button with ripple -->
+                    <button class="mdl-button mdl-js-button mdl-button--raised disabled">
+                        Proceed To Checkout
+                    </button>
+                </div><!-- Checkout Button-->
             </div><!-- cart-->
         </div><!-- row-->
     </div><!-- container -->
