@@ -26,9 +26,9 @@ app.config(function($routeProvider) {
                 templateUrl: 'sign_in.html',
                 controller: 'signinController'
             })
-            // .otherwise({
-            //     redirectTo: '/'
-            // });
+            .otherwise({
+                redirectTo: '/'
+            });
     });
 app.controller('mainController',function ($scope) {
     $scope.banner = "../assets/images/welcome-image.png";

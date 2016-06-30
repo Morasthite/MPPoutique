@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+ <html ng-app="mainApp" ng-controller="mainController">
+<head >
+<title>MPoutique</title>
+    <!--meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+    <!-- Roboto  Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="{{style}}" rel="stylesheet" type="text/css">
+</head>
+<body >
+<!--nav bar-->
+<nav class="navbar navbar-default" id="nav">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img src="../__DELETE/Old/assets/images/logo.png"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar" ng-init="menuIndice = 1">
+            <ul class="nav navbar-nav navbar-right" active-link>
+                <li ng-class="menuIndice == 1 ? 'active':''"><a href="#welcome" ng-click="menuIndice = 1" class="n-link">WELCOME</a></li>
+                <li ng-class="menuIndice == 2 ? 'active':''"><a href="#macarons" ng-click="menuIndice = 2" class="n-link">OUR MACARONS</a></li>
+                <li ng-class="menuIndice == 3 ? 'active':''"><a href="#gifts" ng-click="menuIndice = 3" class="n-link">GIFTS &amp; PARTIES</a></li>
+                <li ng-class="menuIndice == 4 ? 'active':''"><a href="#contact" ng-click="menuIndice = 4" class="n-link">CONTACT</a></li>
+                <li ng-class="menuIndice == 5 ? 'active':''"><a class="n_link mdl-badge mdl-badge--overlap nav-badge" ng-click="menuIndice = 5" data-badge=" " href="#cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--main content-->
+<div id="main_content">
+    <div id="banner" class="">
+           <img class="header-img col-xs-12" src="{{banner}}">
+    </div>
+    <div id="tmp_content">
+        <div ng-view></div>
+    </div>
+</div><!--end of container-->
+<!--footer-->
+<footer class = "col-sm-12 col-xs-12">
+    <div class="col-sm-4 col-xs-12">
+        <ul>
+            <li><i class="fa fa-phone" aria-hidden="true"></i></li>
+            <li><i class="fa fa-envelope" aria-hidden="true"></i></li>
+            <li><i class="fa fa-map" aria-hidden="true"></i></li>
+        </ul>
+    </div>
+    <div class="col-sm-4 col-xs-12" id="right">
+        <p class="copyright">Copyright &copy; 2015 MBoutique. All rights reserved</p>
+    </div>
+    <div class="col-sm-4 col-xs-12">
+        <ul>
+            <li><i class="fa fa-facebook" aria-hidden="true"></i></li>
+            <li><i class="fa fa-instagram" aria-hidden="true"></i></li>
+            <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
+            <li><i class="fa fa-pinterest" aria-hidden="true"></i></li>
+            <li><i class="fa fa-google" aria-hidden="true"></i></li>
+        </ul>
+    </div>
+</footer>
+
+<!--script files-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- Angular -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<!-- Angular Routing -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+<!-- Google Maps -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnKuuYMhqpQ5xxbiRhj4YXOzti691JSt4&"></script>
+<!--route-->
+<script src="js/routing/route.js"></script>
+<!--controllers-->
+<script src="js/controllers/cartController.js"></script>
+<script src="js/controllers/contactController.js"></script>
+<script src="js/controllers/giftController.js"></script>
+<script src="js/controllers/macaronController.js"></script>
+<script src="js/controllers/mainController.js"></script>
+<script src="js/controllers/welcomeController.js"></script>
+<!--directives-->
+<!--<script src="js/directives/activeLink.js"></script>-->
+</body>
+</html>
