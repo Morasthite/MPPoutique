@@ -51,7 +51,7 @@
                                             <input type="password" placeholder="Enter Password Here.." class="form-control">
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-lg btn-info">Submit</button>
+                                    <button id="login-form-submit-btn" type="button" class="btn btn-lg btn-info">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -115,7 +115,7 @@
                                         <label>Email Address</label>
                                         <input type="text" placeholder="Enter Email Address Here.." class="form-control">
                                     </div>
-                                    <button type="button" class="btn btn-lg btn-info">Submit</button>
+                                    <button id="signup-form-submit-btn" type="button" class="btn btn-lg btn-info">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -175,13 +175,36 @@
                                         <label>Email Address</label>
                                         <input type="text" placeholder="Enter Email Address Here.." class="form-control">
                                     </div>
-                                    <button type="button" class="btn btn-lg btn-info">Submit</button>
+                                    <button id="guest-checkout-form-submit-btn" type="button" class="btn btn-lg btn-info">Submit</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div><!-- Guest Checkout form-->
+            <div class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="shipto-form">
+                <div class="container shipto-form">
+                    <h4 class="well">Shipping Info: </h4>
+                    <div class="col-lg-12 well">
+                        <div class="row">
+                            <form>
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-6 form-group">
+                                            <label>Ship To</label>
+                                            <p class="form-control">Micah Pham</p>
+                                        </div>
+                                        <div class="col-sm-6 form-group">
+                                            <label>Address</label>
+                                            <p class="form-control">12345 Parksingide Road, City, State, Zipcode</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Sign Up form -->
             <!--------------- CART TABLE ------------>
             <div class="cart col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="cart">
                 <table class="table-striped col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" id="cart-table">

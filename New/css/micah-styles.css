@@ -66,6 +66,11 @@
     z-index: 2;
     display: block;
 }
+.expand-shipto-form {
+    height: 20vh;
+    z-index: 2;
+    display: block;
+}
 .login-forms .container {
     background-color: whitesmoke;
 }
@@ -74,9 +79,10 @@
 .guest-checkout-form {
     position: relative;
     top: 4%;
-    box-shadow:   5px 5px 5px 3px darkgray;
+    box-shadow: 5px 5px 5px 3px darkgray;
 }
  form div {
      background-color: white;
  }
 /********************************   END CART - page 2 - w/login forms   ***************************************/
+/**shipto form positioning to be done**/

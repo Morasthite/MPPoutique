@@ -14,4 +14,13 @@ $(document).ready (function() {
     $("#guest-checkout-btn").click(function () {
         $("#guestcheckout-form").toggleClass('expand-form-guest-checkout');
     });
+    $("#signup-form-submit-btn").click(function (){
+        $("#shipto-form").toggleClass('expand-shipto-form');
+    });
+    $("#guest-checkout-form-submit-btn").click(function (){
+        $("#shipto-form").toggleClass('expand-shipto-form');
+    });
+    $("#login-form-submit-btn").click(function (){
+        $("#shipto-form").toggleClass('expand-shipto-form');
+    });
 });//doc ready
