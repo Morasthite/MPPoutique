@@ -1,3 +1,5 @@
-/**
- * Created by morvarid on 6/30/2016.
- */
+app.factory("cart",function () {
+    return {
+        total: 0
+    }
+});

@@ -4,7 +4,8 @@ app.config (["$routeProvider", function($routeProvider) {
     $routeProvider
         .when('/',{
             templateUrl: 'welcome.html',
-            controller: 'welcomeController as wc'
+            controller: 'welcomeController',
+            controllerAs:"wc"
         })
         .when('/macarons',{
             templateUrl: 'our-macarons.html',
@@ -13,15 +14,18 @@ app.config (["$routeProvider", function($routeProvider) {
         })
         .when('/gifts',{
             templateUrl: 'gifts_parties.html',
-            controller: 'giftController as gc'
+            controller: 'giftController',
+            controllerAs:"gc"
         })
         .when('/contact',{
             templateUrl: 'contact.html',
-            controller: 'contactController as coc'
+            controller: 'contactController',
+            controllerAs:"contactC"
         })
         .when('/cart',{
             templateUrl: 'cart.html',
-            controller: 'cartController as cac'
+            controller: 'cartController as cac',
+            controllerAs:"cartC"
         })
         .otherwise({
             redirectTo: '/'
