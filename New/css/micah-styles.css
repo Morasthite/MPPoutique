@@ -1,15 +1,21 @@
 /********************************   CART - page 1 - w/login   ***************************************/
-#sign-in, #sign-up, #guest-checkout, #cart {
-    #border: 1px solid red;
+#sign-in,
+#sign-up,
+#guest-checkout,
+#cart {
     height: 10vh;
-    #padding-top: 10%;
 }
-#sign-in button, #sign-up button, #guest-checkout button,
+#log-in-btn button,
+#sign-up-btn button,
+#guest-checkout-btn button,
 #proceed-to-checkout button{
     width: 100%;
     height: 5vh;
     display: block;
-    margin: 15% auto;
+}
+.user-login{
+    top:   5vh;
+    margin-bottom: 5vh;
 }
 #proceed-to-checkout {
     bottom: 1vh;
@@ -43,18 +49,22 @@
     transition-property: height;
     transition-duration: 2s;
     z-index: -2;
+    display: none;
 }
 .expand-form-signup {
     height: 80vh;
     z-index: 2;
+    display: block;
 }
 .expand-form-login {
     height: 40vh;
     z-index: 2;
+    display: block;
 }
 .expand-form-guest-checkout {
     height: 80vh;
     z-index: 2;
+    display: block;
 }
 .login-forms .container {
     background-color: whitesmoke;
