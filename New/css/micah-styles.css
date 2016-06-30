@@ -23,23 +23,20 @@
 }
 #cart-table {
     margin-bottom: 10vh;
+    position: relative;
+    top: 5vh;
+    box-shadow:   5px 5px 5px 3px darkgray;
 }
-.row {
-    #border: 1px solid green;
+.cart-row {
     height: auto;
     position: relative;
     background: url("../images/cart-background.png");
     background-size: cover;
 }
-#cart-table {
-    position: relative;
-    top: 5vh;
-    box-shadow:   5px 5px 5px 3px darkgray;
-}
 /********************************   END CART - page 1 - w/login   ***************************************/
 
 /********************************   CART - page 2 - w/login forms   ***************************************/
-.login-forms {#border: 1px solid red;
+.login-forms {
     height: 0;
     -webkit-transition-property: width, height; /* Safari */
     -webkit-transition-duration: 2s; /* Safari */
@@ -50,114 +47,26 @@
 .expand-form-signup {
     height: 80vh;
     z-index: 2;
-    #background-color: #2aabd2;
 }
 .expand-form-login {
     height: 40vh;
     z-index: 2;
-    #background-color: #2aabd2;
 }
 .expand-form-guest-checkout {
     height: 80vh;
     z-index: 2;
-    #background-color: #2aabd2;
 }
 .login-forms .container {
     background-color: whitesmoke;
 }
-.login-form, .signup-form, .guest-checkout-form {
+.login-form,
+.signup-form,
+.guest-checkout-form {
     position: relative;
-    top: 4%;;
+    top: 4%;
+    box-shadow:   5px 5px 5px 3px darkgray;
 }
-
  form div {
      background-color: white;
  }
-
-    /** FORM STYLING **/
-
-        /*#@import "font-awesome.min.css";*/
-        /*#@import "font-awesome-ie7.min.css";*/
-        /* Space out content a bit */
-        /*body {*/
-            /*padding-top: 20px;*/
-            /*padding-bottom: 20px;*/
-        /*}*/
-
-        /* Everything but the jumbotron gets side spacing for mobile first views */
-        /*.header,*/
-        /*.marketing,*/
-        /*.footer {*/
-            /*padding-right: 15px;*/
-            /*padding-left: 15px;*/
-        /*!*}*!*/
-        /*form div {*/
-            /*background-color: whitesmoke;*/
-        /*}*/
-        /* Custom page header */
-        /*.header {*/
-            /*border-bottom: 1px solid #e5e5e5;*/
-        /*}*/
-        /*!* Make the masthead heading the same height as the navigation *!*/
-        /*.header h3 {*/
-            /*padding-bottom: 19px;*/
-            /*margin-top: 0;*/
-            /*margin-bottom: 0;*/
-            /*line-height: 40px;*/
-        /*}*/
-
-        /*!* Custom page footer *!*/
-        /*.footer {*/
-            /*padding-top: 19px;*/
-            /*color: #777;*/
-            /*border-top: 1px solid #e5e5e5;*/
-        /*}*/
-
-        /*!* Customize container *!*/
-        /*@media (min-width: 768px) {*/
-            /*.container {*/
-                /*max-width: 730px;*/
-            /*}*/
-        /*}*/
-        /*.container-narrow > hr {*/
-            /*margin: 30px 0;*/
-        /*}*/
-
-        /*!* Main marketing message and sign up button *!*/
-        /*.jumbotron {*/
-            /*text-align: center;*/
-            /*border-bottom: 1px solid #e5e5e5;*/
-        /*}*/
-        /*.jumbotron .btn {*/
-            /*padding: 14px 24px;*/
-            /*font-size: 21px;*/
-        /*}*/
-
-        /*!* Supporting marketing content *!*/
-        /*.marketing {*/
-            /*margin: 40px 0;*/
-        /*}*/
-        /*.marketing p + h4 {*/
-            /*margin-top: 28px;*/
-        /*}*/
-
-        /*!* Responsive: Portrait tablets and up *!*/
-        /*@media screen and (min-width: 768px) {*/
-            /*!* Remove the padding we set earlier *!*/
-            /*.header,*/
-            /*.marketing,*/
-            /*.footer {*/
-                /*padding-right: 0;*/
-                /*padding-left: 0;*/
-            /*}*/
-            /*!* Space out the masthead *!*/
-            /*.header {*/
-                /*margin-bottom: 30px;*/
-            /*}*/
-            /*!* Remove the bottom border on the jumbotron for visual effect *!*/
-            /*.jumbotron {*/
-                /*border-bottom: 0;*/
-            /*}*/
-        /*}*/
-
 /********************************   END CART - page 2 - w/login forms   ***************************************/
