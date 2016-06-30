@@ -37,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #banner img {
     padding-bottom: 5%;
-    height: 40vh;
+    height: 50vh;
 }
 
 /*////////////////////////////index main content/////////////////*/
@@ -85,9 +85,11 @@ ul li {
     text-align: center;
 }
 .mac {
+    border-radius: 10px;
     display: inline-block;
     padding: 1%;
     border: 1px solid gray;
+    margin-bottom: 4%;
 }
 .mac_img {
     padding: 0 2% 5% 2%;
@@ -100,7 +102,7 @@ ul li {
     }
 }
 /*/////////////////media query for mobile////////////*/
-@media screen and (max-height: 600px){
+@media screen and (max-width: 640px){
     .mdl-badge.mdl-badge--overlap:after {
         top:0px;
         right: 10%;
@@ -111,6 +113,6 @@ footer {
  }
 /*macaron page*/
     #macaron_shop {
-        padding: 1%;
+        padding: 4%;
     }
 }

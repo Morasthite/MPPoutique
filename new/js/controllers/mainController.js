@@ -1,8 +1,9 @@
-app.controller('mainController',["$log","$scope",function ($log,$scope) {
+app.controller('mainController',["$log","$scope","config",function ($log,$scope, config) {
     var self = this;
-    $log.log("main controller");
-    $scope.banner = "assets/images/welcome-image.png";
-    $log.log("banner: ",$scope.banner);
+    self.config = config;
+    self.menuIndice = 1;
+    self.banner = "assets/images/welcome-image.png";
+
 // holiday style
     var d = new Date();
     var month = d.getMonth()+1;

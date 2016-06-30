@@ -1,4 +1,4 @@
-app.controller('welcomeController',["$scope",function ($scope) {
-    $scope.banner = "assets/images/welcome-image.png";
-    console.log("welcome controller: ", $scope.banner);
+app.controller('welcomeController',["$scope","config",function ($scope,config) {
+    config.banner = "assets/images/welcome-image.png";
+    config.menuIndice = 1;
 }]);

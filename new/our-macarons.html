@@ -12,11 +12,11 @@
     <div id="macaron_shop">
 
 
-        <div id="" class="mac col-sm-offset-1 col-sm-2 col-xs-12">
-            <img class="mac_img col-xs-12 " src="assets/images/almond.png" >
+        <div ng-repeat="macaroon in mc.macaron_array" id="macaroon.name" class="mac col-sm-offset-1 col-md-2 col-sm-3 col-xs-12">
+            <img class="mac_img col-xs-12 " ng-src="{{macaroon.source}}" >
             <div>
-                <p class="mac_name">almond</p>
-                <p class="mac_description">hi</p>
+                <p class="mac_name">{{macaroon.name+" Macaron"}}</p>
+                <p class="mac_description">{{macaroon.description}}</p>
                 <h6>ADD to cart</h6>
                 <p>
                     <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
@@ -24,68 +24,6 @@
                     </button>
                     <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
                          <i class="fa fa-minus" aria-hidden="true"></i>
-                    </button>
-                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
-                        <span>{{0}}</span>
-                    </button>
-                </p>
-            </div>
-        </div>
-
-
-
-        <div id="" class="mac col-sm-offset-1 col-sm-2 col-xs-12">
-            <img class="mac_img col-xs-12 " src="assets/images/almond.png" >
-            <div>
-                <p class="mac_name">almond</p>
-                <p class="mac_description">hi</p>
-                <h6>ADD to cart</h6>
-                <p>
-                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
-                        <i class="fa fa-plus" aria-hidden="true"></i>
-                    </button>
-                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
-                        <i class="fa fa-minus" aria-hidden="true"></i>
-                    </button>
-                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
-                        <span>{{0}}</span>
-                    </button>
-                </p>
-            </div>
-        </div>
-
-        <div id="" class="mac col-sm-offset-1 col-sm-2 col-xs-12">
-            <img class="mac_img col-xs-12 " src="assets/images/almond.png" >
-            <div>
-                <p class="mac_name">almond</p>
-                <p class="mac_description">hi</p>
-                <h6>ADD to cart</h6>
-                <p>
-                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
-                        <i class="fa fa-plus" aria-hidden="true"></i>
-                    </button>
-                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
-                        <i class="fa fa-minus" aria-hidden="true"></i>
-                    </button>
-                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
-                        <span>{{0}}</span>
-                    </button>
-                </p>
-            </div>
-        </div>
-
-        <div id="" class="mac col-sm-offset-1 col-sm-2 col-xs-12">
-            <img class="mac_img col-xs-12 " src="assets/images/almond.png" >
-            <div>
-                <p class="mac_name">almond</p>
-                <p class="mac_description">hi</p>
-                <h6>ADD to cart</h6>
-                <p>
-                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
-                        <i class="fa fa-plus" aria-hidden="true"></i>
-                    </button>
-                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
-                        <i class="fa fa-minus" aria-hidden="true"></i>
                     </button>
                     <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
                         <span>{{0}}</span>

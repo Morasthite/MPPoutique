@@ -8,7 +8,8 @@ app.config (["$routeProvider", function($routeProvider) {
         })
         .when('/macarons',{
             templateUrl: 'our-macarons.html',
-            controller: 'macaronController as mc'
+            controller: 'macaronController',
+            controllerAs:"mc"
         })
         .when('/gifts',{
             templateUrl: 'gifts_parties.html',

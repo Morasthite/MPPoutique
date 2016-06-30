@@ -1,4 +1,4 @@
-app.controller('giftController',["$scope",function ($scope) {
-    $scope.banner = "assets/images/logo.png";
-    console.log("gift controller: ",$scope.banner);
+app.controller('giftController',["$scope","config",function ($scope,config) {
+    config.banner = "assets/images/gifts-parties-image.png";
+    config.menuIndice = 3;
 }]);
