@@ -2,55 +2,17 @@ app.controller('macaronController', ["$scope", "$timeout", "config","cart", func
     var self = this;
     config.banner = "assets/images/our-macarons-image.png";
     config.menuIndice = 2;
-    this.macaron_array = [
-        {
-            name: "chocolate",
-            description: "chocolate, macaron and ...",
-            source: "assets/images/almond.png"
-        },
-        {
-            name: "chocolate",
-            description: "chocolate, macaron and ...",
-            source: "assets/images/almond.png"
-        },
-        {
-            name: "chocolate",
-            description: "chocolate, macaron and ...",
-            source: "assets/images/almond.png"
-        },
-        {
-            name: "chocolate",
-            description: "chocolate, macaron and ...",
-            source: "assets/images/almond.png"
-        },
-        {
-            name: "chocolate",
-            description: "chocolate, macaron and ...",
-            source: "assets/images/almond.png"
-        },
-        {
-            name: "chocolate",
-            description: "chocolate, macaron and ...",
-            source: "assets/images/almond.png"
-        },
-        {
-            name: "chocolate",
-            description: "chocolate, macaron and ...",
-            source: "assets/images/almond.png"
-        },
-        {
-            name: "chocolate",
-            description: "chocolate, macaron and ...",
-            source: "assets/images/almond.png"
-        }
-    ];
-    
-    this.add = function (obj) {
+    //TODO:
+    // api call to get inventory
+    self.cart = cart;
+    this.add = function (macaroon) {
+        macaroon.ordered++;
         cart.total = cart.total+1;
-    }
-    this.minus = function (obj) {
-        if (cart.total != 0) {
+    };
+    this.minus = function (macaron) {
+        if (macaron.ordered != 0) {
             cart.total = cart.total-1;
+            macaron.ordered = macaron.ordered-1;
         }
-    }
+    };
 }]);

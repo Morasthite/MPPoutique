@@ -2,7 +2,7 @@ app.controller('mainController',["$log","$scope","config","cart",function ($log,
     var self = this;
     // banner
     self.config = config;
-    self.banner = "assets/images/welcome-image.png";
+    // self.banner = "assets/images/welcome-image.png";
     // nav active class
     self.menuIndice = 1;
 
