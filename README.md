@@ -15,7 +15,7 @@ I will change who you are, macarons.  You will not be static and boring when I a
 
 I bid you farewell, macarons.
 
-_________________________________________________________________
+--------------------------------------------------------------
 
 ### FEATURES:
 - A full function ecommerce website selling macarons, includes full database for customer data and orders  management
@@ -25,7 +25,7 @@ _________________________________________________________________
 - Management page for business owner has access to sales totals for the day/week/month
 - Management page for business owner has access to current orders in the queue
 
-______________________________________
+------------------------------------------------------------
 
 ### TECH STUFF:
 - HTML5, CSS3,  Bootstrap
@@ -33,7 +33,9 @@ ______________________________________
 - PHP, phpMailer, MySQL
 - JavaScript/jQuery  AJAX
 - Google Map API
-___________________________________________________
+
+---------------------------------------------------
+
 ### Future improvements:
 > - Facebook & Google OAUTH2 technology for seamless customer login
 
