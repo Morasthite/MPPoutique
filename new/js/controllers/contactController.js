@@ -1,4 +1,4 @@
-app.controller('contactController',["$scope",function ($scope) {
-    $scope.banner = "assets/images/contact-image.png";
-    console.log("contact controller: ",$scope.banner);
+app.controller('contactController',["$scope","config",function ($scope,config) {
+    config.banner = "assets/images/contact-image.png";
+    config.menuIndice = 4;
 }]);

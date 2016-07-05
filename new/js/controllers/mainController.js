@@ -1,8 +1,13 @@
-app.controller('mainController',["$log","$scope",function ($log,$scope) {
+app.controller('mainController',["$log","$scope","config","cart",function ($log,$scope, config,cart) {
     var self = this;
-    $log.log("main controller");
-    $scope.banner = "assets/images/welcome-image.png";
-    $log.log("banner: ",$scope.banner);
+    // banner
+    self.config = config;
+    // self.banner = "assets/images/welcome-image.png";
+    // nav active class
+    self.menuIndice = 1;
+
+    // cart service
+    self.cart = cart;
 // holiday style
     var d = new Date();
     var month = d.getMonth()+1;
@@ -24,8 +29,4 @@ app.controller('mainController',["$log","$scope",function ($log,$scope) {
             $log.log("style: ",$scope.style);
         }
     }
-    $scope.isActive = function (viewLocation) {
-        var active = (viewLocation === $location.url());
-        return active;
-    };
 }]);
