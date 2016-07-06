@@ -1,4 +1,4 @@
-/********************************   CART - page 1 - w/login   ***************************************/
+/********************   CART - page 1 - w/login   **********************/
 #sign-in,
 #sign-up,
 #guest-checkout,
@@ -32,6 +32,7 @@
     position: relative;
     top: 5vh;
     box-shadow:   5px 5px 5px 3px darkgray;
+    #margin-top: 15vh;
 }
 .cart-row {
     height: auto;
@@ -39,46 +40,18 @@
     background: url("../images/cart-background.png");
     background-size: cover;
 }
-/********************************   END CART - page 1 - w/login   ***************************************/
+/************   END CART - page 1 - w/login   ********************/
 
-/********************************   CART - page 2 - w/login forms   ***************************************/
-.login-forms {
-    height: 0;
-    -webkit-transition-property: width, height; /* Safari */
-    -webkit-transition-duration: 2s; /* Safari */
-    transition-property: height;
-    transition-duration: 2s;
-    z-index: -2;
-    display: none;
-}
-.expand-form-signup {
-    height: 80vh;
-    z-index: 2;
-    display: block;
-}
-.expand-form-login {
-    height: 40vh;
-    z-index: 2;
-    display: block;
-}
-.expand-form-guest-checkout {
-    height: 80vh;
-    z-index: 2;
-    display: block;
-}
-.expand-shipto-form {
-    height: 20vh;
-    z-index: 2;
-    display: block;
-}
+
 .login-forms .container {
     background-color: whitesmoke;
 }
-.login-form,
-.signup-form,
-.guest-checkout-form {
+.login-form .well,
+.signup-form .well,
+.guest-checkout-form .well {
+    margin-top: 5vh;
     position: relative;
-    top: 4%;
+    #top: 4%;
     box-shadow: 5px 5px 5px 3px darkgray;
 }
  form div {
