@@ -21,7 +21,7 @@ app.factory("cart",function () {
             ordered : 0
         },
         {
-            name: "coconut",
+            name: "Coconut",
             description: "coconut, macaron and ...",
             source: "assets/images/coconut.png",
             ordered : 0
