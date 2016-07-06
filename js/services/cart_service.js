@@ -1,3 +1,7 @@
+/** Cart service is shared by all controllers.  It receives inventory from database and sends to macaronController for display.
+ * It gets updated by macaronController when customer adds/minus items to cart.  Same with giftController
+ * It also passes cart content to the checkout page @cart.hmtl**/
+
 app.factory("cart",function () {
     return {
         total: 0,

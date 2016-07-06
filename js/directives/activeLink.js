@@ -20,6 +20,7 @@
 //         }
 //     }
 // }]);
+/** NOT USED - **/
 app.directive('activeLink',[ function () {
     return {
         restrict: 'A',

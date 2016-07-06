@@ -12,22 +12,22 @@
     <div id="macaron_shop">
 
 
-        <div ng-repeat="macaroon in mc.cart.macaron_array" ng-id="macaroon.name" class="mac col-sm-offset-1 col-md-2 col-sm-3 col-xs-12">
-            <img class="mac_img col-xs-12 " ng-src="{{macaroon.source}}" >
+        <div ng-repeat="macaron in mc.cart.macaron_array" ng-id="macaron.name" class="mac col-sm-offset-1 col-md-2 col-sm-3 col-xs-12">
+            <img class="mac_img col-xs-12 " ng-src="{{macaron.source}}" >
             <div>
-                <p class="mac_name">{{macaroon.name+" Macaron"}}</p>
-                <p class="mac_description">{{macaroon.description}}</p>
-                <p class="mac_price">{{"price: "+macaroon.price+" $ "}}</p>
+                <p class="mac_name">{{macaron.name}}</p>
+                <p class="mac_description">{{macaron.description}}</p>
+                <p class="mac_price">{{"price: $ "+macaron.price}}</p>
                 <h6>ADD to cart</h6>
                 <p>
-                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" ng-class="macaroon.name" ng-click="mc.add(macaroon)">
-                        <i class="fa fa-plus" aria-hidden="true" ng-class="macaroon.name"></i>
+                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" ng-class="macaron.name" ng-click="mc.add(macaron)">
+                        <i class="fa fa-plus" aria-hidden="true" ng-class="macaron.name"></i>
                     </button>
-                    <button ng-class="macaroon.name" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" ng-click="mc.minus(macaroon)">
-                         <i class="fa fa-minus" aria-hidden="true" ng-class="macaroon.name"></i>
+                    <button ng-class="macaron.name" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" ng-click="mc.minus(macaron)">
+                         <i class="fa fa-minus" aria-hidden="true" ng-class="macaron.name"></i>
                     </button>
                     <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
-                        <span>{{macaroon.ordered}}</span>
+                        <span>{{macaron.ordered}}</span>
                     </button>
                 </p>
             </div>

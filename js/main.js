@@ -1,6 +1,4 @@
-/**
- * Created by Qzxtzrtz on 6/29/2016.
- */
+/** */
 
 //-------Click handlers for the login in buttons, onclick, animate and show the login forms ------//
 $(document).ready (function() {
