@@ -48,11 +48,11 @@ if(!empty($_POST)){
 //            echo "It looks like you've already purchased from us before, please log in using the login button";
 //        }
 //    }
-//    else {
+//    else {}
         $query = "INSERT INTO `customer`(`username`, `password`, `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email`) VALUES ($email,$password,$first_name,$last_name,$street_address,$city,$state,$zip,$company,$attn,$phone_number,$email)";
-        mysqli_query($conn,$query);
-        if(mysqli_affected_rows($conn) > 0){
-            echo"Guest User created in database";
-        }
-//    }//end of else
+    if (mysqli_query($conn, $query)) {
+        $last_id = mysqli_insert_id($conn);
+        //echo "<br> last id: ".$last_id;
+        $_SESSION["id"] = $last_id;
+    }////end of if
 } //end of if(!empty($_POST))
