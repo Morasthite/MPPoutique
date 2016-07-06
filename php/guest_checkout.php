@@ -11,24 +11,24 @@ $_POST['state'] = "CA";
 $_POST['zip'] = "92647";
 $_POST['company'] = "LFZ";
 $_POST['attn'] = "Dan";
-$_POST['phone_number'] = "123-445-3345";
+$_POST['phone_number'] = "1234453345";
 $_POST['email'] = "micah@lfz.com";
 
 // if form is filled, set variables, check if email exists as username in db, if not, create a new customer in database with INSERT
 
 if(!empty($_POST)){
 
-    $first_name = $_POST['first_name'];
-    $last_name  = $_POST['last_name'];
-    $password  = $_POST['password'] ;
-    $street_address  = $_POST['street_address'];
-    $city = $_POST['city'];
-    $state  = $_POST['state'];
-    $zip  = $_POST['zip'];
-    $company  = $_POST['company'];
-    $attn  = $_POST['attn'];
-    $phone_number  = $_POST['phone_number'];
-    $email = $_POST['email'];
+    $first_name = "'".$_POST['first_name']."'";
+    $last_name  = "'".$_POST['last_name']."'";
+    $password  = "'".$_POST['password']."'" ;
+    $street_address  = "'".$_POST['street_address']."'";
+    $city = "'".$_POST['city']."'";
+    $state  = "'".$_POST['state']."'";
+    $zip  = "'".$_POST['zip']."'";
+    $company  = "'".$_POST['company']."'";
+    $attn  = "'".$_POST['attn']."'";
+    $phone_number  = "'".$_POST['phone_number']."'";
+    $email = "'".$_POST['email']."'";
     $username = $email;
     //echo "<br> $email,$phone_number,$attn,$company,$zip,$state,$city,$street_address,$password,$last_name,$first_name";
 
