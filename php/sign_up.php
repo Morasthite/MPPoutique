@@ -21,7 +21,6 @@ $_POST['email'] = "paul@yahoo.com";
 
 ///end of dumy data
 if (!empty ($_POST)){
-    echo "here";
     $fname = "'".$_POST['first_name']."'";
     $lname = "'".$_POST['last_name']."'";
     $password ="'".sha1($_POST['password'])."'";
@@ -42,7 +41,7 @@ if (!empty ($_POST)){
         $attn = "'NULL'";
     }
     //print_r($_POST);
-    echo  "<br>, $email,$password,$fname,$lname,$street,$city,$state,$zip,$company,$attn,$phone,$email";
+    //echo  "<br>, $email,$password,$fname,$lname,$street,$city,$state,$zip,$company,$attn,$phone,$email";
     $query = "INSERT INTO `customer`( `username`, `password`, `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email`) VALUES ($email,$password,$fname,$lname,$street,$city,$state,$zip,$company,$attn,$phone,$email)";
     if (mysqli_query($conn, $query)) {
         $last_id = mysqli_insert_id($conn);
