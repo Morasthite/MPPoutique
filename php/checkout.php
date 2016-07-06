@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: morvarid
- * Date: 7/6/2016
- * Time: 12:19 AM
- */
 session_start();
 require_once ('mysql_connect.php');
 ///dummy data
@@ -33,5 +27,5 @@ if (mysqli_num_rows($result) > 0) {
         print_r($row);
       } ///end of while
     }///end of if
-
+/**  **/
 ?>
