@@ -17,6 +17,7 @@
             <div>
                 <p class="mac_name">{{macaroon.name+" Macaron"}}</p>
                 <p class="mac_description">{{macaroon.description}}</p>
+                <p class="mac_price">{{"price: "+macaroon.price+" $ "}}</p>
                 <h6>ADD to cart</h6>
                 <p>
                     <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" ng-class="macaroon.name" ng-click="mc.add(macaroon)">
