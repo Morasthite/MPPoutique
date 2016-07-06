@@ -4,7 +4,7 @@
 
 //-------Click handlers for the login in buttons, onclick, animate and show the login forms ------//
 $(document).ready (function() {
-
+    $("#signup-form, #guestcheckout-form, #log-in-form").hide();
     $("#log-in-btn").click(function () {
         $("#log-in-form").toggle();
         $("#signup-form, #guestcheckout-form").hide();
