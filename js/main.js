@@ -5,21 +5,18 @@
 //-------Click handlers for the login in buttons, onclick, animate and show the login forms ------//
 $(document).ready (function() {
 
-    // $("#log-in-btn").click(function () {
-    //     $("#login-form").toggleClass('expand-form-login');
-    //     $("#signup-form").toggleClass('expand-form-signup');
-    //     $("#guestcheckout-form").toggleClass('expand-form-guest-checkout');
-    // });
-    // $("#sign-up-btn").click(function () {
-    //     $("#signup-form").toggleClass('expand-form-signup');
-    //     $("#guestcheckout-form").toggleClass('expand-form-guest-checkout');
-    //     $("#login-form").toggleClass('expand-form-login');
-    // });
-    // $("#guest-checkout-btn").click(function () {
-    //     $("#guestcheckout-form").toggleClass('expand-form-guest-checkout');
-    //     $("#signup-form").toggleClass('expand-form-signup');
-    //     $("#login-form").toggleClass('expand-form-login');
-    // });
+    $("#log-in-btn").click(function () {
+        $("#log-in-form").toggle();
+        $("#signup-form, #guestcheckout-form").hide();
+    });
+    $("#sign-up-btn").click(function () {
+        $("#signup-form").toggle();
+        $("#guestcheckout-form, #log-in-form").hide();
+    });
+    $("#guest-checkout-btn").click(function () {
+        $("#guestcheckout-form").toggle();
+        $("#signup-form, #log-in-form").hide();
+    });
     // $("#signup-form-submit-btn").click(function (){
     //     $("#shipto-form").toggleClass('expand-shipto-form');
     // });

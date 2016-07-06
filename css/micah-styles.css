@@ -51,11 +51,13 @@
 .guest-checkout-form .well {
     margin-top: 5vh;
     position: relative;
-    #top: 4%;
     box-shadow: 5px 5px 5px 3px darkgray;
 }
  form div {
      background-color: white;
+ }
+ .hide-form {
+     height: 0;
  }
 /********************************   END CART - page 2 - w/login forms   ***************************************/
 /**shipto form positioning to be done**/
