@@ -6,21 +6,24 @@
 $(document).ready (function() {
 
     $("#log-in-btn").click(function () {
-        $("#login-form").toggleClass('expand-form-login');
+        $("#log-in-form").toggle();
+        $("#signup-form, #guestcheckout-form").hide();
     });
     $("#sign-up-btn").click(function () {
-        $("#signup-form").toggleClass('expand-form-signup');
+        $("#signup-form").toggle();
+        $("#guestcheckout-form, #log-in-form").hide();
     });
     $("#guest-checkout-btn").click(function () {
-        $("#guestcheckout-form").toggleClass('expand-form-guest-checkout');
+        $("#guestcheckout-form").toggle();
+        $("#signup-form, #log-in-form").hide();
     });
-    $("#signup-form-submit-btn").click(function (){
-        $("#shipto-form").toggleClass('expand-shipto-form');
-    });
-    $("#guest-checkout-form-submit-btn").click(function (){
-        $("#shipto-form").toggleClass('expand-shipto-form');
-    });
-    $("#login-form-submit-btn").click(function (){
-        $("#shipto-form").toggleClass('expand-shipto-form');
-    });
+    // $("#signup-form-submit-btn").click(function (){
+    //     $("#shipto-form").toggleClass('expand-shipto-form');
+    // });
+    // $("#guest-checkout-form-submit-btn").click(function (){
+    //     $("#shipto-form").toggleClass('expand-shipto-form');
+    // });
+    // $("#login-form-submit-btn").click(function (){
+    //     $("#shipto-form").toggleClass('expand-shipto-form');
+    // });
 });//doc ready
