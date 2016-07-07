@@ -7,9 +7,12 @@ app.controller('macaronController', ["$scope", "$timeout", "config","cart", func
     cart.inventory.then(function (response) {
         var macaron_array = [];
         macaron_array.push(response.data);
-        self.cart =[];
-        self.cart = self.cart.push(macaron_array);
-        console.log("response: ",self.cart);
+        // console.log("this one: ",macaron_array);
+        self.cart.macaron_array =[];
+        for(var i=0; i<response.data.length-1;i++){
+            self.cart.macaron_array.push(response.data[i]);
+        }
+        console.log("after adding: ",cart.macaron_array);
     });
     //TODO:
     // api call to get inventory
