@@ -14,7 +14,7 @@ app.factory("cart",["$http",function ($http) {
     //     console.log("inventory: ",inventory);
         return {
             total: 0,
-            inventory : $http.post("php/checkout.php"),
+            inventory : $http.post("php/macaron_inventory_call.php"),
             macaron_array : [
                 {
                     name: "Chocolate",

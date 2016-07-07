@@ -12,13 +12,13 @@
     <div id="macaron_shop">
 
 
-        <div ng-repeat="macaroon in mc.cart.macaron_array" ng-id="macaroon.name" class="mac col-sm-offset-1 col-md-2 col-sm-3 col-xs-12">
+        <div ng-repeat="macaroon in mc.cart.macaron_array" ng-id="macaroon.name" class="mac col-sm-offset-1 col-md-2 col-sm-3 col-xs-12" ng-class="macaroon.amount <6  ? 'limited':''">
             <img class="mac_img col-xs-12 " ng-src="{{macaroon.source}}" >
             <div>
                 <p class="mac_name">{{macaroon.name+" Macaron"}}</p>
                 <p class="mac_description">{{macaroon.description}}</p>
                 <p class="mac_price">{{"price: "+macaroon.price+" $ "}}</p>
-                <h6>ADD to cart</h6>
+                <h6>ADD to cart <span ng-show="macaroon.amount <6  ? 'true':''" style="color: red">( Limited )</span></h6>
                 <p>
                     <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" ng-class="macaroon.name" ng-click="mc.add(macaroon)">
                         <i class="fa fa-plus" aria-hidden="true" ng-class="macaroon.name"></i>

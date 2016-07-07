@@ -98,7 +98,9 @@ ul li {
     width: 100%;
     padding: 0 2% 5% 2%;
 }
-
+.limited {
+    border-color: red;
+}
 /*///////////////////welcome page/////////////////////////////*/
 .welcome_section-main-content-para , .gifts-party-main-content{
     padding: 2% 10%;

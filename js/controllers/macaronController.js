@@ -19,8 +19,11 @@ app.controller('macaronController', ["$scope", "$timeout", "config","cart", func
     self.cart = cart;
     console.log("cart: ",cart);
     this.add = function (macaroon) {
-        macaroon.ordered++;
-        cart.total = cart.total+1;
+        if (macaroon.ordered < macaroon.amount) {
+            macaroon.ordered++;
+            cart.total = cart.total + 1;
+            console.log("cart after add: ", cart);
+        }///end of if
     };
     this.minus = function (macaron) {
         if (macaron.ordered != 0) {
