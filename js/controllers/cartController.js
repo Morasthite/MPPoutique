@@ -7,36 +7,39 @@
  *          **/
 
 app.controller('cartController',["$scope","$timeout","config","cart",function ($scope, $timeout, config,cart) {
-   config.banner = "assets/images/contact-image.png";
-   config.menuIndice = 5;
+    config.banner = "assets/images/contact-image.png";
+    config.menuIndice = 5;
     var self = this;
             console.log("cart_service inventory = cart.macaron_array: ", cart.macaron_array);
-    self.testCart = cart.macaron_array;
+    self.cart = cart.macaron_array;
     $scope.filter = function(item){
-        return item.ordered > 0;
-        //add send to order array 
+        // for(var i = 0; i < cart.macaron_array.length; i++) {
+        //     if (cart.macaron_array[i].ordered > 0) {
+        //         self.currentOrderArray.push(item[i]);
+        //         console.log("self.currentOrderArray", self.currentOrderArray);
+        //     }
+        //     //return item.ordered > 0;
+        //     //add send to order array
+            if(item.ordered >0){
+                return item.ordered > 0;
+            }
     };
-
     self.currentOrderArray = [];
-    self.subTotalArray = [];
-    self.subTotal = 0;
-
     self.addSubTotal = function(count, price){
-        console.log("Count", count, "Price", price);
-
+            console.log("Count", count, "Price", price);
         self.subTotal += parseInt(count) * parseFloat(price);
     };
 
-    for(var i = 0; i < cart.macaron_array.length; i++){
-        if(cart.macaron_array[i].ordered > 0){
-                console.log(cart.macaron_array[i].ordered+ " of this item has been added to the cart: ",cart.macaron_array[i]);
-            self.currentOrderArray.push(cart.macaron_array[i]);
-            self.currentOrderArray.itemsSubTotal = 0;
-            self.currentOrderArray.itemsSubTotal += parseFloat(cart.macaron_array[i].ordered) * parseFloat(cart.macaron_array[i].price);
-                console.log("self.currentOrderArray.itemsSubTotal :", self.currentOrderArray.itemsSubTotal);
-            //self.subTotalArray.push(self.currentOrderArray.itemsSubTotal);
-        }
-    }
+    // for(var i = 0; i < cart.macaron_array.length; i++){
+    //     if(cart.macaron_array[i].ordered > 0){
+    //             console.log(cart.macaron_array[i].ordered+ " of this item has been added to the cart: ",cart.macaron_array[i]);
+    //         self.currentOrderArray.push(cart.macaron_array[i]);
+    //         self.currentOrderArray.itemsSubTotal = 0;
+    //         self.currentOrderArray.itemsSubTotal += parseFloat(cart.macaron_array[i].ordered) * parseFloat(cart.macaron_array[i].price);
+    //             console.log("self.currentOrderArray.itemsSubTotal :", self.currentOrderArray.itemsSubTotal);
+    //         //self.subTotalArray.push(self.currentOrderArray.itemsSubTotal);
+    //     }
+    // }
     // for(var j = 0; j < self.subTotalArray.length; j++) {
     //     var subTotal = 0;
     //     subTotal += self.subTotalArray[j];
@@ -46,18 +49,16 @@ app.controller('cartController',["$scope","$timeout","config","cart",function ($
     //console.log("subTotalArray", self.subTotalArray);
     //console.log("currentOrderArray.subTotal = ", self.currentOrderArray.subTotal);
 
-
     //calculations//var myNumbers = [1,2,3,4,5]
-
-    function shipping (distance){
-
-    }
-    function taxes (subtotal) {
-
-    }
-    function total (subtotal,shipping,taxes) {
-
-    }
+    // function shipping (distance){
+    //
+    // }
+    // function taxes (subtotal) {
+    //
+    // }
+    // function total (subtotal,shipping,taxes) {
+    //
+    // }
 }]);
 
 
