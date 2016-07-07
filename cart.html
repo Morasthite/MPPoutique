@@ -187,48 +187,37 @@
                 </div>
             </div><!-- Sign Up form -->
             <!--------------- CART TABLE ------------>
-            ng-repeat="macaron in cartC.cart.macaron_array" ng-id="macaron.name"
             <div class="cart col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="cart">
-                <table class="table-striped col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" id="cart-table">
+                <table class="table-striped col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table mdl-js-data-table  mdl-shadow--2dp" id="cart-table"><!-- mdl-data-table--selectable -->
                     <thead>
                     <tr>
                         <th class="mdl-data-table__cell--non-numeric"><strong>Flavor</strong></th>
-                        <th class="mdl-data-table__cell--non-numeric"><strong>Quantity</strong></th>
-                        <th class="mdl-data-table__cell--non-numeric"><strong>Unit price</strong></th>
+                        <th><strong>Quantity</strong></th>
+                        <th><strong>Unit price</strong></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="macaron in cartC.cart.macaron_array" ng-id="macaron.name">
-                        <td class="mdl-data-table__cell--non-numeric">{{macaron.name}}</td>
-                        <td>25</td>
-                        <td>$2.90</td>
+                    <tr ng-repeat="macaron in cartC.currentOrderArray" >
+                        <td class="mdl-data-table__cell--non-numeric" ng-id="macaron.name">{{macaron.name}}</td>
+                        <td ng-id="macaron.ordered">{{macaron.ordered}}</td>
+                        <td ng-id="macaron.price">$ {{macaron.price}}</td>
                     </tr>
-                    <tr>
-                        <td class="mdl-data-table__cell--non-numeric">Vanilla</td>
-                        <td>50</td>
-                        <td>$1.25</td>
-                    </tr>
-                    <tr>
-                        <td class="mdl-data-table__cell--non-numeric">Dirt</td>
-                        <td>10</td>
-                        <td>$2.35</td>
-                    </tr>
-                    <tr>
-                        <td class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell--non-numeric">Subtotal</td>
-                        <td>$232.35</td>
-                    </tr>
-                    <tr>
-                        <td class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell--non-numeric">Taxes</td>
-                        <td>$232455.35</td>
-                    </tr>
-                    <tr>
-                        <td class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell--non-numeric">Shipping</td>
-                        <td>$5</td>
-                    </tr>
-                    <tr>
-                        <td class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell--non-numeric">Total</td>
-                        <td>$2324555.35</td>
-                    </tr>
+                    <!--<tr>-->
+                        <!--<td class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell&#45;&#45;non-numeric">Subtotal</td>-->
+                        <!--<td>$232.35</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell&#45;&#45;non-numeric">Taxes</td>-->
+                        <!--<td>$232455.35</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell&#45;&#45;non-numeric">Shipping</td>-->
+                        <!--<td>$5</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell&#45;&#45;non-numeric">Total</td>-->
+                        <!--<td>$2324555.35</td>-->
+                    <!--</tr>-->
 
                     </tbody>
                 </table> <!-- Cart Table-->
