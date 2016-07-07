@@ -25,7 +25,7 @@ app.config (["$routeProvider", function($routeProvider) {
         })
         .when('/cart',{
             templateUrl: 'cart.html',
-            controller: 'cartController as cac',
+            controller: 'cartController',
             controllerAs:"cartC"
         })
         .otherwise({

@@ -3,7 +3,6 @@
  * Scope is being passed in in case we use it later for another functionality,
  * cart is coming from cart_service.js, it passes in the total inventory, gets updated by this controller when add or minus is run
 **/
-
     app.controller('macaronController', ["$scope", "$timeout", "config","cart", function ($scope, $timeout, config,cart) {
         var self = this;
         config.banner = "assets/images/our-macarons-image.png";
@@ -13,15 +12,14 @@
         cart.inventory.then(function (response) {
             var macaron_array = [];
             macaron_array.push(response.data);
-            // console.log("this one: ",macaron_array);
+            console.log("macaron_array: ",macaron_array);
+            console.log("response.data: ", response.data);
             self.cart.macaron_array =[];
             for(var i=0; i<response.data.length-1;i++){
                 self.cart.macaron_array.push(response.data[i]);
             }
             console.log("after adding: ",cart.macaron_array);
         });
-        //TODO:
-        // api call to get inventory
         self.cart = cart;
         console.log("cart: ",cart);
         this.add = function (macaroon) {

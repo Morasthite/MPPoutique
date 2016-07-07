@@ -187,18 +187,19 @@
                 </div>
             </div><!-- Sign Up form -->
             <!--------------- CART TABLE ------------>
+            ng-repeat="macaron in cartC.cart.macaron_array" ng-id="macaron.name"
             <div class="cart col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="cart">
                 <table class="table-striped col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" id="cart-table">
                     <thead>
                     <tr>
-                        <th class="mdl-data-table__cell--non-numeric">Flavor</th>
-                        <th>Quantity</th>
-                        <th>Unit price</th>
+                        <th class="mdl-data-table__cell--non-numeric"><strong>Flavor</strong></th>
+                        <th class="mdl-data-table__cell--non-numeric"><strong>Quantity</strong></th>
+                        <th class="mdl-data-table__cell--non-numeric"><strong>Unit price</strong></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td class="mdl-data-table__cell--non-numeric">Chocolate</td>
+                    <tr ng-repeat="macaron in cartC.cart.macaron_array" ng-id="macaron.name">
+                        <td class="mdl-data-table__cell--non-numeric">{{macaron.name}}</td>
                         <td>25</td>
                         <td>$2.90</td>
                     </tr>

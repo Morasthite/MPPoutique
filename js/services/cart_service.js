@@ -92,6 +92,6 @@ app.factory("cart",["$http",function ($http) {
                     ordered : 0
                 }
             ]
-        }///end of return
+        };///end of return
 
 }]);////end of factory
