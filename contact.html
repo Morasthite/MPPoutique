@@ -1,1 +1,79 @@
 <div id="map" class="col-xs-12"></div>
+
+<!----------------------------map----------------------------------->
+<script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 33.653326, lng:-117.752502},
+            zoom: 11
+        });
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
+        //  HTML5 geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                ///mpoutigue marker
+                var mpoutique=new google.maps.Marker({
+                    position: {lat: 33.653326, lng:-117.752502},
+                    animation:google.maps.Animation.BOUNCE
+                });
+                mpoutique.setMap(map);
+                ///geolocation marker
+                var user=new google.maps.Marker({
+                    position:pos
+                });
+                user.setMap(map);
+                ///user info window
+                var infowindow = new google.maps.InfoWindow({
+                    content:"You are here!"
+                });
+                ///click handler for info window
+                google.maps.event.addListener(user, 'click', function() {
+                    infowindow.open(map,user);
+                });
+                ////map polyline
+                var store = new google.maps.LatLng(33.653326,-117.752502);
+                var myTrip=[store,pos];
+                var flightPath=new google.maps.Polyline({
+                    path:myTrip,
+                    strokeColor:"#0000FF",
+                    strokeOpacity:0.8,
+                    strokeWeight:2
+                });
+                flightPath.setMap(map);
+                /////
+                function calcRoute() {
+                    var request = {
+                        origin: pos,
+                        destination: store,
+                        travelMode: google.maps.TravelMode.DRIVING
+                    };
+                    directionsService.route(request, function (response, status) {
+                        if (status == google.maps.DirectionsStatus.OK) {
+
+                            directionsDisplay.setDirections(response);
+                        }
+                    });
+                }
+
+            }, function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+    }
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjB0z2sG-kIlF4cnQiLwF2q78SE1QjVKQ&callback=initMap"></script>

@@ -27,6 +27,8 @@ app.controller('macaronController', ["$scope", "$timeout", "config","cart", func
         if (macaron.ordered < macaron.amount) {
             macaron.ordered++;
             cart.total = cart.total + 1;
+            cart.subTotal += parseFloat(macaron.price);
+            //console.log("sub total: ",cart.subTotal);
                 //console.log("cart after add: ", cart);
         }///end of if
     };
@@ -34,6 +36,8 @@ app.controller('macaronController', ["$scope", "$timeout", "config","cart", func
         if (macaron.ordered != 0) {
             cart.total = cart.total-1;
             macaron.ordered = macaron.ordered-1;
+            cart.subTotal -= parseFloat(macaron.price);
+            //console.log("sub total: ",cart.subTotal);
         }
     };
 }]);
