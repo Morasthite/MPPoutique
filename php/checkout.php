@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ('mysql_connect.php');
+require_once('mysql_connect.php');
 ///dummy data
 
 if (empty($_SESSION["id"])) {
