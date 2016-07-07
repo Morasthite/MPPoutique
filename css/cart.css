@@ -59,5 +59,10 @@
  .hide-form {
      height: 0;
  }
+ .cart-header {
+     color: #9c27b0 !important;
+     font-size: 1.2em !important;
+     font-weight: bold;
+ }
 /********************************   END CART - page 2 - w/login forms   ***************************************/
 /**shipto form positioning to be done**/
