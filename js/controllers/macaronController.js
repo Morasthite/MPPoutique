@@ -23,9 +23,9 @@ app.controller('macaronController', ["$scope", "$timeout", "config","cart", func
     // api call to get inventory
     self.cart = cart;
     //console.log("cart: ",cart);
-    this.add = function (macaroon) {
-        if (macaroon.ordered < macaroon.amount) {
-            macaroon.ordered++;
+    this.add = function (macaron) {
+        if (macaron.ordered < macaron.amount) {
+            macaron.ordered++;
             cart.total = cart.total + 1;
             console.log("cart after add: ", cart);
         }///end of if

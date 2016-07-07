@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: morvarid
- * Date: 7/6/2016
- * Time: 5:58 PM
- */
 require_once ('mysql_connect.php');
 
     $array = array();
@@ -17,5 +11,4 @@ require_once ('mysql_connect.php');
         $array = json_encode($array);
         print $array;
     }///end of if
-
 ?>
