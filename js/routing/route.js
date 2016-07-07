@@ -1,3 +1,4 @@
+/**  **/
 var app = angular.module("mainApp", ['ngRoute']);
 
 app.config (["$routeProvider", function($routeProvider) {
@@ -24,7 +25,7 @@ app.config (["$routeProvider", function($routeProvider) {
         })
         .when('/cart',{
             templateUrl: 'cart.html',
-            controller: 'cartController as cac',
+            controller: 'cartController',
             controllerAs:"cartC"
         })
         .otherwise({

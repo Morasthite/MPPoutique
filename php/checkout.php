@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: morvarid
- * Date: 7/6/2016
- * Time: 12:19 AM
- */
 session_start();
-require_once ('mysql_connect.php');
+require_once('mysql_connect.php');
 ///dummy data
 if (empty($_SESSION["id"])) {
     print "You need to login first";
@@ -23,5 +17,6 @@ if (empty($_SESSION["id"])) {
         $array = json_encode($array);
         print $array;
     }///end of if
+/**  **/
 }////end of else when session has the id
 ?>

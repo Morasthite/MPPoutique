@@ -56,3 +56,5 @@ if(!empty($_POST)){
         $_SESSION["id"] = $last_id;
     }////end of if
 } //end of if(!empty($_POST))
+/**  **/
+?>
