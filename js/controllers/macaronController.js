@@ -9,7 +9,7 @@ app.controller('macaronController', ["$scope", "$timeout", "config","cart", func
         macaron_array.push(response.data);
         // console.log("this one: ",macaron_array);
         self.cart.macaron_array =[];
-        for(var i=0; i<response.data.length-1;i++){
+        for(var i=0; i<response.data.length;i++){
             self.cart.macaron_array.push(response.data[i]);
         }
         console.log("after adding: ",cart.macaron_array);

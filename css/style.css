@@ -113,6 +113,10 @@ ul li {
 .para-style.gift-box-list li {
     display: block;
 }
+/*////////////////contact page////////////////////////*/
+#map {
+    height: 50vh;
+}
 /*///////////////////////media query for portrait///////////////*/
 @media screen and (orientation: portrait) {
     #main_content {

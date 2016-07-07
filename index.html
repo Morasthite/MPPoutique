@@ -41,7 +41,7 @@
 <!--main content-->
 <div id="main_content">
     <div id="banner" class="">
-           <img class="header-img col-xs-12" ng-src="{{mainC.config.banner}}">
+           <img class="header-img col-xs-12" ng-src="{{mainC.config.banner}}" ng-hide="mainC.config.banner == 'assets/images/contact-image.png' ? 'true':''">
     </div>
     <div id="tmp_content">
         <div ng-view></div>
@@ -94,5 +94,9 @@
 <!--services-->
 <script src="js/services/cart_service.js"></script>
 <script src="js/services/config.js"></script>
+<!--map-->
+<script href="js/map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjB0z2sG-kIlF4cnQiLwF2q78SE1QjVKQ&callback=initialize">
+</script>
 </body>
 </html>
