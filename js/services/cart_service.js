@@ -12,6 +12,8 @@ app.factory("cart",["$http",function ($http) {
     };
         return {
             total: 0,
+            subTotal : 0,
+            tax : 0,
             inventory : $http.post("php/macaron_inventory_call.php"),
             macaron_array : [
                 {
