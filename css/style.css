@@ -119,6 +119,7 @@ ul li {
 /*////////////////contact page////////////////////////*/
 #map {
     height: 50vh;
+    /*border: 1px solid black;*/
 }
 /*///////////////////////media query for portrait///////////////*/
 @media screen and (orientation: portrait) {
