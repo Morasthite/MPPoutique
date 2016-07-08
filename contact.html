@@ -1,4 +1,40 @@
-<div id="map" class="col-xs-12"></div>
+<div id="map"></div>
+<div id="contact_info" class="contact col-sm-6 col-xs-12">
+   <h4>Visit us!</h4>
+    <p>Monday - Friday | 10am - 9pm</p>
+    <p>Saturday | 10am - 8pm</p>
+    <p>Sunday | 11am - 7pm</p>
+    <p class="off_days">Closed Thanksgiving Day, Christmas Day, and Easter Day</p>
+    <br>
+    <p><i class="fa fa-map-marker" aria-hidden="true"></i> 1625 Post St, San Francisco, CA 94115</p>
+    <p><i class="fa fa-volume-control-phone" aria-hidden="true"></i> 949 800-3111</p>
+    <p><i class="fa fa-envelope" aria-hidden="true"></i><a id="contact_email"> order@MPoutique.com</a></p>
+    <br>
+    <p>Send your questions, comments and flavor suggestions or place an order</p>
+
+</div>
+<form class="contact col-sm-6 col-xs-12">
+    <h4>Contact us!</h4>
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-12 form-group">
+                <label>Your Email Address</label>
+                <input type="email" name="contact_name" class="form-control">
+            </div>
+            <div class="col-sm-12 form-group">
+                <label>Your Name</label>
+                <input type="text" name="contact_password" class="form-control">
+            </div>
+            <div class="col-sm-12 form-group">
+                <label>Your Comment</label>
+                <textarea type="text" name="contact_comment" placeholder="Please leave your message here" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="contact_submit col-sm-12 form-group">
+        <button id="login-form-submit-btn" type="button" class="btn btn-lg btn-info">Submit</button>
+    </div>
+</form>
 
 <!----------------------------map----------------------------------->
 <script>
@@ -36,29 +72,15 @@
                     infowindow.open(map,user);
                 });
                 ////map polyline
-                var store = new google.maps.LatLng(33.653326,-117.752502);
-                var myTrip=[store,pos];
-                var flightPath=new google.maps.Polyline({
-                    path:myTrip,
-                    strokeColor:"#0000FF",
-                    strokeOpacity:0.8,
-                    strokeWeight:2
-                });
-                flightPath.setMap(map);
-                /////
-                function calcRoute() {
-                    var request = {
-                        origin: pos,
-                        destination: store,
-                        travelMode: google.maps.TravelMode.DRIVING
-                    };
-                    directionsService.route(request, function (response, status) {
-                        if (status == google.maps.DirectionsStatus.OK) {
-
-                            directionsDisplay.setDirections(response);
-                        }
-                    });
-                }
+//                var store = new google.maps.LatLng(33.653326,-117.752502);
+//                var myTrip=[store,pos];
+//                var flightPath=new google.maps.Polyline({
+//                    path:myTrip,
+//                    strokeColor:"#0000FF",
+//                    strokeOpacity:0.8,
+//                    strokeWeight:2
+//                });
+//                flightPath.setMap(map);
 
             }, function() {
                 handleLocationError(true, infoWindow, map.getCenter());

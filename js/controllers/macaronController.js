@@ -34,6 +34,10 @@ app.controller('macaronController', ["$scope", "$timeout", "config","cart", func
             // cart.shipping = 7;
             // cart.totalCost = cart.subTotal + cart.tax + cart.shipping;
             //     console.log("cart.totalCost: ", cart.totalCost);
+            cart.total = cart.total + 1;
+            cart.subTotal += parseFloat(macaron.price);
+            console.log("sub total: ",cart.subTotal);
+                //console.log("cart after add: ", cart);
         }///end of if
     };
     this.minus = function (macaron) {
@@ -47,6 +51,8 @@ app.controller('macaronController', ["$scope", "$timeout", "config","cart", func
             // cart.shipping = 7;
             // cart.totalCost = cart.subTotal + cart.tax + cart.shipping;
             //     console.log("cart.totalCost: ", cart.totalCost);
+            cart.subTotal -= parseFloat(macaron.price);
+            console.log("sub total: ",cart.subTotal);
         }
     };
 }]);
