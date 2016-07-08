@@ -12,8 +12,8 @@ h3 {
 
 /*////////////////////////nav bar///////////////////////////////////*/
 #nav {
-    /*background-color: #db0a5b;*/
-    background-color: #b22a5e;
+    /*background-color: #b22a5e;*/
+    background-color: #5e112d;
     color: white;
 }
 #nav a{
@@ -37,13 +37,14 @@ h3 {
 }
 /*///////////////////////banner///////////////////////////*/
 #banner {
-    width: 100%;
+    width: 95%;
+    margin: auto;
     height: auto;
     background-color: #0a6ebd;
 }
 #banner img {
     padding-bottom: 5%;
-    height: 50vh;
+    height: 70vh;
 }
 
 /*////////////////////////////index main content/////////////////*/
@@ -74,7 +75,6 @@ ul li {
 }
 
 /*//////////////////our macaron page///////////////////////////*/
-
 .macaron_text {
     position: relative;
     padding: 5%;
@@ -84,8 +84,10 @@ ul li {
 }
 #macaron_shop {
     position: relative;
-    padding: 5% 6% 5% 0;
+    padding: 1% 6% 5% 0;
+    min-height: 200vh;
     height: auto;
+    /*border: 1px solid black;*/
 }
 #macaron_shop p {
     text-align: center;
@@ -96,6 +98,7 @@ ul li {
     padding: 1%;
     border: 1px solid gray;
     margin-bottom: 4%;
+    box-shadow: 3px 3px 8px black;
 }
 .mac_img {
     width: 100%;
@@ -103,6 +106,7 @@ ul li {
 }
 .limited {
     border-color: red;
+    box-shadow: 3px 3px 8px red;
 }
 /*///////////////////welcome page/////////////////////////////*/
 .welcome_section-main-content-para , .gifts-party-main-content{
@@ -118,8 +122,25 @@ ul li {
 }
 /*////////////////contact page////////////////////////*/
 #map {
-    height: 50vh;
+    width: 95%;
+    margin: auto;
+    height: 70vh;
     /*border: 1px solid black;*/
+}
+.contact {
+    min-height: 50vh;
+    /*border: 1px solid black;*/
+    padding: 3% 5%;
+}
+.off_days {
+    color: red;
+}
+#contact_email {
+    font-weight: bold;
+    color : #5e112d;
+}
+.contact_submit {
+    margin-top: 10%;
 }
 /*///////////////////////media query for portrait///////////////*/
 @media screen and (orientation: portrait) {
