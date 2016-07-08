@@ -60,7 +60,7 @@ app.factory("cart",["$http",function ($http) {
                     ordered : 0
                 },
                 {
-                    name: "Passion fruit",
+                    name: "Passion Fruit",
                     description: "fruit, macaron and ...",
                     source: "assets/images/passion-fruit.png",
                     price : 3.23,

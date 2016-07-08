@@ -1,24 +1,24 @@
 <!-- CART -->
     <div class="container-fluid" id="cart-page">
         <div class="row cart-row col-lg-offset-1 col-lg-10  col-sm-offset-1 col-sm-10  col-xs-12">
-            <div data-toggle="collapse" data-target="#login-form"  class="user-login col-lg-offset-2 col-lg-2  col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="log-in-btn">
+            <div data-toggle="collapse" data-target="#login-form"  class="user-login col-lg-offset-2 col-lg-2  col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="log-in-btn2">
                 <!-- Raised button with ripple -->
-                <button data-toggle="collapse" data-target="#login-form" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                <button id="log-in-btn" data-toggle="collapse" data-target="#login-form" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
                     Log In
                 </button>
-            </div><!-- Log In Button-->
-            <div class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="sign-up-btn">
+            </div><!-- End Log In Button-->
+            <div class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="sign-up-btn2">
                 <!-- Raised button with ripple -->
-                <button data-toggle="collapse" data-target="#signup-form"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                <button id="sign-up-btn" data-toggle="collapse" data-target="#signup-form"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
                     Sign Up!
                 </button>
-            </div><!--Sign Up! Button-->
-            <div class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="guest-checkout-btn">
+            </div><!-- End Sign Up! Button-->
+            <div class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="guest-checkout-btn2">
                 <!-- Raised button with ripple -->
-                <button data-toggle="collapse" data-target="#guestcheckout-form"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                <button id="guest-checkout-btn" data-toggle="collapse" data-target="#guestcheckout-form"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
                     Checkout As Guest
                 </button>
-            </div><!-- Checkout As Guest Button-->
+            </div><!-- End Checkout As Guest Button-->
             <div class ="collapse login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="login-form">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
@@ -42,11 +42,11 @@
                         </div>
                     </div>
                 </div>
-            </div><!-- Log in form -->
+            </div><!-- End Log in form -->
             <div class ="collapse login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="signup-form">
                 <div class=" signup-form">
                     <div class="col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h3 class="login-header">Registration Form</h3>
+                        <h3 class="login-header">Sign Up Form</h3>
                         <div class="row">
                             <form>
                                 <div class="col-sm-12">
@@ -185,11 +185,12 @@
                         </div>
                     </div>
                 </div>
-            </div><!-- Sign Up form -->
+            </div><!-- End Sign Up form -->
 
             <!--------------- CART TABLE ------------>
             <div class="cart col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="cart">
 
+                <!-- Items Table-->
                 <table class="table-striped col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table mdl-js-data-table  mdl-shadow--2dp" id="cart-table"><!-- mdl-data-table--selectable -->
                     <thead>
                         <tr>
@@ -207,8 +208,9 @@
                             <td ng-id="macaron.price" ng-class="{{macaron.name}}">$ {{ cartC.addSubTotal(macaron.ordered, macaron.price) }}</td>
                         </tr>
                     </tbody>
-                </table> <!-- Items Table-->
+                </table> <!-- End Items Table-->
 
+                <!-- Totals Table-->
                 <table class="table-striped col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table mdl-js-data-table  mdl-shadow--2dp" id="totals-table"><!-- mdl-data-table--selectable -->
                     <tbody>
                         <tr>
@@ -228,14 +230,15 @@
                             <td class="cart-header">$ {{cartC.cart.totalCost}}</td>
                         </tr><!-- Total -->
                     </tbody>
-                </table> <!-- Totals Table-->
+                </table> <!-- End Totals Table-->
 
+                <!-- Checkout Button-->
                 <div class="col-lg-offset-7 col-lg-3 col-lg-offset-right-2 col-sm-offset-10 col-sm-2  col-xs-offset-1 col-xs-10" id="proceed-to-checkout">
                     <!-- Raised button with ripple -->
                     <button class="mdl-button mdl-js-button mdl-button--raised disabled">
                         Proceed To Checkout
                     </button>
-                </div><!-- Checkout Button-->
+                </div> <!-- End Checkout Button-->
             </div><!-- cart-->
         </div><!-- row-->
     </div><!-- container -->

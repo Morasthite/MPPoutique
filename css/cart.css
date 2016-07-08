@@ -5,13 +5,46 @@
 #cart {
     height: 10vh;
 }
-#log-in-btn button,
-#sign-up-btn button,
-#guest-checkout-btn button,
-#proceed-to-checkout button{
+#log-in-btn,
+#sign-up-btn,
+#guest-checkout-btn,
+#proceed-to-checkout{
     width: 100%;
     height: 5vh;
     display: block;
+}
+.mdl-button--raised {
+    background: rgba(180, 69, 197, .9);
+    box-shadow: 2px 2px 4px 2px #8195ce;
+    #box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14),
+    0 3px 1px 2px rgba(0, 0, 0, .2),
+    0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+.mdl-button--raised,
+.mdl-button,
+.mdl-button:hover,
+#cart-table,
+#totals-table,
+.well,
+#contact-form-submit-btn {
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+.mdl-button {
+    color: white;
+}
+.mdl-button:hover,
+#contact-form-submit-btn:hover {
+    #background-color: rgb(229, 153, 240);
+    #color: white;
+    background-color: rgba(240, 155, 31, 0.8);
+    color: #212121;
+    font-weight: bold;
+    font-size: 130%;
+}
+.mdl-button--raised:focus:not(:active) {
+    background-color: rgba(33, 193, 243, 0.47);
 }
 .user-login{
     top:   5vh;
@@ -27,12 +60,15 @@
     min-height: 80vh;
     position: relative;
 }
-#cart-table {
-    margin-bottom: 10vh;
+#cart-table, #totals-table {
+    margin-bottom: 5vh;
     position: relative;
     top: 5vh;
-    box-shadow:   5px 5px 5px 3px darkgray;
+    box-shadow: 2px 2px 3px 2px #8195ce;
     #margin-top: 15vh;
+}
+#totals-table {
+    top: 1vh;
 }
 .cart-row {
     height: auto;
@@ -51,7 +87,8 @@
 .guest-checkout-form .well {
     margin-top: 5vh;
     position: relative;
-    box-shadow: 5px 5px 5px 3px darkgray;
+    background-color: rgba(33, 193, 243, 0.47);
+    box-shadow: 2px 2px 4px 2px #8195ce;
 }
  form div {
      background-color: white;
@@ -60,10 +97,11 @@
      height: 0;
  }
  .cart-header {
-     #color: #9c27b0 !important;
+     color: #9c27b0 !important;
      font-size: 1.2em !important;
      font-weight: bold;
  }
-/*.Chocolate, .Vanilla, .Caramel { color: purple !important;}
+/*.Chocolate, .Cassis, .Coconut, .Coffee, .Lemon, .Pumpkin, .Pistachio, .Raspberry, .Rose, .Caramel, .Almond { color: purple !important;}
+
 /********************************   END CART - page 2 - w/login forms   ***************************************/
 /**shipto form positioning to be done**/

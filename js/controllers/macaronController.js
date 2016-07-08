@@ -27,7 +27,7 @@ app.controller('macaronController', ["$scope", "$timeout", "config","cart", func
             cart.total = cart.total+ 1;
             cart.subTotal += parseFloat(macaron.price);
             cart.subTotal = parseFloat((cart.subTotal).toFixed(2));
-            console.log("sub total: ",cart.subTotal, "typeof subTotal = ", typeof cart.subTotal);
+            //console.log("subtotal: ",cart.subTotal);
                 //console.log("cart after add: ", cart);
         }///end of if
     };
@@ -37,7 +37,7 @@ app.controller('macaronController', ["$scope", "$timeout", "config","cart", func
             cart.total = cart.total-1;
             cart.subTotal -= parseFloat(macaron.price);
             cart.subTotal = parseFloat((cart.subTotal).toFixed(2));
-            console.log("sub total: ",cart.subTotal);
+            //console.log("sub total: ",cart.subTotal);
         }
     };
 }]);
