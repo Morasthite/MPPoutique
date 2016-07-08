@@ -18,7 +18,6 @@ app.controller('cartController',["$scope","$timeout","config","cart",function ($
     self.shipping = cart.shipping;
         console.log("self.cart: ", self.cart, "self.totalCost: ", self.totalCost, "self.subTotal: ", self.subTotal, "self.tax", self.tax, "cart.shipping", cart.shipping);
 
-
     $scope.filter = function(item){
         // for(var i = 0; i < cart.macaron_array.length; i++) {
         //     if (cart.macaron_array[i].ordered > 0) {
