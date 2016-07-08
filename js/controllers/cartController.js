@@ -36,7 +36,8 @@ app.controller('cartController',["$scope","$timeout","config","cart",function ($
         return  parseFloat((parseInt(count) * parseFloat(price)).toFixed(2)) ;
     };
 
-    
+
+
 }]);
 
 

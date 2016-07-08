@@ -2,9 +2,9 @@
 
 //-------Click handlers for the login in buttons, onclick, animate and show the login forms ------//
 
-$(document).ready (function() {
-    //$("#signup-form, #guestcheckout-form, #log-in-form").hide();
+$(document).ready(function() {
     $("#log-in-btn").click(function () {
+        console.log("hi");
         $("#signup-form, #guestcheckout-form").removeClass("in");
     });
     $("#sign-up-btn").click(function () {
@@ -19,7 +19,8 @@ $(document).ready (function() {
     // $("#guest-checkout-form-submit-btn").click(function (){
     //     $("#shipto-form").toggleClass('expand-shipto-form');
     // });
-    // $("#login-form-submit-btn").click(function (){
-    //     $("#shipto-form").toggleClass('expand-shipto-form');
-    // });
+    $("#login-form-submit-btn").click(function (){
+        console.log("hi");
+        $("#shipto-form").toggleClass('expand-shipto-form');
+    });
 });//doc ready

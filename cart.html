@@ -1,24 +1,34 @@
 <!-- CART -->
     <div class="container-fluid" id="cart-page">
         <div class="row cart-row col-lg-offset-1 col-lg-10  col-sm-offset-1 col-sm-10  col-xs-12">
-            <div data-toggle="collapse" data-target="#login-form"  class="user-login col-lg-offset-2 col-lg-2  col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="log-in-btn2">
+
+        <!-----------LOG IN BUTTONS --------------->
+            <!--Log In Button-->
+            <div data-toggle="collapse" data-target="#login-form"  class="user-login col-lg-offset-2 col-lg-2  col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="log-in-btn-ctn">
                 <!-- Raised button with ripple -->
                 <button id="log-in-btn" data-toggle="collapse" data-target="#login-form" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
                     Log In
                 </button>
-            </div><!-- End Log In Button-->
+            </div> <!-- End Log In Button-->
+
+            <!-- Sign Up! Button-->
             <div class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="sign-up-btn2">
                 <!-- Raised button with ripple -->
                 <button id="sign-up-btn" data-toggle="collapse" data-target="#signup-form"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
                     Sign Up!
                 </button>
-            </div><!-- End Sign Up! Button-->
+            </div> <!-- End Sign Up! Button-->
+
+            <!-- Checkout As Guest Button-->
             <div class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="guest-checkout-btn2">
                 <!-- Raised button with ripple -->
                 <button id="guest-checkout-btn" data-toggle="collapse" data-target="#guestcheckout-form"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
                     Checkout As Guest
                 </button>
             </div><!-- End Checkout As Guest Button-->
+
+        <!-----------LOG IN FORMS --------------->
+            <!--Log In Form-->
             <div class ="collapse login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="login-form">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
@@ -43,6 +53,8 @@
                     </div>
                 </div>
             </div><!-- End Log in form -->
+
+            <!--Sign Up Form-->
             <div class ="collapse login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="signup-form">
                 <div class=" signup-form">
                     <div class="col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
@@ -102,7 +114,9 @@
                         </div>
                     </div>
                 </div>
-            </div><!-- Sign Up form -->
+            </div><!-- End Sign Up form -->
+
+            <!-- Guest Checkout Form-->
             <div class ="collapse login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="guestcheckout-form">
                 <div class=" guest-checkout-form">
                     <div class="col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
@@ -162,7 +176,9 @@
                         </div>
                     </div>
                 </div>
-            </div><!-- Guest Checkout form-->
+            </div><!-- End Guest Checkout form-->
+
+            <!-- Ship-to Form -->
             <div class ="collapse login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="shipto-form">
                 <div class="container shipto-form">
                     <h4 class="well">Shipping Info: </h4>
@@ -185,9 +201,9 @@
                         </div>
                     </div>
                 </div>
-            </div><!-- End Sign Up form -->
+            </div><!-- End Shipto Form -->
 
-            <!--------------- CART TABLE ------------>
+        <!--------------- CART TABLE ------------>
             <div class="cart col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="cart">
 
                 <!-- Items Table-->
@@ -202,11 +218,15 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="macaron in cartC.cart.macaron_array | filter: filter" >
-                            <td class="mdl-data-table__cell--non-numeric" ng-id="macaron.name">{{macaron.name}}</td>
+                            <td class="mdl-data-table__cell--non-numeric" ng-id="macaron.name" ng-class="{{macaron.name}}">{{macaron.name}}</td>
                             <td ng-id="macaron.ordered" ng-class="{{macaron.name}}">{{macaron.ordered}}</td>
                             <td ng-id="macaron.price" ng-class="{{macaron.name}}">$ {{macaron.price}}</td>
                             <td ng-id="macaron.price" ng-class="{{macaron.name}}">$ {{ cartC.addSubTotal(macaron.ordered, macaron.price) }}</td>
                         </tr>
+
+                        <tr>
+                            <td class="cart-header col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell--non-numeric"  ng-show="parseInt(cart.subTotal) > 0 ?'true':'false'">This Cart is Starving, Fill it Up with Some delicious Macarons!!!</td>
+                        </tr><!-- Empty Cart message row -->
                     </tbody>
                 </table> <!-- End Items Table-->
 
@@ -239,6 +259,6 @@
                         Proceed To Checkout
                     </button>
                 </div> <!-- End Checkout Button-->
-            </div><!-- cart-->
+            </div><!-- End CART TABLE-->
         </div><!-- row-->
     </div><!-- container -->
