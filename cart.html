@@ -29,7 +29,7 @@
 
         <!-----------LOG IN FORMS --------------->
             <!--Log In Form-->
-            <div class ="collapse login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="login-form">
+            <div class ="collapse login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="login-form" ng-controller="cartController as cartC">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
                         <h3 class="login-header">Welcome Back! Please Login</h3>
@@ -39,14 +39,14 @@
                                     <div class="row">
                                         <div class="col-sm-6 form-group">
                                             <label>Your Email Address</label>
-                                            <input type="text" placeholder="Enter Your Email Here.." name="user_name" class="form-control">
+                                            <input type="text" placeholder="Enter Your Email Here.." name="user_name" id="user_name" class="form-control">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <label>Password</label>
-                                            <input type="password" placeholder="Enter Password Here.." name="password" class="form-control">
+                                            <input type="password" placeholder="Enter Password Here.." name="password" id="password" class="form-control">
                                         </div>
                                     </div>
-                                    <button id="login-form-submit-btn" type="button" class="btn btn-lg btn-info" data-toggle="collapse" data-target="#shipto-form" >Submit</button>
+                                    <button id="login-form-submit-btn" type="button" class="btn btn-lg btn-info" data-toggle="collapse" data-target="#shipto-form" ng-click="cartC.loginValidate()">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -230,7 +230,7 @@
                         </tr>
 
                         <tr>
-                            <td class="cart-header col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell--non-numeric"  ng-show="parseInt(cart.subTotal) > 0 ?'true':'false'">This Cart is Starving, Fill it Up with Some delicious Macarons!!!</td>
+                            <td class="cart-header col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell--non-numeric"  ng-hide="cartC.cart.subTotal > 0">This Cart is Starving, Fill it Up with Some delicious Macarons!!!</td>
                         </tr><!-- Empty Cart message row -->
                     </tbody>
                 </table> <!-- End Items Table-->
@@ -260,7 +260,7 @@
                 <!-- Checkout Button-->
                 <div class="col-lg-offset-6 col-lg-3 col-lg-offset-right-3 col-sm-offset-6 col-sm-3 col-sm-offset-right-3 col-xs-12" id="proceed-to-checkout">
                     <!-- Raised button with ripple -->
-                    <button class="mdl-button mdl-js-button mdl-button--raised disabled">
+                    <button class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.proceedToCheckout()">
                         Proceed To Checkout
                     </button>
                 </div> <!-- End Checkout Button-->

@@ -6,7 +6,7 @@
  *          database >>>>> else, display error message.
  *          **/
 
-app.controller('cartController',["$scope","$timeout","config","cart",function ($scope, $timeout, config,cart) {
+app.controller('cartController',["$scope","$http","config","cart", function ($scope, $http, config,cart) {
     config.banner = "assets/images/contact-image.png";
     config.menuIndice = 5;
     var self = this;
@@ -17,28 +17,40 @@ app.controller('cartController',["$scope","$timeout","config","cart",function ($
     cart.tax = parseFloat((parseInt(cart.subTotal) * .09).toFixed(2));
     cart.totalCost = cart.subTotal + cart.tax + self.shipping;
     cart.totalCost = parseFloat((cart.totalCost).toFixed(2));
-        console.log("self.cart: ", self.cart, "cart.totalCost: ", cart.totalCost, "cart.subTotal: ", cart.subTotal, "cart.tax", cart.tax, "self.shipping", self.shipping);
+        //console.log("self.cart: ", self.cart, "cart.totalCost: ", cart.totalCost, "cart.subTotal: ", cart.subTotal, "cart.tax", cart.tax, "self.shipping", self.shipping);
     $scope.filter = function(item){
-        // for(var i = 0; i < cart.macaron_array.length; i++) {
-        //     if (cart.macaron_array[i].ordered > 0) {
-        //         self.currentOrderArray.push(item[i]);
-        //         console.log("self.currentOrderArray", self.currentOrderArray);
-        //     }
-        //     //return item.ordered > 0;
-        //     //add send to order array
             if(item.ordered >0){
                 return item.ordered > 0;
             }
     };
-    self.currentOrderArray = [];
+    //self.currentOrderArray = [];
     self.addSubTotal = function(count, price){
-            console.log("Count", count, "Price", price);
+            //console.log("Count", count, "Price", price);
         return  parseFloat((parseInt(count) * parseFloat(price)).toFixed(2)) ;
     };
 
-
+    self.proceedToCheckout = function() {
+        console.log('Im here');
+        self.dbCart = [];
+        $http({
+            url: "php/checkout.php",
+            method: "post",
+            cache: false
+        })
+            .then(
+                function success(response){
+                    console.log(response);
+                    var data = response.data;
+                    console.log("success: ", data);
+                },
+                function error(response) {
+                    $log.error("Oops, something went wrong", response);
+                }
+            );//then
+    };//end proceedToCheckOut
 
 }]);
+
 
 
 
