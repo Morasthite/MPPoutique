@@ -19,24 +19,15 @@ app.controller('macaronController', ["$scope", "$timeout", "config","cart", func
         }
         // console.log("cart.macaron_array after adding: ",cart.macaron_array);
     });
-    //TODO:
-    // api call to get inventory
     self.cart = cart;
     //console.log("cart: ",cart);
     this.add = function (macaron) {
         if (macaron.ordered < macaron.amount) {
             macaron.ordered++;
             cart.total = cart.total+ 1;
-            // cart.subTotal += parseFloat(macaron.price) * parseInt(macaron.ordered);
-            //     console.log("cart.subTotal: ",cart.subTotal);
-            // cart.tax = Math.round(((cart.subTotal * .09) * 100) /100);
-            //     console.log("cart.tax: ", cart.tax);
-            // cart.shipping = 7;
-            // cart.totalCost = cart.subTotal + cart.tax + cart.shipping;
-            //     console.log("cart.totalCost: ", cart.totalCost);
-            cart.total = cart.total + 1;
             cart.subTotal += parseFloat(macaron.price);
-            console.log("sub total: ",cart.subTotal);
+            cart.subTotal = parseFloat((cart.subTotal).toFixed(2));
+            console.log("sub total: ",cart.subTotal, "typeof subTotal = ", typeof cart.subTotal);
                 //console.log("cart after add: ", cart);
         }///end of if
     };
@@ -44,14 +35,8 @@ app.controller('macaronController', ["$scope", "$timeout", "config","cart", func
         if (macaron.ordered != 0) {
             macaron.ordered = macaron.ordered-1;
             cart.total = cart.total-1;
-            // cart.subTotal += parseFloat(macaron.price) * parseInt(macaron.ordered);
-            //     console.log("cart.subTotal= parseFloat(macaron.price) * parseInt(macaron.ordered) =  ",parseFloat(macaron.price)," * ",parseInt(macaron.ordered), " = ",cart.subTotal);
-            // cart.tax = Math.round(((cart.subTotal * .09) * 100) /100);
-            //     console.log("cart.tax: ", cart.tax);
-            // cart.shipping = 7;
-            // cart.totalCost = cart.subTotal + cart.tax + cart.shipping;
-            //     console.log("cart.totalCost: ", cart.totalCost);
             cart.subTotal -= parseFloat(macaron.price);
+            cart.subTotal = parseFloat((cart.subTotal).toFixed(2));
             console.log("sub total: ",cart.subTotal);
         }
     };

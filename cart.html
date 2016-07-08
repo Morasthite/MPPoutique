@@ -200,11 +200,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="macaron in cartC.cart | filter: filter" >
+                        <tr ng-repeat="macaron in cartC.cart.macaron_array | filter: filter" >
                             <td class="mdl-data-table__cell--non-numeric" ng-id="macaron.name">{{macaron.name}}</td>
                             <td ng-id="macaron.ordered" ng-class="{{macaron.name}}">{{macaron.ordered}}</td>
                             <td ng-id="macaron.price" ng-class="{{macaron.name}}">$ {{macaron.price}}</td>
-                            <td ng-id="macaron.price" ng-class="{{macaron.name}}">$ {{macaron.ordered * macaron.price}}</td>
+                            <td ng-id="macaron.price" ng-class="{{macaron.name}}">$ {{ cartC.addSubTotal(macaron.ordered, macaron.price) }}</td>
                         </tr>
                     </tbody>
                 </table> <!-- Items Table-->
@@ -213,11 +213,11 @@
                     <tbody>
                         <tr>
                             <td class="cart-header col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell--non-numeric">Subtotal</td>
-                            <td class="cart-header">$ {{ cartC.subTotal }}</td>
+                            <td class="cart-header">$ {{ cartC.cart.subTotal }}</td>
                         </tr><!-- Subtotal -->
                         <tr>
                             <td class="cart-header col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell--non-numeric">Taxes</td>
-                            <td class="cart-header">$ {{cartC.tax}}</td>
+                            <td class="cart-header">$ {{cartC.cart.tax}}</td>
                         </tr><!-- Taxes -->
                         <tr>
                             <td class="cart-header col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell--non-numeric">Shipping</td>
@@ -225,7 +225,7 @@
                         </tr><!-- Shipping -->
                         <tr>
                             <td class="cart-header col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell--non-numeric">Total</td>
-                            <td class="cart-header">$ {{cartC.total}}</td>
+                            <td class="cart-header">$ {{cartC.cart.totalCost}}</td>
                         </tr><!-- Total -->
                     </tbody>
                 </table> <!-- Totals Table-->
