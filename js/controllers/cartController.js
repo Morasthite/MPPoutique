@@ -10,8 +10,15 @@ app.controller('cartController',["$scope","$timeout","config","cart",function ($
     config.banner = "assets/images/contact-image.png";
     config.menuIndice = 5;
     var self = this;
-            console.log("cart_service inventory = cart.macaron_array: ", cart.macaron_array);
+            //console.log("cart_service inventory = cart.macaron_array: ", cart.macaron_array);
     self.cart = cart.macaron_array;
+    self.totalCost = cart.totalCost;
+    self.subTotal = cart.subTotal;
+    self.tax = cart.tax;
+    self.shipping = cart.shipping;
+        console.log("self.cart: ", self.cart, "self.totalCost: ", self.totalCost, "self.subTotal: ", self.subTotal, "self.tax", self.tax, "cart.shipping", cart.shipping);
+
+
     $scope.filter = function(item){
         // for(var i = 0; i < cart.macaron_array.length; i++) {
         //     if (cart.macaron_array[i].ordered > 0) {
@@ -29,6 +36,7 @@ app.controller('cartController',["$scope","$timeout","config","cart",function ($
             console.log("Count", count, "Price", price);
         self.subTotal += parseInt(count) * parseFloat(price);
     };
+
 
     // for(var i = 0; i < cart.macaron_array.length; i++){
     //     if(cart.macaron_array[i].ordered > 0){

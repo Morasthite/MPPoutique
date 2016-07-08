@@ -27,17 +27,26 @@ app.controller('macaronController', ["$scope", "$timeout", "config","cart", func
         if (macaron.ordered < macaron.amount) {
             macaron.ordered++;
             cart.total = cart.total + 1;
-            cart.subTotal += parseFloat(macaron.price);
-            //console.log("sub total: ",cart.subTotal);
-                //console.log("cart after add: ", cart);
+            cart.subTotal += parseFloat(macaron.price) * parseInt(macaron.ordered);
+                console.log("cart.subTotal: ",cart.subTotal);
+            cart.tax = Math.round(((cart.subTotal * .09) * 100) /100);
+                console.log("cart.tax: ", cart.tax);
+            cart.shipping = 7;
+            cart.totalCost = cart.subTotal + cart.tax + cart.shipping;
+                console.log("cart.totalCost: ", cart.totalCost);
         }///end of if
     };
     this.minus = function (macaron) {
         if (macaron.ordered != 0) {
-            cart.total = cart.total-1;
             macaron.ordered = macaron.ordered-1;
-            cart.subTotal -= parseFloat(macaron.price);
-            //console.log("sub total: ",cart.subTotal);
+            cart.total = cart.total-1;
+            cart.subTotal += parseFloat(macaron.price) * parseInt(macaron.ordered);
+                console.log("cart.subTotal= parseFloat(macaron.price) * parseInt(macaron.ordered) =  ",parseFloat(macaron.price)," * ",parseInt(macaron.ordered), " = ",cart.subTotal);
+            cart.tax = Math.round(((cart.subTotal * .09) * 100) /100);
+                console.log("cart.tax: ", cart.tax);
+            cart.shipping = 7;
+            cart.totalCost = cart.subTotal + cart.tax + cart.shipping;
+                console.log("cart.totalCost: ", cart.totalCost);
         }
     };
 }]);
