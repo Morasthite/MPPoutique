@@ -13,7 +13,8 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
             //console.log("cart_service inventory = cart.macaron_array: ", cart.macaron_array);
     self.cart = cart;
     self.shipping = 7;
-
+    self.subexists = parseInt(cart.subTotal);
+    console.log("sub exists: ", self.subexists);
     cart.tax = parseFloat((parseInt(cart.subTotal) * .09).toFixed(2));
     cart.totalCost = cart.subTotal + cart.tax + self.shipping;
     cart.totalCost = parseFloat((cart.totalCost).toFixed(2));
