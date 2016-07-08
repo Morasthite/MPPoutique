@@ -4,7 +4,7 @@ require_once('mysql_connect.php');
 
 $_POST['first_name'] = "Micah";
 $_POST['last_name'] = "Blah";
-$_POST['password'] = "password123";
+//$_POST['password'] = "password123";
 $_POST['street_address'] = "123 stonehurst #133";
 $_POST['city'] = "Huntington Beach";
 $_POST['state'] = "CA";
@@ -49,7 +49,7 @@ if(!empty($_POST)){
 //        }
 //    }
 //    else {}
-        $query = "INSERT INTO `customer`(`username`, `password`, `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email`) VALUES ($email,$password,$first_name,$last_name,$street_address,$city,$state,$zip,$company,$attn,$phone_number,$email)";
+        $query = "INSERT INTO `customer`(`username`, `password`, `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email`) VALUES ('guest','guest',$first_name,$last_name,$street_address,$city,$state,$zip,$company,$attn,$phone_number,$email)";
     if (mysqli_query($conn, $query)) {
         $last_id = mysqli_insert_id($conn);
         //echo "<br> last id: ".$last_id;

@@ -5,7 +5,7 @@ session_start();
     // on file for the user to verify or modify, if not correct, display error
     $_POST['user_name']= "pearl";
     $_POST['password']= "pearl";
-    if (!empty ($_POST['user_name']) and !empty ($_POST['password'])) {
+    if (!empty ($_POST['user_name']) and !empty ($_POST['password']) and ($_POST['user_name']) != "guest") {
         $user = "'".$_POST['user_name']."'";
         $pass = $_POST['password'];
         $query = "SELECT * FROM  `customer` WHERE `username` = $user";
