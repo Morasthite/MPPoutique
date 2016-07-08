@@ -26,7 +26,8 @@
 #cart-table,
 #totals-table,
 .well,
-#contact-form-submit-btn {
+#contact-form-submit-btn,
+#shipto-form {
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
@@ -60,12 +61,16 @@
     min-height: 80vh;
     position: relative;
 }
-#cart-table, #totals-table {
+#cart-table,
+#totals-table,
+#shipto-form {
     margin-bottom: 5vh;
     position: relative;
     top: 5vh;
     box-shadow: 2px 2px 3px 2px #8195ce;
-    #margin-top: 15vh;
+}
+#shipto-form {
+    background-color: rgba(33, 193, 243, 0.47);
 }
 #totals-table {
     top: 1vh;
