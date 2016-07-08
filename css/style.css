@@ -19,6 +19,16 @@ h3 {
 #nav a{
     color: white;
 }
+/*******************EXPERIMENT*****************/
+#nav a:hover {
+    color: rgba(180, 69, 197, .9);
+    #text-shadow: 2px 2px 2px blueviolet;
+    font-size: 115%;
+}
+.mdl-badge[data-badge]:after {
+    top: 1px;
+}
+/*******************EXPERIMENT*****************/s
 /*/cart badge in nav/*/
 .mdl-badge.mdl-badge--overlap:after {
     top:2px;
@@ -52,6 +62,7 @@ h3 {
 #main_content {
     height: auto;
     min-height:65vh;
+    #margin-bottom: 25vh;
 }
 
 #temp_content{
@@ -64,7 +75,7 @@ footer {
     background-color: #5e112d;
     position: relative;
     min-height: 10vh;
-    margin-top: 0%;
+    margin-top: 25vh;
 }
 footer .fa {
     margin: 2px;
@@ -108,6 +119,24 @@ ul li {
     border-color: red;
     box-shadow: 3px 3px 8px red;
 }
+/*******************EXPERIMENT*****************/
+.mdl-button--fab {
+    box-shadow: 0px 3px 05px 3px rgba(0, 0, 0, 0.16), 0 1px 1px 0 rgba(0, 0, 0, 0.72);
+}
+.mdl-button--fab.mdl-button--colored {
+    background: rgba(180, 69, 197, .9);
+}
+.mdl-button--fab.mdl-button--colored:hover {
+    background-color: rgba(240, 155, 31, 0.8);
+    color: #212121;
+    font-weight: bold;
+    font-size: 130%;
+}
+.ordered {
+    border-color: lightgreen;
+    box-shadow: 3px 3px 8px lightgreen;
+}
+/*******************EXPERIMENT*****************/
 /*///////////////////welcome page/////////////////////////////*/
 .welcome_section-main-content-para , .gifts-party-main-content{
     padding: 2% 10%;
@@ -116,7 +145,7 @@ ul li {
     font-size: 2em;
 }
 
-/*////////////////gifts and partis page////////////////////////*/
+/*////////////////gifts and parties page////////////////////////*/
 .para-style.gift-box-list li {
     display: block;
 }

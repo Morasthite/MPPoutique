@@ -1,8 +1,7 @@
 /** Cart Stylesheet ***/
 #sign-in,
 #sign-up,
-#guest-checkout,
-#cart {
+#guest-checkout {
     height: 10vh;
 }
 #log-in-btn,
