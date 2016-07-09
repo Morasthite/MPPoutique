@@ -1,20 +1,20 @@
 <!-- CART -->
-    <div class="container-fluid" id="cart-page">
+    <div class="container-fluid" id="cart-page" >
         <div class="row cart-row col-lg-offset-1 col-lg-10  col-sm-offset-1 col-sm-10  col-xs-12">
 
         <!-----------LOG IN BUTTONS --------------->
             <!--Log In Button-->
-            <div data-toggle="collapse" data-target="#login-form"  class="user-login col-lg-offset-2 col-lg-2  col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="log-in-btn-ctn">
+            <div   class="user-login col-lg-offset-2 col-lg-2  col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="log-in-btn-ctn" >
                 <!-- Raised button with ripple -->
-                <button id="log-in-btn" data-toggle="collapse" data-target="#login-form" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                <button id="log-in-btn" data-toggle="kkkcollapse" data-target="#kkklogin-form" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="cartC.showLoginFormToggle()">
                     Log In
                 </button>
             </div> <!-- End Log In Button-->
 
             <!-- Sign Up! Button-->
-            <div class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="sign-up-btn2">
+            <div class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="sign-up-btn2" >
                 <!-- Raised button with ripple -->
-                <button id="sign-up-btn" data-toggle="collapse" data-target="#signup-form"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                <button id="sign-up-btn"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="cartC.showSignUpFormToggle()">
                     Sign Up!
                 </button>
             </div> <!-- End Sign Up! Button-->
@@ -22,14 +22,14 @@
             <!-- Checkout As Guest Button-->
             <div class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="guest-checkout-btn2">
                 <!-- Raised button with ripple -->
-                <button id="guest-checkout-btn" data-toggle="collapse" data-target="#guestcheckout-form"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                <button id="guest-checkout-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="cartC.showGuestCheckoutFormToggle()">
                     Checkout As Guest
                 </button>
             </div><!-- End Checkout As Guest Button-->
 
         <!-----------LOG IN FORMS --------------->
             <!--Log In Form-->
-            <div class ="collapse login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="login-form" ng-controller="cartController as cartC">
+            <div ng-show="showLoginForm" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="login-form">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
                         <h3 class="login-header">Welcome Back! Please Login</h3>
@@ -46,7 +46,7 @@
                                             <input type="password" placeholder="Enter Password Here.." name="password" id="password" class="form-control">
                                         </div>
                                     </div>
-                                    <button id="login-form-submit-btn" type="button" class="btn btn-lg btn-info" data-toggle="collapse" data-target="#shipto-form" ng-click="cartC.loginValidate()">Submit</button>
+                                    <button id="login-form-submit-btn" type="button" class="btn btn-lg btn-info" data-toggle="collapse" data-target="#shipto-form">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -55,7 +55,7 @@
             </div><!-- End Log in form -->
 
             <!--Sign Up Form-->
-            <div class ="collapse login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="signup-form">
+            <div ng-show="showSignUpForm" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="signup-form">
                 <div class=" signup-form">
                     <div class="col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
                         <h3 class="login-header">Sign Up Form</h3>
@@ -117,7 +117,7 @@
             </div><!-- End Sign Up form -->
 
             <!-- Guest Checkout Form-->
-            <div class ="collapse login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="guestcheckout-form">
+            <div ng-show="showGuestCheckoutForm" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="guestcheckout-form">
                 <div class=" guest-checkout-form">
                     <div class="col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
                         <h3 class="login-header">Checkout As Guest</h3>

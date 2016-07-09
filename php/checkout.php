@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('mysql_connect.php');
+$_SESSION["id"] = 1;
 if (empty($_SESSION["id"])) {
     print "You need to login first";
 }else {

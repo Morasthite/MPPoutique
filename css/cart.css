@@ -110,6 +110,18 @@
     font-size: 1.2em !important;
     font-weight: bold;
 }
-
+.login-forms.ng-hide-add, .login-forms.ng-hide-remove{
+    transition: 0s linear all;
+}
+.login-forms.ng-hide-add-active, .login-forms.ng-hide-remove-active{
+    transition: 1s linear all;
+}
+.ng-hide{
+    width: 0px;
+    opacity: 0;
+}
+.login-forms{
+    opacity: 1;
+}
 /********************************   END CART - page 2 - w/login forms   ***************************************/
 /**shipto form positioning to be done**/
