@@ -45,7 +45,7 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
                     console.log("success: ", data);
                 },
                 function error(response) {
-                    $log.error("Oops, something went wrong", response);
+                    console.log("Oops, something went wrong", response);
                 }
             );//then
     };//end proceedToCheckOut
