@@ -13,17 +13,17 @@
     <p>Send your questions, comments and flavor suggestions or place an order</p>
 
 </div>
-<form class="contact col-sm-6 col-xs-12">
+<form class="contact col-sm-6 col-xs-12" method="post" action="php/contact-form.php" id="contact-form" name="contact-form" ng-submit="contactC.submit()">
     <h4>Contact us!</h4>
     <div class="col-sm-12">
         <div class="row">
             <div class="col-sm-12 form-group">
                 <label>Your Email Address</label>
-                <input type="email" name="contact_name" class="form-control">
+                <input type="email" name="contact_email" class="form-control">
             </div>
             <div class="col-sm-12 form-group">
                 <label>Your Name</label>
-                <input type="text" name="contact_password" class="form-control">
+                <input type="text" name="contact_name" class="form-control">
             </div>
             <div class="col-sm-12 form-group">
                 <label>Your Comment</label>
@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="contact_submit col-sm-12 form-group">
-        <button id="contact-form-submit-btn" type="button" class="btn btn-lg btn-info">Submit</button>
+        <button id="contact-form-submit-btn" type="submit" class="btn btn-lg btn-info">Submit</button>
     </div>
 </form>
 
