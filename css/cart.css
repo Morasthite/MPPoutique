@@ -117,5 +117,10 @@
     transition: 2s linear all;
 }
 
+#place-your-order {
+    position: absolute;
+    bottom:0;
+    right:0;
+}
 /********************************   END CART - page 2 - w/login forms   ***************************************/
 /**shipto form positioning to be done**/

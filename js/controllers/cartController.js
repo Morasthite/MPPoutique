@@ -52,9 +52,19 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
 
     /** ng-click handler for toggling the login/signup/guestcheckout forms **/
 
+    $scope.showLoginButton = true;
+    $scope.showSignUpButton = true;
+    $scope.showGuestCheckoutButton = true;
     $scope.showLoginForm = false;
     $scope.showSignUpForm = false;
     $scope.showGuestCheckoutForm = false;
+
+    self.hideLoginButtons = function(){
+        $scope.showLoginButton = false;
+        $scope.showSignUpButton = false;
+        $scope.showGuestCheckoutButton = false;
+    };
+
     self.showLoginFormToggle = function () {
             //console.log('scope loginform:',$scope.showLoginForm);
         $scope.showSignUpForm = false;
@@ -81,16 +91,19 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
             //console.log("showShipToForm_logInBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
         $scope.showShipToForm = true;
         $scope.showLoginForm = false;
+        self.hideLoginButtons();
     };
     self.showShipToForm_signUpBtn = function(){
             //console.log("showShipToForm_signUpBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
         $scope.showShipToForm = true;
         $scope.showSignUpForm = false;
+        self.hideLoginButtons();
     };
     self.showShipToForm_guestCheckoutBtn = function(){
             //console.log("showShipToForm_guestCheckoutBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
         $scope.showShipToForm = true;
         $scope.showGuestCheckoutForm = false;
+        self.hideLoginButtons();
     };
 
     /**  ng-click handler for login-form submit button  **/
