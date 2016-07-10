@@ -49,16 +49,19 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
                 }
             );//then
     };//end proceedToCheckOut
+
+    /** ng-click handler for toggling the login/signup/guestcheckout forms **/
+
     $scope.showLoginForm = false;
     $scope.showSignUpForm = false;
     $scope.showGuestCheckoutForm = false;
     self.showLoginFormToggle = function () {
-        console.log('scope loginform:',$scope.showLoginForm);
-        superglobal = $scope;
+            //console.log('scope loginform:',$scope.showLoginForm);
+
         $scope.showSignUpForm = false;
         $scope.showGuestCheckoutForm = false;
         $scope.showLoginForm = !$scope.showLoginForm;
-        console.log('scope loginform:',$scope.showLoginForm);
+            //console.log('scope loginform:',$scope.showLoginForm);
     };
     self.showSignUpFormToggle = function () {
         $scope.showLoginForm = false;
@@ -69,10 +72,14 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
     self.showGuestCheckoutFormToggle = function () {
         $scope.showLoginForm = false;
         $scope.showSignUpForm = false;
-        console.log("test",$scope.showGuestCheckoutForm);
+            //console.log("test",$scope.showGuestCheckoutForm);
         $scope.showGuestCheckoutForm = !$scope.showGuestCheckoutForm;
-
     };
+
+    /** ng-click handler for the ship-to form **/
+    
+
+
 }]);
 
 
