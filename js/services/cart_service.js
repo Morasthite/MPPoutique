@@ -86,6 +86,20 @@ app.factory("cart",["$http",function ($http) {
                     source: "assets/images/rose.png",
                     price : 3.25,
                     ordered : 0
+                },
+                {
+                    name: "Rose",
+                    description: "rose, macaron and ...",
+                    source: "assets/images/rose.png",
+                    price : 3.25,
+                    ordered : 0
+                },
+                {
+                    name: "Rose",
+                    description: "rose, macaron and ...",
+                    source: "assets/images/rose.png",
+                    price : 3.25,
+                    ordered : 0
                 }
             ]
         };///end of return
