@@ -55,6 +55,7 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
     $scope.showLoginButton = true;
     $scope.showSignUpButton = true;
     $scope.showGuestCheckoutButton = true;
+    $scope.showProceedToCheckoutButton = true;
     $scope.showLoginForm = false;
     $scope.showSignUpForm = false;
     $scope.showGuestCheckoutForm = false;
@@ -92,18 +93,21 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
         $scope.showShipToForm = true;
         $scope.showLoginForm = false;
         self.hideLoginButtons();
+        $scope.showProceedToCheckoutButton = false;
     };
     self.showShipToForm_signUpBtn = function(){
             //console.log("showShipToForm_signUpBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
         $scope.showShipToForm = true;
         $scope.showSignUpForm = false;
         self.hideLoginButtons();
+        $scope.showProceedToCheckoutButton = false;
     };
     self.showShipToForm_guestCheckoutBtn = function(){
             //console.log("showShipToForm_guestCheckoutBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
         $scope.showShipToForm = true;
         $scope.showGuestCheckoutForm = false;
         self.hideLoginButtons();
+        $scope.showProceedToCheckoutButton = false;
     };
 
     /**  ng-click handler for login-form submit button  **/
