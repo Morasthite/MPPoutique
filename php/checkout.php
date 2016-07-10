@@ -1,11 +1,11 @@
 <?php
 session_start();
 require_once('mysql_connect.php');
-$_SESSION["id"] = 1;
+//$_SESSION["id"] = 1;
 if (empty($_SESSION["id"])) {
     print "You need to login first";
 }else {
-    $id = 1;                             //"'". $_SESSION["id"]."'";
+    $id = "'". $_SESSION["id"]."'";
     $array = array();
     $inventory = array();
     $user = array();

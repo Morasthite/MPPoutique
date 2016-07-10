@@ -32,11 +32,11 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
 
     self.finalizedOrder = [];
     self.finalizedOrder.Cart = [];
-
+    self.customer = [];
+    $scope.customer = [];
     self.proceedToCheckout = function() {
         console.log('cartC.proceedToCheckout is running');
         self.dbCart = [];
-        self.customer = [];
         $http({
             url: "php/checkout.php",
             method: "post",
@@ -47,30 +47,27 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
                     var data = response.data;
                     console.log("cartC.proceedToCheckout received successful response from checkout.php, response = : ", data);
                     self.dbCart = data[1];
-                    self.customer = data[0];
-                    /** cart vs currenty inventory comparison **/
-                        // console.log ("self.dbcart = ",self.dbCart);
-                        // console.log("self.customer = ",self.customer);
-                        // console.log("self.cart = ",self.cart);
+                    $scope.customer = data[0];
+                    console.log("self.customer", self.customer);
+                    /** cart vs current inventory comparison: find ordered items from self.cart, compare inventory to cart order, push to finalizedOrder Cart**/
                     for(var mikolajczyk=0; mikolajczyk < self.dbCart.length; mikolajczyk++){
-                            //console.log("self.dbCart[mikolajczyk].amount = ", self.dbCart[mikolajczyk].amount);
-                            //console.log("self.dbCart[mikolajczyk].ordered = ", self.dbCart[mikolajczyk].ordered);
-                            //console.log("self.cart.macaron_array[mikolajczyk].ordered = ", self.cart.macaron_array[mikolajczyk].ordered);
-                        /** find ordered items from self.cart **/
                         for(var grodezteszky = 0; grodezteszky < self.cart.macaron_array.length; grodezteszky++){
-                            if(self.cart.macaron_array[grodezteszky].ordered > 0){
-                                //console.log("self.cart.macaron_array[grodezteszky].name and .ordered = ", self.cart.macaron_array[grodezteszky].name, self.cart.macaron_array[grodezteszky].ordered);
-                                if((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered < self.dbCart[mikolajczyk].amount)) {
-                                    console.log("self.cart.macaron_array[grodezteszky].name and .ordered = ", self.cart.macaron_array[grodezteszky].name, self.cart.macaron_array[grodezteszky].ordered, '\n', " COMPARE self.dbCart[mikolajczyk].name and .amount = ",self.dbCart[mikolajczyk].name, self.dbCart[mikolajczyk].amount, '\n', "It's kewl, Willis, you can order self.cart.macaron_array[grodezteszky].name ", self.cart.macaron_array[grodezteszky].name);
+                            if(self.cart.macaron_array[grodezteszky].ordered > 0)
+                            {
+                                if((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered <= self.dbCart[mikolajczyk].amount))
+                                {
+                                    console.log("self.cart.macaron_array[grodezteszky].name and .ordered = ", self.cart.macaron_array[grodezteszky].name, self.cart.macaron_array[grodezteszky].ordered, '\n', " COMPARE self.dbCart[mikolajczyk].name and .amount = ",self.dbCart[mikolajczyk].name, self.dbCart[mikolajczyk].amount, '\n', "It's kewl, Willis, you can order ",self.cart.macaron_array[grodezteszky].ordered," ", self.cart.macaron_array[grodezteszky].name);
                                     self.finalizedOrder.Cart[mikolajczyk] = self.cart.macaron_array[mikolajczyk];
-                                    console.log("self.finalizedOrder.Cart = ", self.finalizedOrder.Cart);
-                                }else {
-                                    console.log("Display this to DOM: "+"We be sorry Willis. There are only "+self.dbCart[mikolajczyk].amount+" "+self.dbCart[mikolajczyk].name+ " macarons left."+"\n"+"  Please go back and lower the number of "+self.dbCart[mikolajczyk].name+" in your order");
+                                    /*TODO: Create & Display "thanks for your order form here */
                                 }
-
-                            }
-                        }
-                    }
+                                else if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered > self.dbCart[mikolajczyk].amount))
+                                {    /*TODO: Create & Display "Not enough inventory form here */
+                                    console.log("Display this to DOM: "+"We be sorry Willis. There are only "+self.dbCart[mikolajczyk].amount+" "+self.dbCart[mikolajczyk].name+ " macarons left."+"\n"+"  Please go back and lower the number of "+self.dbCart[mikolajczyk].name+" macarons in your order");
+                                }
+                                console.log("self.finalizedOrder.Cart = ", self.finalizedOrder.Cart);
+                            }//end if(self.cart.macaron_array[grodezteszky].ordered > 0)
+                        }//end for(var grodezteszky = 0
+                    }//end for(var mikolajczyk=0
                 },
                 function error(response) {
                     console.log("Oops, something went wrong", response);
