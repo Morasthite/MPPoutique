@@ -57,7 +57,6 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
     $scope.showGuestCheckoutForm = false;
     self.showLoginFormToggle = function () {
             //console.log('scope loginform:',$scope.showLoginForm);
-
         $scope.showSignUpForm = false;
         $scope.showGuestCheckoutForm = false;
         $scope.showLoginForm = !$scope.showLoginForm;
@@ -67,7 +66,6 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
         $scope.showLoginForm = false;
         $scope.showGuestCheckoutForm = false;
         $scope.showSignUpForm = !$scope.showSignUpForm;
-
     };
     self.showGuestCheckoutFormToggle = function () {
         $scope.showLoginForm = false;
@@ -76,10 +74,55 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
         $scope.showGuestCheckoutForm = !$scope.showGuestCheckoutForm;
     };
 
-    /** ng-click handler for the ship-to form **/
-    
+    /** ng-click handler for the login-forms submit buttons **/
+    $scope.showShipToForm = false;
 
+    self.showShipToForm_logInBtn = function(){
+            //console.log("showShipToForm_logInBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
+        $scope.showShipToForm = true;
+        $scope.showLoginForm = false;
+    };
+    self.showShipToForm_signUpBtn = function(){
+            //console.log("showShipToForm_signUpBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
+        $scope.showShipToForm = true;
+        $scope.showSignUpForm = false;
+    };
+    self.showShipToForm_guestCheckoutBtn = function(){
+            //console.log("showShipToForm_guestCheckoutBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
+        $scope.showShipToForm = true;
+        $scope.showGuestCheckoutForm = false;
+    };
 
+    /**  ng-click handler for login-form submit button  **/
+    self.loginBtnValidation = function() {
+        console.log('cartC.loginBtnValidation is running');
+        var username = $("#user_name").val();
+        var password = $("#password").val();
+        var credentials = {
+            user_name: username,
+            password: password
+        };
+        console.log("sending name/pw: ", credentials);
+        $http({
+            url: "php/login.php",
+            data: credentials,
+            method: "post",
+            cache: false,
+            dataType: 'jsonp'
+        })
+            .then(
+                function success(response){
+                    console.log(response);
+                    var data = response.data;
+                    console.log("cartC.loginBtnValidation received successful response from login.php, response = : ", data);
+                    $("body").append('<h3>' + 'Result: ' + response + '</h3>');
+                },
+                function error(response) {
+                    console.log("Oops, something went wrong", response);
+                    $("body").append('<h3>' + 'Error:' + response + '</h3>');
+                }
+            );//then
+    };//end proceedToCheckOut
 }]);
 
 

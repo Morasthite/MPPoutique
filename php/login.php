@@ -3,8 +3,9 @@ session_start();
     require_once ('mysql_connect.php');
     //if login-form is filled in, query database by username, check password against db, if correct, display shipping address
     // on file for the user to verify or modify, if not correct, display error
-    $_POST['user_name']= "pearl";
-    $_POST['password']= "pearl";
+    //$_POST['user_name']= "pearl";
+    //$_POST['password']= "pearl";
+    print_r($_POST);
     if (!empty ($_POST['user_name']) and !empty ($_POST['password']) and ($_POST['user_name']) != "guest") {
         $user = "'".$_POST['user_name']."'";
         $pass = $_POST['password'];
