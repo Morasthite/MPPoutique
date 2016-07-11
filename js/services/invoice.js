@@ -3,7 +3,7 @@
  */
 app.factory("invoice",function () {
     return {
-        showContent : false,
+        showContent : true,
         customer: {},
         cart: [],
         timestamp : 0,
