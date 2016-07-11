@@ -164,7 +164,7 @@ ul li {
 .off_days {
     color: red;
 }
-#contact_email {
+#contact_user_email {
     font-weight: bold;
     color : #5e112d;
 }
@@ -182,7 +182,7 @@ ul li {
 @media screen and (max-width: 640px){
     .mdl-badge.mdl-badge--overlap:after {
         top:0px;
-        right: 10%;
+        right: 80%;
     }
     /*footer*/
 footer {
