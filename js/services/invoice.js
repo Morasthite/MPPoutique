@@ -6,7 +6,7 @@ app.factory("invoice",function () {
         showContent : false,
         customer: {},
         cart: [],
-        timestamp : 0,
+        orderTime : 0,
         orderNumber : ""
 
     }

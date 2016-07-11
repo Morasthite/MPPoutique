@@ -6,10 +6,11 @@
  *          database >>>>> else, display error message.
  *          **/
 
-app.controller('cartController',["$scope","$http","config","cart", function ($scope, $http, config,cart,invoice) {
+app.controller('cartController',["$scope","$http","config","cart", "invoice", function ($scope, $http, config,cart,invoice) {
     config.banner = "assets/images/contact-image.png";
     config.menuIndice = 5;
     var self = this;  //console.log("cart_service inventory = cart.macaron_array: ", cart.macaron_array);
+    self.invoice = invoice;
     self.shipping = 7;
     self.subexists = parseInt(cart.subTotal); //console.log("sub exists: ", self.subexists);
     self.cart = cart;
@@ -94,13 +95,17 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
     self.placeYourOrder = function (){
         console.log('self.placeYourOrder is running');
         self.generateOrderNumber();
-        
-        invoice = self.finalizedOrder;
+        invoice.showContent = true;
+        invoice.customer = self.finalizedOrder.customer;
+        invoice.cart = self.finalizedOrder.Cart;
+        invoice.orderNumber = self.finalizedOrder.orderNumber;
+        invoice.orderTime = self.finalizedOrder.orderTime;
+        console.log("invoice = ", invoice);
         $http({
             url: "php/save_order.php",
             method: "post",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            data: $.param(self.finalizedOrder),
+            data: $.param(invoice),
             cache: false
         })
             .then(
