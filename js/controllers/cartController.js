@@ -33,7 +33,6 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
     self.finalizedOrder = [];
     self.finalizedOrder.Cart = [];
     self.customer = [];
-    $scope.customer = [];
     self.proceedToCheckout = function() {
         console.log('cartC.proceedToCheckout is running');
         self.dbCart = [];
@@ -47,8 +46,13 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
                     var data = response.data;
                     console.log("cartC.proceedToCheckout received successful response from checkout.php, response = : ", data);
                     self.dbCart = data[1];
-                    $scope.customer = data[0];
+                    self.customer = data[0][0];
+                    self.customer.name = self.customer.firstName + " " +self.customer.lastName;
+                    self.customer.c_card = "************"+self.customer.c_card.slice(12,16);
+                    self.customer.address = self.customer.street+ " " +self.customer.city+ " " +self.customer.state+ " " +self.customer.zip;
+
                     console.log("self.customer", self.customer);
+                    console.log("self.customer.name", self.customer.name);
                     /** cart vs current inventory comparison: find ordered items from self.cart, compare inventory to cart order, push to finalizedOrder Cart**/
                     for(var mikolajczyk=0; mikolajczyk < self.dbCart.length; mikolajczyk++){
                         for(var grodezteszky = 0; grodezteszky < self.cart.macaron_array.length; grodezteszky++){
@@ -173,52 +177,5 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
 
 
  }]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//// Old snippets////
-
-// self.currentOrderArray = [{
-//     amount: "",
-//     description: "",
-//     id: "",
-//     name: "",
-//     ordered:"",
-//     price: "",
-//     source:""
-// }];
 
 
