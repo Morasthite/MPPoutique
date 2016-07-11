@@ -48,11 +48,13 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
                     self.dbCart = data[1];
                     self.customer = data[0][0];
                     self.customer.name = self.customer.firstName + " " +self.customer.lastName;
-                    self.customer.c_card = "************"+self.customer.c_card.slice(12,16);
+                    // add to checkout.php customer query
+                    ////    $customerQuery = "SELECT `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email` FROM `customer` WHERE `id` = $id ";
+
+                    self.customer.c_card_display = "************"+self.customer.c_card.slice(12,16);
                     self.customer.address = self.customer.street+ " " +self.customer.city+ " " +self.customer.state+ " " +self.customer.zip;
 
-                    console.log("self.customer", self.customer);
-                    console.log("self.customer.name", self.customer.name);
+                    //console.log("self.customer", self.customer);
                     /** cart vs current inventory comparison: find ordered items from self.cart, compare inventory to cart order, push to finalizedOrder Cart**/
                     for(var mikolajczyk=0; mikolajczyk < self.dbCart.length; mikolajczyk++){
                         for(var grodezteszky = 0; grodezteszky < self.cart.macaron_array.length; grodezteszky++){
@@ -152,21 +154,21 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
         console.log("sending name/pw: ", credentials);
         $http({
             url: "php/login.php",
-            data: credentials,
             method: "post",
-            cache: false,
-            dataType: 'jsonp'
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            data: $.param(credentials),
+            cache: false
         })
             .then(
                 function success(response){
-                    console.log(response);
+                    //console.log("response = ",response);
                     var data = response.data;
-                    console.log("cartC.loginBtnValidation received successful response from login.php, response = : ", data);
-                    $("body").append('<h3>' + 'Result: ' + response + '</h3>');
+                    console.log("cartC.loginBtnValidation received  response from login.php" +"\n"+ "response.data = : ", data, "typeof = ", typeof data, "data[0] = ", data);
+                    //$("body").append('<h3>' + 'Result: ' + response + '</h3>');
                 },
                 function error(response) {
                     console.log("Oops, something went wrong", response);
-                    $("body").append('<h3>' + 'Error:' + response + '</h3>');
+                    //$("body").append('<h3>' + 'Error:' + response + '</h3>');
                 }
             );//then
     };//end proceedToCheckOut
