@@ -91,6 +91,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
         self.finalizedOrder.orderTime = orderTime;
         //console.log("self.finalizedOrder.orderNumber",self.finalizedOrder.orderNumber);
     };//end generatOrderNumber
+
     self.placeYourOrder = function (){
         console.log('self.placeYourOrder is running');
         self.generateOrderNumber();
@@ -98,7 +99,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
         invoice.customer = self.finalizedOrder.customer;
         invoice.cart = self.finalizedOrder.Cart;
         invoice.orderNumber = self.finalizedOrder.orderNumber;
-        invoice.timestamp = self.finalizedOrder.orderTime;
+        invoice.orderTime = self.finalizedOrder.orderTime;
         console.log("invoice = ", invoice);
         $http({
             url: "php/save_order.php",
