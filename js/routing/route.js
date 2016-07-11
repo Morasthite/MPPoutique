@@ -28,6 +28,11 @@ app.config (["$routeProvider", function($routeProvider) {
             controller: 'cartController',
             controllerAs:"cartC"
         })
+        .when('/invoice',{
+            templateUrl: 'invoice.html',
+            controller: 'invoiceController',
+            controllerAs:"invoiceC"
+        })
         .otherwise({
             redirectTo: '/'
         });
