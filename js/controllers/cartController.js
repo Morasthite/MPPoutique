@@ -94,6 +94,7 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
     self.placeYourOrder = function (){
         console.log('self.placeYourOrder is running');
         self.generateOrderNumber();
+        
         invoice = self.finalizedOrder;
         $http({
             url: "php/save_order.php",
