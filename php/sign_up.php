@@ -24,6 +24,9 @@ if (!empty ($_POST)){
     $state ="'". $_POST['state']."'";
     $phone = $_POST['phone_number'];
     $email ="'". $_POST['email']."'";
+    //**$c_card ="'".$_POST['c_card']."'";
+    //**$c_card_exp = "'".$_POST['c_card_exp']."'";
+    //**$name_on_card = "'".$_POST['name_on_card']."'";
     if (!empty($_POST['company'])) {
         $company = "'".$_POST['company']."'";
     }else{
@@ -36,6 +39,7 @@ if (!empty ($_POST)){
     }
     //print_r($_POST);
     //echo  "<br>, $email,$password,$fname,$lname,$street,$city,$state,$zip,$company,$attn,$phone,$email";
+    //** $query = "INSERT INTO `customer`(`username`, `password`, `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email`, `c_card`, `c_card_exp`, `name_on_card`) VALUES $email,$password,$fname,$lname,$street,$city,$state,$zip,$company,$attn,$phone,$email,$c_card,$c_card_exp,$name_on_card)";
     $query = "INSERT INTO `customer`( `username`, `password`, `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email`) VALUES ($email,$password,$fname,$lname,$street,$city,$state,$zip,$company,$attn,$phone,$email)";
     if (mysqli_query($conn, $query)) {
         $last_id = mysqli_insert_id($conn);
