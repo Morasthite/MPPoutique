@@ -6,6 +6,14 @@
  * Time: 1:28 PM
  */
 require('phpmailer/PHPMailer/PHPMailerAutoload.php');
+////Collect all Details from Angular HTTP Request.
+///info: POST method which angular uses send data using JSON. So in PHP Script if we use $_POST directly we will not be able to receive POST data.
+/// Here is how to read POST data in PHP sent from Angular:
+$postdata = file_get_contents("php://input");
+$request = json_decode($postdata);
+//print_r($request);
+
+////php mailer
 $mail = new PHPMailer;
 $mail->SMTPDebug = 0;                               // Enable verbose debug output
 
@@ -25,16 +33,16 @@ $options = array(
     )
 );
 $mail->smtpConnect($options);
-$mail->From = $_POST['contact_email'];//your email sending account
-$mail->FromName = $_POST['contact_name'];//your email sending account name
-$mail->addAddress('mozafarian.mo@gmail.com', $_POST['contact_name']);     // Add a recipient
+$mail->From = $request -> contact_email;//your email sending account
+$mail->FromName = $request -> contact_name;//your email sending account name
+$mail->addAddress('mozafarian.mo@gmail.com', $request -> contact_name);     // Add a recipient
 $mail->isHTML(true);                                  // Set email format to HTML
 
-$mail->Body    = $_POST['contact_comment'];
-$mail->name = trim($_POST['contact_name']);
-$mail->email  =trim($_POST['contact_email']);
-$mail->message = trim($_POST['contact_comment']);
-$mail->addReplyTo($_POST['contact_email']);
+$mail->Body    = $request -> contact_comment;
+$mail->name = trim($request ->contact_name);
+$mail->email  =trim($request -> contact_email);
+$mail->message = trim($request -> contact_comment);
+$mail->addReplyTo($request -> contact_email);
 $mail->Subject = "MPoutique message";
 
 if (empty($mail->name)) {
@@ -42,20 +50,9 @@ if (empty($mail->name)) {
 }
 
 if(!$mail->send()) {
-  $respon = [
-    'success' => false,
-           'message' => 'Mailer Error: ' . $mail->ErrorInfo
-     ];
-//   echo 'Message could not be sent.';
+   echo 'Message could not be sent.';
   }
  else {
-   $respon = [
-     'success' => true,
-   'message' => 'Message has been sent'
- ];
-//echo 'Message has been sent';
+echo 'send';
 }
-$respon = json_encode($respon);
-print $respon;
-header('Location: ../index.html#/contact');
 ?>

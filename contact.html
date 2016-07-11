@@ -8,33 +8,38 @@
     <br>
     <p><i class="fa fa-map-marker" aria-hidden="true"></i> 1625 Post St, San Francisco, CA 94115</p>
     <p><i class="fa fa-volume-control-phone" aria-hidden="true"></i> 949 800-3111</p>
-    <p><i class="fa fa-envelope" aria-hidden="true"></i><a id="contact_email"> order@MPoutique.com</a></p>
+    <p><i class="fa fa-envelope" aria-hidden="true"></i><a id="contact_user_email"> order@MPoutique.com</a></p>
     <br>
     <p>Send your questions, comments and flavor suggestions or place an order</p>
 
 </div>
-<form class="contact col-sm-6 col-xs-12" method="post" action="php/contact-form.php" id="contact-form" name="contact-form" ng-submit="contactC.submit()">
+<form class="contact col-sm-6 col-xs-12" method="post" action="php/contact-form.php" id="contact-form" name="contact-form" ng-show="contactC.show_form">
     <h4>Contact us!</h4>
     <div class="col-sm-12">
         <div class="row">
             <div class="col-sm-12 form-group">
                 <label>Your Email Address</label>
-                <input type="email" name="contact_email" class="form-control">
+                <input type="email" name="contact_email" class="form-control" id="contact_email" ng-model="user.contact_email">
             </div>
             <div class="col-sm-12 form-group">
                 <label>Your Name</label>
-                <input type="text" name="contact_name" class="form-control">
+                <input type="text" name="contact_name" class="form-control" ng-model="user.contact_name">
             </div>
             <div class="col-sm-12 form-group">
                 <label>Your Comment</label>
-                <textarea type="text" name="contact_comment" placeholder="Please leave your message here" class="form-control"></textarea>
+                <textarea type="text" name="contact_comment" placeholder="Please leave your message here" class="form-control" ng-model="user.contact_comment"></textarea>
             </div>
         </div>
     </div>
     <div class="contact_submit col-sm-12 form-group">
-        <button id="contact-form-submit-btn" type="submit" class="btn btn-lg btn-info">Submit</button>
+        <button id="contact-form-submit-btn" type="button" class="btn btn-lg btn-info" ng-click="contactC.submit()">Submit</button>
     </div>
 </form>
+
+<div id="contact_thanks" ng-show="contactC.show_thank" class="contact col-sm-6 col-xs-12">
+    <h1>thanks for your message.</h1>
+    <p>We will contact you as soon as possible!</p>
+</div>
 
 <!----------------------------map----------------------------------->
 <script>
