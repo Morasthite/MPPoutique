@@ -171,6 +171,17 @@ ul li {
 .contact_submit {
     margin-top: 10%;
 }
+/*//////////////////////////invoice page/////////////////////////////*/
+#invoice_page {
+    margin: 5%;
+    border: 1px solid gray;
+    padding : 2%;
+}
+#site_address {
+    font-weight: bold;
+    color : #5e112d;
+    padding-left: 5%;
+}
 /*///////////////////////media query for portrait///////////////*/
 @media screen and (orientation: portrait) {
     #main_content {

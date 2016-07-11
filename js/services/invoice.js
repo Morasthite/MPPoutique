@@ -3,6 +3,11 @@
  */
 app.factory("invoice",function () {
     return {
-        invoice : []
+        showContent : false,
+        customer: {},
+        cart: [],
+        timestamp : 0,
+        orderNumber : ""
+
     }
 });
