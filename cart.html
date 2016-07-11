@@ -213,7 +213,7 @@
                                             <!-- Checkout Button-->
                                             <div class="col-sm-6" id="place-your-order">
                                                 <button class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.proceedToCheckout()">Proceed To Checkout</button>
-                                                <button class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.placeYourOrder()">Place Your Order</button>
+                                                <button class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.placeYourOrder()"><a href="#invoice">Place Your Order</a></button>
                                             </div> <!-- End Checkout Button-->
 
                                     </div>
@@ -239,10 +239,10 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="macaron in cartC.cart.macaron_array | filter: filter" >
-                            <td class="mdl-data-table__cell--non-numeric" ng-id="macaron.name" ng-class="{{macaron.name}}">{{macaron.name}}</td>
-                            <td ng-id="macaron.ordered" ng-class="{{macaron.name}}">{{macaron.ordered}}</td>
-                            <td ng-id="macaron.price" ng-class="{{macaron.name}}">$ {{macaron.price}}</td>
-                            <td ng-id="macaron.price" ng-class="{{macaron.name}}">$ {{ cartC.addSubTotal(macaron.ordered, macaron.price) }}</td>
+                            <td class="mdl-data-table__cell--non-numeric" ng-id="{{macaron.name}}" ng-class="{{macaron.name}}">{{macaron.name}}</td>
+                            <td ng-id="{{macaron.ordered}}" ng-class="{{macaron.name}}">{{macaron.ordered}}</td>
+                            <td ng-id="{{macaron.price}}" ng-class="{{macaron.name}}">$ {{macaron.price}}</td>
+                            <td ng-id="{{macaron.price}}" ng-class="{{macaron.name}}">$ {{ cartC.addSubTotal(macaron.ordered, macaron.price) }}</td>
                         </tr>
 
                         <tr>
@@ -276,10 +276,10 @@
 
                 <!-- Checkout Button-->
                 <div ng-show="showProceedToCheckoutButton" class="col-lg-offset-6 col-lg-3 col-lg-offset-right-3 col-sm-offset-6 col-sm-3 col-sm-offset-right-3 col-xs-12" id="proceed-to-checkout">
-                    <!-- Raised button with ripple -->
-                    <button style="margin-left: -10%" class="mdl-button mdl-js-button mdl-button--raised disabled">
-                       <a href="#invoice"> Place your order</a>
-                    </button>
+                    <!--&lt;!&ndash; Raised button with ripple &ndash;&gt;-->
+                    <!--<button style="margin-left: -10%" class="mdl-button mdl-js-button mdl-button&#45;&#45;raised disabled">-->
+                       <!--<a href="#invoice"> Place your order</a>-->
+                    <!--</button>-->
                     <button class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.proceedToCheckout()">
                         Proceed To Checkout
                     </button>
