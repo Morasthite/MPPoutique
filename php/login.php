@@ -13,13 +13,13 @@ session_start();
         $result = mysqli_query($conn, $query);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-                var_dump($row);
+                //var_dump($row);
                 foreach ($row as $key => $value) {
                 if($key == "password") {
                     if(sha1($pass) == $value) {
-                        echo "user exists, username: ".$_POST['user_name']."<br> pass : ".$pass."<br>";
-                        echo "Hello".$row["firstName"];
-                        echo "Please verify your shipping address: ".$row["city"]." , ".$row["street"]." , ".$row["zip"]."<br>";
+                        //echo "user exists, username: ".$_POST['user_name']."<br> pass : ".$pass."<br>";
+                        //echo "Hello".$row["firstName"];
+                        //echo "Please verify your shipping address: ".$row["city"]." , ".$row["street"]." , ".$row["zip"]."<br>";
                         $_SESSION["id"] = $row["id"];
                         print json_encode($row);
                     }///end of check for $pass
