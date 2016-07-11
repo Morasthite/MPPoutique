@@ -6,15 +6,13 @@
  *          database >>>>> else, display error message.
  *          **/
 
-app.controller('cartController',["$scope","$http","config","cart", function ($scope, $http, config,cart) {
+app.controller('cartController',["$scope","$http","config","cart", function ($scope, $http, config,cart,invoice) {
     config.banner = "assets/images/contact-image.png";
     config.menuIndice = 5;
-    var self = this;
-            //console.log("cart_service inventory = cart.macaron_array: ", cart.macaron_array);
-    self.cart = cart;
+    var self = this;  //console.log("cart_service inventory = cart.macaron_array: ", cart.macaron_array);
     self.shipping = 7;
-    self.subexists = parseInt(cart.subTotal);
-        //console.log("sub exists: ", self.subexists);
+    self.subexists = parseInt(cart.subTotal); //console.log("sub exists: ", self.subexists);
+    self.cart = cart;
     cart.tax = parseFloat((parseInt(cart.subTotal) * .09).toFixed(2));
     cart.totalCost = cart.subTotal + cart.tax + self.shipping;
     cart.totalCost = parseFloat((cart.totalCost).toFixed(2));
@@ -24,15 +22,15 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
                 return item.ordered > 0;
             }
     };
-        //self.currentOrderArray = [];
     self.addSubTotal = function(count, price){
-            //console.log("Count", count, "Price", price);
         return  parseFloat((parseInt(count) * parseFloat(price)).toFixed(2)) ;
     };
 
     self.finalizedOrder = [];
     self.finalizedOrder.Cart = [];
-    self.customer = [];
+    self.finalizedOrder.customer = [];
+    self.finalizedOrder.orderNumber = "";
+    self.finalizedOrder.orderTime = "";
     self.proceedToCheckout = function() {
         console.log('cartC.proceedToCheckout is running');
         self.dbCart = [];
@@ -43,18 +41,7 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
         })
             .then(
                 function success(response){
-                    var data = response.data;
-                    console.log("cartC.proceedToCheckout received successful response from checkout.php, response = : ", data);
-                    self.dbCart = data[1];
-                    self.customer = data[0][0];
-                    self.customer.name = self.customer.firstName + " " +self.customer.lastName;
-                    // add to checkout.php customer query
-                    ////    $customerQuery = "SELECT `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email` FROM `customer` WHERE `id` = $id ";
-
-                    self.customer.c_card_display = "************"+self.customer.c_card.slice(12,16);
-                    self.customer.address = self.customer.street+ " " +self.customer.city+ " " +self.customer.state+ " " +self.customer.zip;
-
-                    //console.log("self.customer", self.customer);
+                self.displayToShipToForm(response);
                     /** cart vs current inventory comparison: find ordered items from self.cart, compare inventory to cart order, push to finalizedOrder Cart**/
                     for(var mikolajczyk=0; mikolajczyk < self.dbCart.length; mikolajczyk++){
                         for(var grodezteszky = 0; grodezteszky < self.cart.macaron_array.length; grodezteszky++){
@@ -69,8 +56,9 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
                                 else if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered > self.dbCart[mikolajczyk].amount))
                                 {    /*TODO: Create & Display "Not enough inventory form here */
                                     console.log("Display this to DOM: "+"We be sorry Willis. There are only "+self.dbCart[mikolajczyk].amount+" "+self.dbCart[mikolajczyk].name+ " macarons left."+"\n"+"  Please go back and lower the number of "+self.dbCart[mikolajczyk].name+" macarons in your order");
+
                                 }
-                                console.log("self.finalizedOrder.Cart = ", self.finalizedOrder.Cart);
+                                console.log("self.finalizedOrder = ", self.finalizedOrder);
                             }//end if(self.cart.macaron_array[grodezteszky].ordered > 0)
                         }//end for(var grodezteszky = 0
                     }//end for(var mikolajczyk=0
@@ -82,15 +70,59 @@ app.controller('cartController',["$scope","$http","config","cart", function ($sc
 
     };//end proceedToCheckOut
 
+    self.displayToShipToForm = function(response){
+        var data = response.data;
+        console.log("self.displayToShipToForm is running, cartC.proceedToCheckout received successful response from checkout.php, response = : ", data);
+        self.dbCart = data[1];
+        self.finalizedOrder.customer = data[0][0];
+        self.finalizedOrder.customer.name = self.finalizedOrder.customer.firstName + " " +self.finalizedOrder.customer.lastName;
+        // add to checkout.php customer query
+        ////    $customerQuery = "SELECT `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email` FROM `customer` WHERE `id` = $id ";
+
+        self.finalizedOrder.customer.c_card_display = "************"+self.finalizedOrder.customer.c_card.slice(12,16);
+        self.finalizedOrder.customer.address = self.finalizedOrder.customer.street+ " " +self.finalizedOrder.customer.city+ " " +self.finalizedOrder.customer.state+ " " +self.finalizedOrder.customer.zip;
+    };//end displayToShipToForm
+
+    self.generateOrderNumber = function(){
+        var orderDay = new Date();
+        var orderTime = orderDay.getTime();
+        self.finalizedOrder.orderNumber = self.finalizedOrder.customer.firstName + self.finalizedOrder.customer.lastName + orderTime;
+        self.finalizedOrder.orderTime = orderTime;
+        //console.log("self.finalizedOrder.orderNumber",self.finalizedOrder.orderNumber);
+    };//end generatOrderNumber
+
+    self.placeYourOrder = function (){
+        console.log('self.placeYourOrder is running');
+        self.generateOrderNumber();
+        invoice = self.finalizedOrder;
+        $http({
+            url: "php/save_order.php",
+            method: "post",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            data: $.param(self.finalizedOrder),
+            cache: false
+        })
+            .then(
+                function success(response){
+                    //console.log("response = ",response);
+                    var data = response.data;
+                    console.log("self.placeYourOrder received  response from save_order.php" +"\n"+ "response.data = : ", data);
+                },
+                function error(response) {
+                    console.log("Oops, something went wrong", response);
+                }
+            );//then
+    };//end placeYourOrder
+
     /** ng-click handler for toggling the login/signup/guestcheckout forms **/
 
-    $scope.showLoginButton = true;
-    $scope.showSignUpButton = true;
-    $scope.showGuestCheckoutButton = true;
-    $scope.showProceedToCheckoutButton = true;
-    $scope.showLoginForm = false;
-    $scope.showSignUpForm = false;
-    $scope.showGuestCheckoutForm = false;
+        $scope.showLoginButton = true;
+        $scope.showSignUpButton = true;
+        $scope.showGuestCheckoutButton = true;
+        $scope.showProceedToCheckoutButton = true;
+        $scope.showLoginForm = false;
+        $scope.showSignUpForm = false;
+        $scope.showGuestCheckoutForm = false;
 
     self.hideLoginButtons = function(){
         $scope.showLoginButton = false;
