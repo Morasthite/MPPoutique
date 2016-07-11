@@ -10,7 +10,7 @@ if (empty($_SESSION["id"])) {
     $inventory = array();
     $user = array();
 //    $customerQuery = "SELECT `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email` FROM `customer` WHERE `id` = $id ";
-    $customerQuery = "SELECT `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email`, `c_card`, `c_card_exp`,`name_on_card` FROM `customer` WHERE `id` = $id ";
+    $customerQuery = "SELECT `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email`, `c_card`, `c_card_exp`, `name_on_card` FROM `customer` WHERE `id` = $id ";
     $result2 = mysqli_query($conn, $customerQuery);
     if (mysqli_num_rows($result2) > 0) {
         while ($row1 = mysqli_fetch_assoc($result2)) {
