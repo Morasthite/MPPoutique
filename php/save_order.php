@@ -16,7 +16,7 @@ require_once ('mysql_connect.php');
 $data = $_POST['cart'][1];
 print_r($data);
 $id = $_SESSION["id"];
-$invoice_num =intval($_POST['orderNumber']);
+$invoice_num ="'".$_POST['orderNumber']."'";
 foreach ($data as $item) {
 ////////////sending data to db
 $quantity = intval($item['ordered']);
