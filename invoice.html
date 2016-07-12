@@ -1,5 +1,15 @@
 <section id="invoice_page">
-    <div>
-        <h4 id="site_address">MPoutique.com</h4>
+    <div id="site_address" class="row">
+        <h4>MPoutique.com</h4>
     </div>
+    <div id="invoice_user_info" class="col-sm-6 col-xs-12">
+        <p><span class="bold">Customer Name: </span><span>{{" "+invoiceC.invoice.customer.firstName+" "+invoiceC.invoice.customer.lastName}}</span></p>
+        <p><span class="bold">Address</span><span>{{" "+invoiceC.invoice.customer.address}}</span></p>
+        <p><span class="bold">Phone number: </span><span>{{" "+invoiceC.invoice.customer.phone}}</span></p>
+        <p><span class="bold">Email: </span><span>{{" "+invoiceC.invoice.customer.email}}</span></p>
+    </div>
+    <div id="invoice_order_info" class="col-sm-6 col-xs-12">
+        <p><span class="bold">Date: </span><span>{{" "+date | date:'yyyy-MM-dd'}}</span></p>
+    </div>
+
 </section>

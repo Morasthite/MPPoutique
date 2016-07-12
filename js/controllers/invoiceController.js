@@ -4,7 +4,8 @@
 app.controller('invoiceController',["$scope","config","invoice","$location",function ($scope,config,invoice,$location) {
     config.banner = "assets/images/contact-image.png";
     config.menuIndice = 12;
-    console.log("invoice controller");
+    //console.log("invoice controller");
+    $scope.date = new Date();
     this.invoice = invoice;
     console.log("show content in invoice: ",invoice);
     if (!invoice.showContent){
