@@ -38,6 +38,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
     self.proceedToCheckout = function() {
                 console.log('cartC.proceedToCheckout is running');
         self.dbCart = [];
+        $scope.showLoginFailedMessage = false;
         $http({
             url: "php/checkout.php",
             method: "post",
@@ -74,7 +75,8 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
                             console.log("self.finalizedOrder = ", self.finalizedOrder);
                             self.showShipToForm();
                             self.displayToShipToForm(response);
-                            $scope.showPlaceYourOrderButton = true; console.log("showPlaceYourOrderButton",$scope.showPlaceYourOrderButton);
+                            $scope.showPlaceYourOrderButton = true;
+                            $scope.showThnxLoginMessage = false;
                         }
                     }//else
                 },
@@ -146,6 +148,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
         $scope.showThanksSigningUpMessage = false;
         $scope.showGuestCheckOutMessage = false;
         $scope.showThnxLoginMessage = false;
+        $scope.showLoginFailedMessage = false;
 
 /** ng-click handler for the login-forms submit buttons **/
     self.hideLoginButtons = function(){
@@ -213,14 +216,19 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
         })
             .then(
                 function success(response){
-                    //console.log("response = ",response);
+                    console.log("response = ",response);
                     var data = response.data;
-                    console.log("cartC.loginBtnValidation received  response from login.php" +"\n"+ "response.data = : ", data, "typeof = ", typeof data, "data[0] = ", data[0]);
-                    //if(data[0]['user'])
-                    self.hideLoginButtons();
-                    self.customerLoggedIn = true;
-                    console.log("self.customerLoggedIn = ", self.customerLoggedIn);
-                    $scope.showThnxLoginMessage = true;
+                    console.log("cartC.loginBtnValidation received  response from login.php" +"\n"+ "response.data[1] = : ",data);
+                    if(data === "Login Failed"){
+                        $scope.showLoginFailedMessage = true;
+                        self.customerLoggedIn = false;
+                    }else{
+                        self.hideLoginButtons();
+                        self.customerLoggedIn = true;
+                        console.log("self.customerLoggedIn = ", self.customerLoggedIn);
+                        $scope.showThnxLoginMessage = true;
+                        $scope.showLoginFailedMessage = false;
+                    }
                 },
                 function error(response) {
                     console.log("Oops, something went wrong", response);
