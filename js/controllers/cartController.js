@@ -50,9 +50,8 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
                             {
                                 if((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered <= self.dbCart[mikolajczyk].amount))
                                 {
-                                    //console.log("self.cart.macaron_array[grodezteszky].name and .ordered = ", self.cart.macaron_array[grodezteszky].name, self.cart.macaron_array[grodezteszky].ordered, '\n', " COMPARE self.dbCart[mikolajczyk].name and .amount = ",self.dbCart[mikolajczyk].name, self.dbCart[mikolajczyk].amount, '\n', "It's kewl, Willis, you can order ",self.cart.macaron_array[grodezteszky].ordered," ", self.cart.macaron_array[grodezteszky].name);
-                                    //self.finalizedOrder.Cart[mikolajczyk] = self.cart.macaron_array[mikolajczyk];
-                                    self.finalizedOrder.Cart.push(self.cart.macaron_array[mikolajczyk]);
+                                    console.log("self.cart.macaron_array[grodezteszky].name and .ordered = ", self.cart.macaron_array[grodezteszky].name, self.cart.macaron_array[grodezteszky].ordered, '\n', " COMPARE self.dbCart[mikolajczyk].name and .amount = ",self.dbCart[mikolajczyk].name, self.dbCart[mikolajczyk].amount, '\n', "It's kewl, Willis, you can order ",self.cart.macaron_array[grodezteszky].ordered," ", self.cart.macaron_array[grodezteszky].name);
+                                    self.finalizedOrder.Cart[mikolajczyk] = self.cart.macaron_array[mikolajczyk];
                                     /*TODO: Create & Display "thanks for your order form here */
                                 }
                                 else if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered > self.dbCart[mikolajczyk].amount))
@@ -60,7 +59,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
                                     console.log("Display this to DOM: "+"We be sorry Willis. There are only "+self.dbCart[mikolajczyk].amount+" "+self.dbCart[mikolajczyk].name+ " macarons left."+"\n"+"  Please go back and lower the number of "+self.dbCart[mikolajczyk].name+" macarons in your order");
 
                                 }
-                                //console.log("self.finalizedOrder = ", self.finalizedOrder);
+                                console.log("self.finalizedOrder = ", self.finalizedOrder);
                             }//end if(self.cart.macaron_array[grodezteszky].ordered > 0)
                         }//end for(var grodezteszky = 0
                     }//end for(var mikolajczyk=0
@@ -102,12 +101,11 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
         invoice.orderNumber = self.finalizedOrder.orderNumber;
         invoice.orderTime = self.finalizedOrder.orderTime;
         console.log("invoice = ", invoice.cart);
-        var cartdb = {data: invoice.cart};
         $http({
             url: "php/save_order.php",
             method: "post",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            data: $.param(cartdb),
+            data: $.param(invoice),
             // data : invoice.cart,
             cache: false
         })

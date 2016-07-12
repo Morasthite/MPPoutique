@@ -12,16 +12,20 @@ require_once ('mysql_connect.php');
 //$request = json_decode($postdata);
 //print_r($request);
 ///////////////parse the data
-$data = $_POST['data'];
+//print_r($_POST);
+$data = $_POST['cart'][1];
 print_r($data);
 $id = $_SESSION["id"];
+$invoice_num =intval($_POST['orderNumber']);
 foreach ($data as $item) {
 ////////////sending data to db
-$quantity = $item['orderd'];
-$query = "INSERT INTO `purchases`(`inventory_id`, `customer_id`, `quantity_purchased`, `date`, `note`, `invoice_number`) VALUES ([value-2],$id,[value-4],[value-5],[value-6],[value-7])";
-//$result = mysqli_query($conn, $query);
-//if (mysqli_num_rows($result) > 0) {
-//    while ($row = mysqli_fetch_assoc($result)) {
-//    }///end of while
-//}///end of if
+$quantity = intval($item['ordered']);
+$name = "'".$item['name']."'";
+$query = "INSERT INTO `purchases`(`inventory_id`, `customer_id`, `quantity_purchased`, `invoice_number`) VALUES ($name,$id,$quantity,$invoice_num)";
+    print_r($query);
+$result = mysqli_query($conn, $query);
+if (mysqli_num_rows($result) > 0) {
+  while ($row = mysqli_fetch_assoc($result)) {
+   }///end of while
+}///end of if
 }/////end of for loop
