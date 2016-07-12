@@ -13,15 +13,16 @@ require_once ('mysql_connect.php');
 //print_r($request);
 ///////////////parse the data
 //print_r($_POST);
-$data = $_POST['cart'][1];
+$data = $_POST['cart'];
 print_r($data);
 $id = $_SESSION["id"];
 $invoice_num ="'".$_POST['orderNumber']."'";
 foreach ($data as $item) {
 ////////////sending data to db
 $quantity = intval($item['ordered']);
-$name = "'".$item['name']."'";
+$name = intval($item['id']);
 $query = "INSERT INTO `purchases`(`inventory_id`, `customer_id`, `quantity_purchased`, `invoice_number`) VALUES ($name,$id,$quantity,$invoice_num)";
+    echo "query:";
     print_r($query);
 $result = mysqli_query($conn, $query);
 if (mysqli_num_rows($result) > 0) {
