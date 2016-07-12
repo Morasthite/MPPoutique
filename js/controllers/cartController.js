@@ -9,10 +9,11 @@
 app.controller('cartController',["$scope","$http","config","cart", "invoice", function ($scope, $http, config,cart,invoice) {
     config.banner = "assets/images/contact-image.png";
     config.menuIndice = 5;
-    var self = this;  //console.log("cart_service inventory = cart.macaron_array: ", cart.macaron_array);
+    var self = this;
+        //console.log("cart_service inventory = cart.macaron_array: ", cart.macaron_array);
     self.invoice = invoice;
     self.shipping = 7;
-    self.subexists = parseInt(cart.subTotal); //console.log("sub exists: ", self.subexists);
+    self.subexists = parseInt(cart.subTotal);
     self.cart = cart;
     cart.tax = parseFloat((parseInt(cart.subTotal) * .09).toFixed(2));
     cart.totalCost = cart.subTotal + cart.tax + self.shipping;
@@ -27,13 +28,15 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
         return  parseFloat((parseInt(count) * parseFloat(price)).toFixed(2)) ;
     };
 
+    self.customerLoggedIn = false;
     self.finalizedOrder = [];
     self.finalizedOrder.Cart = [];
     self.finalizedOrder.customer = [];
     self.finalizedOrder.orderNumber = "";
     self.finalizedOrder.orderTime = "";
+
     self.proceedToCheckout = function() {
-        console.log('cartC.proceedToCheckout is running');
+                console.log('cartC.proceedToCheckout is running');
         self.dbCart = [];
         $http({
             url: "php/checkout.php",
@@ -49,32 +52,35 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
                     self.dbCart = data[1];
                     console.log("cartC.proceedToCheckout received response from checkout.php, response = : ", data);
                     if(data === 'Login'){
-                        //console.log("Please Choose Login, Sign Up, or Checkout As Guest First");
                         $scope.showPlzLoginMessage = true;
-                        /** TODO: append to DOM ^**/
                     }
                     else {
-                        for (var mikolajczyk = 0; mikolajczyk < self.dbCart.length; mikolajczyk++) {
-                            for (var grodezteszky = 0; grodezteszky < self.cart.macaron_array.length; grodezteszky++) {
-                                if (self.cart.macaron_array[grodezteszky].ordered > 0) {
-                                    if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered <= self.dbCart[mikolajczyk].amount)) {
-                                        console.log("self.cart.macaron_array[grodezteszky].name and .ordered = ", self.cart.macaron_array[grodezteszky].name, self.cart.macaron_array[grodezteszky].ordered, '\n', " COMPARE self.dbCart[mikolajczyk].name and .amount = ", self.dbCart[mikolajczyk].name, self.dbCart[mikolajczyk].amount, '\n', "It's kewl, Willis, you can order ", self.cart.macaron_array[grodezteszky].ordered, " ", self.cart.macaron_array[grodezteszky].name);
-                                        self.finalizedOrder.Cart.push(self.cart.macaron_array[mikolajczyk]);
-                                        /*TODO: Create & Display "thanks for your order form here */
-                                    }
-                                    else if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered > self.dbCart[mikolajczyk].amount)) {    /*TODO: Create & Display "Not enough inventory form here */
-                                        console.log("Display this to DOM: " + "We be sorry Willis. There are only " + self.dbCart[mikolajczyk].amount + " " + self.dbCart[mikolajczyk].name + " macarons left." + "\n" + "  Please go back and lower the number of " + self.dbCart[mikolajczyk].name + " macarons in your order");
+                        if(self.customerLoggedIn = true) {
+                            for (var mikolajczyk = 0; mikolajczyk < self.dbCart.length; mikolajczyk++) {
+                                for (var grodezteszky = 0; grodezteszky < self.cart.macaron_array.length; grodezteszky++) {
+                                    if (self.cart.macaron_array[grodezteszky].ordered > 0) {
+                                        if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered <= self.dbCart[mikolajczyk].amount)) {
+                                            console.log("self.cart.macaron_array[grodezteszky].name and .ordered = ", self.cart.macaron_array[grodezteszky].name, self.cart.macaron_array[grodezteszky].ordered, '\n', " COMPARE self.dbCart[mikolajczyk].name and .amount = ", self.dbCart[mikolajczyk].name, self.dbCart[mikolajczyk].amount, '\n', "It's kewl, Willis, you can order ", self.cart.macaron_array[grodezteszky].ordered, " ", self.cart.macaron_array[grodezteszky].name);
+                                            self.finalizedOrder.Cart.push(self.cart.macaron_array[mikolajczyk]);
+                                            /*TODO: Create & Display "thanks for your order form here */
+                                        }
+                                        else if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered > self.dbCart[mikolajczyk].amount)) {    /*TODO: Create & Display "Not enough inventory form here */
+                                            console.log("Display this to DOM: " + "We be sorry Willis. There are only " + self.dbCart[mikolajczyk].amount + " " + self.dbCart[mikolajczyk].name + " macarons left." + "\n" + "  Please go back and lower the number of " + self.dbCart[mikolajczyk].name + " macarons in your order");
 
-                                    }
-                                }//end if(self.cart.macaron_array[grodezteszky].ordered > 0)
-                            }//end for(var grodezteszky = 0
-                        }//end for(var mikolajczyk=0
-                        console.log("self.finalizedOrder = ", self.finalizedOrder);
+                                        }
+                                    }//end if(self.cart.macaron_array[grodezteszky].ordered > 0)
+                                }//end for(var grodezteszky = 0
+                            }//end for(var mikolajczyk=0
+                            console.log("self.finalizedOrder = ", self.finalizedOrder);
+                            self.showShipToForm();
+                            self.displayToShipToForm(response);
+                            $scope.showPlaceYourOrderButton = true; console.log("showPlaceYourOrderButton",$scope.showPlaceYourOrderButton);
+                        }
                     }//else
                 },
                 function error(response) {
                     console.log("Oops, something went wrong", response);
-                }
+                }//if(self.customerLoggedIn)
             );//then
 
     };//end proceedToCheckOut
@@ -82,12 +88,9 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
     self.displayToShipToForm = function(response){
         var data = response.data;
         console.log("self.displayToShipToForm is running, cartC.proceedToCheckout received successful response from checkout.php, response = : ", data);
-        self.dbCart = data[1];
+        //self.dbCart = data[1];
         self.finalizedOrder.customer = data[0][0];
         self.finalizedOrder.customer.name = self.finalizedOrder.customer.firstName + " " +self.finalizedOrder.customer.lastName;
-        // add to checkout.php customer query
-        ////    $customerQuery = "SELECT `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email` FROM `customer` WHERE `id` = $id ";
-
         self.finalizedOrder.customer.c_card_display = "************"+self.finalizedOrder.customer.c_card.slice(12,16);
         self.finalizedOrder.customer.address = self.finalizedOrder.customer.street+ " " +self.finalizedOrder.customer.city+ " " +self.finalizedOrder.customer.state+ " " +self.finalizedOrder.customer.zip;
     };//end displayToShipToForm
@@ -128,8 +131,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
             );//then
     };//end placeYourOrder
 
-    /** ng-click handler for toggling the login/signup/guestcheckout forms **/
-
+/** ng-click handler for toggling the login/signup/guestcheckout forms/messages **/
         $scope.showLoginButton = true;
         $scope.showSignUpButton = true;
         $scope.showGuestCheckoutButton = true;
@@ -144,7 +146,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
         $scope.showGuestCheckOutMessage = false;
         $scope.showThnxLoginMessage = false;
 
-
+/** ng-click handler for the login-forms submit buttons **/
     self.hideLoginButtons = function(){
         $scope.showLoginButton = false;
         $scope.showSignUpButton = false;
@@ -181,16 +183,16 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
         $scope.showGuestCheckOutMessage = true;
     };
 
-    /** ng-click handler for the login-forms submit buttons **/
+    self.showShipToForm = function(){
+            //console.log("showShipToForm_logInBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
+        $scope.showShipToForm = true;
+        $scope.showLoginForm = false;
+        $scope.showSignUpForm = false;
+        $scope.showGuestCheckoutForm = false;
+        self.hideLoginButtons();
+        $scope.showProceedToCheckoutButton = false;
+    };
 
-
-    // self.showShipToForm_logInBtn = function(){
-    //         //console.log("showShipToForm_logInBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
-    //     $scope.showShipToForm = true;
-    //     $scope.showLoginForm = false;
-    //     self.hideLoginButtons();
-    //     $scope.showProceedToCheckoutButton = false;
-    // };
     // self.showShipToForm_signUpBtn = function(){
     //         //console.log("showShipToForm_signUpBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
     //     $scope.showShipToForm = true;
@@ -206,7 +208,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
     //     $scope.showProceedToCheckoutButton = false;
     // };
 
-    /**  ng-click handler for login-form submit button  **/
+/**  ng-click handler for login-form submit button  **/
     self.loginBtnValidation = function() {
         console.log('cartC.loginBtnValidation is running');
         var username = $("#user_name").val();
@@ -230,6 +232,8 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
                     console.log("cartC.loginBtnValidation received  response from login.php" +"\n"+ "response.data = : ", data, "typeof = ", typeof data, "data[0] = ", data[0]);
                     //if(data[0]['user'])
                     self.hideLoginButtons();
+                    self.customerLoggedIn = true;
+                    console.log("self.customerLoggedIn = ", self.customerLoggedIn);
                     $scope.showThnxLoginMessage = true;
                 },
                 function error(response) {
@@ -238,7 +242,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
                 }
             );//then
     };//end proceedToCheckOut
-        /**TODO: validation not correct yet, login.php sending back empty Array**/
+/**TODO: validation not correct yet, login.php sending back empty Array**/
 
     /** **/
 

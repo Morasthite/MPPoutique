@@ -122,5 +122,8 @@
     bottom:0;
     right:0;
 }
+#checkout-buttons {
+    color: white;
+}
 /********************************   END CART - page 2 - w/login forms   ***************************************/
 /**shipto form positioning to be done**/

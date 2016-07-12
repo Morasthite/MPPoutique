@@ -289,8 +289,8 @@
                                             <input class="form-control" id="shipto-name-on-card" placeholder="Micah Grodezetsky" ng-model="cartC.finalizedOrder.customer.name_on_card">
                                         </div>
                                             <!-- Place Your Order Button-->
-                                            <div class="col-sm-6" id="place-your-order">                                                                <button class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.placeYourOrder()"><a href="#invoice">Place Your Order</a></button>
-                                            </div> <!-- End Place Your Order Button-->
+                                            <!--<div class="col-sm-6" id="place-your-order">                                                                <button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised disabled" ng-click="cartC.placeYourOrder()"><a href="#invoice">Place Your Order</a></button>-->
+                                            <!--</div> &lt;!&ndash; End Place Your Order Button&ndash;&gt;-->
 
                                     </div>
                                 </div>
@@ -346,16 +346,18 @@
                     </tbody>
                 </table> <!-- End Totals Table-->
 
-                <!-- Checkout Button-->
-                <div ng-show="showProceedToCheckoutButton" class="col-lg-offset-6 col-lg-3 col-lg-offset-right-3 col-sm-offset-6 col-sm-3 col-sm-offset-right-3 col-xs-12" id="proceed-to-checkout">
-                    <!-- Raised button with ripple -->
-                    <button ng-show="showPlaceYourOrderButton" style="margin-left: -10%" class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.placeYourOrder()">
-                       <a href="#invoice"> Place your order</a>
-                    </button>
+                <!-- Checkout Buttons-->
+                <div ng-show="showProceedToCheckoutButton" class="checkout-buttons col-lg-offset-6 col-lg-3 col-lg-offset-right-3 col-sm-offset-6 col-sm-3 col-sm-offset-right-3 col-xs-12" id="proceed-to-checkout">
                     <button ng-show="showProceedToCheckoutButton" style="margin-left: -10%" class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.proceedToCheckout()">
                         Proceed To Checkout
                     </button>
-                </div> <!-- End Checkout Button-->
+                </div>
+
+                <div ng-show="showPlaceYourOrderButton" class="col-lg-offset-4 col-lg-4 col-lg-offset-right-4 col-sm-offset-4 col-sm-4 col-sm-offset-right-4 col-xs-12" id="place-your-order-btn">
+                    <!-- Raised button with ripple -->
+                    <button class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.placeYourOrder()"><a href="#invoice">Place Your Order</a></button>
+
+                </div> <!-- End Checkout Buttons-->
             </div><!-- End CART TABLE-->
         </div><!-- row-->
     </div><!-- container -->
