@@ -173,14 +173,30 @@ ul li {
 }
 /*//////////////////////////invoice page/////////////////////////////*/
 #invoice_page {
+    position: relative;
     margin: 5%;
-    border: 1px solid gray;
+    /*border: 1px solid gray;*/
     padding : 2%;
 }
-#site_address {
+#site_address, #invoice_info, #invoice_item_table {
+    border-bottom: 5px solid #5e112d ;
+}
+#site_address h4{
     font-weight: bold;
     color : #5e112d;
     padding-left: 5%;
+    padding-bottom: 2%;
+}
+#invoice_user_info, #invoice_order_info, #invoice_info, #invoice_item_table,#invoice_total {
+    padding: 3%;
+}
+.bold {
+    font-weight: bold;
+    color : #5e112d;
+}
+#invoice_thank {
+    text-align: center;
+    color : #5e112d;
 }
 /*///////////////////////media query for portrait///////////////*/
 @media screen and (orientation: portrait) {

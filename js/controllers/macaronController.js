@@ -20,7 +20,7 @@ app.controller('macaronController', ["$scope", "$timeout", "config","cart", func
         // console.log("cart.macaron_array after adding: ",cart.macaron_array);
     });
     self.cart = cart;
-    //console.log("cart: ",cart);
+    console.log("cart: ",cart);
     this.add = function (macaron) {
         if (macaron.ordered < macaron.amount) {
             macaron.ordered++;

@@ -111,12 +111,13 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
         invoice.cart = self.finalizedOrder.Cart;
         invoice.orderNumber = self.finalizedOrder.orderNumber;
         invoice.orderTime = self.finalizedOrder.orderTime;
-        console.log("invoice = ", invoice);
+        console.log("invoice = ", invoice.cart);
         $http({
             url: "php/save_order.php",
             method: "post",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             data: $.param(invoice),
+            // data : invoice.cart,
             cache: false
         })
             .then(
