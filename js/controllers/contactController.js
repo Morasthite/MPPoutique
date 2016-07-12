@@ -8,9 +8,9 @@ app.controller('contactController',["$scope","config","$http",function ($scope,c
     this.show_thank = false;
    ///////////two way data binding with input values in the form
     this.user = {
-        contact_name : "",
-        contact_email : "",
-        contact_comment : ""
+        contactName : "",
+        contactEmail : "",
+        contactComment : ""
     };
     //console.log("contact_email: ",$scope.user);
     //////////////submit button for contact form

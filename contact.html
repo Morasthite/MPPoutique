@@ -19,20 +19,20 @@
         <div class="row">
             <div class="col-sm-12 form-group">
                 <label>Your Email Address</label>
-                <input type="email" name="contact_email" class="form-control" id="contact_email" ng-model="user.contact_email">
+                <input type="email" name="contactEmail" class="form-control" id="contactEmail" ng-model="user.contactEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
             </div>
             <div class="col-sm-12 form-group">
                 <label>Your Name</label>
-                <input type="text" name="contact_name" class="form-control" ng-model="user.contact_name">
+                <input type="text" name="contactName" class="form-control" ng-model="user.contactName">
             </div>
             <div class="col-sm-12 form-group">
                 <label>Your Comment</label>
-                <textarea type="text" name="contact_comment" placeholder="Please leave your message here" class="form-control" ng-model="user.contact_comment"></textarea>
+                <textarea type="text" name="contactComment" placeholder="Please leave your message here" class="form-control" ng-model="user.contactComment"></textarea>
             </div>
         </div>
     </div>
     <div class="contact_submit col-sm-12 form-group">
-        <button id="contact-form-submit-btn" type="button" class="btn btn-lg btn-info" ng-click="contactC.submit()">Submit</button>
+        <button id="contact-form-submit-btn" type="button" class="btn btn-lg btn-info" ng-click="contactC.submit()" ng-disabled="contact-form.user.contact-email">Submit</button>
     </div>
 </form>
 
