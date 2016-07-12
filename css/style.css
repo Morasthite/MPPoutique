@@ -187,11 +187,15 @@ ul li {
     padding-left: 5%;
     padding-bottom: 2%;
 }
-#invoice_user_info, #invoice_order_info {
+#invoice_user_info, #invoice_order_info, #invoice_info, #invoice_item_table,#invoice_total {
     padding: 3%;
 }
 .bold {
     font-weight: bold;
+    color : #5e112d;
+}
+#invoice_thank {
+    text-align: center;
     color : #5e112d;
 }
 /*///////////////////////media query for portrait///////////////*/
