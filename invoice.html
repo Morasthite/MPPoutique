@@ -2,6 +2,7 @@
     <div id="site_address" class="row">
         <h4>MPoutique.com</h4>
     </div>
+    <div id="invoice_info" class="row">
     <div id="invoice_user_info" class="col-sm-6 col-xs-12">
         <p><span class="bold">Customer Name: </span><span>{{" "+invoiceC.invoice.customer.firstName+" "+invoiceC.invoice.customer.lastName}}</span></p>
         <p><span class="bold">Address</span><span>{{" "+invoiceC.invoice.customer.address}}</span></p>
@@ -9,7 +10,52 @@
         <p><span class="bold">Email: </span><span>{{" "+invoiceC.invoice.customer.email}}</span></p>
     </div>
     <div id="invoice_order_info" class="col-sm-6 col-xs-12">
-        <p><span class="bold">Date: </span><span>{{" "+date | date:'yyyy-MM-dd'}}</span></p>
+        <p><span class="bold">Date: </span><span>{{date | date:'MM-dd-yyyy'}}</span></p>
+        <p><span class="bold">Time: </span><span>{{date | date:'h:mm:ss a'}}</span></p>
+        <p><span class="bold">Order number: </span><span>{{" "+invoiceC.invoice.orderNumber}}</span></p>
     </div>
-
+    </div>
+    <div class="row" id="invoice_item_table">
+        <!-- Items Table-->
+        <table class="table-striped col-xs-12 table"><!-- mdl-data-table--selectable -->
+            <thead>
+            <tr>
+                <th class="bold">Flavor</th>
+                <th class="bold">Quantity</th>
+                <th class="bold">Unit Price</th>
+                <th class="bold">Extended Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="macaron in invoiceC.invoice.cart" >
+                <td class="mdl-data-table__cell--non-numeric">{{macaron.name}}</td>
+                <td>{{macaron.ordered}}</td>
+                <td>$ {{macaron.price}}</td>
+                <td>$ {{ invoiceC.addSubTotall(macaron.ordered, macaron.price) }}</td>
+            </tr>
+            </tbody>
+        </table> <!-- End Items Table-->
+    </div>
+    <div id="">
+        <table class="table-striped col-xs-12 table"><!-- mdl-data-table--selectable -->
+            <tbody>
+            <tr>
+                <td class="bold">Subtotal</td>
+                <td>$ {{ invoiceC.cart.subTotal }}</td>
+            </tr><!-- Subtotal -->
+            <tr>
+                <td class="bold">Taxes</td>
+                <td>$ {{invoiceC.cart.tax}}</td>
+            </tr><!-- Taxes -->
+            <tr>
+                <td class="bold">Shipping</td>
+                <td >$ {{invoiceC.shipping}}</td>
+            </tr><!-- Shipping -->
+            <tr>
+                <td class="bold">Total</td>
+                <td>$ {{invoiceC.cart.totalCost}}</td>
+            </tr><!-- Total -->
+            </tbody>
+        </table> <!-- End Totals Table-->
+    </div>
 </section>
