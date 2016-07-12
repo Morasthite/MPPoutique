@@ -194,21 +194,6 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
         $scope.showProceedToCheckoutButton = false;
     };
 
-    // self.showShipToForm_signUpBtn = function(){
-    //         //console.log("showShipToForm_signUpBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
-    //     $scope.showShipToForm = true;
-    //     $scope.showSignUpForm = false;
-    //     self.hideLoginButtons();
-    //     $scope.showProceedToCheckoutButton = false;
-    // };
-    // self.showShipToForm_guestCheckoutBtn = function(){
-    //         //console.log("showShipToForm_guestCheckoutBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
-    //     $scope.showShipToForm = true;
-    //     $scope.showGuestCheckoutForm = false;
-    //     self.hideLoginButtons();
-    //     $scope.showProceedToCheckoutButton = false;
-    // };
-
 /**  ng-click handler for login-form submit button  **/
     self.loginBtnValidation = function() {
         console.log('cartC.loginBtnValidation is running');
