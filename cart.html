@@ -210,11 +210,9 @@
 
 
                                         </div>
-                                            <!-- Checkout Button-->
-                                            <div class="col-sm-6" id="place-your-order">
-                                                <button class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.proceedToCheckout()">Proceed To Checkout</button>
-                                                <button class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.placeYourOrder()"><a href="#invoice">Place Your Order</a></button>
-                                            </div> <!-- End Checkout Button-->
+                                            <!-- Place Your Order Button-->
+                                            <div class="col-sm-6" id="place-your-order">                                                                <button class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.placeYourOrder()"><a href="#invoice">Place Your Order</a></button>
+                                            </div> <!-- End Place Your Order Button-->
 
                                     </div>
                                 </div>
@@ -276,11 +274,11 @@
 
                 <!-- Checkout Button-->
                 <div ng-show="showProceedToCheckoutButton" class="col-lg-offset-6 col-lg-3 col-lg-offset-right-3 col-sm-offset-6 col-sm-3 col-sm-offset-right-3 col-xs-12" id="proceed-to-checkout">
-                    <!--&lt;!&ndash; Raised button with ripple &ndash;&gt;-->
-                    <!--<button style="margin-left: -10%" class="mdl-button mdl-js-button mdl-button&#45;&#45;raised disabled">-->
-                       <!--<a href="#invoice"> Place your order</a>-->
-                    <!--</button>-->
-                    <button class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.proceedToCheckout()">
+                    <!-- Raised button with ripple -->
+                    <button ng-show="showPlaceYourOrderButton" style="margin-left: -10%" class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.placeYourOrder()">
+                       <a href="#invoice"> Place your order</a>
+                    </button>
+                    <button ng-show="showProceedToCheckoutButton" class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.proceedToCheckout()">
                         Proceed To Checkout
                     </button>
                 </div> <!-- End Checkout Button-->

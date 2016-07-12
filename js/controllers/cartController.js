@@ -42,27 +42,34 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
         })
             .then(
                 function success(response){
-                self.displayToShipToForm(response);
+                //self.displayToShipToForm(response);
                     /** cart vs current inventory comparison: find ordered items from self.cart, compare inventory to cart order, push to finalizedOrder Cart**/
-                    for(var mikolajczyk=0; mikolajczyk < self.dbCart.length; mikolajczyk++){
-                        for(var grodezteszky = 0; grodezteszky < self.cart.macaron_array.length; grodezteszky++){
-                            if(self.cart.macaron_array[grodezteszky].ordered > 0)
-                            {
-                                if((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered <= self.dbCart[mikolajczyk].amount))
-                                {
-                                    console.log("self.cart.macaron_array[grodezteszky].name and .ordered = ", self.cart.macaron_array[grodezteszky].name, self.cart.macaron_array[grodezteszky].ordered, '\n', " COMPARE self.dbCart[mikolajczyk].name and .amount = ",self.dbCart[mikolajczyk].name, self.dbCart[mikolajczyk].amount, '\n', "It's kewl, Willis, you can order ",self.cart.macaron_array[grodezteszky].ordered," ", self.cart.macaron_array[grodezteszky].name);
-                                    self.finalizedOrder.Cart[mikolajczyk] = self.cart.macaron_array[mikolajczyk];
-                                    /*TODO: Create & Display "thanks for your order form here */
-                                }
-                                else if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered > self.dbCart[mikolajczyk].amount))
-                                {    /*TODO: Create & Display "Not enough inventory form here */
-                                    console.log("Display this to DOM: "+"We be sorry Willis. There are only "+self.dbCart[mikolajczyk].amount+" "+self.dbCart[mikolajczyk].name+ " macarons left."+"\n"+"  Please go back and lower the number of "+self.dbCart[mikolajczyk].name+" macarons in your order");
 
-                                }
-                                console.log("self.finalizedOrder = ", self.finalizedOrder);
-                            }//end if(self.cart.macaron_array[grodezteszky].ordered > 0)
-                        }//end for(var grodezteszky = 0
-                    }//end for(var mikolajczyk=0
+                    var data = response.data;
+                    self.dbCart = data[1];
+                    console.log("cartC.proceedToCheckout received response from checkout.php, response = : ", data);
+                    if(data === 'Login'){
+                        console.log("Please Choose Login, Sign Up, or Checkout As Guest First");
+                        /** TODO: append to DOM ^**/
+                    }
+                    else {
+                        for (var mikolajczyk = 0; mikolajczyk < self.dbCart.length; mikolajczyk++) {
+                            for (var grodezteszky = 0; grodezteszky < self.cart.macaron_array.length; grodezteszky++) {
+                                if (self.cart.macaron_array[grodezteszky].ordered > 0) {
+                                    if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered <= self.dbCart[mikolajczyk].amount)) {
+                                        console.log("self.cart.macaron_array[grodezteszky].name and .ordered = ", self.cart.macaron_array[grodezteszky].name, self.cart.macaron_array[grodezteszky].ordered, '\n', " COMPARE self.dbCart[mikolajczyk].name and .amount = ", self.dbCart[mikolajczyk].name, self.dbCart[mikolajczyk].amount, '\n', "It's kewl, Willis, you can order ", self.cart.macaron_array[grodezteszky].ordered, " ", self.cart.macaron_array[grodezteszky].name);
+                                        self.finalizedOrder.Cart[mikolajczyk] = self.cart.macaron_array[mikolajczyk];
+                                        /*TODO: Create & Display "thanks for your order form here */
+                                    }
+                                    else if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered > self.dbCart[mikolajczyk].amount)) {    /*TODO: Create & Display "Not enough inventory form here */
+                                        console.log("Display this to DOM: " + "We be sorry Willis. There are only " + self.dbCart[mikolajczyk].amount + " " + self.dbCart[mikolajczyk].name + " macarons left." + "\n" + "  Please go back and lower the number of " + self.dbCart[mikolajczyk].name + " macarons in your order");
+
+                                    }
+                                }//end if(self.cart.macaron_array[grodezteszky].ordered > 0)
+                            }//end for(var grodezteszky = 0
+                        }//end for(var mikolajczyk=0
+                        console.log("self.finalizedOrder = ", self.finalizedOrder);
+                    }//else
                 },
                 function error(response) {
                     console.log("Oops, something went wrong", response);
@@ -129,6 +136,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
         $scope.showLoginForm = false;
         $scope.showSignUpForm = false;
         $scope.showGuestCheckoutForm = false;
+        $scope.showPlaceYourOrderButton = false;
 
     self.hideLoginButtons = function(){
         $scope.showLoginButton = false;
