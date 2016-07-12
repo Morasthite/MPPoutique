@@ -49,7 +49,8 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
                     self.dbCart = data[1];
                     console.log("cartC.proceedToCheckout received response from checkout.php, response = : ", data);
                     if(data === 'Login'){
-                        console.log("Please Choose Login, Sign Up, or Checkout As Guest First");
+                        //console.log("Please Choose Login, Sign Up, or Checkout As Guest First");
+                        $scope.showPlzLoginMessage = true;
                         /** TODO: append to DOM ^**/
                     }
                     else {
@@ -58,7 +59,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
                                 if (self.cart.macaron_array[grodezteszky].ordered > 0) {
                                     if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered <= self.dbCart[mikolajczyk].amount)) {
                                         console.log("self.cart.macaron_array[grodezteszky].name and .ordered = ", self.cart.macaron_array[grodezteszky].name, self.cart.macaron_array[grodezteszky].ordered, '\n', " COMPARE self.dbCart[mikolajczyk].name and .amount = ", self.dbCart[mikolajczyk].name, self.dbCart[mikolajczyk].amount, '\n', "It's kewl, Willis, you can order ", self.cart.macaron_array[grodezteszky].ordered, " ", self.cart.macaron_array[grodezteszky].name);
-                                        self.finalizedOrder.Cart[mikolajczyk] = self.cart.macaron_array[mikolajczyk];
+                                        self.finalizedOrder.Cart.push(self.cart.macaron_array[mikolajczyk]);
                                         /*TODO: Create & Display "thanks for your order form here */
                                     }
                                     else if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered > self.dbCart[mikolajczyk].amount)) {    /*TODO: Create & Display "Not enough inventory form here */
@@ -137,6 +138,12 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
         $scope.showSignUpForm = false;
         $scope.showGuestCheckoutForm = false;
         $scope.showPlaceYourOrderButton = false;
+        $scope.showPlzLoginMessage = false;
+        $scope.showShipToForm = false;
+        $scope.showThanksSigningUpMessage = false;
+        $scope.showGuestCheckOutMessage = false;
+        $scope.showThnxLoginMessage = false;
+
 
     self.hideLoginButtons = function(){
         $scope.showLoginButton = false;
@@ -145,11 +152,10 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
     };
 
     self.showLoginFormToggle = function () {
-            //console.log('scope loginform:',$scope.showLoginForm);
         $scope.showSignUpForm = false;
         $scope.showGuestCheckoutForm = false;
         $scope.showLoginForm = !$scope.showLoginForm;
-            //console.log('scope loginform:',$scope.showLoginForm);
+        $scope.showPlzLoginMessage = false;
     };
     self.showSignUpFormToggle = function () {
         $scope.showLoginForm = false;
@@ -163,30 +169,42 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
         $scope.showGuestCheckoutForm = !$scope.showGuestCheckoutForm;
     };
 
-    /** ng-click handler for the login-forms submit buttons **/
-    $scope.showShipToForm = false;
+    self.hideLoginForm = function () {
+        $scope.showLoginForm = !$scope.showLoginForm;
+    };
+    self.hideSignUpForm = function () {
+        $scope.showSignUpForm = !$scope.showSignUpForm;
+        $scope.showThanksSigningUpMessage = !$scope.showThanksSigningUpMessage;
+    };
+    self.hideGuestCheckoutForm = function () {
+        $scope.showGuestCheckoutForm = !$scope.showGuestCheckoutForm;
+        $scope.showGuestCheckOutMessage = true;
+    };
 
-    self.showShipToForm_logInBtn = function(){
-            //console.log("showShipToForm_logInBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
-        $scope.showShipToForm = true;
-        $scope.showLoginForm = false;
-        self.hideLoginButtons();
-        $scope.showProceedToCheckoutButton = false;
-    };
-    self.showShipToForm_signUpBtn = function(){
-            //console.log("showShipToForm_signUpBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
-        $scope.showShipToForm = true;
-        $scope.showSignUpForm = false;
-        self.hideLoginButtons();
-        $scope.showProceedToCheckoutButton = false;
-    };
-    self.showShipToForm_guestCheckoutBtn = function(){
-            //console.log("showShipToForm_guestCheckoutBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
-        $scope.showShipToForm = true;
-        $scope.showGuestCheckoutForm = false;
-        self.hideLoginButtons();
-        $scope.showProceedToCheckoutButton = false;
-    };
+    /** ng-click handler for the login-forms submit buttons **/
+
+
+    // self.showShipToForm_logInBtn = function(){
+    //         //console.log("showShipToForm_logInBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
+    //     $scope.showShipToForm = true;
+    //     $scope.showLoginForm = false;
+    //     self.hideLoginButtons();
+    //     $scope.showProceedToCheckoutButton = false;
+    // };
+    // self.showShipToForm_signUpBtn = function(){
+    //         //console.log("showShipToForm_signUpBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
+    //     $scope.showShipToForm = true;
+    //     $scope.showSignUpForm = false;
+    //     self.hideLoginButtons();
+    //     $scope.showProceedToCheckoutButton = false;
+    // };
+    // self.showShipToForm_guestCheckoutBtn = function(){
+    //         //console.log("showShipToForm_guestCheckoutBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
+    //     $scope.showShipToForm = true;
+    //     $scope.showGuestCheckoutForm = false;
+    //     self.hideLoginButtons();
+    //     $scope.showProceedToCheckoutButton = false;
+    // };
 
     /**  ng-click handler for login-form submit button  **/
     self.loginBtnValidation = function() {
@@ -209,8 +227,10 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
                 function success(response){
                     //console.log("response = ",response);
                     var data = response.data;
-                    console.log("cartC.loginBtnValidation received  response from login.php" +"\n"+ "response.data = : ", data, "typeof = ", typeof data, "data[0] = ", data);
-                    //$("body").append('<h3>' + 'Result: ' + response + '</h3>');
+                    console.log("cartC.loginBtnValidation received  response from login.php" +"\n"+ "response.data = : ", data, "typeof = ", typeof data, "data[0] = ", data[0]);
+                    //if(data[0]['user'])
+                    self.hideLoginButtons();
+                    $scope.showThnxLoginMessage = true;
                 },
                 function error(response) {
                     console.log("Oops, something went wrong", response);

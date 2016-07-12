@@ -1,8 +1,8 @@
 <?php
 session_start();
 require_once('mysql_connect.php');
-$_SESSION["id"] = 1;
-//$_SESSION = [];
+//$_SESSION["id"] = 1;
+$_SESSION = [];
 if (empty($_SESSION["id"])) {
     print "Login";
 }else {
