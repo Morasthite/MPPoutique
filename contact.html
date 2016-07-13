@@ -13,26 +13,30 @@
     <p>Send your questions, comments and flavor suggestions or place an order</p>
 
 </div>
-<form class="contact col-sm-6 col-xs-12" method="post" action="php/contact-form.php" id="contact-form" name="contact-form" ng-show="contactC.show_form">
+<form class="contact col-sm-6 col-xs-12" method="post" id="contact-form" name="contactForm" ng-show="contactC.show_form" ng-submit="contactC.submit(userForm.$valid)" novalidate><!-- novalidate prevents HTML5 validation since we will be validating ourselves-->
     <h4>Contact us!</h4>
     <div class="col-sm-12">
         <div class="row">
             <div class="col-sm-12 form-group">
                 <label>Your Email Address</label>
-                <input type="email" name="contactEmail" class="form-control" id="contactEmail" ng-model="user.contactEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                <input type="email" name="contactEmail" class="form-control" id="contactEmail" ng-model="user.contactEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                <p ng-show="contactForm.user.contactEmail.$invalid && !contactForm.user.contactEmail.$pristine">Your email is required</p>
             </div>
             <div class="col-sm-12 form-group">
                 <label>Your Name</label>
-                <input type="text" name="contactName" class="form-control" ng-model="user.contactName">
+                <input type="text" name="contactName" class="form-control" ng-model="user.contactName" ng-minlength="2" required>
+                <p ng-show="contactForm.user.contactName.$error.minlength" class="help-block">Your name is too short</p>
             </div>
             <div class="col-sm-12 form-group">
                 <label>Your Comment</label>
-                <textarea type="text" name="contactComment" placeholder="Please leave your message here" class="form-control" ng-model="user.contactComment"></textarea>
+                <textarea type="text" name="contactComment" placeholder="Please leave your message here" class="form-control" ng-model="user.contactComment" ng-minlength="10"></textarea>
+                <p ng-show="contactForm.user.contactComment.$error.minlength" class="help-block">Your name is too short</p>
             </div>
         </div>
     </div>
     <div class="contact_submit col-sm-12 form-group">
-        <button id="contact-form-submit-btn" type="button" class="btn btn-lg btn-info" ng-click="contactC.submit()" ng-disabled="contact-form.user.contact-email">Submit</button>
+        <button id="contact-form-submit-btn" type="submit" class="btn btn-lg btn-info" ng-disabled="contactForm.$invalid" >Submit</button>
+        <!--ng-click="contactC.submit()"-->
     </div>
 </form>
 

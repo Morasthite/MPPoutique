@@ -33,16 +33,16 @@ $options = array(
     )
 );
 $mail->smtpConnect($options);
-$mail->From = $request -> contact_email;//your email sending account
-$mail->FromName = $request -> contact_name;//your email sending account name
-$mail->addAddress('mozafarian.mo@gmail.com', $request -> contact_name);     // Add a recipient
+$mail->From = $request -> contactEmail;//your email sending account
+$mail->FromName = $request -> contactName;//your email sending account name
+$mail->addAddress('mozafarian.mo@gmail.com', $request -> contactName);     // Add a recipient
 $mail->isHTML(true);                                  // Set email format to HTML
 
-$mail->Body    = $request -> contact_comment;
-$mail->name = trim($request ->contact_name);
-$mail->email  =trim($request -> contact_email);
-$mail->message = trim($request -> contact_comment);
-$mail->addReplyTo($request -> contact_email);
+$mail->Body    = $request -> contactComment;
+$mail->name = trim($request ->contactName);
+$mail->email  =trim($request -> contactEmail);
+$mail->message = trim($request -> contactComment);
+$mail->addReplyTo($request -> contactEmail);
 $mail->Subject = "MPoutique message";
 
 if (empty($mail->name)) {

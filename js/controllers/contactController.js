@@ -15,6 +15,7 @@ app.controller('contactController',["$scope","config","$http",function ($scope,c
     //console.log("contact_email: ",$scope.user);
     //////////////submit button for contact form
     this.submit = function() {
+        console.log("inside submit function");
         $http({
             method: 'POST',
             data : $scope.user,
@@ -30,4 +31,5 @@ app.controller('contactController',["$scope","config","$http",function ($scope,c
             console.log("contact error");
         });
     };
+    return false;
 }]);
