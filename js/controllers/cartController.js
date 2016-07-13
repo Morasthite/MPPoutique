@@ -10,7 +10,6 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
     config.banner = "assets/images/contact-image.png";
     config.menuIndice = 5;
     var self = this;
-        //console.log("cart_service inventory = cart.macaron_array: ", cart.macaron_array);
     self.invoice = invoice;
     self.shipping = 7;
     self.subexists = parseInt(cart.subTotal);
@@ -28,7 +27,6 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
         return  parseFloat((parseInt(count) * parseFloat(price)).toFixed(2)) ;
     };
 
-    self.customerLoggedIn = false;
     self.finalizedOrder = [];
     self.finalizedOrder.Cart = [];
     self.finalizedOrder.customer = [];
@@ -56,7 +54,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
                         $scope.showPlzLoginMessage = true;
                     }
                     else {
-                        if(self.customerLoggedIn = true) {
+                        if(cart.customerLoggedIn = true) {
                             for (var mikolajczyk = 0; mikolajczyk < self.dbCart.length; mikolajczyk++) {
                                 for (var grodezteszky = 0; grodezteszky < self.cart.macaron_array.length; grodezteszky++) {
                                     if (self.cart.macaron_array[grodezteszky].ordered > 0) {
@@ -78,11 +76,11 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
                             $scope.showPlaceYourOrderButton = true;
                             $scope.showThnxLoginMessage = false;
                         }
-                    }//else
+                    }//else//if(cart.customerLoggedIn)
                 },
                 function error(response) {
                     console.log("Oops, something went wrong", response);
-                }//if(self.customerLoggedIn)
+                }
             );//then
 
     };//end proceedToCheckOut
@@ -152,16 +150,16 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
 
 /** ng-click handler for the login-forms submit buttons **/
     self.hideLoginButtons = function(){
-        $scope.showLoginButton = false;
-        $scope.showSignUpButton = false;
-        $scope.showGuestCheckoutButton = false;
+            $scope.showLoginButton = false;
+            $scope.showSignUpButton = false;
+            $scope.showGuestCheckoutButton = false;
     };
-
     self.showLoginFormToggle = function () {
         $scope.showSignUpForm = false;
         $scope.showGuestCheckoutForm = false;
         $scope.showLoginForm = !$scope.showLoginForm;
         $scope.showPlzLoginMessage = false;
+        $scope.showLoginFailedMessage = false;
     };
     self.showSignUpFormToggle = function () {
         $scope.showLoginForm = false;
@@ -217,14 +215,14 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
                 function success(response){
                         console.log("response = ",response);
                     var data = response.data;
-                        console.log("cartC.loginBtnValidation received  response from login.php" +"\n"+ "response.data[1] = : ",data);
+                        console.log("cartC.loginBtnValidation received  response from login.php" +"\n"+ "response.data = : ",data);
                     if(data === "Login Failed"){
                         $scope.showLoginFailedMessage = true;
-                        self.customerLoggedIn = false;
+                        cart.customerLoggedIn = false;
                     }else{
                         self.hideLoginButtons();
-                        self.customerLoggedIn = true;
-                        console.log("self.customerLoggedIn = ", self.customerLoggedIn);
+                        cart.customerLoggedIn = true;
+                        console.log("cart.customerLoggedIn = ", cart.customerLoggedIn);
                         $scope.showThnxLoginMessage = true;
                         $scope.showLoginFailedMessage = false;
                         $scope.showPlzLoginMessage = false;
@@ -237,8 +235,8 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
             );//then
     };//end proceedToCheckOut
 
-    /** Sign Up Form To Database **/
-        self.newUser = {
+/** Sign Up Form + Guest Checkout Form To Database **/
+    self.newUser = {
             first_name: "",
             last_name: "",
             street_address: "",
@@ -255,7 +253,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
             name_on_card: "",
             card_billing_address: ""
         };
-        self.guestUser = {
+    self.guestUser = {
             first_name: "",
             last_name: "",
             street_address: "",
@@ -290,9 +288,8 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
                     var data = response.data;
                     console.log("cartC.signUpFormSubmission received  response from sign_up.php" +"\n"+ "response.data = : ",data);
                         self.hideLoginButtons();
-                        self.customerLoggedIn = true;
-                        console.log("self.customerLoggedIn = ", self.customerLoggedIn);
-
+                        cart.customerLoggedIn = true;
+                        console.log("cart.customerLoggedIn = ", cart.customerLoggedIn);
                         $scope.showThanksSigningUpMessage = true;
                 },
                 function error(response) {
@@ -316,8 +313,8 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
                     var data = response.data;
                     console.log("cartC.guestCheckoutFormSubmission received  response from guest_checkout.php" +"\n"+ "response.data = : ",data);
                     self.hideLoginButtons();
-                    self.customerLoggedIn = true;
-                    console.log("self.customerLoggedIn = ", self.customerLoggedIn);
+                    cart.customerLoggedIn = true;
+                    console.log("cart.customerLoggedIn = ", cart.customerLoggedIn);
                     $scope.showGuestCheckOutMessage = true;
                 },
                 function error(response) {

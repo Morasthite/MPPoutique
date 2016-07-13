@@ -11,6 +11,7 @@ app.factory("cart",["$http",function ($http) {
 
     };
         return {
+            customerLoggedIn: false,
             total: 0,
             subTotal : 0,
             tax : 0,

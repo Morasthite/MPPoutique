@@ -4,7 +4,7 @@
 
         <!-----------LOG IN BUTTONS --------------->
             <!--Log In Button-->
-            <div ng-show="showLoginButton" class="user-login col-lg-offset-2 col-lg-2  col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="log-in-btn-ctn" >
+            <div ng-show="(showLoginButton || cart.customerLoggedIn === 'true')" class="user-login col-lg-offset-2 col-lg-2  col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="log-in-btn-ctn" >
                 <!-- Raised button with ripple -->
                 <button id="log-in-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="cartC.showLoginFormToggle()">
                     Log In
@@ -23,7 +23,7 @@
             <div ng-show="showGuestCheckoutButton" class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="guest-checkout-btn2">
                 <!-- Raised button with ripple -->
                 <button id="guest-checkout-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="cartC.showGuestCheckoutFormToggle()">
-                    Checkout As Guest
+                    Guest Checkout
                 </button>
             </div><!-- End Checkout As Guest Button-->
         <!-----------LOG IN MESSAGES --------------->
