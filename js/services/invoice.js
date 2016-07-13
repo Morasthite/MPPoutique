@@ -8,6 +8,5 @@ app.factory("invoice",function () {
         cart: [],
         orderTime : 0,
         orderNumber : ""
-
     }
 });
