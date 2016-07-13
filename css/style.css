@@ -171,6 +171,9 @@ ul li {
 .contact_submit {
     margin-top: 10%;
 }
+.required_field {
+    color: red;
+}
 /*//////////////////////////invoice page/////////////////////////////*/
 #invoice_page {
     position: relative;

@@ -315,7 +315,7 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="macaron in cartC.cart.macaron_array | filter: filter" >
-                            <td class="mdl-data-table__cell--non-numeric" ng-id="{{macaron.name}}" ng-class="ng-class:{{macaron.name}};">{{macaron.name}}</td>
+                            <td class="mdl-data-table__cell--non-numeric" ng-id="{{macaron.name}}" ng-class="{{macaron.name}}">{{macaron.name}}</td>
                             <td ng-id="{{macaron.ordered}}" ng-class="{{macaron.name}}">{{macaron.ordered}}</td>
                             <td ng-id="{{macaron.price}}" ng-class="{{macaron.name}}">$ {{macaron.price}}</td>
                             <td ng-id="{{macaron.price}}" ng-class="{{macaron.name}}">$ {{ cartC.addSubTotal(macaron.ordered, macaron.price) }}</td>

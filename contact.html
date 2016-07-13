@@ -18,19 +18,16 @@
     <div class="col-sm-12">
         <div class="row">
             <div class="col-sm-12 form-group">
-                <label>Your Email Address</label>
-                <input type="email" name="contactEmail" class="form-control" id="contactEmail" ng-model="user.contactEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
-                <p ng-show="contactForm.user.contactEmail.$invalid && !contactForm.user.contactEmail.$pristine">Your email is required</p>
+                <label>Your Email Address <span class="required_field"> *</span></label>
+                <input type="email" name="contactEmail" class="form-control" id="contactEmail" ng-model="user.contactEmail" placeholder="Please Enter A Valid Email Address." required>
             </div>
             <div class="col-sm-12 form-group">
-                <label>Your Name</label>
-                <input type="text" name="contactName" class="form-control" ng-model="user.contactName" ng-minlength="2" required>
-                <p ng-show="contactForm.user.contactName.$error.minlength" class="help-block">Your name is too short</p>
+                <label>Your Name<span class="required_field"> *</span></label>
+                <input type="text" name="contactName" class="form-control" ng-model="user.contactName" ng-minlength="2" placeholder="Enter Your Name Here ... " required>
             </div>
             <div class="col-sm-12 form-group">
-                <label>Your Comment</label>
-                <textarea type="text" name="contactComment" placeholder="Please leave your message here" class="form-control" ng-model="user.contactComment" ng-minlength="10"></textarea>
-                <p ng-show="contactForm.user.contactComment.$error.minlength" class="help-block">Your name is too short</p>
+                <label>Your Comment<span class="required_field"> *</span></label>
+                <textarea type="text" name="contactComment" placeholder="Your message needs to be at least 10 characters." class="form-control" ng-model="user.contactComment" ng-minlength="10"></textarea>
             </div>
         </div>
     </div>
