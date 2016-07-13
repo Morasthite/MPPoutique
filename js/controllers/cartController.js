@@ -46,7 +46,6 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
                 function success(response){
                 //self.displayToShipToForm(response);
                     /** cart vs current inventory comparison: find ordered items from self.cart, compare inventory to cart order, push to finalizedOrder Cart**/
-
                     var data = response.data;
                     self.dbCart = data[1];
                     console.log("cartC.proceedToCheckout received response from checkout.php, response = : ", data);
@@ -133,9 +132,31 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
     };//end placeYourOrder
 
 /** ng-click handler for toggling the login/signup/guestcheckout forms/messages **/
-        $scope.showLoginButton = true;
-        $scope.showSignUpButton = true;
-        $scope.showGuestCheckoutButton = true;
+        // $scope.showLoginButton = true;
+        // $scope.showSignUpButton = true;
+        // $scope.showGuestCheckoutButton = true;
+    self.showLoginButton = function() {
+        if(cart.customerLoggedIn) {
+            $scope.showLoginButtonDefault = true;
+            return false;
+        }
+    };
+    self.showSignUpButton = function() {
+        if(cart.customerLoggedIn) {
+            $scope.showSignUpButtonDefault = true;
+            return false;
+        }
+    };
+    self.showGuestCheckoutButton = function() {
+        if(cart.customerLoggedIn) {
+            $scope.showGuestCheckoutButtonDefault = true;
+            return false;
+        }
+    };
+
+        $scope.showLoginButtonDefault = false;
+        $scope.showSignUpButtonDefault = false;
+        $scope.showGuestCheckoutButtonDefault = false;
         $scope.showProceedToCheckoutButton = true;
         $scope.showLoginForm = false;
         $scope.showSignUpForm = false;

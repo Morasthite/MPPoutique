@@ -4,7 +4,7 @@
 
         <!-----------LOG IN BUTTONS --------------->
             <!--Log In Button-->
-            <div ng-show="(showLoginButton || cart.customerLoggedIn === 'true')" class="user-login col-lg-offset-2 col-lg-2  col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="log-in-btn-ctn" >
+            <div ng-show="cartC.showLoginButton()" ng-hide="showLoginButtonDefault" class="user-login col-lg-offset-2 col-lg-2  col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="log-in-btn-ctn" >
                 <!-- Raised button with ripple -->
                 <button id="log-in-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="cartC.showLoginFormToggle()">
                     Log In
@@ -12,7 +12,7 @@
             </div> <!-- End Log In Button-->
 
             <!-- Sign Up! Button-->
-            <div ng-show="showSignUpButton" class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="sign-up-btn2" >
+            <div ng-show="cartC.showSignUpButton()" ng-hide="showSignUpButtonDefault" class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="sign-up-btn2" >
                 <!-- Raised button with ripple -->
                 <button id="sign-up-btn"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="cartC.showSignUpFormToggle()">
                     Sign Up!
@@ -20,7 +20,7 @@
             </div> <!-- End Sign Up! Button-->
 
             <!-- Checkout As Guest Button-->
-            <div ng-show="showGuestCheckoutButton" class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="guest-checkout-btn2">
+            <div ng-show="cartC.showGuestCheckoutButton()" ng-hide="showGuestCheckoutButtonDefault" class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="guest-checkout-btn2">
                 <!-- Raised button with ripple -->
                 <button id="guest-checkout-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="cartC.showGuestCheckoutFormToggle()">
                     Guest Checkout
