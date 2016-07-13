@@ -188,7 +188,6 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
     };
 
     self.showShipToForm = function(){
-            //console.log("showShipToForm_logInBtn is running ", "$scope.showShipToForm = ",$scope.showShipToForm);
         $scope.showShipToForm = true;
         $scope.showLoginForm = false;
         $scope.showSignUpForm = false;
@@ -216,9 +215,9 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
         })
             .then(
                 function success(response){
-                    console.log("response = ",response);
+                        console.log("response = ",response);
                     var data = response.data;
-                    console.log("cartC.loginBtnValidation received  response from login.php" +"\n"+ "response.data[1] = : ",data);
+                        console.log("cartC.loginBtnValidation received  response from login.php" +"\n"+ "response.data[1] = : ",data);
                     if(data === "Login Failed"){
                         $scope.showLoginFailedMessage = true;
                         self.customerLoggedIn = false;
@@ -228,6 +227,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
                         console.log("self.customerLoggedIn = ", self.customerLoggedIn);
                         $scope.showThnxLoginMessage = true;
                         $scope.showLoginFailedMessage = false;
+                        $scope.showPlzLoginMessage = false;
                     }
                 },
                 function error(response) {
@@ -236,10 +236,95 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
                 }
             );//then
     };//end proceedToCheckOut
-/**TODO: validation not correct yet, login.php sending back empty Array**/
 
-    /** **/
+    /** Sign Up Form To Database **/
+        self.newUser = {
+            first_name: "",
+            last_name: "",
+            street_address: "",
+            city: "",
+            state: "",
+            zip: "",
+            company: "",
+            attn: "",
+            phone: "",
+            email: "",
+            password: "",
+            c_card: "",
+            c_card_exp : "",
+            name_on_card: "",
+            card_billing_address: ""
+        };
+        self.guestUser = {
+            first_name: "",
+            last_name: "",
+            street_address: "",
+            city: "",
+            state: "",
+            zip: "",
+            company: "",
+            attn: "",
+            phone: "",
+            email: "",
+            c_card: "",
+            c_card_exp : "",
+            name_on_card: "",
+            card_billing_address: ""
+        };
 
+    self.signUpFormSubmission = function(){
+        console.log('cartC.signUpFormSubmission is running');
+        self.newUser.user_name = self.newUser.email;
+        console.log("newUser: ", self.newUser);
+        console.log("sending newUser-info to db: ", self.newUser);
+        $http({
+            url: "php/sign_up.php",
+            method: "post",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            data: $.param(self.newUser),
+            cache: false
+        })
+            .then(
+                function success(response){
+                        console.log("response = ",response);
+                    var data = response.data;
+                    console.log("cartC.signUpFormSubmission received  response from sign_up.php" +"\n"+ "response.data = : ",data);
+                        self.hideLoginButtons();
+                        self.customerLoggedIn = true;
+                        console.log("self.customerLoggedIn = ", self.customerLoggedIn);
+
+                        $scope.showThanksSigningUpMessage = true;
+                },
+                function error(response) {
+                    console.log("Oops, something went wrong", response);
+                }
+            );//then
+    };//end signUpFormSubmission
+    self.guestCheckoutFormSubmission = function(){
+        console.log('cartC.guestCheckoutFormSubmission is running');
+        console.log("sending newUser-info to db: ", self.guestUser);
+        $http({
+            url: "php/guest_checkout.php",
+            method: "post",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            data: $.param(self.guestUser),
+            cache: false
+        })
+            .then(
+                function success(response){
+                    console.log("response = ",response);
+                    var data = response.data;
+                    console.log("cartC.guestCheckoutFormSubmission received  response from guest_checkout.php" +"\n"+ "response.data = : ",data);
+                    self.hideLoginButtons();
+                    self.customerLoggedIn = true;
+                    console.log("self.customerLoggedIn = ", self.customerLoggedIn);
+                    $scope.showGuestCheckOutMessage = true;
+                },
+                function error(response) {
+                    console.log("Oops, something went wrong", response);
+                }
+            );//then
+    };//end guestCheckoutFormSubmission
 
 
  }]);

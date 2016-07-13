@@ -122,66 +122,70 @@
                                     <div class="row">
                                         <div class="col-sm-6 form-group">
                                             <label>First Name</label>
-                                            <input type="text" name="first_name" placeholder="Enter First Name Here.." class="form-control">
+                                            <input type="text" name="first_name"  ng-model="cartC.newUser.first_name" placeholder="Enter First Name Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <label>Last Name</label>
-                                            <input type="text" name="last_name" placeholder="Enter Last Name Here.." class="form-control">
+                                            <input type="text" name="last_name"  ng-model="cartC.newUser.last_name" placeholder="Enter Last Name Here.." class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <textarea  name="street_address" placeholder="Enter Street Address Here.." rows="3" class="form-control"></textarea>
+                                        <textarea  name="street_address" ng-model="cartC.newUser.street_address" placeholder="Enter Street Address Here.." rows="3" class="form-control"></textarea>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-4 form-group">
                                             <label>City</label>
-                                            <input type="text" name="city" placeholder="Enter City Name Here.." class="form-control">
+                                            <input type="text" name="city" ng-model="cartC.newUser.city" placeholder="Enter City Name Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-4 form-group">
                                             <label>State</label>
-                                            <input type="text" name="state" placeholder="Enter State Name Here.." class="form-control">
+                                            <input type="text" name="state" ng-model="cartC.newUser.state" placeholder="Enter State Name Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-4 form-group">
                                             <label>Zip</label>
-                                            <input type="text" name="zip" placeholder="Enter Zip Code Here.." class="form-control">
+                                            <input type="text" name="zip" ng-model="cartC.newUser.zip" placeholder="Enter Zip Code Here.." class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6 form-group">
                                             <label>Company</label>
-                                            <input type="text" name="company" placeholder="Enter Company Name Here.." class="form-control">
+                                            <input type="text" name="company" ng-model="cartC.newUser.company" placeholder="Enter Company Name Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <label>Attn:</label>
-                                            <input type="text" name="attn" placeholder="Attention To: ..." class="form-control">
+                                            <input type="text" name="attn" ng-model="cartC.newUser.attn" placeholder="Attention To: ..." class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6 form-group">
                                             <label>Phone Number</label>
-                                            <input type="text" name="phone_number" placeholder="Enter Phone Number Here.." class="form-control">
+                                            <input type="text" name="phone_number" ng-model="cartC.newUser.phone" placeholder="Enter Phone Number Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <label>Email Address</label>
-                                            <input type="text" name="email" placeholder="Enter Email Address Here.." class="form-control">
+                                            <input type="text" name="email" ng-model="cartC.newUser.email" placeholder="Enter Email Address Here.." class="form-control">
+                                        </div>
+                                        <div class="col-sm-offset-3 col-sm-6 form-group">
+                                            <label>Password:</label>
+                                            <input type="text" name="password" ng-model="cartC.newUser.password" placeholder="Enter A Password Here.." class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <h5> Credit Card Info: </h5>
                                         <div class="col-sm-6 form-group">                                                                         <label>Card Number:</label>
-                                            <input class="form-control" id="signup-creditcard-number" placeholder="****4353" ng-model="cartC.finalizedOrder.customer.c_card_display">
+                                            <input class="form-control" id="signup-creditcard-number" placeholder=""  ng-model="cartC.newUser.c_card">
                                             <label>Expiration Date</label>
-                                            <input class="form-control" id="signup-credit-card-exp" placeholder="12/2019" ng-model="cartC.finalizedOrder.customer.c_card_exp">
+                                            <input class="form-control" id="signup-credit-card-exp" placeholder="" ng-model="cartC.newUser.c_card_exp">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <label>Name On Card</label>
-                                            <input class="form-control" id="signup-name-on-card" placeholder=" Name on Credit Card">
+                                            <input class="form-control" id="signup-name-on-card" ng-model="cartC.newUser.name_on_card" placeholder=" Name on Credit Card">
                                             <label>Billing Address</label>
-                                            <input class="form-control" id="signup-billing-address" placeholder=" Enter Billing Address of Card">
+                                            <input class="form-control" id="signup-billing-address" ng-model="cartC.newUser.card_billing_address" placeholder=" Enter Billing Address of Card">
                                         </div>
                                     </div>
-                                    <button id="signup-form-submit-btn" type="button" class="btn btn-lg btn-info" ng-click="cartC.hideSignUpForm(); cartC.hideLoginButtons()">Submit</button>
+                                    <button id="signup-form-submit-btn" type="button" class="btn btn-lg btn-info" ng-click="cartC.hideSignUpForm(); cartC.hideLoginButtons(); cartC.signUpFormSubmission()">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -197,69 +201,70 @@
                         <div class="row">
                             <form>
                                 <div class="col-sm-12">
+                                    <h5> Customer Info: </h5>
                                     <div class="row">
                                         <div class="col-sm-6 form-group">
                                             <label>First Name</label>
-                                            <input type="text" name="first_name" placeholder="Enter First Name Here.." class="form-control">
+                                            <input type="text" name="first_name"  ng-model="cartC.guestUser.first_name" placeholder="Enter First Name Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <label>Last Name</label>
-                                            <input type="text" name="last_name" placeholder="Enter Last Name Here.." class="form-control">
+                                            <input type="text" name="last_name"  ng-model="cartC.guestUser.last_name" placeholder="Enter Last Name Here.." class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <textarea name="street_address" placeholder="Enter Street Address Here.." rows="3" class="form-control"></textarea>
+                                        <textarea  name="street_address" ng-model="cartC.guestUser.street_address" placeholder="Enter Street Address Here.." rows="3" class="form-control"></textarea>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-4 form-group">
                                             <label>City</label>
-                                            <input type="text" name="city" placeholder="Enter City Name Here.." class="form-control">
+                                            <input type="text" name="city" ng-model="cartC.guestUser.city" placeholder="Enter City Name Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-4 form-group">
                                             <label>State</label>
-                                            <input type="text" name="state" placeholder="Enter State Name Here.." class="form-control">
+                                            <input type="text" name="state" ng-model="cartC.guestUser.state" placeholder="Enter State Name Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-4 form-group">
                                             <label>Zip</label>
-                                            <input type="text" name="zip" placeholder="Enter Zip Code Here.." class="form-control">
+                                            <input type="text" name="zip" ng-model="cartC.guestUser.zip" placeholder="Enter Zip Code Here.." class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6 form-group">
                                             <label>Company</label>
-                                            <input type="text" name="company" placeholder="Enter Company Name Here.." class="form-control">
+                                            <input type="text" name="company" ng-model="cartC.guestUser.company" placeholder="Enter Company Name Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <label>Attn:</label>
-                                            <input type="text" name="attn" placeholder="Attention To: ..." class="form-control">
+                                            <input type="text" name="attn" ng-model="cartC.guestUser.attn" placeholder="Attention To: ..." class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6 form-group">
                                             <label>Phone Number</label>
-                                            <input type="text" name="phone_number" placeholder="Enter Phone Number Here.." class="form-control">
+                                            <input type="text" name="phone_number" ng-model="cartC.guestUser.phone" placeholder="Enter Phone Number Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <label>Email Address</label>
-                                            <input type="text" name="email" placeholder="Enter Email Address Here.." class="form-control">
+                                            <input type="text" name="email" ng-model="cartC.guestUser.email" placeholder="Enter Email Address Here.." class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <h5> Credit Card Info: </h5>
                                         <div class="col-sm-6 form-group">                                                                         <label>Card Number:</label>
-                                            <input class="form-control" id="guest-creditcard-number" placeholder="****4353" ng-model="cartC.finalizedOrder.customer.c_card_display">
+                                            <input class="form-control" id="guest--creditcard-number" placeholder=""  ng-model="cartC.guestUser.c_card">
                                             <label>Expiration Date</label>
-                                            <input class="form-control" id="guest-credit-card-exp" placeholder="12/2019" ng-model="cartC.finalizedOrder.customer.c_card_exp">
+                                            <input class="form-control" id="guest--credit-card-exp" placeholder="" ng-model="cartC.guestUser.c_card_exp">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <label>Name On Card</label>
-                                            <input class="form-control" id="guest-name-on-card" placeholder=" Name on Credit Card">
+                                            <input class="form-control" id="guest-name-on-card" ng-model="cartC.guestUser.name_on_card" placeholder=" Name on Credit Card">
                                             <label>Billing Address</label>
-                                            <input class="form-control" id="guest-billing-address" placeholder=" Enter Billing Address of Card">
+                                            <input class="form-control" id="guest--billing-address" ng-model="cartC.guestUser.card_billing_address" placeholder=" Enter Billing Address of Card">
                                         </div>
                                     </div>
-                                    <button id="guest-checkout-form-submit-btn" type="button" class="btn btn-lg btn-info" ng-click="cartC.hideGuestCheckoutForm(); cartC.hideLoginButtons()" >Submit</button>
+                                    <button id="guest-checkout-form-submit-btn" type="button" class="btn btn-lg btn-info" ng-click="cartC.hideGuestCheckoutForm(); cartC.hideLoginButtons();cartC.guestCheckoutFormSubmission()" >Submit</button>
                                 </div>
                             </form>
                         </div>
