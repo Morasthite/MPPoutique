@@ -37,6 +37,7 @@
                 <li ng-class="mainC.config.menuIndice == 3 ? 'active':''"><a href="#gifts" class="n-link">GIFTS &amp; PARTIES</a></li>
                 <li ng-class="mainC.config.menuIndice == 4 ? 'active':''"><a href="#contact" class="n-link">CONTACT</a></li>
                 <li ng-class="mainC.config.menuIndice == 5 ? 'active':''"><a class="n_link mdl-badge mdl-badge--overlap nav-badge" data-badge="{{mainC.cart.total}} " href="#cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                <li ng-hide="showLogoutLinkDefault" ng-show="cartC.showLogoutLink()" ><a href="#" class="n-link">LOG OUT</a></li>
             </ul>
         </div>
     </div>

@@ -6,7 +6,7 @@
  *          database >>>>> else, display error message.
  *          **/
 
-app.controller('cartController',["$scope","$http","config","cart", "invoice", function ($scope, $http, config,cart,invoice) {
+app.controller('cartController',["$scope","$http","config","cart", "invoice", "user", function ($scope, $http, config,cart,invoice,user) {
     config.banner = "assets/images/contact-image.png";
     config.menuIndice = 5;
     var self = this;
@@ -165,6 +165,12 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
             return false;
         }
     };
+    self.showLogoutLink =  function() {
+        if(cart.customerLoggedIn) {
+            $scope.showLogoutLinkDefault = true;
+            return false;
+        }
+    };
 
         $scope.showLoginButtonDefault = false;
         $scope.showSignUpButtonDefault = false;
@@ -180,6 +186,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", fu
         $scope.showGuestCheckOutMessage = false;
         $scope.showThnxLoginMessage = false;
         $scope.showLoginFailedMessage = false;
+        $scope.showLogoutLinkDefault = false;
 
 /** **********************  LOGIN - SIGN UP - GUEST CHECKOUT - SHIP-TO FORM NG-CLICK **/
     self.hideLoginButtons = function(){

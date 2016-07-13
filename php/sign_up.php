@@ -3,15 +3,15 @@ session_start();
 require_once ('mysql_connect.php');
 //////dumy data
 
-$_POST['first_name'] = "paul";
-$_POST['last_name'] = "balali";
-$_POST['password']= "paul";
-$_POST['street_address'] = "unjaha";
-$_POST['city'] = "beach";
-$_POST['zip'] = 12345;
-$_POST['state'] = "ca";
-$_POST['phone_number'] = 12345654556;
-$_POST['email'] = "paul@yahoo.com";
+//$_POST['first_name'] = "paul";
+//$_POST['last_name'] = "balali";
+//$_POST['password']= "paul";
+//$_POST['street_address'] = "unjaha";
+//$_POST['city'] = "beach";
+//$_POST['zip'] = 12345;
+//$_POST['state'] = "ca";
+//$_POST['phone_number'] = 12345654556;
+//$_POST['email'] = "paul@yahoo.com";
 
 ///end of dumy data
 if (!empty ($_POST)){
