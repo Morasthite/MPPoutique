@@ -217,6 +217,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         $scope.showLogoutLinkDefault = false;
         $scope.showLowInventoryMessage = false;
         $scope.showYouCantBuyFromAnEmptyCartMessage = false;
+        $scope.showCurrentUserPlzLoginMessage = false;
 
 /** **********************  LOGIN - SIGN UP - GUEST CHECKOUT - SHIP-TO FORM NG-CLICK **/
     self.hideLoginButtons = function(){
@@ -359,6 +360,9 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                         console.log("response = ",response);
                     var data = response.data;
                     console.log("cartC.signUpFormSubmission received  response from sign_up.php" +"\n"+ "response.data = : ",data);
+                    if (data === 'User Already Exists') {
+                        $scope.showCurrentUserPlzLoginMessage = true;
+                    }else {
                         self.hideLoginButtons();
                         user.isLoggedIn = true;    //cart.customerLoggedIn
                         user.firstName = self.newUser.first_name;
@@ -366,6 +370,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                         console.log("user.firstName = ", user.firstName);
                         $scope.showPlzLoginMessage = false;
                         $scope.showThanksSigningUpMessage = true;
+                    }
                 },
                 function error(response) {
                     console.log("Oops, something went wrong", response);

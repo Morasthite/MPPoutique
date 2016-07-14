@@ -26,7 +26,7 @@ if (!empty ($_POST)){
     }else{
         $attn = "'NULL'";
     }
-    print_r($_POST);
+    //print_r($_POST);
 
     $userExistsQuery = "SELECT * FROM  `customer` WHERE `username` = $email";
     $result = mysqli_query($conn, $userExistsQuery);
@@ -40,7 +40,7 @@ if (!empty ($_POST)){
             $_SESSION["id"] = $last_id;
             print "User Created";
             }////end of if
-    }//end of else 
+    }//end of else
 }////end of if $_POST !empty
 /**  **/
 ?>
