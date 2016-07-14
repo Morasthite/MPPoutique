@@ -27,13 +27,20 @@ if (!empty ($_POST)){
         $attn = "'NULL'";
     }
     print_r($_POST);
-    //echo  "<br>, $email,$password,$fname,$lname,$street,$city,$state,$zip,$company,$attn,$phone,$email";
-    $query = "INSERT INTO `customer`(`username`, `password`, `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email`, `c_card`, `c_card_exp`, `name_on_card`,`card_billing_address`) VALUES ($email,$password,$fname,$lname,$street,$city,$state,$zip,$company,$attn,$phone,$email,$c_card,$c_card_exp,$name_on_card, $card_billing_address)";
-    if (mysqli_query($conn, $query)) {
-        $last_id = mysqli_insert_id($conn);
-        //echo "<br> last id: ".$last_id;
-        $_SESSION["id"] = $last_id;
-        }////end of if
+
+    $userExistsQuery = "SELECT * FROM  `customer` WHERE `username` = $email";
+    $result = mysqli_query($conn, $userExistsQuery);
+    if (mysqli_num_rows($result) > 0) {
+        print"User Already Exists";
+    }else {
+        $CreateUserQuery = "INSERT INTO `customer`(`username`, `password`, `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email`, `c_card`, `c_card_exp`, `name_on_card`,`card_billing_address`) VALUES ($email,$password,$fname,$lname,$street,$city,$state,$zip,$company,$attn,$phone,$email,$c_card,$c_card_exp,$name_on_card, $card_billing_address)";
+        if (mysqli_query($conn, $CreateUserQuery)) {
+            $last_id = mysqli_insert_id($conn);
+            //echo "<br> last id: ".$last_id;
+            $_SESSION["id"] = $last_id;
+            print "User Created";
+            }////end of if
+    }//end of else 
 }////end of if $_POST !empty
 /**  **/
 ?>

@@ -55,6 +55,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         self.cartEmptyCheck();
         if(self.finalizedOrder.Cart.length == 0){
             console.log('showYouCantBuyFromAnEmptyCartMessage');
+            $scope.showPlzLoginMessage = true;
         }else {
             self.dbCart = [];
             $scope.showLoginFailedMessage = false;
