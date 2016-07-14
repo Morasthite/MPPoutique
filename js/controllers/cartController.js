@@ -35,7 +35,15 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
     self.finalizedOrder.customer = [];
     self.finalizedOrder.orderNumber = "";
     self.finalizedOrder.orderTime = "";
-    self.lowMac = [];
+    $scope.lowMac = [];
+    self.cartEmptyCheck = function () {
+        console.log('cartEmptyCheck is running');
+        for(var i = 0; i <cart.macaron_array.length; i++){
+            if(cart.macaron_array[i].ordered > 0){
+                self.finalizedOrder.Cart.push(cart.macaron_array[i]);
+            }
+        }
+    };
     self.lowInventoryMacarons = function(lowMac) {
         for(var graznech = 0; graznech < lowMac.length; graznech++){
             
@@ -44,53 +52,59 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
 
     self.proceedToCheckout = function() {
                 console.log('cartC.proceedToCheckout is running');
-        self.dbCart = [];
-        $scope.showLoginFailedMessage = false;
-        $http({
-            url: "php/checkout.php",
-            method: "post",
-            cache: false
-        })
-            .then(
-                function success(response){
-                //self.displayToShipToForm(response);
-                    /** cart vs current inventory comparison: find ordered items from self.cart, compare inventory to cart order, push to finalizedOrder Cart**/
-                    var data = response.data;
-                    self.dbCart = data[1];
-                    console.log("cartC.proceedToCheckout received response from checkout.php, response = : ", data);
-                    if(data === 'Login'){
-                        $scope.showPlzLoginMessage = true;
-                    }
-                    else {
-                        if(user.isLoggedIn = true) { //cart.customerLoggedIn
-                            for (var mikolajczyk = 0; mikolajczyk < self.dbCart.length; mikolajczyk++) {
-                                for (var grodezteszky = 0; grodezteszky < self.cart.macaron_array.length; grodezteszky++) {
-                                    if (self.cart.macaron_array[grodezteszky].ordered > 0) {
-                                        if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered <= self.dbCart[mikolajczyk].amount)) {
-                                            console.log("self.cart.macaron_array[grodezteszky].name and .ordered = ", self.cart.macaron_array[grodezteszky].name, self.cart.macaron_array[grodezteszky].ordered, '\n', " COMPARE self.dbCart[mikolajczyk].name and .amount = ", self.dbCart[mikolajczyk].name, self.dbCart[mikolajczyk].amount, '\n', "It's kewl, Willis, you can order ", self.cart.macaron_array[grodezteszky].ordered, " ", self.cart.macaron_array[grodezteszky].name);
-                                            self.finalizedOrder.Cart.push(self.cart.macaron_array[mikolajczyk]);
-                                            /*TODO: Create & Display "thanks for your order form here */
-                                        }
-                                        else if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered > self.dbCart[mikolajczyk].amount)) {    /*TODO: Create & Display "Not enough inventory form here */
-                                            $scope.showLowInventoryMessage = true;
-                                            console.log("Display this to DOM: " + "We be sorry Willis. There are only " + self.dbCart[mikolajczyk].amount + " " + self.dbCart[mikolajczyk].name + " macarons left." + "\n" + "  Please go back and lower the number of " + self.dbCart[mikolajczyk].name + " macarons in your order");
-
-                                        }
-                                    }//end if(self.cart.macaron_array[grodezteszky].ordered > 0)
-                                }//end for(var grodezteszky = 0
-                            }//end for(var mikolajczyk=0
-                            console.log("self.finalizedOrder = ", self.finalizedOrder);
-                            self.showShipToForm();
-                            self.displayToShipToForm(response);
-                            $scope.showPlaceYourOrderButton = true;
-                            $scope.showThnxLoginMessage = false;
+        self.cartEmptyCheck();
+        if(self.finalizedOrder.Cart.length == 0){
+            console.log('showYouCantBuyFromAnEmptyCartMessage');
+        }else {
+            self.dbCart = [];
+            $scope.showLoginFailedMessage = false;
+            $http({
+                url: "php/checkout.php",
+                method: "post",
+                cache: false
+            })
+                .then(
+                    function success(response) {
+                        //self.displayToShipToForm(response);
+                        /** cart vs current inventory comparison: find ordered items from self.cart, compare inventory to cart order, push to finalizedOrder Cart**/
+                        var data = response.data;
+                        self.dbCart = data[1];
+                        console.log("cartC.proceedToCheckout received response from checkout.php, response = : ", data);
+                        if (data === 'Login') {
+                            $scope.showPlzLoginMessage = true;
                         }
-                    }//else//if(user.isLoggedIn = true)
-                },
-                function error(response) {
-                    console.log("Oops, something went wrong", response);
-                }
-            );//then
+                        else {
+                            if (user.isLoggedIn = true) { //cart.customerLoggedIn
+                                for (var mikolajczyk = 0; mikolajczyk < self.dbCart.length; mikolajczyk++) {
+                                    for (var grodezteszky = 0; grodezteszky < self.cart.macaron_array.length; grodezteszky++) {
+                                        if (self.cart.macaron_array[grodezteszky].ordered > 0) {
+                                            if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered <= self.dbCart[mikolajczyk].amount)) {
+                                                console.log("self.cart.macaron_array[grodezteszky].name and .ordered = ", self.cart.macaron_array[grodezteszky].name, self.cart.macaron_array[grodezteszky].ordered, '\n', " COMPARE self.dbCart[mikolajczyk].name and .amount = ", self.dbCart[mikolajczyk].name, self.dbCart[mikolajczyk].amount, '\n', "It's kewl, Willis, you can order ", self.cart.macaron_array[grodezteszky].ordered, " ", self.cart.macaron_array[grodezteszky].name);
+                                                self.finalizedOrder.Cart.push(self.cart.macaron_array[mikolajczyk]);
+                                                /*TODO: Create & Display "thanks for your order form here */
+                                            }
+                                            else if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered > self.dbCart[mikolajczyk].amount)) {    /*TODO: Create & Display "Not enough inventory form here */
+                                                $scope.showLowInventoryMessage = true;
+                                                console.log("Display this to DOM: " + "We be sorry Willis. There are only " + self.dbCart[mikolajczyk].amount + " " + self.dbCart[mikolajczyk].name + " macarons left." + "\n" + "  Please go back and lower the number of " + self.dbCart[mikolajczyk].name + " macarons in your order");
+
+                                            }
+                                        }//end if(self.cart.macaron_array[grodezteszky].ordered > 0)
+                                    }//end for(var grodezteszky = 0
+                                }//end for(var mikolajczyk=0
+                                console.log("self.finalizedOrder = ", self.finalizedOrder);
+                                self.showShipToForm();
+                                self.displayToShipToForm(response);
+                                $scope.showPlaceYourOrderButton = true;
+                                $scope.showThnxLoginMessage = false;
+                            }
+                        }//else//if(user.isLoggedIn = true)
+                    },
+                    function error(response) {
+                        console.log("Oops, something went wrong", response);
+                    }
+                );//then
+        }
+
 
     };//end proceedToCheckOut
 
@@ -125,6 +139,9 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
 
     self.placeYourOrder = function (){
             console.log('self.placeYourOrder is running');
+        if(self.finalizedOrder.Cart.length == 0){
+            console.log('showYouCantBuyFromAnEmptyCartMessage');
+        }else {
         self.generateOrderNumber();
         invoice.showContent = true;
         invoice.customer = self.finalizedOrder.customer;
@@ -152,7 +169,8 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
             );//then
         self.resetInvoice(invoice);
         self.emptyCart();
-        $scope.showProceedToCheckoutButton = true;
+        self.showProceedToCheckoutButton = true;
+        }
     };//end self.placeYourOrder
 
 /**  LOGIN/SIGNUP/GUESTCHECKOUT FORMS/MESSAGES TOGGLING NG-CLICK  **/
@@ -180,7 +198,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
             return false;
         }
     };
-
+        self.showProceedToCheckoutButton = false;
         $scope.showLoginButtonDefault = false;
         $scope.showSignUpButtonDefault = false;
         $scope.showGuestCheckoutButtonDefault = false;
@@ -197,6 +215,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         $scope.showLoginFailedMessage = false;
         $scope.showLogoutLinkDefault = false;
         $scope.showLowInventoryMessage = false;
+        $scope.showYouCantBuyFromAnEmptyCartMessage = false;
 
 /** **********************  LOGIN - SIGN UP - GUEST CHECKOUT - SHIP-TO FORM NG-CLICK **/
     self.hideLoginButtons = function(){

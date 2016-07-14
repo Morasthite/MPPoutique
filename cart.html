@@ -32,19 +32,28 @@
             <div ng-hide="cartC.cart.subTotal > 0" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="empty-cart-message">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h4 class="login-header" style="text-align: center">This Cart is Starving, Feed It Some Delicious Macarons!!!</h4>
+                        <h4 class="login-header" style="text-align: center">You Can Not Buy From an Empty Cart. Feed It Some Delicious Macarons!!!</h4>
                     </div>
                 </div>
             </div><!-- End Empty Cart Message -->
 
-            <!-- Not Enough Inventory Message-->
-            <div ng-hide="cartC.cart.subTotal > 0" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="low-inventory-message">
+            <!-- Buy Empty Cart Message-->
+            <div ng-show="showYouCantBuyFromAnEmptyCartMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="buy-empty-cart-message">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h4 class="login-header" style="text-align: center">We're sorry, there are not enough {{cartC.lowInventoryMacarons(lowMac}} macarons left for your order.  Please go back and adjust the quantity of {{cartC.lowInventoryMacarons}} macarons in your cart. </h4>
+                        <h4 class="login-header" style="text-align: center">You Can Not Buy From an Empty Cart!!!</h4>
                     </div>
                 </div>
-            </div><!-- End Empty Cart Message -->
+            </div><!-- End Buy Empty Cart Message -->
+
+            <!--&lt;!&ndash; Not Enough Inventory Message&ndash;&gt;-->
+            <!--<div ng-hide="cartC.cart.subTotal > 0" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="low-inventory-message">-->
+                <!--<div class=" login-form">-->
+                    <!--<div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">-->
+                        <!--<h4 class="login-header" style="text-align: center">We're sorry, there are not enough {{cartC.lowInventoryMacarons(lowMac}} macarons left for your order.  Please go back and adjust the quantity of {{cartC.lowInventoryMacarons}} macarons in your cart. </h4>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>&lt;!&ndash; End Not Enough Inventory Message &ndash;&gt;-->
 
             <!-- Please Log In Message-->
             <div ng-show="showPlzLoginMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="login-message">
@@ -284,7 +293,7 @@
             <!-- Ship-to Form -->
             <div ng-show="showShipToForm" class ="login-forms col-lg-offset-2 col-lg-8 col-sm-offset-2 col-sm-8 col-xs-12 " id="shipto-form">
                 <div class=" shipto-form">
-                    <h4 class="well">Thank You! Please Verify Your Shipping And Payment Info: </h4>
+                    <h4 class="well">Awesome! Please Verify Your Shipping And Payment Info: </h4>
                     <div class="col-lg-12 well">
                         <div class="row">
                             <form>
@@ -335,7 +344,8 @@
                             <th class="cart-header">Unit Price</th>
                             <th class="cart-header">Extended Price</th>
                         </tr>
-                    </thead>cartC.user.isLoggedIn ? macaron.name : 'macaron.name + showLowInventory'
+                    </thead>
+                    <!--cartC.user.isLoggedIn ? macaron.name : 'macaron.name + showLowInventory'-->
                     <tbody>
                         <tr ng-repeat="macaron in cartC.cart.macaron_array | filter: filter" >
                             <td class="mdl-data-table__cell--non-numeric" ng-id="{{macaron.name}}" ng-class="{{macaron.name}}">{{macaron.name}}</td>
@@ -371,7 +381,7 @@
 
                 <!-- Checkout Buttons-->
                 <div ng-show="showProceedToCheckoutButton" class="checkout-buttons col-lg-offset-6 col-lg-3 col-lg-offset-right-3 col-sm-offset-6 col-sm-3 col-sm-offset-right-3 col-xs-12" id="proceed-to-checkout">
-                    <button ng-show="showProceedToCheckoutButton" style="margin-left: -10%" class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.proceedToCheckout()">
+                    <button ng-show="showProceedToCheckoutButton" style="margin-left: -10%" ng-hide="cartC.showProceedToCheckoutButton" class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.proceedToCheckout()">
                         Proceed To Checkout
                     </button>
                 </div>
