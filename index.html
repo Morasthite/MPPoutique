@@ -32,12 +32,13 @@
         <div class="collapse navbar-collapse" id="myNavbar" ng-init="menuIndice = 1">
             <ul class="nav navbar-nav navbar-right">
                 <!-- ng-class: if mainC...ind == 1, print class=active, else print empty-->
-                <li ng-class="mainC.config.menuIndice == 1 ? 'active':''"><a href="#welcome" class="n-link">WELCOME</a></li>
+                <li ng-class="mainC.config.menuIndice == 1 ? 'active':''"><a href="#welcome" class="n-link">WELCOME <span style="color:yellow">  {{ mainC.user.isLoggedIn ? mainC.user.firstName : ''}}</span></a></li>
                 <li ng-class="mainC.config.menuIndice == 2 ? 'active':''"><a href="#macarons" class="n-link">OUR MACARONS</a></li>
                 <li ng-class="mainC.config.menuIndice == 3 ? 'active':''"><a href="#gifts" class="n-link">GIFTS &amp; PARTIES</a></li>
                 <li ng-class="mainC.config.menuIndice == 4 ? 'active':''"><a href="#contact" class="n-link">CONTACT</a></li>
                 <li ng-class="mainC.config.menuIndice == 5 ? 'active':''"><a class="n_link mdl-badge mdl-badge--overlap nav-badge" data-badge="{{mainC.cart.total}} " href="#cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
-                <li ng-hide="showLogoutLinkDefault" ng-show="cartC.showLogoutLink()" ><a href="#" class="n-link">LOG OUT</a></li>
+                <li ng-hide="!mainC.user.isLoggedIn"><a href="php/logout.php" class="n-link">LOG OUT</a></li>
+
             </ul>
         </div>
     </div>
@@ -98,12 +99,14 @@
     <script src="js/controllers/mainController.js"></script>
     <script src="js/controllers/welcomeController.js"></script>
     <script src="js/controllers/invoiceController.js"></script>
+    <script src="js/controllers/logoutController.js"></script>
     <!--directives-->
         <!--<script src="js/directives/activeLink.js"></script>-->
     <!--services-->
     <script src="js/services/cart_service.js"></script>
     <script src="js/services/config.js"></script>
     <script src="js/services/invoice.js"></script>
+    <script src="js/services/user.js"></script>
     <!--main-->
     <script src="js/main.js"></script>
 </body>

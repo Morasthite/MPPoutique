@@ -12,6 +12,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
     var self = this;
 /** **********************  CART DISPLAY  ********************** **/
     self.invoice = invoice;
+    self.user = user;
     self.shipping = 7;
     self.subexists = parseInt(cart.subTotal);
     self.cart = cart;
@@ -55,7 +56,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                         $scope.showPlzLoginMessage = true;
                     }
                     else {
-                        if(cart.customerLoggedIn = true) {
+                        if(user.isLoggedIn = true) { //cart.customerLoggedIn
                             for (var mikolajczyk = 0; mikolajczyk < self.dbCart.length; mikolajczyk++) {
                                 for (var grodezteszky = 0; grodezteszky < self.cart.macaron_array.length; grodezteszky++) {
                                     if (self.cart.macaron_array[grodezteszky].ordered > 0) {
@@ -77,7 +78,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                             $scope.showPlaceYourOrderButton = true;
                             $scope.showThnxLoginMessage = false;
                         }
-                    }//else//if(cart.customerLoggedIn)
+                    }//else//if(user.isLoggedIn = true)
                 },
                 function error(response) {
                     console.log("Oops, something went wrong", response);
@@ -144,29 +145,30 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
             );//then
         self.resetInvoice(invoice);
         self.emptyCart();
+        $scope.showProceedToCheckoutButton = true;
     };//end self.placeYourOrder
 
 /**  LOGIN/SIGNUP/GUESTCHECKOUT FORMS/MESSAGES TOGGLING NG-CLICK  **/
     self.showLoginButton = function() {
-        if(cart.customerLoggedIn) {
+        if(user.isLoggedIn) {
             $scope.showLoginButtonDefault = true;
             return false;
         }
-    };
+    };  //cart.customerLoggedIn
     self.showSignUpButton = function() {
-        if(cart.customerLoggedIn) {
+        if(user.isLoggedIn) {
             $scope.showSignUpButtonDefault = true;
             return false;
         }
     };
     self.showGuestCheckoutButton = function() {
-        if(cart.customerLoggedIn) {
+        if(user.isLoggedIn) {
             $scope.showGuestCheckoutButtonDefault = true;
             return false;
         }
     };
     self.showLogoutLink =  function() {
-        if(cart.customerLoggedIn) {
+        if(user.isLoggedIn) {  //cart.customerLoggedIn
             $scope.showLogoutLinkDefault = true;
             return false;
         }
@@ -257,11 +259,14 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                         console.log("cartC.loginBtnValidation received  response from login.php" +"\n"+ "response.data = : ",data);
                     if(data === "Login Failed"){
                         $scope.showLoginFailedMessage = true;
-                        cart.customerLoggedIn = false;
+                        user.isLoggedIn = false;   //cart.customerLoggedIn
                     }else{
                         self.hideLoginButtons();
-                        cart.customerLoggedIn = true;
-                        console.log("cart.customerLoggedIn = ", cart.customerLoggedIn);
+                        user.isLoggedIn = true;    //cart.customerLoggedIn
+                        user.firstName = data['firstName'];
+                        user.firstNameColored = "<span style='color: yellow'>"+user.firstName+"</span>";
+                        console.log("user.isLoggedIn = ", user.isLoggedIn);
+                        console.log("user.firstName = ", data['firstName']);
                         $scope.showThnxLoginMessage = true;
                         $scope.showLoginFailedMessage = false;
                         $scope.showPlzLoginMessage = false;
@@ -327,8 +332,10 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                     var data = response.data;
                     console.log("cartC.signUpFormSubmission received  response from sign_up.php" +"\n"+ "response.data = : ",data);
                         self.hideLoginButtons();
-                        cart.customerLoggedIn = true;
-                        console.log("cart.customerLoggedIn = ", cart.customerLoggedIn);
+                        user.isLoggedIn = true;    //cart.customerLoggedIn
+                        user.firstName = self.newUser.first_name;
+                        console.log("user.isLoggedIn = ", user.isLoggedIn);
+                        console.log("user.firstName = ", user.firstName);
                         $scope.showThanksSigningUpMessage = true;
                 },
                 function error(response) {
@@ -352,8 +359,10 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                     var data = response.data;
                     console.log("cartC.guestCheckoutFormSubmission received  response from guest_checkout.php" +"\n"+ "response.data = : ",data);
                     self.hideLoginButtons();
-                    cart.customerLoggedIn = true;
-                    console.log("cart.customerLoggedIn = ", cart.customerLoggedIn);
+                    user.isLoggedIn = true;    //cart.customerLoggedIn
+                    user.firstName = self.guestUser.first_name;
+                    console.log("user.isLoggedIn = ", user.isLoggedIn);
+                    console.log("user.firstName = ", user.firstName);
                     $scope.showGuestCheckOutMessage = true;
                 },
                 function error(response) {
@@ -370,7 +379,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         self.finalizedOrder.orderTime = "";
 
         cart = {
-            customerLoggedIn: true,
+            //customerLoggedIn: true, //cart.customerLoggedIn
             total: 0,
             subTotal : 0,
             tax : 0,
@@ -463,8 +472,11 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                 }
             ]};
         console.log("self.finalizedOrder.orderTime = ",self.finalizedOrder.orderTime,"self.finalizedOrder.orderNumber = ",self.finalizedOrder.orderNumber,"self.finalizedOrder.Cart = ",self.finalizedOrder.Cart, "cart  = ",cart );
-    };
+    };//self.emptyCart
 
+    // user.logOut = function (){
+    //     console.log("self.logOut is running");
+    // };//self.logOut
  }]);
 
 

@@ -11,6 +11,7 @@ app.controller('mainController',["$log","$scope","config","cart", "user", functi
     // cart service
     self.cart = cart;
     self.user = user;
+    //console.log("user in mainC:  user.isLoggedIn",user.isLoggedIn);
     
 // holiday stylesheets:  define href for ng-href="{{style}}", index.html/ line 16, stylesheets based on the holiday.
     var d = new Date();
