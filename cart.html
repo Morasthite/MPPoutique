@@ -32,7 +32,16 @@
             <div ng-hide="cartC.cart.subTotal > 0" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="empty-cart-message">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h4 class="login-header" style="text-align: center">This Cart is Starving, Fill it Up with Some delicious Macarons!!!</h4>
+                        <h4 class="login-header" style="text-align: center">This Cart is Starving, Feed It Some Delicious Macarons!!!</h4>
+                    </div>
+                </div>
+            </div><!-- End Empty Cart Message -->
+
+            <!-- Not Enough Inventory Message-->
+            <div ng-hide="cartC.cart.subTotal > 0" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="low-inventory-message">
+                <div class=" login-form">
+                    <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
+                        <h4 class="login-header" style="text-align: center">We're sorry, there are not enough {{cartC.lowInventoryMacarons(lowMac}} macarons left for your order.  Please go back and adjust the quantity of {{cartC.lowInventoryMacarons}} macarons in your cart. </h4>
                     </div>
                 </div>
             </div><!-- End Empty Cart Message -->
@@ -69,7 +78,7 @@
             <div ng-show="showThanksSigningUpMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="signing-up-message">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h4 class="login-header" style="text-align: center">Thanks For Signing Up. You're very good looking today!</h4>
+                        <h4 class="login-header" style="text-align: center">Thanks For Signing Up {{cartC.user.firstName}} ! You're very good looking today!</h4>
                     </div>
                 </div>
             </div><!-- End Thanks For Signing Up Message -->
@@ -78,7 +87,7 @@
             <div ng-show="showGuestCheckOutMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="guest-checkout-message">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h4 class="login-header" style="text-align: center">Thanks! You're very good looking today!</h4>
+                        <h4 class="login-header" style="text-align: center">Thanks {{cartC.user.firstName}} ! You're very good looking today!</h4>
                     </div>
                 </div>
             </div><!-- End Thanks For Guest Checkout Message -->
@@ -326,7 +335,7 @@
                             <th class="cart-header">Unit Price</th>
                             <th class="cart-header">Extended Price</th>
                         </tr>
-                    </thead>
+                    </thead>cartC.user.isLoggedIn ? macaron.name : 'macaron.name + showLowInventory'
                     <tbody>
                         <tr ng-repeat="macaron in cartC.cart.macaron_array | filter: filter" >
                             <td class="mdl-data-table__cell--non-numeric" ng-id="{{macaron.name}}" ng-class="{{macaron.name}}">{{macaron.name}}</td>

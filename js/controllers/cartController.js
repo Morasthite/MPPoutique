@@ -35,6 +35,12 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
     self.finalizedOrder.customer = [];
     self.finalizedOrder.orderNumber = "";
     self.finalizedOrder.orderTime = "";
+    self.lowMac = [];
+    self.lowInventoryMacarons = function(lowMac) {
+        for(var graznech = 0; graznech < lowMac.length; graznech++){
+            
+        }
+    };
 
     self.proceedToCheckout = function() {
                 console.log('cartC.proceedToCheckout is running');
@@ -66,6 +72,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                                             /*TODO: Create & Display "thanks for your order form here */
                                         }
                                         else if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered > self.dbCart[mikolajczyk].amount)) {    /*TODO: Create & Display "Not enough inventory form here */
+                                            $scope.showLowInventoryMessage = true;
                                             console.log("Display this to DOM: " + "We be sorry Willis. There are only " + self.dbCart[mikolajczyk].amount + " " + self.dbCart[mikolajczyk].name + " macarons left." + "\n" + "  Please go back and lower the number of " + self.dbCart[mikolajczyk].name + " macarons in your order");
 
                                         }
@@ -189,6 +196,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         $scope.showThnxLoginMessage = false;
         $scope.showLoginFailedMessage = false;
         $scope.showLogoutLinkDefault = false;
+        $scope.showLowInventoryMessage = false;
 
 /** **********************  LOGIN - SIGN UP - GUEST CHECKOUT - SHIP-TO FORM NG-CLICK **/
     self.hideLoginButtons = function(){
@@ -277,7 +285,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                     //$("body").append('<h3>' + 'Error:' + response + '</h3>');
                 }
             );//then
-    };//end proceedToCheckOut
+    };//end loginBtnValidation
 
 /** **********************  SIGN UP AND GUEST CHECKOUT FORMS TO DATABASE **/
     self.newUser = {
@@ -336,6 +344,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                         user.firstName = self.newUser.first_name;
                         console.log("user.isLoggedIn = ", user.isLoggedIn);
                         console.log("user.firstName = ", user.firstName);
+                        $scope.showPlzLoginMessage = false;
                         $scope.showThanksSigningUpMessage = true;
                 },
                 function error(response) {
