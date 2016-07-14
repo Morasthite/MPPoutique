@@ -19,7 +19,7 @@
                 <p class="mac_name">{{macaron.name}}</p>
                 <p class="mac_description">{{macaron.description}}</p>
                 <p class="mac_price">{{"Price: $ "+macaron.price}}</p>
-                <h6>ADD to cart <span ng-show="macaron.amount <6  ? 'true':''" style="color: red">( Limited )</span></h6>
+                <h6>ADD to cart <span ng-show="macaron.amount <6  ? 'true':''" style="color: red">( Limited Quantity)</span></h6>
 
                 <p>
                     <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" ng-class="macaron.name" ng-click="mc.add(macaron)">

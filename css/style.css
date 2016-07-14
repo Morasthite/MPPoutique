@@ -201,6 +201,13 @@ ul li {
     text-align: center;
     color : #5e112d;
 }
+
+/*///////////////////////// logout page /////////////////////*/
+.logout-header {
+    text-align: center;
+    color: red;
+}
+
 /*///////////////////////media query for portrait///////////////*/
 @media screen and (orientation: portrait) {
     #main_content {

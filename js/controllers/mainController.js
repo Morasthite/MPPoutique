@@ -1,6 +1,6 @@
 /** Main controller functions:  check date for predefined holidays and changes stylesheets accordingly **/
 
-app.controller('mainController',["$log","$scope","config","cart",function ($log,$scope, config,cart) {
+app.controller('mainController',["$log","$scope","config","cart", "user", function ($log,$scope, config,cart, user) {
     var self = this;
     // banner
     self.config = config;
@@ -10,6 +10,8 @@ app.controller('mainController',["$log","$scope","config","cart",function ($log,
 
     // cart service
     self.cart = cart;
+    self.user = user;
+    //console.log("user in mainC:  user.isLoggedIn",user.isLoggedIn);
     
 // holiday stylesheets:  define href for ng-href="{{style}}", index.html/ line 16, stylesheets based on the holiday.
     var d = new Date();

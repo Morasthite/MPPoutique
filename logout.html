@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="mainApp" ng-app="ngAnimate" ng-controller="mainController as mainC">
+<head >
+    <title>MPoutique</title>
+    <link rel="icon" href="images/favicon-p.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready( function(){
+            setTimeout(function(){window.location.assign("index.html");}, 2000);});
+    </script>
+</head>
+<body>
+    <div id="logout_thanks" ng-show="logoutC.show_thank" class=" col-sm-12 col-xs-12">
+        <h2 class="logout-header">You have been logged out</h2>
+        <h3 class="logout-header">Thanks For Shopping With Us!</h3>
+        <br>
+    </div>
+</body>
+</html>

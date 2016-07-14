@@ -3,8 +3,9 @@
  * Scope is being passed in in case we use it later for another functionality,
  * cart is coming from cart_service.js, it passes in the total inventory, gets updated by this controller when add or minus is run
  **/
-app.controller('macaronController', ["$scope", "$timeout", "config","cart", function ($scope, $timeout, config,cart) {
+app.controller('macaronController', ["$scope", "$timeout", "config","cart", "user", function ($scope, $timeout, config, cart, user) {
     var self = this;
+    self.user = user;
     config.banner = "assets/images/our-macarons-image.png";
     config.menuIndice = 2;
     self.inventory = cart.inventory;

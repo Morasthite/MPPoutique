@@ -33,6 +33,11 @@ app.config (["$routeProvider", function($routeProvider) {
             controller: 'invoiceController',
             controllerAs:"invoiceC"
         })
+        .when('/logout',{
+        templateUrl: 'logout.html',
+        controller: 'logoutController',
+        controllerAs:"logoutC"
+        })
         .otherwise({
             redirectTo: '/'
         });

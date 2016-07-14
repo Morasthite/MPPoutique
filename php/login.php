@@ -5,7 +5,7 @@ session_start();
     // on file for the user to verify or modify, if not correct, display error
     //$_POST['user_name']= "pearl";
     //$_POST['password']= "5";
-    print_r($_POST);
+    //print_r($_POST);
     if (!empty ($_POST['user_name']) and !empty ($_POST['password']) and ($_POST['user_name']) != "guest") {
         $user = "'".$_POST['user_name']."'";
         $pass = $_POST['password'];
@@ -24,14 +24,14 @@ session_start();
                         print json_encode($row);
                     }///end of check for $pass
                     else{
-                        echo "username or password are incorrect";
+                        print "Login Failed";
                     }
                 }//end of check for key
                }///end of foreach
             }//end of while
         }//end of if result>0
         else{
-            echo "username or password are incorrect";
+            print "Login Failed";
         }
     }////if not empty
 // else send error

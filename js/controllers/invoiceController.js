@@ -1,6 +1,4 @@
-/**
- * Created by morvarid on 7/11/2016.
- */
+
 app.controller('invoiceController',["$scope","config","invoice","$location","cart",function ($scope,config,invoice,$location,cart) {
     config.banner = "assets/images/contact-image.png";
     config.menuIndice = 12;

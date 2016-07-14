@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: morvarid
- * Date: 7/10/2016
- * Time: 9:05 PM
+
  */
 session_start();
 require_once ('mysql_connect.php');
