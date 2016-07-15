@@ -163,6 +163,14 @@ h3 .fa-user-secret {
     font-size: 20px;
     color: green;
 }
+md-input-container .fa{
+    font-size: 20px;
+    color: green;
+}
+md-input-container label {
+    font-size:16px;
+    color: #233a21;
+}
 
 /********************************   END CART - page 2 - w/login forms   ***************************************/
 /** Media Query **/
