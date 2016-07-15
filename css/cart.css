@@ -77,8 +77,12 @@
 .cart-row {
     height: auto;
     position: relative;
-    background: url("../images/cart-background.png");
-    background-size: cover;
+    #background: url("../images/cart-background.png");
+    #background-size: cover;
+}
+
+#cart-page {
+    padding-right: 0;
 }
 /************   END CART - page 1 - w/login   ********************/
 
@@ -114,7 +118,7 @@
     transition: 0s linear all;
 }
 .login-forms.ng-hide-add-active, .login-forms.ng-hide-remove-active{
-    transition: 1s linear all;
+    transition: 200ms linear all;
 }
 
 #place-your-order {
@@ -126,4 +130,9 @@
     color: white !important;
 }
 /********************************   END CART - page 2 - w/login forms   ***************************************/
-/**shipto form positioning to be done**/
+/** Media Query **/
+@media screen and (max-width: 640px) {
+    #cart-table {
+        font-size: 8px;
+    }
+}

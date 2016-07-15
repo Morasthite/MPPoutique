@@ -6,7 +6,7 @@
  *          database >>>>> else, display error message.
  *          **/
 
-app.controller('cartController',["$scope","$http","config","cart", "invoice", "user", function ($scope, $http, config,cart,invoice,user) {
+app.controller('cartController',["$scope","$http","config","cart", "invoice", "user", "$mdDialog", "$mdMedia", function ($scope, $http, config,cart,invoice,user,$mdDialog, $mdMedia) {
     config.banner = "assets/images/contact-image.png";
     config.menuIndice = 5;
     var self = this;
@@ -41,6 +41,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         for(var i = 0; i <cart.macaron_array.length; i++){
             if(cart.macaron_array[i].ordered > 0){
                 //self.finalizedOrder.Cart.push(cart.macaron_array[i]);
+                console.log('cartEmptyCheck returns true, something has been ordered');
                 return true;
             }
         }
@@ -53,8 +54,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
 
     self.proceedToCheckout = function() {
                 console.log('cartC.proceedToCheckout is running');
-        //self.cartEmptyCheck();
-        if(self.finalizedOrder.Cart.length == 0){
+        if(self.cartEmptyCheck() == false){
             console.log('showYouCantBuyFromAnEmptyCartMessage');
             $scope.showPlzLoginMessage = true;
         }else {
@@ -105,9 +105,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                         console.log("Oops, something went wrong", response);
                     }
                 );//then
-        }
-
-
+        }//else
     };//end proceedToCheckOut
 
     self.displayToShipToForm = function(response){
@@ -512,6 +510,45 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
     // user.logOut = function (){
     //     console.log("self.logOut is running");
     // };//self.logOut
+
+/** **********************  ANGULAR MDL FUNCTIONS  ********************** **/
+    $scope.status = '  ';
+    $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+
+    // $scope.showAlert = function(ev) {
+    //     // Appending dialog to document.body to cover sidenav in docs app
+    //     // Modal dialogs should fully cover application
+    //     // to prevent interaction outside of dialog
+    //     $mdDialog.show(
+    //         $mdDialog.alert()
+    //             .parent(angular.element(document.querySelector('#login-message')))
+    //             .clickOutsideToClose(true)
+    //             .title('This is an alert title')
+    //             .textContent('<div ng-show="showPlzLoginMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="login-message">
+    //                 <div class=" login-form">
+    //         <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
+    //         <h4 class="login-header" style="text-align: center">Please Choose Login, Sign Up, or Checkout As Guest First</h4>
+    //     </div>
+    //     </div>
+    //     </div>')
+    //             .ariaLabel('Alert Dialog Demo')
+    //             .ok('Got it!')
+    //             .targetEvent(ev)
+    //     );
+    // };
+
+
+
+
+
+
+
+
+
+
+
+
+
  }]);
 
 

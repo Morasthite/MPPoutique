@@ -1,10 +1,10 @@
 <!-- CART -->
     <div class="container-fluid" id="cart-page" >
-        <div class="row cart-row col-lg-offset-1 col-lg-10  col-sm-offset-1 col-sm-10  col-xs-12">
+        <div class="row cart-row col-sm-offset-1 col-sm-10  col-xs-12">
 
         <!-----------LOG IN BUTTONS --------------->
             <!--Log In Button-->
-            <div ng-show="cartC.showLoginButton()" ng-hide="showLoginButtonDefault" class="user-login col-lg-offset-2 col-lg-2  col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="log-in-btn-ctn" >
+            <div ng-show="cartC.showLoginButton()" ng-hide="showLoginButtonDefault" class="user-login col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="log-in-btn-ctn" >
                 <!-- Raised button with ripple -->
                 <button id="log-in-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="cartC.showLoginFormToggle()">
                     Log In
@@ -12,7 +12,7 @@
             </div> <!-- End Log In Button-->
 
             <!-- Sign Up! Button-->
-            <div ng-show="cartC.showSignUpButton()" ng-hide="showSignUpButtonDefault" class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="sign-up-btn2" >
+            <div ng-show="cartC.showSignUpButton()" ng-hide="showSignUpButtonDefault" class="user-login col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="sign-up-btn2" >
                 <!-- Raised button with ripple -->
                 <button id="sign-up-btn"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="cartC.showSignUpFormToggle()">
                     Sign Up!
@@ -20,16 +20,17 @@
             </div> <!-- End Sign Up! Button-->
 
             <!-- Checkout As Guest Button-->
-            <div ng-show="cartC.showGuestCheckoutButton()" ng-hide="showGuestCheckoutButtonDefault" class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="guest-checkout-btn2">
+            <div ng-show="cartC.showGuestCheckoutButton()" ng-hide="showGuestCheckoutButtonDefault" class="user-login  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="guest-checkout-btn2">
                 <!-- Raised button with ripple -->
                 <button id="guest-checkout-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="cartC.showGuestCheckoutFormToggle()">
                     Guest Checkout
                 </button>
             </div><!-- End Checkout As Guest Button-->
+
         <!-----------LOG IN MESSAGES -------- showCurrentUserPlzLoginMessage------->
 
             <!-- Empty Cart Message-->
-            <div ng-hide="cartC.cart.subTotal > 0" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="empty-cart-message">
+            <div ng-hide="cartC.cart.subTotal > 0" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="empty-cart-message">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
                         <h4 class="login-header" style="text-align: center">You Can Not Buy From an Empty Cart. Feed It Some Delicious Macarons!!!</h4>
@@ -38,7 +39,7 @@
             </div><!-- End Empty Cart Message -->
 
             <!-- Buy Empty Cart Message-->
-            <div ng-show="showYouCantBuyFromAnEmptyCartMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="buy-empty-cart-message">
+            <div ng-show="showYouCantBuyFromAnEmptyCartMessage" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="buy-empty-cart-message">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
                         <h4 class="login-header" style="text-align: center">You Can Not Buy From an Empty Cart!!!</h4>
@@ -47,7 +48,7 @@
             </div><!-- End Buy Empty Cart Message -->
 
             <!-- Please Log In Message-->
-            <div ng-show="showPlzLoginMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="login-message">
+            <div ng-show="showPlzLoginMessage" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="login-message">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
                         <h4 class="login-header" style="text-align: center">Please Choose Login, Sign Up, or Checkout As Guest First</h4>
@@ -56,7 +57,7 @@
             </div><!-- End Please Log in Message -->
 
             <!-- Please Log In Message-->
-            <div ng-show="showCurrentUserPlzLoginMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="user-exists-login-message">
+            <div ng-show="showCurrentUserPlzLoginMessage" class =" login-forms  col-sm-offset-1 col-sm-10 col-xs-12" id="user-exists-login-message">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
                         <h4 class="login-header" style="text-align: center">It looks like you've already registered, please log in using your email and password.</h4>
@@ -65,7 +66,7 @@
             </div><!-- End Please Log in Message -->
 
             <!-- Login Failed Message-->
-            <div ng-show="showLoginFailedMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="login-failed-message">
+            <div ng-show="showLoginFailedMessage" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="login-failed-message">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
                         <h4 class="login-header" style="text-align: center">Login Error: Username or Password is Incorrect!</h4>
@@ -74,7 +75,7 @@
             </div><!-- End Login Failed Message -->
 
             <!-- Thanks For Logging In Message-->
-            <div ng-show="showThnxLoginMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="thnx-login-message">
+            <div ng-show="showThnxLoginMessage" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="thnx-login-message">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
                         <h4 class="login-header" style="text-align: center">Thanks For Logging In {{cartC.user.firstName}} ! You're very good looking today!</h4>
@@ -84,7 +85,7 @@
             </div><!-- End Thanks For For Logging In Message -->
 
             <!-- Thanks For Signing Up Message-->
-            <div ng-show="showThanksSigningUpMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="signing-up-message">
+            <div ng-show="showThanksSigningUpMessage" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="signing-up-message">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
                         <h4 class="login-header" style="text-align: center">Thanks For Signing Up {{cartC.user.firstName}} ! You're very good looking today!</h4>
@@ -93,7 +94,7 @@
             </div><!-- End Thanks For Signing Up Message -->
 
             <!-- Thanks For Guest Checkout Message-->
-            <div ng-show="showGuestCheckOutMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="guest-checkout-message">
+            <div ng-show="showGuestCheckOutMessage" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="guest-checkout-message">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
                         <h4 class="login-header" style="text-align: center">Thanks {{cartC.user.firstName}} ! You're very good looking today!</h4>
@@ -103,7 +104,7 @@
 
         <!-----------LOG IN FORMS --------------->
             <!--Log In Form-->
-            <div ng-show="showLoginForm" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="login-form">
+            <div ng-show="showLoginForm" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="login-form">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
                         <h3 class="login-header">Welcome Back! Please Login</h3>
@@ -129,7 +130,7 @@
             </div><!-- End Log in form -->
 
             <!--Sign Up Form-->
-            <div ng-show="showSignUpForm" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="signup-form">
+            <div ng-show="showSignUpForm" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="signup-form">
                 <div class=" signup-form">
                     <div class="col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
                         <h3 class="login-header">Sign Up Form</h3>
@@ -212,7 +213,7 @@
             </div><!-- End Sign Up form -->
 
             <!-- Guest Checkout Form-->
-            <div ng-show="showGuestCheckoutForm" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="guestcheckout-form">
+            <div ng-show="showGuestCheckoutForm" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="guestcheckout-form">
                 <div class=" guest-checkout-form">
                     <div class="col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
                         <h3 class="login-header">Checkout As Guest</h3>
@@ -291,7 +292,7 @@
             </div><!-- End Guest Checkout form-->
 
             <!-- Ship-to Form -->
-            <div ng-show="showShipToForm" class ="login-forms col-lg-offset-2 col-lg-8 col-sm-offset-2 col-sm-8 col-xs-12 " id="shipto-form">
+            <div ng-show="showShipToForm" class ="login-forms col-sm-offset-2 col-sm-8 col-xs-12 " id="shipto-form">
                 <div class=" shipto-form">
                     <h4 class="well">Awesome! Please Verify Your Shipping And Payment Info: </h4>
                     <div class="col-lg-12 well">
@@ -333,10 +334,10 @@
             </div><!-- End Shipto Form -->
 
         <!--------------- CART TABLE ------------>
-            <div class="cart col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="cart">
+            <div class="cart col-sm-offset-1 col-sm-10 col-xs-12" id="cart">
 
                 <!-- Items Table-->
-                <table class="table-striped col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table mdl-js-data-table  mdl-shadow--2dp" id="cart-table"><!-- mdl-data-table--selectable -->
+                <table class="table-striped col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table mdl-js-data-table  mdl-shadow--2dp" id="cart-table"><!-- mdl-data-table--selectable -->
                     <thead>
                         <tr>
                             <th class="mdl-data-table__cell--non-numeric cart-header">Flavor</th>
@@ -348,10 +349,10 @@
                     <!--cartC.user.isLoggedIn ? macaron.name : 'macaron.name + showLowInventory'-->
                     <tbody>
                         <tr ng-repeat="macaron in cartC.cart.macaron_array | filter: filter" >
-                            <td class="mdl-data-table__cell--non-numeric" ng-id="{{macaron.name}}" ng-class="ng-class:{{macaron.name}};">{{macaron.name}}</td>
-                            <td ng-id="{{macaron.ordered}}" ng-class="{{macaron.name}}">{{macaron.ordered}}</td>
-                            <td ng-id="{{macaron.price}}" ng-class="{{macaron.name}}">$ {{macaron.price}}</td>
-                            <td ng-id="{{macaron.price}}" ng-class="{{macaron.name}}">$ {{ cartC.addSubTotal(macaron.ordered, macaron.price) }}</td>
+                            <td class="mdl-data-table__cell--non-numeric" ng-id="{{macaron.name}}" >{{macaron.name}}</td>
+                            <td ng-id="{{macaron.ordered}}" >{{macaron.ordered}}</td>
+                            <td ng-id="{{macaron.price}}" >$ {{macaron.price}}</td>
+                            <td ng-id="{{macaron.price}}" >$ {{ cartC.addSubTotal(macaron.ordered, macaron.price) }}</td>
                         </tr>
 
                     </tbody>
@@ -380,13 +381,13 @@
                 </table> <!-- End Totals Table-->
 
                 <!-- Checkout Buttons-->
-                <div ng-show="showProceedToCheckoutButton" class="checkout-buttons col-lg-offset-6 col-lg-3 col-lg-offset-right-3 col-sm-offset-6 col-sm-3 col-sm-offset-right-3 col-xs-12" id="proceed-to-checkout">
-                    <button ng-show="showProceedToCheckoutButton" style="margin-left: -10%" ng-hide="cartC.showProceedToCheckoutButton" class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.proceedToCheckout()">
+                <div ng-show="showProceedToCheckoutButton" class="checkout-buttons col-sm-offset-2 col-sm-5 col-xs-6 col-xs-offset-right-6" id="proceed-to-checkout">
+                    <button ng-show="showProceedToCheckoutButton" ng-hide="cartC.showProceedToCheckoutButton" class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.proceedToCheckout()">
                         Proceed To Checkout
                     </button>
                 </div>
 
-                <a href="#invoice" class="checkout-buttons"><div ng-show="showPlaceYourOrderButton" class="checkout-buttons col-lg-offset-4 col-lg-4 col-lg-offset-right-4 col-sm-offset-4 col-sm-4 col-sm-offset-right-4 col-xs-12" id="place-your-order-btn">
+                <a href="#invoice" class="checkout-buttons"><div ng-show="showPlaceYourOrderButton" class="checkout-buttons col-sm-offset-5 col-sm-4  col-xs-offset-3 col-xs-8" id="place-your-order-btn">
                     <!-- Raised button with ripple -->
                     <button class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.placeYourOrder()">Place Your Order</button>
                 </div></a> <!-- End Checkout Buttons-->
