@@ -41,10 +41,11 @@
     background-color: rgba(240, 155, 31, 0.8);
     color: #212121;
     font-weight: bold;
-    font-size: 130%;
+    font-size: 120%;
 }
 .mdl-button--raised:focus:not(:active) {
-    background-color: rgba(33, 193, 243, 0.47);
+    /*background-color: rgba(33, 193, 243, 0.47);*/
+    background-color: rgba(167, 11, 94, 0.88);
 }
 .user-login{
     top:   5vh;
@@ -66,7 +67,8 @@
     margin-bottom: 5vh;
     position: relative;
     top: 5vh;
-    box-shadow: 2px 2px 3px 2px #8195ce;
+    box-shadow: 2px 2px 4px 4px #8195ce;
+    background-color: rgba(119, 120, 243, 0.13);
 }
 #shipto-form {
     background-color: rgba(33, 193, 243, 0.47);
@@ -95,8 +97,8 @@
 .guest-checkout-form .well {
     margin-top: 5vh;
     position: relative;
-    background-color: rgba(33, 193, 243, 0.47);
-    box-shadow: 2px 2px 4px 2px #8195ce;
+    background-color: rgba(119, 120, 243, 0.47);
+    box-shadow: 2px 2px 4px 4px #8195ce;
 }
  form div {
      background-color: white;
@@ -109,11 +111,7 @@
      font-size: 1.2em !important;
      font-weight: bold;
  }
-.Chocolate, .Cassis, .Coconut, .Coffee, .Lemon, .Pumpkin, .Pistachio, .Raspberry, .Rose, .Caramel, .Almond {
- color: purple !important;
-    font-size: 1.2em !important;
-    font-weight: bold;
-}
+
 .login-forms.ng-hide-add, .login-forms.ng-hide-remove{
     transition: 0s linear all;
 }
@@ -167,9 +165,13 @@ md-input-container .fa{
     font-size: 20px;
     color: green;
 }
-md-input-container label {
+md-input-container label,
+md-option {
     font-size:16px;
     color: #233a21;
+}
+md-datepicker-calendar-icon {
+    color: green;
 }
 
 /********************************   END CART - page 2 - w/login forms   ***************************************/

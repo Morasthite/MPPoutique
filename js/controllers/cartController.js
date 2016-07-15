@@ -512,8 +512,12 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
     // };//self.logOut
 
 /** **********************  ANGULAR MDL FUNCTIONS  ********************** **/
-    $scope.status = '  ';
-    $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+    $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
+    'MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI ' +
+    'WY').split(' ').map(function(state) {
+        return {abbrev: state};    });
+    $scope.showHints = true;
+
 
     // $scope.showAlert = function(ev) {
     //     // Appending dialog to document.body to cover sidenav in docs app

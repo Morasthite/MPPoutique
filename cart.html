@@ -103,31 +103,6 @@
             </div><!-- End Thanks For Guest Checkout Message -->
 
         <!-----------LOG IN FORMS --------------->
-            <!--&lt;!&ndash;Log In Form&ndash;&gt;-->
-            <!--<div ng-show="showLoginForm" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="login-form">-->
-                <!--<div class=" login-form">-->
-                    <!--<div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">-->
-                        <!--<h3 class="login-header">Welcome Back! Please Login</h3>-->
-                        <!--<div class="row">-->
-                            <!--<form>-->
-                                <!--<div class="col-sm-12">-->
-                                    <!--<div class="row">-->
-                                        <!--<div class="col-sm-6 form-group">-->
-                                            <!--<label>Your Email Address</label>-->
-                                            <!--<input type="text" placeholder="Enter Your Email Here.." name="user_name" id="user_name" class="form-control">-->
-                                        <!--</div>-->
-                                        <!--<div class="col-sm-6 form-group">-->
-                                            <!--<label>Password</label>-->
-                                            <!--<input type="password" placeholder="Enter Password Here.." name="password" id="password" class="form-control">-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<button id="login-form-submit-btn" type="button" class="btn btn-lg btn-info" ng-click="cartC.hideLoginForm(); cartC.loginBtnValidation()">Submit</button>-->
-                                <!--</div>-->
-                            <!--</form>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>&lt;!&ndash; End Log in form &ndash;&gt;-->
 
             <!--Log In Form-->
             <div layout="column" ng-cloak="" ng-show="showLoginForm" class =" inputdemoErrors login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="login-form">
@@ -177,90 +152,6 @@
                     </div>
                 </div>
             </div><!-- End Log in form -->
-
-
-            <!--&lt;!&ndash;Sign Up Form&ndash;&gt;-->
-            <!--<div ng-show="showSignUpForm" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="signup-form">-->
-                <!--<div class=" signup-form">-->
-                    <!--<div class="col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">-->
-                        <!--<h3 class="login-header"><i class="fa fa-user-plus" aria-hidden="true"></i>Sign Up Form - This will be a breeze</h3>-->
-                        <!--<div class="row">-->
-                            <!--<form>-->
-                                <!--<div class="col-sm-12">-->
-                                    <!--<h5> Customer Info: </h5>-->
-                                    <!--<div class="row">-->
-                                        <!--<div class="col-sm-6 form-group">-->
-                                            <!--<label>First Name</label>-->
-                                            <!--<input type="text" name="first_name"  ng-model="cartC.newUser.first_name" placeholder="Enter First Name Here.." class="form-control">-->
-                                        <!--</div>-->
-                                        <!--<div class="col-sm-6 form-group">-->
-                                            <!--<label>Last Name</label>-->
-                                            <!--<input type="text" name="last_name"  ng-model="cartC.newUser.last_name" placeholder="Enter Last Name Here.." class="form-control">-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="form-group">-->
-                                        <!--<label>Address</label>-->
-                                        <!--<textarea  name="street_address" ng-model="cartC.newUser.street_address" placeholder="Enter Street Address Here.." rows="3" class="form-control"></textarea>-->
-                                    <!--</div>-->
-                                    <!--<div class="row">-->
-                                        <!--<div class="col-sm-4 form-group">-->
-                                            <!--<label>City</label>-->
-                                            <!--<input type="text" name="city" ng-model="cartC.newUser.city" placeholder="Enter City Name Here.." class="form-control">-->
-                                        <!--</div>-->
-                                        <!--<div class="col-sm-4 form-group">-->
-                                            <!--<label>State</label>-->
-                                            <!--<input type="text" name="state" ng-model="cartC.newUser.state" placeholder="Enter State Name Here.." class="form-control">-->
-                                        <!--</div>-->
-                                        <!--<div class="col-sm-4 form-group">-->
-                                            <!--<label>Zip</label>-->
-                                            <!--<input type="text" name="zip" ng-model="cartC.newUser.zip" placeholder="Enter Zip Code Here.." class="form-control">-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="row">-->
-                                        <!--<div class="col-sm-6 form-group">-->
-                                            <!--<label>Company</label>-->
-                                            <!--<input type="text" name="company" ng-model="cartC.newUser.company" placeholder="Enter Company Name Here.." class="form-control">-->
-                                        <!--</div>-->
-                                        <!--<div class="col-sm-6 form-group">-->
-                                            <!--<label>Attn:</label>-->
-                                            <!--<input type="text" name="attn" ng-model="cartC.newUser.attn" placeholder="Attention To: ..." class="form-control">-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="row">-->
-                                        <!--<div class="col-sm-6 form-group">-->
-                                            <!--<label>Phone Number</label>-->
-                                            <!--<input type="text" name="phone_number" ng-model="cartC.newUser.phone" placeholder="Enter Phone Number Here.." class="form-control">-->
-                                        <!--</div>-->
-                                        <!--<div class="col-sm-6 form-group">-->
-                                            <!--<label>Email Address</label>-->
-                                            <!--<input type="text" name="email" ng-model="cartC.newUser.email" placeholder="Enter Email Address Here.." class="form-control">-->
-                                        <!--</div>-->
-                                        <!--<div class="col-sm-offset-3 col-sm-6 form-group">-->
-                                            <!--<label>Password:</label>-->
-                                            <!--<input type="text" name="password" ng-model="cartC.newUser.password" placeholder="Enter A Password Here.." class="form-control">-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="row">-->
-                                        <!--<h5> Credit Card Info: </h5>-->
-                                        <!--<div class="col-sm-6 form-group">                                                                         <label>Card Number:</label>-->
-                                            <!--<input class="form-control" id="signup-creditcard-number" placeholder=""  ng-model="cartC.newUser.c_card">-->
-                                            <!--<label>Expiration Date</label>-->
-                                            <!--<input class="form-control" id="signup-credit-card-exp" placeholder="" ng-model="cartC.newUser.c_card_exp">-->
-                                        <!--</div>-->
-                                        <!--<div class="col-sm-6 form-group">-->
-                                            <!--<label>Name On Card</label>-->
-                                            <!--<input class="form-control" id="signup-name-on-card" ng-model="cartC.newUser.name_on_card" placeholder=" Name on Credit Card">-->
-                                            <!--<label>Billing Address</label>-->
-                                            <!--<input class="form-control" id="signup-billing-address" ng-model="cartC.newUser.card_billing_address" placeholder=" Enter Billing Address of Card">-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<button id="signup-form-submit-btn" type="button" class="col-sm-offset-5 col-sm-3 col-xs-offset-3 col-xs-6 btn btn-lg btn-info" ng-click="cartC.hideSignUpForm(); cartC.hideLoginButtons(); cartC.signUpFormSubmission()">Submit<i class="fa fa-arrow-circle-right fa-submit" aria-hidden="true"></i></button>-->
-                                <!--</div>-->
-                            <!--</form>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>&lt;!&ndash; End Sign Up form &ndash;&gt;-->
 
             <!--Sign Up Form-->
             <div layout="column" ng-cloak=""  ng-show="showSignUpForm" class =" inputdemoErrors login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="signup-form">
@@ -327,9 +218,12 @@
                                                 </div><!-- class="col-sm-4 form group -->
 
                                                 <div class="col-sm-4 form-group">
-                                                    <md-input-container class="md-block">
+                                                    <md-input-container class="md-block" flex-gt-sm="">
                                                         <label>State</label><i class="fa fa-map-marker" aria-hidden="true"></i>
-                                                        <input type="text" required="" name="state" ng-model="cartC.newUser.state" ng-pattern="/^.+@.+\..+$/">
+                                                        <md-select ng-model="cartC.newUser.state">
+                                                            <md-option ng-repeat="state in states" value="{{state.abbrev}}">{{states.abbrev}}</md-option>
+                                                        </md-select>
+                                                        <!--<input type="text" required="" name="state" ng-model="cartC.newUser.state" ng-pattern="/^.+@.+\..+$/">-->
                                                         <!--<div ng-messages="signUpForm.state.$error" role="alert">-->
                                                             <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
                                                                 <!--Your state's name must be between 2 and 50 characters long.-->
@@ -381,7 +275,7 @@
                                             <div class="col-sm-6 form-group">
                                                 <md-input-container class="md-block">
                                                     <label>Phone Number</label><i class="fa fa-phone-square" aria-hidden="true"></i>
-                                                    <input type="number" required="" name="phone_number" ng-model="cartC.newUser.phone" minlength="10" maxlength="16" ng-pattern="/^.+@.+\..+$/">
+                                                    <input type="number" required="" name="phone_number" ng-model="cartC.newUser.phone" minlength="10" maxlength="16" ng-pattern="/^[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}$/" >
                                                     <!--<div ng-messages="signUpForm.phone_number.$error" role="alert">-->
                                                         <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
                                                             <!--Your phone number must be between 10 and 16 characters long.-->
@@ -406,7 +300,7 @@
                                                     <input type="password" required="" name="password" ng-model="cartC.newUser.password" minlength="8" maxlength="100" ng-pattern="/^.+@.+\..+$/">
                                                     <div ng-messages="signUpForm.password.$error" role="alert">
                                                         <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                                                            Your first name must be between 1 and 50 characters long.
+                                                            Your password must be between 100 and 500 characters long, must include letters, numbers, crazy characters, your dna, your first child's arm, and cold hard cash.
                                                         </div><!-- <div ng-message-exp -->
                                                     </div><!--  ng-messages -->
                                                 </md-input-container>
@@ -436,15 +330,19 @@
                                                         <!--</select>-->
                                                         <!--</md-input-container>-->
 
-                                                        <md-input-container class="md-block">
+
+                                                        <!--<md-input-container class="md-block">-->
                                                         <label>Expiration Date</label><i class="fa fa-calendar" aria-hidden="true"></i>
-                                                        <input type="date" required="" id="signup-credit-card-exp" ng-model="cartC.newUser.c_card_exp">
+                                                            <md-datepicker ng-model="cartC.newUser.c_card_exp" md-placeholder="Enter date">
+                                                                <!--<input type="date" required="" id="signup-credit-card-exp" ng-model="cartC.newUser.c_card_exp">-->
+                                                            </md-datepicker>
+
                                                         <!--<div ng-messages="signUpForm.first_name.$error" role="alert">-->
                                                             <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
                                                                 <!--Your first name must be between 1 and 50 characters long.-->
                                                             <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
                                                         <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
-                                                        </md-input-container>
+                                                        <!--</md-input-container>-->
                                                 </div><!-- class="col-sm-6 form group -->
 
                                                 <div class="col-sm-6 form-group">
@@ -479,83 +377,227 @@
             </div><!-- End Sign Up form -->
 
             <!-- Guest Checkout Form-->
-            <div ng-show="showGuestCheckoutForm" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="guestcheckout-form">
-                <div class=" guest-checkout-form">
-                    <div class="col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
+            <div layout="column" ng-cloak=""  ng-show="showGuestCheckoutForm" class =" inputdemoErrors login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="guestcheckout-form">
+                <div class="guest-checkout-form">
+                    <div class="col-sm-offset-1 col-sm-10 col-xs-12 well">
                         <h3 class="login-header"><i class="fa fa-user-secret" aria-hidden="true"></i>Checkout As Guest</h3>
                         <div class="row">
-                            <form>
-                                <div class="col-sm-12">
-                                    <h5> Customer Info: </h5>
-                                    <div class="row">
-                                        <div class="col-sm-6 form-group">
-                                            <label>First Name</label>
-                                            <input type="text" name="first_name"  ng-model="cartC.guestUser.first_name" placeholder="Enter First Name Here.." class="form-control">
-                                        </div>
-                                        <div class="col-sm-6 form-group">
-                                            <label>Last Name</label>
-                                            <input type="text" name="last_name"  ng-model="cartC.guestUser.last_name" placeholder="Enter Last Name Here.." class="form-control">
-                                        </div>
+                            <md-content layout-padding="">
+                                <form name="guestCheckoutForm">
+                                    <div class="col-sm-12">
+                                        <h5> Customer Info: </h5>
+                                        <div class="row">
+                                            <div class="col-sm-6 form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>First Name</label>
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    <input type="text" required="" name="first_name"  ng-model="cartC.guestUser.first_name" minlength="1" maxlength="50" ng-pattern="/^.+@.+\..+$/">
+                                                    <!--<div ng-messages="guestCheckoutForm.first_name.$error" role="alert">-->
+                                                    <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
+                                                    <!--Your first name must be between 1 and 50 characters long.-->
+                                                    <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
+                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-6 form group -->
+                                            <div class="col-sm-6 form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>Last Name</label>
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    <input type="text" required="" name="last_name"  ng-model="cartC.guestUser.last_name"  ng-pattern="/^.+@.+\..+$/">
+                                                    <!--<div ng-messages="guestCheckoutForm.last_name.$error" role="alert">-->
+                                                    <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
+                                                    <!--Your last name must be between 1 and 50 characters long.-->
+                                                    <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
+                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-6 form group -->
+                                        </div><!--row-name-->
+
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>Address</label><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                    <textarea  required="" name="street_address" ng-model="cartC.guestUser.street_address" rows="3"  ng-pattern="/^.+@.+\..+$/"></textarea>
+                                                    <div ng-messages="guestCheckoutForm.street_address.$error" role="alert">
+                                                        <div ng-message-exp="['required', 'pattern']">
+                                                            Your address must include street name and number.
+                                                        </div><!-- <div ng-message-exp -->
+                                                    </div><!--  ng-messages -->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-6 form group -->
+                                        </div><!--row-address-->
+
+                                        <div class="row">
+                                            <div class="col-sm-4 form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>City</label><i class="fa fa-building" aria-hidden="true"></i>
+                                                    <input type="text" required="" name="city" ng-model="cartC.guestUser.city" ng-pattern="/^.+@.+\..+$/">
+                                                    <!--<div ng-messages="guestCheckoutForm.city.$error" role="alert">-->
+                                                    <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
+                                                    <!--Your city's name must be between 1 and 50 characters long.-->
+                                                    <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
+                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-4 form group -->
+
+                                            <div class="col-sm-4 form-group">
+                                                <md-input-container class="md-block" flex-gt-sm="">
+                                                    <label>State</label><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                    <md-select ng-model="cartC.guestUser.state">
+                                                        <md-option ng-repeat="state in states" value="{{state.abbrev}}">{{states.abbrev}}</md-option>
+                                                    </md-select>
+                                                    <!--<input type="text" required="" name="state" ng-model="cartC.guestUser.state" ng-pattern="/^.+@.+\..+$/">-->
+                                                    <!--<div ng-messages="guestCheckoutForm.state.$error" role="alert">-->
+                                                    <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
+                                                    <!--Your state's name must be between 2 and 50 characters long.-->
+                                                    <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
+                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-4 form group -->
+
+                                            <div class="col-sm-4 form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>Zip</label><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                    <input type="number" required="" name="zip" ng-model="cartC.guestUser.zip" minlength="5" maxlength="5" ng-pattern="/^.+@.+\..+$/">
+                                                    <!--<div ng-messages="guestCheckoutForm.zip.$error" role="alert">-->
+                                                    <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
+                                                    <!--Your zipcode must be 5 numbers.-->
+                                                    <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
+                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-4 form group -->
+                                        </div><!--row-city-state-zip-->
+
+                                        <div class="row">
+                                            <div class="col-sm-6 form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>Company</label>
+                                                    <i class="fa fa-building-o" aria-hidden="true"></i>
+                                                    <input type="text" name="company" ng-model="cartC.guestUser.company">
+                                                    <!--<div ng-messages="guestCheckoutForm.first_name.$error" role="alert">-->
+                                                    <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
+                                                    <!--Your first name must be between 1 and 50 characters long.-->
+                                                    <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
+                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-6 form group -->
+                                            <div class="col-sm-6 form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>Attn:</label><i class="fa fa-user" aria-hidden="true"></i>
+                                                    <input type="text" name="attn" ng-model="cartC.guestUser.attn">
+                                                    <!--<div ng-messages="guestCheckoutForm.attn.$error" role="alert">-->
+                                                    <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
+                                                    <!--Your first name must be between 1 and 50 characters long.-->
+                                                    <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
+                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-6 form group -->
+                                        </div><!--row-company-attn-->
+
+                                        <div class="row">
+                                            <div class="col-sm-6 form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>Phone Number</label><i class="fa fa-phone-square" aria-hidden="true"></i>
+                                                    <input type="number" required="" name="phone_number" ng-model="cartC.guestUser.phone" minlength="10" maxlength="16" ng-pattern="/^[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}$/" >
+                                                    <!--<div ng-messages="guestCheckoutForm.phone_number.$error" role="alert">-->
+                                                    <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
+                                                    <!--Your phone number must be between 10 and 16 characters long.-->
+                                                    <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
+                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-6 form group -->
+                                            <div class="col-sm-6 form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>Email Address</label><i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    <input type="email" required="" name="email" ng-model="cartC.guestUser.email" minlength="8" maxlength="100" ng-pattern="/^.+@.+\..+$/">
+                                                    <!--<div ng-messages="guestCheckoutForm.email.$error" role="alert">-->
+                                                    <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
+                                                    <!--Your first name must be between 8 and 100 characters long.-->
+                                                    <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
+                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-6 form group -->
+                                            <div class="col-sm-offset-3 col-sm-6 form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>Password:</label><i class="fa fa-key" aria-hidden="true"></i>
+                                                    <input type="password" required="" name="password" ng-model="cartC.guestUser.password" minlength="8" maxlength="100" ng-pattern="/^.+@.+\..+$/">
+                                                    <div ng-messages="guestCheckoutForm.password.$error" role="alert">
+                                                        <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                                            Your password must be between 100 and 500 characters long, must include letters, numbers, crazy characters, your dna, your first child's arm, and cold hard cash.
+                                                        </div><!-- <div ng-message-exp -->
+                                                    </div><!--  ng-messages -->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-6 form group -->
+                                        </div><!--row-phone-email-pw-->
+
+                                        <div class="row">
+                                            <h5> Credit Card Info: </h5>
+                                            <div class="col-sm-6 form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>Card Number:</label><i class="fa fa-credit-card" aria-hidden="true"></i>
+                                                    <input type="number" required="" id="guest-creditcard-number" name="c_card"  ng-model="cartC.guestUser.c_card" minlength="15" maxlength="25" ng-pattern="/^.+@.+\..+$/">
+                                                    <!--<div ng-messages="guestCheckoutForm.c_card.$error" role="alert">-->
+                                                    <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
+                                                    <!--Your credit card number must be between 15 and 19 characters long.-->
+                                                    <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
+                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                </md-input-container>
+
+                                                <!--<md-input-container class="md-block">-->
+                                                <!--<label>Card Type:</label>-->
+                                                <!--<select>-->
+                                                <!--<option value="visa"><i class="fa fa-cc-visa" aria-hidden="true"> Visa</i></option>-->
+                                                <!--<option value="mastercard"><i class="fa fa-cc-mastercard" aria-hidden="true">Master Card</i></option>-->
+                                                <!--<option value="amex"><i class="fa fa-cc-amex" aria-hidden="true">American Express</i></option>-->
+                                                <!--<option value="discover"><i class="fa fa-cc-discover" aria-hidden="true">Discover</i></option>-->
+                                                <!--</select>-->
+                                                <!--</md-input-container>-->
+
+
+                                                <!--<md-input-container class="md-block">-->
+                                                <label>Expiration Date</label><i class="fa fa-calendar" aria-hidden="true"></i>
+                                                <md-datepicker ng-model="cartC.guestUser.c_card_exp" md-placeholder="Enter date">
+                                                    <!--<input type="date" required="" id="signup-credit-card-exp" ng-model="cartC.guestUser.c_card_exp">-->
+                                                </md-datepicker>
+
+                                                <!--<div ng-messages="guestCheckoutForm.first_name.$error" role="alert">-->
+                                                <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
+                                                <!--Your first name must be between 1 and 50 characters long.-->
+                                                <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
+                                                <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                <!--</md-input-container>-->
+                                            </div><!-- class="col-sm-6 form group -->
+
+                                            <div class="col-sm-6 form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>Name On Card</label><i class="fa fa-user" aria-hidden="true"></i>
+                                                    <input type="text" required="" id="guest-name-on-card" ng-model="cartC.guestUser.name_on_card" minlength="2" maxlength="100" ng-pattern="/^.+@.+\..+$/">
+                                                    <!--<div ng-messages="guestCheckoutForm.name_on_card.$error" role="alert">-->
+                                                    <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
+                                                    <!--Your name must be between 2 and 100 characters long.-->
+                                                    <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
+                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                </md-input-container>
+
+                                                <md-input-container class="md-block">
+                                                    <label>Billing Address</label><i class="fa fa-building-o" aria-hidden="true"></i>
+                                                    <input type="text" required="" id="guest-billing-address" ng-model="cartC.guestUser.card_billing_address">
+                                                    <!--<div ng-messages="guestCheckoutForm.first_name.$error" role="alert">-->
+                                                    <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
+                                                    <!--Your billing address must be between 10 and 100 characters long.-->
+                                                    <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
+                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-6 form group -->
+                                        </div><!--row-->
+                                        <button id="guest-checkout-form-submit-btn" type="button" class="col-sm-offset-5 col-sm-3 col-xs-offset-3 col-xs-6 btn btn-lg btn-info" ng-click="cartC.hideGuestCheckoutForm(); cartC.hideLoginButtons();cartC.guestCheckoutFormSubmission()" >Submit<i class="fa fa-arrow-circle-right fa-submit" aria-hidden="true"></i></button>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Address</label>
-                                        <textarea  name="street_address" ng-model="cartC.guestUser.street_address" placeholder="Enter Street Address Here.." rows="3" class="form-control"></textarea>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4 form-group">
-                                            <label>City</label>
-                                            <input type="text" name="city" ng-model="cartC.guestUser.city" placeholder="Enter City Name Here.." class="form-control">
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label>State</label>
-                                            <input type="text" name="state" ng-model="cartC.guestUser.state" placeholder="Enter State Name Here.." class="form-control">
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label>Zip</label>
-                                            <input type="text" name="zip" ng-model="cartC.guestUser.zip" placeholder="Enter Zip Code Here.." class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6 form-group">
-                                            <label>Company</label>
-                                            <input type="text" name="company" ng-model="cartC.guestUser.company" placeholder="Enter Company Name Here.." class="form-control">
-                                        </div>
-                                        <div class="col-sm-6 form-group">
-                                            <label>Attn:</label>
-                                            <input type="text" name="attn" ng-model="cartC.guestUser.attn" placeholder="Attention To: ..." class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6 form-group">
-                                            <label>Phone Number</label>
-                                            <input type="text" name="phone_number" ng-model="cartC.guestUser.phone" placeholder="Enter Phone Number Here.." class="form-control">
-                                        </div>
-                                        <div class="col-sm-6 form-group">
-                                            <label>Email Address</label>
-                                            <input type="text" name="email" ng-model="cartC.guestUser.email" placeholder="Enter Email Address Here.." class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <h5> Credit Card Info: </h5>
-                                        <div class="col-sm-6 form-group">                                                                         <label>Card Number:</label>
-                                            <input class="form-control" id="guest--creditcard-number" placeholder=""  ng-model="cartC.guestUser.c_card">
-                                            <label>Expiration Date</label>
-                                            <input class="form-control" id="guest--credit-card-exp" placeholder="" ng-model="cartC.guestUser.c_card_exp">
-                                        </div>
-                                        <div class="col-sm-6 form-group">
-                                            <label>Name On Card</label>
-                                            <input class="form-control" id="guest-name-on-card" ng-model="cartC.guestUser.name_on_card" placeholder=" Name on Credit Card">
-                                            <label>Billing Address</label>
-                                            <input class="form-control" id="guest--billing-address" ng-model="cartC.guestUser.card_billing_address" placeholder=" Enter Billing Address of Card">
-                                        </div>
-                                    </div>
-                                    <button id="guest-checkout-form-submit-btn" type="button" class="col-sm-offset-5 col-sm-3 col-xs-offset-3 col-xs-6 btn btn-lg btn-info" ng-click="cartC.hideGuestCheckoutForm(); cartC.hideLoginButtons();cartC.guestCheckoutFormSubmission()" >Submit<i class="fa fa-arrow-circle-right fa-submit" aria-hidden="true"></i></button>
-                                </div>
-                            </form>
-                        </div>
+                                </form>
+                            </md-content>
+                        </div><!--row-->
                     </div>
                 </div>
-            </div><!-- End Guest Checkout form-->
+            </div><!-- End Sign Up form -->
 
             <!-- Ship-to Form -->
             <div ng-show="showShipToForm" class ="login-forms col-sm-offset-2 col-sm-8 col-xs-12 " id="shipto-form">
