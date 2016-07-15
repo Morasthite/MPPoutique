@@ -13,26 +13,27 @@
     <p>Send your questions, comments and flavor suggestions or place an order</p>
 
 </div>
-<form class="contact col-sm-6 col-xs-12" method="post" action="php/contact-form.php" id="contact-form" name="contact-form" ng-show="contactC.show_form">
+<form class="contact col-sm-6 col-xs-12" method="post" id="contact-form" name="contactForm" ng-show="contactC.show_form" ng-submit="contactC.submit(userForm.$valid)" novalidate><!-- novalidate prevents HTML5 validation since we will be validating ourselves-->
     <h4>Contact us!</h4>
     <div class="col-sm-12">
         <div class="row">
             <div class="col-sm-12 form-group">
-                <label>Your Email Address</label>
-                <input type="email" name="contact_email" class="form-control" id="contact_email" ng-model="user.contact_email">
+                <label>Your Email Address <span class="required_field"> *</span></label>
+                <input type="email" name="contactEmail" class="form-control" id="contactEmail" ng-model="user.contactEmail" placeholder="Please Enter A Valid Email Address." required>
             </div>
             <div class="col-sm-12 form-group">
-                <label>Your Name</label>
-                <input type="text" name="contact_name" class="form-control" ng-model="user.contact_name">
+                <label>Your Name<span class="required_field"> *</span></label>
+                <input type="text" name="contactName" class="form-control" ng-model="user.contactName" ng-minlength="2" placeholder="Enter Your Name Here ... " required>
             </div>
             <div class="col-sm-12 form-group">
-                <label>Your Comment</label>
-                <textarea type="text" name="contact_comment" placeholder="Please leave your message here" class="form-control" ng-model="user.contact_comment"></textarea>
+                <label>Your Comment<span class="required_field"> *</span></label>
+                <textarea type="text" name="contactComment" placeholder="Your message needs to be at least 10 characters." class="form-control" ng-model="user.contactComment" ng-minlength="10"></textarea>
             </div>
         </div>
     </div>
     <div class="contact_submit col-sm-12 form-group">
-        <button id="contact-form-submit-btn" type="button" class="btn btn-lg btn-info" ng-click="contactC.submit()">Submit</button>
+        <button id="contact-form-submit-btn" type="submit" class="btn btn-lg btn-info" ng-disabled="contactForm.$invalid" >Submit</button>
+        <!--ng-click="contactC.submit()"-->
     </div>
 </form>
 

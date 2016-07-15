@@ -4,7 +4,7 @@
 
         <!-----------LOG IN BUTTONS --------------->
             <!--Log In Button-->
-            <div ng-show="cartC.showLoginButton()" ng-hide="showLoginButtonDefault" class="user-login col-lg-offset-2 col-lg-2  col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="log-in-btn-ctn" >
+            <div ng-show="showLoginButton" class="user-login col-lg-offset-2 col-lg-2  col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="log-in-btn-ctn" >
                 <!-- Raised button with ripple -->
                 <button id="log-in-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="cartC.showLoginFormToggle()">
                     Log In
@@ -12,7 +12,7 @@
             </div> <!-- End Log In Button-->
 
             <!-- Sign Up! Button-->
-            <div ng-show="cartC.showSignUpButton()" ng-hide="showSignUpButtonDefault" class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="sign-up-btn2" >
+            <div ng-show="showSignUpButton" class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="sign-up-btn2" >
                 <!-- Raised button with ripple -->
                 <button id="sign-up-btn"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="cartC.showSignUpFormToggle()">
                     Sign Up!
@@ -20,31 +20,22 @@
             </div> <!-- End Sign Up! Button-->
 
             <!-- Checkout As Guest Button-->
-            <div ng-show="cartC.showGuestCheckoutButton()" ng-hide="showGuestCheckoutButtonDefault" class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="guest-checkout-btn2">
+            <div ng-show="showGuestCheckoutButton" class="user-login col-lg-offset-1 col-lg-2  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="guest-checkout-btn2">
                 <!-- Raised button with ripple -->
                 <button id="guest-checkout-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="cartC.showGuestCheckoutFormToggle()">
-                    Guest Checkout
+                    Checkout As Guest
                 </button>
             </div><!-- End Checkout As Guest Button-->
-        <!-----------LOG IN MESSAGES -------- showCurrentUserPlzLoginMessage------->
+        <!-----------LOG IN MESSAGES --------------->
 
             <!-- Empty Cart Message-->
             <div ng-hide="cartC.cart.subTotal > 0" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="empty-cart-message">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h4 class="login-header" style="text-align: center">You Can Not Buy From an Empty Cart. Feed It Some Delicious Macarons!!!</h4>
+                        <h4 class="login-header" style="text-align: center">This Cart is Starving, Fill it Up with Some delicious Macarons!!!</h4>
                     </div>
                 </div>
             </div><!-- End Empty Cart Message -->
-
-            <!-- Buy Empty Cart Message-->
-            <div ng-show="showYouCantBuyFromAnEmptyCartMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="buy-empty-cart-message">
-                <div class=" login-form">
-                    <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h4 class="login-header" style="text-align: center">You Can Not Buy From an Empty Cart!!!</h4>
-                    </div>
-                </div>
-            </div><!-- End Buy Empty Cart Message -->
 
             <!-- Please Log In Message-->
             <div ng-show="showPlzLoginMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="login-message">
@@ -55,29 +46,11 @@
                 </div>
             </div><!-- End Please Log in Message -->
 
-            <!-- Please Log In Message-->
-            <div ng-show="showCurrentUserPlzLoginMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="user-exists-login-message">
-                <div class=" login-form">
-                    <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h4 class="login-header" style="text-align: center">It looks like you've already registered, please log in using your email and password.</h4>
-                    </div>
-                </div>
-            </div><!-- End Please Log in Message -->
-
-            <!-- Login Failed Message-->
-            <div ng-show="showLoginFailedMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="login-failed-message">
-                <div class=" login-form">
-                    <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h4 class="login-header" style="text-align: center">Login Error: Username or Password is Incorrect!</h4>
-                    </div>
-                </div>
-            </div><!-- End Login Failed Message -->
-
             <!-- Thanks For Logging In Message-->
             <div ng-show="showThnxLoginMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="thnx-login-message">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h4 class="login-header" style="text-align: center">Thanks For Logging In {{cartC.user.firstName}} ! You're very good looking today!</h4>
+                        <h4 class="login-header" style="text-align: center">Thanks For Logging In! You're very good looking today!</h4>
                     </div>
                 </div>
 
@@ -87,7 +60,7 @@
             <div ng-show="showThanksSigningUpMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="signing-up-message">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h4 class="login-header" style="text-align: center">Thanks For Signing Up {{cartC.user.firstName}} ! You're very good looking today!</h4>
+                        <h4 class="login-header" style="text-align: center">Thanks For Signing Up. You're very good looking today!</h4>
                     </div>
                 </div>
             </div><!-- End Thanks For Signing Up Message -->
@@ -96,7 +69,7 @@
             <div ng-show="showGuestCheckOutMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="guest-checkout-message">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h4 class="login-header" style="text-align: center">Thanks {{cartC.user.firstName}} ! You're very good looking today!</h4>
+                        <h4 class="login-header" style="text-align: center">Thanks! You're very good looking today!</h4>
                     </div>
                 </div>
             </div><!-- End Thanks For Guest Checkout Message -->
@@ -140,70 +113,66 @@
                                     <div class="row">
                                         <div class="col-sm-6 form-group">
                                             <label>First Name</label>
-                                            <input type="text" name="first_name"  ng-model="cartC.newUser.first_name" placeholder="Enter First Name Here.." class="form-control">
+                                            <input type="text" name="first_name" placeholder="Enter First Name Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <label>Last Name</label>
-                                            <input type="text" name="last_name"  ng-model="cartC.newUser.last_name" placeholder="Enter Last Name Here.." class="form-control">
+                                            <input type="text" name="last_name" placeholder="Enter Last Name Here.." class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <textarea  name="street_address" ng-model="cartC.newUser.street_address" placeholder="Enter Street Address Here.." rows="3" class="form-control"></textarea>
+                                        <textarea  name="street_address" placeholder="Enter Street Address Here.." rows="3" class="form-control"></textarea>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-4 form-group">
                                             <label>City</label>
-                                            <input type="text" name="city" ng-model="cartC.newUser.city" placeholder="Enter City Name Here.." class="form-control">
+                                            <input type="text" name="city" placeholder="Enter City Name Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-4 form-group">
                                             <label>State</label>
-                                            <input type="text" name="state" ng-model="cartC.newUser.state" placeholder="Enter State Name Here.." class="form-control">
+                                            <input type="text" name="state" placeholder="Enter State Name Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-4 form-group">
                                             <label>Zip</label>
-                                            <input type="text" name="zip" ng-model="cartC.newUser.zip" placeholder="Enter Zip Code Here.." class="form-control">
+                                            <input type="text" name="zip" placeholder="Enter Zip Code Here.." class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6 form-group">
                                             <label>Company</label>
-                                            <input type="text" name="company" ng-model="cartC.newUser.company" placeholder="Enter Company Name Here.." class="form-control">
+                                            <input type="text" name="company" placeholder="Enter Company Name Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <label>Attn:</label>
-                                            <input type="text" name="attn" ng-model="cartC.newUser.attn" placeholder="Attention To: ..." class="form-control">
+                                            <input type="text" name="attn" placeholder="Attention To: ..." class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6 form-group">
                                             <label>Phone Number</label>
-                                            <input type="text" name="phone_number" ng-model="cartC.newUser.phone" placeholder="Enter Phone Number Here.." class="form-control">
+                                            <input type="text" name="phone_number" placeholder="Enter Phone Number Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <label>Email Address</label>
-                                            <input type="text" name="email" ng-model="cartC.newUser.email" placeholder="Enter Email Address Here.." class="form-control">
-                                        </div>
-                                        <div class="col-sm-offset-3 col-sm-6 form-group">
-                                            <label>Password:</label>
-                                            <input type="text" name="password" ng-model="cartC.newUser.password" placeholder="Enter A Password Here.." class="form-control">
+                                            <input type="text" name="email" placeholder="Enter Email Address Here.." class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <h5> Credit Card Info: </h5>
                                         <div class="col-sm-6 form-group">                                                                         <label>Card Number:</label>
-                                            <input class="form-control" id="signup-creditcard-number" placeholder=""  ng-model="cartC.newUser.c_card">
+                                            <input class="form-control" id="signup-creditcard-number" placeholder="****4353" ng-model="cartC.finalizedOrder.customer.c_card_display">
                                             <label>Expiration Date</label>
-                                            <input class="form-control" id="signup-credit-card-exp" placeholder="" ng-model="cartC.newUser.c_card_exp">
+                                            <input class="form-control" id="signup-credit-card-exp" placeholder="12/2019" ng-model="cartC.finalizedOrder.customer.c_card_exp">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <label>Name On Card</label>
-                                            <input class="form-control" id="signup-name-on-card" ng-model="cartC.newUser.name_on_card" placeholder=" Name on Credit Card">
+                                            <input class="form-control" id="signup-name-on-card" placeholder=" Name on Credit Card">
                                             <label>Billing Address</label>
-                                            <input class="form-control" id="signup-billing-address" ng-model="cartC.newUser.card_billing_address" placeholder=" Enter Billing Address of Card">
+                                            <input class="form-control" id="signup-billing-address" placeholder=" Enter Billing Address of Card">
                                         </div>
                                     </div>
-                                    <button id="signup-form-submit-btn" type="button" class="btn btn-lg btn-info" ng-click="cartC.hideSignUpForm(); cartC.hideLoginButtons(); cartC.signUpFormSubmission()">Submit</button>
+                                    <button id="signup-form-submit-btn" type="button" class="btn btn-lg btn-info" ng-click="cartC.hideSignUpForm(); cartC.hideLoginButtons()">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -219,70 +188,69 @@
                         <div class="row">
                             <form>
                                 <div class="col-sm-12">
-                                    <h5> Customer Info: </h5>
                                     <div class="row">
                                         <div class="col-sm-6 form-group">
                                             <label>First Name</label>
-                                            <input type="text" name="first_name"  ng-model="cartC.guestUser.first_name" placeholder="Enter First Name Here.." class="form-control">
+                                            <input type="text" name="first_name" placeholder="Enter First Name Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <label>Last Name</label>
-                                            <input type="text" name="last_name"  ng-model="cartC.guestUser.last_name" placeholder="Enter Last Name Here.." class="form-control">
+                                            <input type="text" name="last_name" placeholder="Enter Last Name Here.." class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <textarea  name="street_address" ng-model="cartC.guestUser.street_address" placeholder="Enter Street Address Here.." rows="3" class="form-control"></textarea>
+                                        <textarea name="street_address" placeholder="Enter Street Address Here.." rows="3" class="form-control"></textarea>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-4 form-group">
                                             <label>City</label>
-                                            <input type="text" name="city" ng-model="cartC.guestUser.city" placeholder="Enter City Name Here.." class="form-control">
+                                            <input type="text" name="city" placeholder="Enter City Name Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-4 form-group">
                                             <label>State</label>
-                                            <input type="text" name="state" ng-model="cartC.guestUser.state" placeholder="Enter State Name Here.." class="form-control">
+                                            <input type="text" name="state" placeholder="Enter State Name Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-4 form-group">
                                             <label>Zip</label>
-                                            <input type="text" name="zip" ng-model="cartC.guestUser.zip" placeholder="Enter Zip Code Here.." class="form-control">
+                                            <input type="text" name="zip" placeholder="Enter Zip Code Here.." class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6 form-group">
                                             <label>Company</label>
-                                            <input type="text" name="company" ng-model="cartC.guestUser.company" placeholder="Enter Company Name Here.." class="form-control">
+                                            <input type="text" name="company" placeholder="Enter Company Name Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <label>Attn:</label>
-                                            <input type="text" name="attn" ng-model="cartC.guestUser.attn" placeholder="Attention To: ..." class="form-control">
+                                            <input type="text" name="attn" placeholder="Attention To: ..." class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6 form-group">
                                             <label>Phone Number</label>
-                                            <input type="text" name="phone_number" ng-model="cartC.guestUser.phone" placeholder="Enter Phone Number Here.." class="form-control">
+                                            <input type="text" name="phone_number" placeholder="Enter Phone Number Here.." class="form-control">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <label>Email Address</label>
-                                            <input type="text" name="email" ng-model="cartC.guestUser.email" placeholder="Enter Email Address Here.." class="form-control">
+                                            <input type="text" name="email" placeholder="Enter Email Address Here.." class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <h5> Credit Card Info: </h5>
                                         <div class="col-sm-6 form-group">                                                                         <label>Card Number:</label>
-                                            <input class="form-control" id="guest--creditcard-number" placeholder=""  ng-model="cartC.guestUser.c_card">
+                                            <input class="form-control" id="guest-creditcard-number" placeholder="****4353" ng-model="cartC.finalizedOrder.customer.c_card_display">
                                             <label>Expiration Date</label>
-                                            <input class="form-control" id="guest--credit-card-exp" placeholder="" ng-model="cartC.guestUser.c_card_exp">
+                                            <input class="form-control" id="guest-credit-card-exp" placeholder="12/2019" ng-model="cartC.finalizedOrder.customer.c_card_exp">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <label>Name On Card</label>
-                                            <input class="form-control" id="guest-name-on-card" ng-model="cartC.guestUser.name_on_card" placeholder=" Name on Credit Card">
+                                            <input class="form-control" id="guest-name-on-card" placeholder=" Name on Credit Card">
                                             <label>Billing Address</label>
-                                            <input class="form-control" id="guest--billing-address" ng-model="cartC.guestUser.card_billing_address" placeholder=" Enter Billing Address of Card">
+                                            <input class="form-control" id="guest-billing-address" placeholder=" Enter Billing Address of Card">
                                         </div>
                                     </div>
-                                    <button id="guest-checkout-form-submit-btn" type="button" class="btn btn-lg btn-info" ng-click="cartC.hideGuestCheckoutForm(); cartC.hideLoginButtons();cartC.guestCheckoutFormSubmission()" >Submit</button>
+                                    <button id="guest-checkout-form-submit-btn" type="button" class="btn btn-lg btn-info" ng-click="cartC.hideGuestCheckoutForm(); cartC.hideLoginButtons()" >Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -293,7 +261,7 @@
             <!-- Ship-to Form -->
             <div ng-show="showShipToForm" class ="login-forms col-lg-offset-2 col-lg-8 col-sm-offset-2 col-sm-8 col-xs-12 " id="shipto-form">
                 <div class=" shipto-form">
-                    <h4 class="well">Awesome! Please Verify Your Shipping And Payment Info: </h4>
+                    <h4 class="well">Thank You! Please Verify Your Shipping And Payment Info: </h4>
                     <div class="col-lg-12 well">
                         <div class="row">
                             <form>
@@ -345,10 +313,9 @@
                             <th class="cart-header">Extended Price</th>
                         </tr>
                     </thead>
-                    <!--cartC.user.isLoggedIn ? macaron.name : 'macaron.name + showLowInventory'-->
                     <tbody>
                         <tr ng-repeat="macaron in cartC.cart.macaron_array | filter: filter" >
-                            <td class="mdl-data-table__cell--non-numeric" ng-id="{{macaron.name}}" ng-class="ng-class:{{macaron.name}};">{{macaron.name}}</td>
+                            <td class="mdl-data-table__cell--non-numeric" ng-id="{{macaron.name}}" ng-class="{{macaron.name}}">{{macaron.name}}</td>
                             <td ng-id="{{macaron.ordered}}" ng-class="{{macaron.name}}">{{macaron.ordered}}</td>
                             <td ng-id="{{macaron.price}}" ng-class="{{macaron.name}}">$ {{macaron.price}}</td>
                             <td ng-id="{{macaron.price}}" ng-class="{{macaron.name}}">$ {{ cartC.addSubTotal(macaron.ordered, macaron.price) }}</td>
@@ -381,15 +348,16 @@
 
                 <!-- Checkout Buttons-->
                 <div ng-show="showProceedToCheckoutButton" class="checkout-buttons col-lg-offset-6 col-lg-3 col-lg-offset-right-3 col-sm-offset-6 col-sm-3 col-sm-offset-right-3 col-xs-12" id="proceed-to-checkout">
-                    <button ng-show="showProceedToCheckoutButton" style="margin-left: -10%" ng-hide="cartC.showProceedToCheckoutButton" class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.proceedToCheckout()">
+                    <button ng-show="showProceedToCheckoutButton" style="margin-left: -10%" class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.proceedToCheckout()">
                         Proceed To Checkout
                     </button>
                 </div>
 
-                <a href="#invoice" class="checkout-buttons"><div ng-show="showPlaceYourOrderButton" class="checkout-buttons col-lg-offset-4 col-lg-4 col-lg-offset-right-4 col-sm-offset-4 col-sm-4 col-sm-offset-right-4 col-xs-12" id="place-your-order-btn">
+                <div ng-show="showPlaceYourOrderButton" class="col-lg-offset-4 col-lg-4 col-lg-offset-right-4 col-sm-offset-4 col-sm-4 col-sm-offset-right-4 col-xs-12" id="place-your-order-btn">
                     <!-- Raised button with ripple -->
-                    <button class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.placeYourOrder()">Place Your Order</button>
-                </div></a> <!-- End Checkout Buttons-->
+                    <button class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.placeYourOrder()"><a href="#invoice">Place Your Order</a></button>
+
+                </div> <!-- End Checkout Buttons-->
             </div><!-- End CART TABLE-->
         </div><!-- row-->
     </div><!-- container -->
