@@ -173,7 +173,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         }
     };//end self.placeYourOrder
 
-/**  LOGIN/SIGNUP/GUESTCHECKOUT FORMS/MESSAGES TOGGLING NG-CLICK  **/
+/** ********************** LOGIN/SIGNUP/GUESTCHECKOUT FORMS/MESSAGES TOGGLING NG-CLICK  **/
     self.showLoginButton = function() {
         if(user.isLoggedIn) {
             $scope.showLoginButtonDefault = true;
@@ -536,17 +536,6 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
     //             .targetEvent(ev)
     //     );
     // };
-
-
-
-
-
-
-
-
-
-
-
 
 
  }]);

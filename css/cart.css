@@ -129,6 +129,41 @@
 .checkout-buttons {
     color: white !important;
 }
+
+md-input-container label:not(._md-container-ignore) {
+    left: 45px;
+    font-size: 16px;
+}
+
+/** BUTTONS **/
+.fa{
+    font-size: 20px;
+    color: white;
+}
+h3 .fa-user,
+h3 .fa-user-plus,
+h3 .fa-user-secret {
+    padding-right: 15px;
+    color: green;
+}
+.fa-submit, .fa-shopping-cart{
+    padding-left: 15px;
+
+}
+.fa-sign-in,
+.fa-user-plus,
+.fa-user-secret {
+    padding-left: 25px;
+}
+/**** FORMS ***/
+
+.fa-envelope,
+.fa-user,
+.fa-lock {
+    font-size: 20px;
+    color: green;
+}
+
 /********************************   END CART - page 2 - w/login forms   ***************************************/
 /** Media Query **/
 @media screen and (max-width: 640px) {

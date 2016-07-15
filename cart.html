@@ -7,7 +7,7 @@
             <div ng-show="cartC.showLoginButton()" ng-hide="showLoginButtonDefault" class="user-login col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="log-in-btn-ctn" >
                 <!-- Raised button with ripple -->
                 <button id="log-in-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="cartC.showLoginFormToggle()">
-                    Log In
+                    Log In <i class="fa fa-sign-in" aria-hidden="true"></i>
                 </button>
             </div> <!-- End Log In Button-->
 
@@ -15,7 +15,7 @@
             <div ng-show="cartC.showSignUpButton()" ng-hide="showSignUpButtonDefault" class="user-login col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="sign-up-btn2" >
                 <!-- Raised button with ripple -->
                 <button id="sign-up-btn"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="cartC.showSignUpFormToggle()">
-                    Sign Up!
+                    Sign Up! <i class="fa fa-user-plus" aria-hidden="true"></i>
                 </button>
             </div> <!-- End Sign Up! Button-->
 
@@ -23,7 +23,7 @@
             <div ng-show="cartC.showGuestCheckoutButton()" ng-hide="showGuestCheckoutButtonDefault" class="user-login  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="guest-checkout-btn2">
                 <!-- Raised button with ripple -->
                 <button id="guest-checkout-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="cartC.showGuestCheckoutFormToggle()">
-                    Guest Checkout
+                    Guest Checkout <i class="fa fa-user-secret" aria-hidden="true"></i>
                 </button>
             </div><!-- End Checkout As Guest Button-->
 
@@ -103,37 +103,87 @@
             </div><!-- End Thanks For Guest Checkout Message -->
 
         <!-----------LOG IN FORMS --------------->
+            <!--&lt;!&ndash;Log In Form&ndash;&gt;-->
+            <!--<div ng-show="showLoginForm" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="login-form">-->
+                <!--<div class=" login-form">-->
+                    <!--<div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">-->
+                        <!--<h3 class="login-header">Welcome Back! Please Login</h3>-->
+                        <!--<div class="row">-->
+                            <!--<form>-->
+                                <!--<div class="col-sm-12">-->
+                                    <!--<div class="row">-->
+                                        <!--<div class="col-sm-6 form-group">-->
+                                            <!--<label>Your Email Address</label>-->
+                                            <!--<input type="text" placeholder="Enter Your Email Here.." name="user_name" id="user_name" class="form-control">-->
+                                        <!--</div>-->
+                                        <!--<div class="col-sm-6 form-group">-->
+                                            <!--<label>Password</label>-->
+                                            <!--<input type="password" placeholder="Enter Password Here.." name="password" id="password" class="form-control">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<button id="login-form-submit-btn" type="button" class="btn btn-lg btn-info" ng-click="cartC.hideLoginForm(); cartC.loginBtnValidation()">Submit</button>-->
+                                <!--</div>-->
+                            <!--</form>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>&lt;!&ndash; End Log in form &ndash;&gt;-->
+
             <!--Log In Form-->
-            <div ng-show="showLoginForm" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="login-form">
+            <div layout="column" ng-cloak="" ng-show="showLoginForm" class =" inputdemoErrors login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="login-form">
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h3 class="login-header">Welcome Back! Please Login</h3>
+                        <h3 class="login-header"><i class="fa fa-user" aria-hidden="true"></i>Welcome Back! Please Login</h3>
                         <div class="row">
-                            <form>
-                                <div class="col-sm-12">
-                                    <div class="row">
-                                        <div class="col-sm-6 form-group">
-                                            <label>Your Email Address</label>
-                                            <input type="text" placeholder="Enter Your Email Here.." name="user_name" id="user_name" class="form-control">
-                                        </div>
-                                        <div class="col-sm-6 form-group">
-                                            <label>Password</label>
-                                            <input type="password" placeholder="Enter Password Here.." name="password" id="password" class="form-control">
-                                        </div>
+                            <md-content layout-padding="">
+                                <form name="loginForm">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <md-input-container class="md-block">
+                                                <div class="col-sm-offset-2 col-sm-8 form-group">
+                                                    <label>Your Email Address</label>
+                                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    <input type="email" required=""  name="user_name" id="user_name" minlength="8" maxlength="100" ng-pattern="/^.+@.+\..+$/">
+
+                                                    <div ng-messages="loginForm.user_name.$error" role="alert">
+                                                        <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                                             Your email must be between 8 and 100 characters long and look like an e-mail address.
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </md-input-container>
+                                            <md-input-container class="md-block">
+                                                <div class="col-sm-offset-2 col-sm-8 form-group">
+                                                    <label>Password</label>
+                                                    <i class="fa fa-lock" aria-hidden="true"></i>
+                                                    <input type="password" name="password" id="password" minlength="2" required="">
+
+                                                    <div ng-messages="loginForm.password.$error" role="alert">
+                                                        <div ng-message-exp="['required', 'minlength']">
+                                                            Your password is required and must be at least 2 characters.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </md-input-container>
+                                        </div><!--row-->
+                                        <button id="login-form-submit-btn" type="button" class="col-sm-offset-5 col-sm-3 col-xs-offset-3 col-xs-6 btn btn-lg btn-info" ng-click="cartC.hideLoginForm(); cartC.loginBtnValidation()">Submit<i class="fa fa-arrow-circle-right fa-submit" aria-hidden="true"></i></button>
+
                                     </div>
-                                    <button id="login-form-submit-btn" type="button" class="btn btn-lg btn-info" ng-click="cartC.hideLoginForm(); cartC.loginBtnValidation()">Submit</button>
-                                </div>
-                            </form>
+                                </form>
+                            </md-content>
                         </div>
                     </div>
                 </div>
             </div><!-- End Log in form -->
 
+
             <!--Sign Up Form-->
             <div ng-show="showSignUpForm" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="signup-form">
                 <div class=" signup-form">
                     <div class="col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h3 class="login-header">Sign Up Form</h3>
+                        <h3 class="login-header"><i class="fa fa-user-plus" aria-hidden="true"></i>Sign Up Form - This will be a breeze</h3>
                         <div class="row">
                             <form>
                                 <div class="col-sm-12">
@@ -204,7 +254,7 @@
                                             <input class="form-control" id="signup-billing-address" ng-model="cartC.newUser.card_billing_address" placeholder=" Enter Billing Address of Card">
                                         </div>
                                     </div>
-                                    <button id="signup-form-submit-btn" type="button" class="btn btn-lg btn-info" ng-click="cartC.hideSignUpForm(); cartC.hideLoginButtons(); cartC.signUpFormSubmission()">Submit</button>
+                                    <button id="signup-form-submit-btn" type="button" class="col-sm-offset-5 col-sm-3 col-xs-offset-3 col-xs-6 btn btn-lg btn-info" ng-click="cartC.hideSignUpForm(); cartC.hideLoginButtons(); cartC.signUpFormSubmission()">Submit<i class="fa fa-arrow-circle-right fa-submit" aria-hidden="true"></i></button>
                                 </div>
                             </form>
                         </div>
@@ -216,7 +266,7 @@
             <div ng-show="showGuestCheckoutForm" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="guestcheckout-form">
                 <div class=" guest-checkout-form">
                     <div class="col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h3 class="login-header">Checkout As Guest</h3>
+                        <h3 class="login-header"><i class="fa fa-user-secret" aria-hidden="true"></i>Checkout As Guest</h3>
                         <div class="row">
                             <form>
                                 <div class="col-sm-12">
@@ -283,7 +333,7 @@
                                             <input class="form-control" id="guest--billing-address" ng-model="cartC.guestUser.card_billing_address" placeholder=" Enter Billing Address of Card">
                                         </div>
                                     </div>
-                                    <button id="guest-checkout-form-submit-btn" type="button" class="btn btn-lg btn-info" ng-click="cartC.hideGuestCheckoutForm(); cartC.hideLoginButtons();cartC.guestCheckoutFormSubmission()" >Submit</button>
+                                    <button id="guest-checkout-form-submit-btn" type="button" class="col-sm-offset-5 col-sm-3 col-xs-offset-3 col-xs-6 btn btn-lg btn-info" ng-click="cartC.hideGuestCheckoutForm(); cartC.hideLoginButtons();cartC.guestCheckoutFormSubmission()" >Submit<i class="fa fa-arrow-circle-right fa-submit" aria-hidden="true"></i></button>
                                 </div>
                             </form>
                         </div>
@@ -382,8 +432,8 @@
 
                 <!-- Checkout Buttons-->
                 <div ng-show="showProceedToCheckoutButton" class="checkout-buttons col-sm-offset-2 col-sm-5 col-xs-6 col-xs-offset-right-6" id="proceed-to-checkout">
-                    <button ng-show="showProceedToCheckoutButton" ng-hide="cartC.showProceedToCheckoutButton" class="mdl-button mdl-js-button mdl-button--raised disabled" ng-click="cartC.proceedToCheckout()">
-                        Proceed To Checkout
+                    <button ng-show="showProceedToCheckoutButton" ng-hide="cartC.showProceedToCheckoutButton" class="mdl-button mdl-js-button mdl-button--raised " ng-click="cartC.proceedToCheckout()">
+                        Proceed To Checkout <i class="fa fa-arrow-circle-right fa-submit" aria-hidden="true"></i>
                     </button>
                 </div>
 
