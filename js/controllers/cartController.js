@@ -52,11 +52,11 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
 
     self.proceedToCheckout = function() {
                 console.log('cartC.proceedToCheckout is running');
-        self.cartEmptyCheck();
-        if(self.finalizedOrder.Cart.length == 0){
-            console.log('showYouCantBuyFromAnEmptyCartMessage');
-            $scope.showPlzLoginMessage = true;
-        }else {
+        //self.cartEmptyCheck();
+        // if(self.finalizedOrder.Cart.length == 0){
+        //     console.log('showYouCantBuyFromAnEmptyCartMessage');
+        //     $scope.showPlzLoginMessage = true;
+        // }else {
             self.dbCart = [];
             $scope.showLoginFailedMessage = false;
             $http({
@@ -104,7 +104,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                         console.log("Oops, something went wrong", response);
                     }
                 );//then
-        }
+        //}
 
 
     };//end proceedToCheckOut
