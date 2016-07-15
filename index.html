@@ -5,17 +5,24 @@
     <link rel="icon" href="images/favicon-p.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" >
+    <meta name="author" content="Pearl Micah">
+
     <!-- Roboto  Font -->
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel="stylesheet">
+
     <!-- Google MDL -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+
+    <!--angular material-->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+
     <!-- Style Sheets -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <link href="css/cart.css" rel="stylesheet" type="text/css">
-    <link ng-href="{{style}}" rel="stylesheet" type="text/css">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link href="css/cart.css" rel="stylesheet" type="text/css">
+        <link ng-href="{{style}}" rel="stylesheet" type="text/css">
 </head>
 <body >
 <!--------------------  NAV BAR ---------------------->
@@ -54,7 +61,7 @@
     </div>
 </div><!--End Main Content-->
 
-<!--------------------  Footer ---------------------->
+<!--------------------  FOOTER ---------------------->
 <footer class = "col-sm-12 col-xs-12">
     <div class="col-sm-4 col-xs-12">
         <ul>
@@ -79,35 +86,46 @@
 
 <!---------------------------------- Scripts -------------------------------------------->
 
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <!-- Angular -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
-    <!-- Angular Routing -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
-    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script><!-- Plugin For MDL Cart Buttons-->
 
-    <!--route-->
-    <script src="js/routing/route.js"></script>
-    <!--controllers-->
-    <script src="js/controllers/cartController.js"></script>
-    <script src="js/controllers/contactController.js"></script>
-    <script src="js/controllers/giftController.js"></script>
-    <script src="js/controllers/macaronController.js"></script>
-    <script src="js/controllers/mainController.js"></script>
-    <script src="js/controllers/welcomeController.js"></script>
-    <script src="js/controllers/invoiceController.js"></script>
-    <script src="js/controllers/logoutController.js"></script>
-    <!--directives-->
+<!---------------- ANGULAR ---------------->
+
+        <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script><!-- Plugin For MDL Cart Buttons-->
+
+    <!-- Angular Material - required Angular.js Libraries -->
+
+            <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>-->
+            <!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>-->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+
+    <!-- Routing -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+        <script src="js/routing/route.js"></script>
+    <!-- Controllers -->
+        <script src="js/controllers/cartController.js"></script>
+        <script src="js/controllers/contactController.js"></script>
+        <script src="js/controllers/giftController.js"></script>
+        <script src="js/controllers/macaronController.js"></script>
+        <script src="js/controllers/mainController.js"></script>
+        <script src="js/controllers/welcomeController.js"></script>
+        <script src="js/controllers/invoiceController.js"></script>
+        <script src="js/controllers/logoutController.js"></script>
+    <!-- Directives -->
         <!--<script src="js/directives/activeLink.js"></script>-->
-    <!--services-->
-    <script src="js/services/cart_service.js"></script>
-    <script src="js/services/config.js"></script>
-    <script src="js/services/invoice.js"></script>
-    <script src="js/services/user.js"></script>
-    <!--main-->
-    <script src="js/main.js"></script>
+    <!-- Services -->
+        <script src="js/services/cart_service.js"></script>
+        <script src="js/services/config.js"></script>
+        <script src="js/services/invoice.js"></script>
+        <script src="js/services/user.js"></script>
+
+    <!--Main Script-->
+        <script src="js/main.js"></script>
 </body>
 </html>

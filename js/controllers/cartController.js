@@ -32,15 +32,16 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
 /** **********************  CHECKOUT FUNCTIONS  ********************** **/
     self.finalizedOrder = [];
     self.finalizedOrder.Cart = [];
+    self.finalizedOrder.Cart = [];
     self.finalizedOrder.customer = [];
     self.finalizedOrder.orderNumber = "";
     self.finalizedOrder.orderTime = "";
-    $scope.lowMac = [];
     self.cartEmptyCheck = function () {
         console.log('cartEmptyCheck is running');
         for(var i = 0; i <cart.macaron_array.length; i++){
             if(cart.macaron_array[i].ordered > 0){
-                self.finalizedOrder.Cart.push(cart.macaron_array[i]);
+                //self.finalizedOrder.Cart.push(cart.macaron_array[i]);
+                return true;
             }
         }
     };
@@ -53,10 +54,10 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
     self.proceedToCheckout = function() {
                 console.log('cartC.proceedToCheckout is running');
         //self.cartEmptyCheck();
-        // if(self.finalizedOrder.Cart.length == 0){
-        //     console.log('showYouCantBuyFromAnEmptyCartMessage');
-        //     $scope.showPlzLoginMessage = true;
-        // }else {
+        if(self.finalizedOrder.Cart.length == 0){
+            console.log('showYouCantBuyFromAnEmptyCartMessage');
+            $scope.showPlzLoginMessage = true;
+        }else {
             self.dbCart = [];
             $scope.showLoginFailedMessage = false;
             $http({
@@ -104,7 +105,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                         console.log("Oops, something went wrong", response);
                     }
                 );//then
-        //}
+        }
 
 
     };//end proceedToCheckOut

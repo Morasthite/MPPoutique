@@ -114,7 +114,7 @@
     transition: 0s linear all;
 }
 .login-forms.ng-hide-add-active, .login-forms.ng-hide-remove-active{
-    transition: 2s linear all;
+    transition: 1s linear all;
 }
 
 #place-your-order {
