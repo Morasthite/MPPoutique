@@ -4,7 +4,7 @@
 
         <!-----------LOG IN BUTTONS --------------->
             <!--Log In Button-->
-            <div ng-show="cartC.showLoginButton()" ng-hide="showLoginButtonDefault" class="user-login col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="log-in-btn-ctn" >
+            <div ng-show="cartC.showLoginButton()" ng-hide="showLoginButtonDefault" class="user-login col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8 pull-left" id="log-in-btn-ctn" >
                 <!-- Raised button with ripple -->
                 <button id="log-in-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="cartC.showLoginFormToggle()">
                     Log In <i class="fa fa-sign-in" aria-hidden="true"></i>
@@ -28,15 +28,6 @@
             </div><!-- End Checkout As Guest Button-->
 
         <!-----------LOG IN MESSAGES -------- showCurrentUserPlzLoginMessage------->
-
-            <!-- Empty Cart Message-->
-            <div ng-hide="cartC.cart.subTotal > 0" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="empty-cart-message">
-                <div class=" login-form">
-                    <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h4 class="login-header" style="text-align: center">You Can Not Buy From an Empty Cart. Feed It Some Delicious Macarons!!!</h4>
-                    </div>
-                </div>
-            </div><!-- End Empty Cart Message -->
 
             <!-- Buy Empty Cart Message-->
             <div ng-show="showYouCantBuyFromAnEmptyCartMessage" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="buy-empty-cart-message">
@@ -597,7 +588,7 @@
                         </div><!--row-->
                     </div>
                 </div>
-            </div><!-- End Sign Up form -->
+            </div><!-- End Guest Checkout form -->
 
             <!-- Ship-to Form -->
             <div ng-show="showShipToForm" class ="login-forms col-sm-offset-2 col-sm-8 col-xs-12 " id="shipto-form">
@@ -609,30 +600,26 @@
                                 <div class="col-sm-12">
                                     <div class="row">
                                         <div class="col-sm-6 form-group">
-                                            <h5> Shipping </h5>
-                                            <label>Ship To</label>
+                                            <h5> Shipping Info: </h5>
+                                            <i class="fa fa-user" aria-hidden="true"></i><label>Ship To</label>
                                             <input type="text" class="form-control" id="shipto-name" ng-model="cartC.finalizedOrder.customer.name">
-                                            <label>Address</label>
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i><label>Address</label>
                                             <input class="form-control" id="shipto-address" placeholder="12345 Parksingide Road, City, State, Zipcode" ng-model="cartC.finalizedOrder.customer.address">
-                                            <label>Attention To:</label>
+                                            <i class="fa fa-user" aria-hidden="true"></i><label>Attention To:</label>
                                             <input class="form-control" id="shipto-attn" placeholder="attn:/ Micah Grodezetsky" ng-model="cartC.finalizedOrder.customer.attn">
-                                            <label>Company</label>
+                                            <i class="fa fa-building-o" aria-hidden="true"></i><label>Company</label>
                                             <input class="form-control" id="shipto-company" placeholder=" Learning Fuze " ng-model="cartC.finalizedOrder.customer.company">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <h5> Credit Card On File </h5>
-                                            <label>Card Number:</label>
+                                            <i class="fa fa-credit-card" aria-hidden="true"></i><label>Card Number:</label>
                                             <input class="form-control" id="shipto-creditcard-number" placeholder="****4353" ng-model="cartC.finalizedOrder.customer.c_card_display">
-                                            <label>Expiration Date</label>
+                                            <i class="fa fa-calendar" aria-hidden="true"></i><label>Expiration Date</label>
                                             <input class="form-control" id="shipto-credit-card-exp" placeholder="12/2019" ng-model="cartC.finalizedOrder.customer.c_card_exp">
 
-                                            <label>Name On Card</label>
+                                            <i class="fa fa-user" aria-hidden="true"></i><label>Name On Card</label>
                                             <input class="form-control" id="shipto-name-on-card" placeholder="Micah Grodezetsky" ng-model="cartC.finalizedOrder.customer.name_on_card">
                                         </div>
-                                            <!-- Place Your Order Button-->
-                                            <!--<div class="col-sm-6" id="place-your-order">                                                                <button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised disabled" ng-click="cartC.placeYourOrder()"><a href="#invoice">Place Your Order</a></button>-->
-                                            <!--</div> &lt;!&ndash; End Place Your Order Button&ndash;&gt;-->
-
                                     </div>
                                 </div>
                             </form>
@@ -665,6 +652,15 @@
 
                     </tbody>
                 </table> <!-- End Items Table-->
+
+                <!-- Empty Cart Message-->
+                <div ng-hide="cartC.cart.subTotal > 0" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="empty-cart-message">
+                    <div class=" login-form">
+                        <div class="col-sm-12 col-xs-12 well">
+                            <h4 class="login-header" style="text-align: center">You Can Not Buy From an Empty Cart. Feed It Some Delicious Macarons!!!</h4>
+                        </div>
+                    </div>
+                </div><!-- End Empty Cart Message -->
 
                 <!-- Totals Table-->
                 <table class="table-striped col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table mdl-js-data-table  mdl-shadow--2dp" id="totals-table"><!-- mdl-data-table--selectable -->

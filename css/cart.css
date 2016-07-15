@@ -100,6 +100,9 @@
     background-color: rgba(119, 120, 243, 0.47);
     box-shadow: 2px 2px 4px 4px #8195ce;
 }
+#empty-cart-message{
+    margin-top: -2vh;
+}
  form div {
      background-color: white;
  }
@@ -138,6 +141,7 @@ md-input-container label:not(._md-container-ignore) {
     font-size: 20px;
     color: white;
 }
+#shipto-form .fa,
 h3 .fa-user,
 h3 .fa-user-plus,
 h3 .fa-user-secret {
@@ -173,7 +177,8 @@ md-option {
 md-datepicker-calendar-icon {
     color: green;
 }
-
+#shipto-form {
+    background-color: rgb(237, 237, 254);}
 /********************************   END CART - page 2 - w/login forms   ***************************************/
 /** Media Query **/
 @media screen and (max-width: 640px) {
