@@ -1,6 +1,61 @@
 <div id="map"></div>
+
+<div id="contact_thanks" ng-show="contactC.show_thank" class="contact col-sm-6 col-xs-12">
+    <h4>Thanks for your message.</h4>
+    <p>We will contact you as soon as possible!</p>
+</div>
+<div layout="column" ng-cloak="" class="inputdemoErrors col-md-6 col-xs-12">
+<md-content layout-padding="">
+    <form class="contact col-xs-12" method="post" id="contact-form" name="contactForm" ng-show="contactC.show_form" ng-submit="contactC.submit(userForm.$valid)" >
+        <!--novalidate novalidate prevents HTML5 validation since we will be validating ourselves-->
+        <h4>Contact us!</h4>
+        <div class="col-sm-12">
+            <div class="row">
+                <md-input-container class="md-block">
+                        <!--<div class="col-sm-12 form-group">-->
+                            <label>Your Email Address</label>
+                            <input type="email" name="contactEmail" required="" id="contactEmail" ng-model="user.contactEmail" minlength="8" maxlength="100" ng-pattern="/^.+@.+\..+$/">
+                            <div ng-messages="contactForm.contactEmail.$error" role="alert">
+                                <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                    Your email must be between 8 and 100 characters long and look like an e-mail address.
+                                </div>
+                            </div>
+                        <!--</div>-->
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                <div class="col-sm-12 form-group">
+                    <label>Your Name</label>
+                    <input type="text" name="contactName" ng-model="user.contactName" minlength="2" required="">
+                    <div ng-messages="contactForm.contactName.$error" role="alert">
+                        <div ng-message-exp="['required', 'minlength']">Your name is required and must be at least 2 characters.</div>
+                    </div>
+                </div>
+
+                </md-input-container>
+
+
+                <md-input-container class="md-block">
+                    <div class="col-sm-12 form-group">
+                        <label>Your Comment</label>
+                        <textarea type="text" name="contactComment" ng-model="user.contactComment" minlength="10" required=""></textarea>
+                    </div>
+                    <div ng-messages="contactForm.contactName.$error" role="alert">
+                        <div ng-message-exp="['required', 'minlength']">Your comment needs to be at least 10 characters.</div>
+                    </div>
+                </md-input-container>
+
+            </div>
+        </div>
+        <div class="contact_submit col-sm-12 form-group">
+            <button id="contact-form-submit-btn" type="submit" class="btn btn-lg btn-info" ng-disabled="contactForm.$invalid" >Submit</button>
+            <!--ng-click="contactC.submit()"-->
+        </div>
+    </form>
+</md-content>
+</div>
 <div id="contact_info" class="contact col-sm-6 col-xs-12">
-   <h4>Visit us!</h4>
+    <h4>Visit us!</h4>
     <p>Monday - Friday | 10am - 9pm</p>
     <p>Saturday | 10am - 8pm</p>
     <p>Sunday | 11am - 7pm</p>
@@ -13,35 +68,6 @@
     <p>Send your questions, comments and flavor suggestions or place an order</p>
 
 </div>
-<form class="contact col-sm-6 col-xs-12" method="post" id="contact-form" name="contactForm" ng-show="contactC.show_form" ng-submit="contactC.submit(userForm.$valid)" novalidate><!-- novalidate prevents HTML5 validation since we will be validating ourselves-->
-    <h4>Contact us!</h4>
-    <div class="col-sm-12">
-        <div class="row">
-            <div class="col-sm-12 form-group">
-                <label>Your Email Address <span class="required_field"> *</span></label>
-                <input type="email" name="contactEmail" class="form-control" id="contactEmail" ng-model="user.contactEmail" placeholder="Please Enter A Valid Email Address." required>
-            </div>
-            <div class="col-sm-12 form-group">
-                <label>Your Name<span class="required_field"> *</span></label>
-                <input type="text" name="contactName" class="form-control" ng-model="user.contactName" ng-minlength="2" placeholder="Enter Your Name Here ... " required>
-            </div>
-            <div class="col-sm-12 form-group">
-                <label>Your Comment<span class="required_field"> *</span></label>
-                <textarea type="text" name="contactComment" placeholder="Your message needs to be at least 10 characters." class="form-control" ng-model="user.contactComment" ng-minlength="10"></textarea>
-            </div>
-        </div>
-    </div>
-    <div class="contact_submit col-sm-12 form-group">
-        <button id="contact-form-submit-btn" type="submit" class="btn btn-lg btn-info" ng-disabled="contactForm.$invalid" >Submit</button>
-        <!--ng-click="contactC.submit()"-->
-    </div>
-</form>
-
-<div id="contact_thanks" ng-show="contactC.show_thank" class="contact col-sm-6 col-xs-12">
-    <h4>Thanks for your message.</h4>
-    <p>We will contact you as soon as possible!</p>
-</div>
-
 <!----------------------------map----------------------------------->
 <script>
     function initMap() {

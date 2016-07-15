@@ -9,11 +9,17 @@ h6, h5 {
 h3 {
     font-size: 2em;
 }
-
+html.md-default-theme, html, body.md-default-theme, body {
+    color:  #6A6969 ;
+     background-color: #fff;
+}
 /*////////////////////////nav bar///////////////////////////////////*/
 #nav {
     /*background-color: #b22a5e;*/
-    background-color: #5e112d;
+    /*background-color: #5e112d;*/
+    background-color: #880e4f;
+    /*background-color: #00695c;*/
+    /*background-color: #c51162;*/
     color: white;
 }
 #nav a{
@@ -174,6 +180,20 @@ ul li {
 .required_field {
     color: red;
 }
+.inputdemoErrors .inputErrorsApp {
+    min-height: 48px; }
+
+.inputdemoErrors .md-input-container > p {
+    font-size: 0.8em;
+    text-align: left;
+    width: 100%; }
+textarea, textarea.form-control, input.form-control, input[type=text], input[type=password], input[type=email], input[type=number], [type=text].form-control, [type=password].form-control, [type=email].form-control, [type=tel].form-control, [contenteditable].form-control,
+input[type=email], [type=email].form-control, input.form-control {
+    /*border-bottom-width: 1px !important;*/
+    border-color: #dddddd;
+    border-width: 0 0 1px;
+}
+
 /*//////////////////////////invoice page/////////////////////////////*/
 #invoice_page {
     position: relative;

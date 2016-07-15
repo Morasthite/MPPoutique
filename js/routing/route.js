@@ -1,5 +1,5 @@
 /**  **/
-var app = angular.module("mainApp", ['ngRoute']);
+var app = angular.module("mainApp", ['ngRoute','ngMaterial', 'ngMessages']);
 
 app.config (["$routeProvider", function($routeProvider) {
     $routeProvider

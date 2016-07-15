@@ -32,10 +32,10 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
 /** **********************  CHECKOUT FUNCTIONS  ********************** **/
     self.finalizedOrder = [];
     self.finalizedOrder.Cart = [];
+    self.finalizedOrder.Cart = [];
     self.finalizedOrder.customer = [];
     self.finalizedOrder.orderNumber = "";
     self.finalizedOrder.orderTime = "";
-    $scope.lowMac = [];
     self.cartEmptyCheck = function () {
         console.log('cartEmptyCheck is running');
         for(var i = 0; i <cart.macaron_array.length; i++){
@@ -52,7 +52,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
 
     self.proceedToCheckout = function() {
                 console.log('cartC.proceedToCheckout is running');
-        self.cartEmptyCheck();
+        //self.cartEmptyCheck();
         if(self.finalizedOrder.Cart.length == 0){
             console.log('showYouCantBuyFromAnEmptyCartMessage');
             $scope.showPlzLoginMessage = true;
