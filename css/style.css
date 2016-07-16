@@ -18,8 +18,10 @@ html.md-default-theme, html, body.md-default-theme, body {
     /*background-color: #b22a5e;*/
     /*background-color: #5e112d;*/
     /*background-color: #880e4f;*/
-    background-color: #00695c;
+    /*background-color: #00695c;*/
+    background-color: #484452;
     /*background-color: #c51162;*/
+    /*background-color: #C9A798;*/
     color: white;
 }
 #nav a{
@@ -27,7 +29,8 @@ html.md-default-theme, html, body.md-default-theme, body {
 }
 /*******************EXPERIMENT*****************/
 #nav a:hover {
-    color: rgb(0, 251, 255)!important;
+    /*color: rgb(0, 251, 255)!important;*/
+    color: #C7AFBD!important;
     font-size: 120%;
 }
 .mdl-badge[data-badge]:after {
@@ -149,7 +152,10 @@ ul li {
     box-shadow: 3px 3px 8px lightgreen;
 }
 body, #main_content {
-    background-color: #bbf8f2;
+    /*background-color: #bbf8f2;*/
+    /*background-color: #F8F2DA;*/
+    /*background-color: #C7AFBD;*/
+    background-color: #DDECEF;
 }
 nav ul li.active {
     background-color: rgba(0, 0, 0, 0);
