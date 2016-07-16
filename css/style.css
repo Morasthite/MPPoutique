@@ -17,8 +17,8 @@ html.md-default-theme, html, body.md-default-theme, body {
 #nav {
     /*background-color: #b22a5e;*/
     /*background-color: #5e112d;*/
-    background-color: #880e4f;
-    /*background-color: #00695c;*/
+    /*background-color: #880e4f;*/
+    background-color: #00695c;
     /*background-color: #c51162;*/
     color: white;
 }
@@ -27,14 +27,13 @@ html.md-default-theme, html, body.md-default-theme, body {
 }
 /*******************EXPERIMENT*****************/
 #nav a:hover {
-    color: rgba(180, 69, 197, .9);
-    #text-shadow: 2px 2px 2px blueviolet;
-    font-size: 115%;
+    color: rgb(0, 251, 255)!important;
+    font-size: 120%;
 }
 .mdl-badge[data-badge]:after {
     top: 1px;
 }
-/*******************EXPERIMENT*****************/s
+/*******************EXPERIMENT*****************/
 /*/cart badge in nav/*/
 .mdl-badge.mdl-badge--overlap:after {
     top:2px;
@@ -48,8 +47,7 @@ html.md-default-theme, html, body.md-default-theme, body {
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
     background-color: inherit !important;
-    color: lightblue
-    !important;
+    color: rgb(0, 251, 255)!important;
     height: 10vh;
 }
 /*///////////////////////banner///////////////////////////*/
@@ -79,10 +77,10 @@ html.md-default-theme, html, body.md-default-theme, body {
 footer {
     box-sizing: border-box;
     padding: 10px;
-    background-color: #5e112d;
+    background-color: #00695c;
     position: relative;
     min-height: 10vh;
-    margin-top: 25vh;
+    #margin-top: 25vh;
 }
 footer .fa {
     margin: 2px;
@@ -133,12 +131,12 @@ ul li {
     border-color: #ee6e73;
     box-shadow: 3px 3px 8px #f3989b;
 }
-/*******************EXPERIMENT*****************/
+/*******************EXPERIMENT*************#26a69a;****/
 .mdl-button--fab {
     box-shadow: 0px 3px 05px 3px rgba(0, 0, 0, 0.16), 0 1px 1px 0 rgba(0, 0, 0, 0.72);
 }
 .mdl-button--fab.mdl-button--colored {
-    background: rgba(180, 69, 197, .9);
+    background: #26a69a;/*rgba(180, 69, 197, .9);*/
 }
 .mdl-button--fab.mdl-button--colored:hover {
     background-color: rgba(240, 155, 31, 0.8);
@@ -149,6 +147,12 @@ ul li {
 .ordered {
     border-color: lightgreen;
     box-shadow: 3px 3px 8px lightgreen;
+}
+body, #main_content {
+    background-color: #bbf8f2;
+}
+nav ul li.active {
+    background-color: rgba(0, 0, 0, 0);
 }
 /*******************EXPERIMENT*****************/
 /*///////////////////welcome page/////////////////////////////*/
