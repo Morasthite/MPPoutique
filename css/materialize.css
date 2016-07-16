@@ -68,7 +68,8 @@
     color: #b9151b !important
 }
 
-.materialize-red.darken-3 {
+.materialize-red.darken-3,
+.waves-effect.waves-teal.Raspberry .waves-ripple{
     background-color: #a21318 !important
 }
 
@@ -116,7 +117,8 @@
     color: #EF9A9A !important
 }
 
-.red.lighten-2 {
+.red.lighten-2,
+.waves-effect.waves-teal.Rose .waves-ripple{
     background-color: #E57373 !important
 }
 
@@ -132,7 +134,8 @@
     color: #EF5350 !important
 }
 
-.red.darken-1 {
+.red.darken-1,
+.waves-effect.waves-teal.Cherry .waves-ripple{
     background-color: #E53935 !important
 }
 
@@ -412,7 +415,8 @@
     color: #d500f9 !important
 }
 
-.purple.accent-4 {
+.purple.accent-4,
+.waves-effect.waves-teal.Lavender .waves-ripple{
     background-color: #a0f !important
 }
 
@@ -452,7 +456,8 @@
     color: #b39ddb !important
 }
 
-.deep-purple.lighten-2 {
+.deep-purple.lighten-2,
+.waves-effect.waves-teal.Cassis .waves-ripple{
     background-color: #9575cd !important
 }
 
@@ -1204,7 +1209,8 @@
     color: #00C853 !important
 }
 
-.light-green {
+.light-green,
+.waves-effect.waves-teal.Pistachio .waves-ripple{
     background-color: #8bc34a !important
 }
 
@@ -1556,7 +1562,8 @@
     color: #fff8e1 !important
 }
 
-.amber.lighten-4 {
+.amber.lighten-4,
+.waves-effect.waves-teal.Caramel .waves-ripple{
     background-color: #ffecb3 !important
 }
 
@@ -1596,7 +1603,8 @@
     color: #ffb300 !important
 }
 
-.amber.darken-2 {
+.amber.darken-2,
+.waves-effect.waves-teal.Lemon .waves-ripple{
     background-color: #ffa000 !important
 }
 
@@ -1668,7 +1676,8 @@
     color: #fff3e0 !important
 }
 
-.orange.lighten-4 {
+.orange.lighten-4,
+.waves-effect.waves-teal.Coconut .waves-ripple{
     background-color: #ffe0b2 !important
 }
 
@@ -1924,7 +1933,8 @@
     color: #8d6e63 !important
 }
 
-.brown.darken-1 {
+.brown.darken-1,
+.waves-effect.waves-teal.Coffee .waves-ripple{
     background-color: #6d4c41 !important
 }
 
@@ -4437,7 +4447,8 @@ footer.page-footer .footer-copyright {
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-floating):hover {
-    color: #ffd8a6
+    /*color: #ffd8a6*/
+    color: deeppink;
 }
 
 .card .card-action+.card-reveal {
@@ -4971,6 +4982,9 @@ button.btn-floating {
 
 .waves-effect.waves-teal .waves-ripple {
     background-color: rgba(0, 150, 136, 0.7)
+}
+.waves-effect.waves-teal.Chocolate .waves-ripple {
+    background-color: #795548 !important;
 }
 
 .waves-effect input[type="button"],
