@@ -77,8 +77,8 @@
 .cart-row {
     height: auto;
     position: relative;
-    background: url("../images/cart-background.png");
-    background-size: cover;
+    /*background: url("../images/cart-background.png");*/
+    /*background-size: cover;*/
 }
 /************   END CART - page 1 - w/login   ********************/
 

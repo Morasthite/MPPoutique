@@ -31,9 +31,5 @@ app.controller('contactController',["$scope","config","$http",function ($scope,c
             console.log("contact error");
         });
     };
-    // $scope.project = {
-    //     description: 'Nuclear Missile Defense System',
-    //     rate: 500
-    // };
     return false;
 }]);

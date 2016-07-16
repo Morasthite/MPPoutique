@@ -48,7 +48,8 @@ html.md-default-theme, html, body.md-default-theme, body {
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
     background-color: inherit !important;
-    color: lightskyblue !important;
+    color: lightblue
+    !important;
     height: 10vh;
 }
 /*///////////////////////banner///////////////////////////*/
@@ -192,6 +193,21 @@ input[type=email], [type=email].form-control, input.form-control {
     /*border-bottom-width: 1px !important;*/
     border-color: #dddddd;
     border-width: 0 0 1px;
+}
+.panel-title {
+    color: #880e4f;
+}
+.panel-title a:hover {
+    text-decoration: none;
+}
+md-input-container.md-default-theme.md-input-invalid .md-input,md-input-container.md-input-invalid .md-input {
+    border-color: #dddddd;
+}
+md-input-container.md-default-theme.md-input-invalid .md-input-message-animation, md-input-container.md-input-invalid .md-input-bumessage-animation, md-input-container.md-default-theme.md-input-invalid .md-char-counter, md-input-container.md-input-invalid .md-char-counter {
+    color: #f50057;
+}
+md-input-container.md-default-theme.md-input-invalid label, md-input-container.md-input-invalid label {
+    color: #f50057;
 }
 
 /*//////////////////////////invoice page/////////////////////////////*/
