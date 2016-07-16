@@ -178,7 +178,8 @@ md-datepicker-calendar-icon {
     color: green;
 }
 #shipto-form {
-    background-color: rgb(237, 237, 254);}
+    background-color: rgb(237, 237, 254);
+}
 /********************************   END CART - page 2 - w/login forms   ***************************************/
 /** Media Query **/
 @media screen and (max-width: 640px) {

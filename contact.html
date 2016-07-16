@@ -1,10 +1,9 @@
 <div id="map"></div>
-
-<div id="contact_thanks" ng-show="contactC.show_thank" class="contact col-sm-6 col-xs-12">
+<div id="contact_thanks" ng-show="contactC.show_thank" class="contact col-sm-5 col-xs-12">
     <h4>Thanks for your message.</h4>
     <p>We will contact you as soon as possible!</p>
 </div>
-<div layout="column" ng-cloak="" class="inputdemoErrors col-md-6 col-xs-12">
+<div layout="column" ng-cloak="" class="inputdemoErrors col-sm-5 col-xs-12">
 <md-content layout-padding="">
     <form class="contact col-xs-12" method="post" id="contact-form" name="contactForm" ng-show="contactC.show_form" ng-submit="contactC.submit(userForm.$valid)" >
         <!--novalidate novalidate prevents HTML5 validation since we will be validating ourselves-->
@@ -13,8 +12,11 @@
             <div class="row">
                 <md-input-container class="md-block">
                         <!--<div class="col-sm-12 form-group">-->
+
                             <label>Your Email Address</label>
+
                             <input type="email" name="contactEmail" required="" id="contactEmail" ng-model="user.contactEmail" minlength="8" maxlength="100" ng-pattern="/^.+@.+\..+$/">
+
                             <div ng-messages="contactForm.contactEmail.$error" role="alert">
                                 <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
                                     Your email must be between 8 and 100 characters long and look like an e-mail address.
@@ -54,29 +56,102 @@
     </form>
 </md-content>
 </div>
-<div id="contact_info" class="contact col-sm-6 col-xs-12">
+<div id="contact_info" class="contact col-sm-7 col-xs-12">
     <h4>Visit us!</h4>
-    <p>Monday - Friday | 10am - 9pm</p>
-    <p>Saturday | 10am - 8pm</p>
-    <p>Sunday | 11am - 7pm</p>
-    <p class="off_days">Closed Thanksgiving Day, Christmas Day, and Easter Day</p>
-    <br>
-    <p><i class="fa fa-map-marker" aria-hidden="true"></i> 1625 Post St, San Francisco, CA 94115</p>
-    <p><i class="fa fa-volume-control-phone" aria-hidden="true"></i> 949 800-3111</p>
-    <p><i class="fa fa-envelope" aria-hidden="true"></i><a id="contact_user_email"> order@MPoutique.com</a></p>
-    <br>
-    <p>Send your questions, comments and flavor suggestions or place an order</p>
+    <!--<p>Monday - Friday | 10am - 9pm</p>-->
+    <!--<p>Saturday | 10am - 8pm</p>-->
+    <!--<p>Sunday | 11am - 7pm</p>-->
+    <!--<p class="off_days">Closed Thanksgiving Day, Christmas Day, and Easter Day</p>-->
+    <!--<br>-->
+    <!--<p><i class="fa fa-map-marker" aria-hidden="true"></i> 1625 Post St, San Francisco, CA 94115</p>-->
+    <!--<p><i class="fa fa-volume-control-phone" aria-hidden="true"></i> 949 800-3111</p>-->
+    <!--<p><i class="fa fa-envelope" aria-hidden="true"></i><a id="contact_user_email"> order@MPoutique.com</a></p>-->
+    <!--<br>-->
+    <!--<p>Send your questions, comments and flavor suggestions or place an order</p>-->
+    <div class="panel-group" id="accordion">
+        <div class="panel">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" data-target="#contact_collapse1"><i class="fa fa-info-circle" aria-hidden="true"></i> Our Contact Information</a>
+                </h4>
+            </div>
+            <div id="contact_collapse1" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> 1625 Post St, San Francisco, CA 94115</p>
+                    <p><i class="fa fa-volume-control-phone" aria-hidden="true"></i> 949 800-3111</p>
+                    <p><i class="fa fa-envelope" aria-hidden="true"></i><a id="contact_user_email"> order@MPoutique.com</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse2"><i class="fa fa-clock-o" aria-hidden="true"></i> Business Hours</a>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>Monday - Friday | 10am - 9pm</p>
+                    <p>Saturday | 10am - 8pm</p>
+                    <p>Sunday | 11am - 7pm</p>
+                    <p class="off_days">Closed Thanksgiving Day, Christmas Day, and Easter Day</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse3"><i class="fa fa-question-circle-o" aria-hidden="true"></i> FAQ</a>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+                <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+            </div>
+        </div>
+    </div>
 
 </div>
 <!----------------------------map----------------------------------->
 <script>
     function initMap() {
+        // Create an array of styles.
+        var styles = [
+            {
+                stylers: [
+                    { hue: "#00ffe6" },
+                    { saturation: -20 }
+                ]
+            },{
+                featureType: "road",
+                elementType: "geometry",
+                stylers: [
+                    { lightness: 100 },
+                    { visibility: "simplified" }
+                ]
+            },{
+                featureType: "road",
+                elementType: "labels",
+                stylers: [
+                    { visibility: "off" }
+                ]
+            }
+        ];
+        // Create a new StyledMapType object, passing it the array of styles,
+        // as well as the name to be displayed on the map type control.
+        var styledMap = new google.maps.StyledMapType(styles,
+                {name: "Styled Map"});
+        // Create a map object, and include the MapTypeId to add
+        // to the map type control.
         var map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 33.653326, lng:-117.752502},
-            zoom: 11
+            zoom: 11,
+            mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
         });
         var infoWindow = new google.maps.InfoWindow({map: map});
-
+        map.mapTypes.set('map_style', styledMap);
+        map.setMapTypeId('map_style');
         //  HTML5 geolocation.
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
