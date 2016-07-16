@@ -26,7 +26,7 @@
                     Guest Checkout
                 </button>
             </div><!-- End Checkout As Guest Button-->
-        <!-----------LOG IN MESSAGES --------------->
+        <!-----------LOG IN MESSAGES -------- showCurrentUserPlzLoginMessage------->
 
             <!-- Empty Cart Message-->
             <div ng-hide="cartC.cart.subTotal > 0" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="empty-cart-message">
@@ -51,6 +51,15 @@
                 <div class=" login-form">
                     <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
                         <h4 class="login-header" style="text-align: center">Please Choose Login, Sign Up, or Checkout As Guest First</h4>
+                    </div>
+                </div>
+            </div><!-- End Please Log in Message -->
+
+            <!-- Please Log In Message-->
+            <div ng-show="showCurrentUserPlzLoginMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="user-exists-login-message">
+                <div class=" login-form">
+                    <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
+                        <h4 class="login-header" style="text-align: center">It looks like you've already registered, please log in using your email and password.</h4>
                     </div>
                 </div>
             </div><!-- End Please Log in Message -->
