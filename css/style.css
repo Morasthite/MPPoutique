@@ -101,6 +101,7 @@ ul li {
     font-size: 2em;
 }
 #macaron_shop {
+    /*background-color: #BBDEFB;*/
     position: relative;
     padding: 1% 6% 5% 0;
     min-height: 200vh;
