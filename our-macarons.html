@@ -11,30 +11,54 @@
 <section id="shop">
     <!--<h5>SHOP ONLINE!</h5>-->
     <div id="macaron_shop">
+        <div class="row">
 
 
-        <div ng-repeat="macaron in mc.cart.macaron_array" ng-id="macaron.name" class="mac col-sm-offset-1 col-md-2 col-sm-3 col-xs-12" ng-class="macaron.amount <6  ? 'limited':''">
-            <img class="mac_img col-xs-12 " ng-src="{{macaron.source}}" >
-            <div>
-                <p class="mac_name">{{macaron.name}}</p>
-                <p class="mac_description">{{macaron.description}}</p>
-                <p class="mac_price">{{"Price: $ "+macaron.price}}</p>
-                <h6>ADD to cart <span ng-show="macaron.amount <6  ? 'true':''" style="color: red">( Limited Quantity)</span></h6>
-
-                <p>
-                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" ng-class="macaron.name" ng-click="mc.add(macaron)">
-                        <i class="fa fa-plus" aria-hidden="true" ng-class="macaron.name"></i>
-                    </button>
-                    <button ng-class="macaron.name" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" ng-click="mc.minus(macaron)">
-                         <i class="fa fa-minus" aria-hidden="true" ng-class="macaron.name"></i>
-                    </button>
-                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
-                        <span>{{macaron.ordered}}</span>
-                    </button>
-                </p>
+            <div ng-repeat="macaron in mc.cart.macaron_array" ng-id="macaron.name" class="mac card col s12 m2 offset-m1" ng-class="macaron.amount <6  ? 'limited':''">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator mac_img" ng-src="{{macaron.source}}">
+                </div>
+                <div class="card-content mac_content">
+                    <span class="card-title activator grey-text text-darken-4 mac_name">{{macaron.name}}<i class="material-icons right">more_vert</i></span>
+                    <p class="mac_price">{{"Price: $ "+macaron.price}}</p>
+                    <h6>ADD to cart <p ng-show="macaron.amount <6  ? 'true':''" style="color: red">( Limited Quantity)</p></h6>
+                </div>
+                <div style="border-radius: 60px" class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{{macaron.name}}<i class="material-icons right">close</i></span>
+                    <p class="mac_description">{{macaron.description}}</p>
+                </div>
+                <div class="card-action">
+                    <div class="row mrg-bt-0">
+                        <div class="col s4"><a class="waves-effect waves-teal btn-flat" ng-class="macaron.name" ng-click="mc.add(macaron)"><i class="material-icons" ng-class="macaron.name">add</i></a></div>
+                        <div class="col s4"><a class="waves-effect waves-teal btn-flat" ng-click="mc.minus(macaron)"><i class="material-icons" ng-class="macaron.name">remove</i></a></div>
+                        <div class="col s4"><a class="waves-effect waves-teal btn-flat"><span>{{macaron.ordered}}</span></a></div>
+                    </div>
+                </div>
             </div>
+
+        <!--<div ng-repeat="macaron in mc.cart.macaron_array" ng-id="macaron.name" class="mac col-sm-offset-1 col-md-2 col-sm-3 col-xs-12" ng-class="macaron.amount <6  ? 'limited':''">-->
+            <!--<img class="mac_img col-xs-12 " ng-src="{{macaron.source}}" >-->
+            <!--<div>-->
+                <!--<p class="mac_name">{{macaron.name}}</p>-->
+                <!--<p class="mac_description">{{macaron.description}}</p>-->
+                <!--<p class="mac_price">{{"Price: $ "+macaron.price}}</p>-->
+                <!--<h6>ADD to cart <span ng-show="macaron.amount <6  ? 'true':''" style="color: red">( Limited Quantity)</span></h6>-->
+
+                <!--<p>-->
+                    <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;fab mdl-button&#45;&#45;mini-fab mdl-button&#45;&#45;colored" ng-class="macaron.name" ng-click="mc.add(macaron)">-->
+                        <!--<i class="fa fa-plus" aria-hidden="true" ng-class="macaron.name"></i>-->
+                    <!--</button>-->
+                    <!--<button ng-class="macaron.name" class="mdl-button mdl-js-button mdl-button&#45;&#45;fab mdl-button&#45;&#45;mini-fab mdl-button&#45;&#45;colored" ng-click="mc.minus(macaron)">-->
+                         <!--<i class="fa fa-minus" aria-hidden="true" ng-class="macaron.name"></i>-->
+                    <!--</button>-->
+                    <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;fab mdl-button&#45;&#45;mini-fab mdl-button&#45;&#45;colored">-->
+                        <!--<span>{{macaron.ordered}}</span>-->
+                    <!--</button>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+
         </div>
-
-
     </div>
+
 </section>
