@@ -116,7 +116,7 @@ ul li {
     padding: 1%;
     border: 1px solid gray;
     margin-bottom: 4%;
-    box-shadow: 3px 3px 8px black;
+    box-shadow: 3px 3px 8px darkgray;
 }
 .mac_img {
     width: 100%;
@@ -129,8 +129,8 @@ ul li {
     padding: 3% 0;
 }
 .limited {
-    border-color: red;
-    box-shadow: 3px 3px 8px red;
+    border-color: #ee6e73;
+    box-shadow: 3px 3px 8px #f3989b;
 }
 /*******************EXPERIMENT*****************/
 .mdl-button--fab {
