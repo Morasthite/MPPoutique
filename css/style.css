@@ -9,21 +9,28 @@ h6, h5 {
 h3 {
     font-size: 2em;
 }
-html.md-default-theme, html, body.md-default-theme, body {
+html.md-default-theme, html, body.md-default-theme, #contact_info, #contact_email {
     color:  #6A6969 ;
-     background-color: #fff;
+     background-color: #F8F2DA;;
+}
+#contact_info #accordion, #contact_email md-content {
+    box-shadow: 3px 2px 5px 1px rgba(0, 0, 0, 0.38);
 }
 /*////////////////////////nav bar///////////////////////////////////*/
 #nav {
     /*background-color: #b22a5e;*/
     /*background-color: #5e112d;*/
-    /*background-color: #880e4f;*/
-    background-color: #00695c;
+    background-color: #880e4f;
+    /*background-color: #00695c;*/
     /*background-color: #c51162;*/
+    /*background-color: #484452;*/
     color: white;
 }
 #nav a{
     color: white;
+}
+.navbar {
+    margin-bottom: 0;
 }
 /*******************EXPERIMENT*****************/
 #nav a:hover {
@@ -68,16 +75,25 @@ html.md-default-theme, html, body.md-default-theme, body {
     height: auto;
     min-height:65vh;
     #margin-bottom: 25vh;
+    background-color: #DDECEF;
 }
 
 #temp_content{
     padding: 5vh 5vw;
 }
+.welcome_section-main-content-para {
+    background-color: whitesmoke;
+}
+.gifts-party-main-content,.contacts-section
+{
+    background-color: #F8F2DA;
+}
 /*///////////////////////footer////////////////*/
 footer {
     box-sizing: border-box;
     padding: 10px;
-    background-color: #00695c;
+    /*background-color: #00695c;*/
+    background-color: #880e4f;
     position: relative;
     min-height: 10vh;
     #margin-top: 25vh;
@@ -148,7 +164,7 @@ ul li {
     border-color: lightgreen;
     box-shadow: 3px 3px 8px lightgreen;
 }
-body, #main_content {
+#main_content {
     background-color: #bbf8f2;
 }
 nav ul li.active {
