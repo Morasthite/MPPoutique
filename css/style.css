@@ -273,6 +273,10 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     margin: 5%;
     /*border: 1px solid gray;*/
     padding : 2%;
+    background: whitesmoke;
+}
+#temp_content {
+    background: #f8f2da;
 }
 #site_address, #invoice_info, #invoice_item_table {
     border-bottom: 5px solid #5e112d ;
