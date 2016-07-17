@@ -526,9 +526,9 @@
                                             <div class="col-sm-6 form-group">
                                                 <md-input-container class="md-block">
                                                     <label>Card Number:</label><i class="fa fa-credit-card" aria-hidden="true"></i>
-                                                    <input type="number" required="" id="guest-creditcard-number" name="c_card"  ng-model="cartC.guestUser.c_card" minlength="15" maxlength="25">
+                                                    <input type="number" required="" id="guest-creditcard-number" name="c_card"  ng-model="cartC.guestUser.c_card" minlength="15" maxlength="25" ng-pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$">
                                                     <div ng-messages="guestCheckoutForm.c_card.$error" role="alert">
-                                                    <div ng-message-exp="['required', 'minlength', 'maxlength']">
+                                                    <div ng-message-exp="['required', 'minlength', 'maxlength','pattern']">
                                                     Your credit card number must be between 15 and 19 characters long.
                                                     </div><!-- <div ng-message-exp -->
                                                     </div><!--  ng-messages -->
@@ -563,12 +563,12 @@
                                             <div class="col-sm-6 form-group">
                                                 <md-input-container class="md-block">
                                                     <label>Name On Card</label><i class="fa fa-user" aria-hidden="true"></i>
-                                                    <input type="text" required="" id="guest-name-on-card" ng-model="cartC.guestUser.name_on_card" minlength="2" maxlength="100" ng-pattern="/^.+@.+\..+$/">
-                                                    <!--<div ng-messages="guestCheckoutForm.name_on_card.$error" role="alert">-->
-                                                    <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
-                                                    <!--Your name must be between 2 and 100 characters long.-->
-                                                    <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
-                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                    <input type="text" required="" id="guest-name-on-card" ng-model="cartC.guestUser.name_on_card" minlength="2" maxlength="100" ng-pattern="/^([A-z\'\.-ᶜ]*(\s))+[A-z\'\.-ᶜ]*$/">
+                                                    <div ng-messages="guestCheckoutForm.name_on_card.$error" role="alert">
+                                                    <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                                    This field is required.
+                                                    </div><!-- <div ng-message-exp -->
+                                                    </div><!--  ng-messages -->
                                                 </md-input-container>
 
                                                 <md-input-container class="md-block">
