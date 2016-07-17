@@ -20,10 +20,10 @@ html.md-default-theme, html, body.md-default-theme, #contact_info, #contact_emai
 #nav {
     /*background-color: #b22a5e;*/
     /*background-color: #5e112d;*/
-    background-color: #880e4f;
+    /*background-color: #880e4f;*/
     /*background-color: #00695c;*/
     /*background-color: #c51162;*/
-    /*background-color: #484452;*/
+    background-color: #484452;
     /*background-color: #C9A798;*/
     color: white;
 }
@@ -54,19 +54,22 @@ html.md-default-theme, html, body.md-default-theme, #contact_info, #contact_emai
 /*nav active color*/
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a > i {
     background-color: inherit !important;
     color: rgb(0, 251, 255)!important;
     height: 10vh;
 }
 /*///////////////////////banner///////////////////////////*/
 #banner {
+    padding-top: 5%;
     width: 95%;
     margin: auto;
     height: auto;
     background-color: #0a6ebd;
 }
 #banner img {
+    margin-top: 5%;
     padding-bottom: 5%;
     height: 70vh;
 }
@@ -266,7 +269,18 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     color: green;
     padding-right: 10px;
 }
-
+.contact_fa {
+ color: rgb(158, 16, 92)  !important;
+}
+.contact_in_fa {
+   color: #8db1b7 !important;
+}
+#contact_thanks {
+    /*padding: 1%;*/
+    background-color: transparent;
+    /*box-shadow: 3px 3px 10px gray;*/
+    /*margin-top: 2%;*/
+}
 /*//////////////////////////invoice page/////////////////////////////*/
 #invoice_page {
     position: relative;
