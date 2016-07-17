@@ -6,7 +6,7 @@ session_start();
     //$_POST['user_name']= "pearl";
     //$_POST['password']= "5";
     //print_r($_POST);
-    if (!empty ($_POST['user_name']) and !empty ($_POST['password']) and ($_POST['user_name']) != "guest") {
+    if (!empty ($_POST['user_name']) and !empty ($_POST['password']) and ($_POST['user_name']) != "Guest") {
         $user = "'".$_POST['user_name']."'";
         $pass = $_POST['password'];
         $query = "SELECT * FROM  `customer` WHERE `username` = $user";

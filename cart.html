@@ -382,24 +382,24 @@
                                                 <md-input-container class="md-block">
                                                     <label>First Name</label>
                                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                                    <input type="text" required="" name="first_name"  ng-model="cartC.guestUser.first_name" minlength="1" maxlength="50" ng-pattern="/^.+@.+\..+$/">
-                                                    <!--<div ng-messages="guestCheckoutForm.first_name.$error" role="alert">-->
-                                                    <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
-                                                    <!--Your first name must be between 1 and 50 characters long.-->
-                                                    <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
-                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                    <input type="text" required="" name="first_name"  ng-model="cartC.guestUser.first_name" minlength="1" maxlength="12">
+                                                    <div ng-messages="guestCheckoutForm.first_name.$error" role="alert">
+                                                    <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                                    Your first name must be between 1 and 12 characters long.
+                                                    </div><!-- <div ng-message-exp -->
+                                                    </div><!--  ng-messages -->
                                                 </md-input-container>
                                             </div><!-- class="col-sm-6 form group -->
                                             <div class="col-sm-6 form-group">
                                                 <md-input-container class="md-block">
                                                     <label>Last Name</label>
                                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                                    <input type="text" required="" name="last_name"  ng-model="cartC.guestUser.last_name"  ng-pattern="/^.+@.+\..+$/">
-                                                    <!--<div ng-messages="guestCheckoutForm.last_name.$error" role="alert">-->
-                                                    <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
-                                                    <!--Your last name must be between 1 and 50 characters long.-->
-                                                    <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
-                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                    <input type="text" required="" name="last_name"  ng-model="cartC.guestUser.last_name" minlength="1" maxlength="15">
+                                                    <div ng-messages="guestCheckoutForm.last_name.$error" role="alert">
+                                                    <div ng-message-exp="['required', 'minlength', 'maxlength']">
+                                                    Your last name must be between 1 and 15 characters long.
+                                                    </div><!-- <div ng-message-exp -->
+                                                    </div><!--  ng-messages -->
                                                 </md-input-container>
                                             </div><!-- class="col-sm-6 form group -->
                                         </div><!--row-name-->
@@ -408,7 +408,7 @@
                                             <div class="form-group">
                                                 <md-input-container class="md-block">
                                                     <label>Address</label><i class="fa fa-map-marker" aria-hidden="true"></i>
-                                                    <textarea  required="" name="street_address" ng-model="cartC.guestUser.street_address" rows="3"  ng-pattern="/^.+@.+\..+$/"></textarea>
+                                                    <textarea  required="" name="street_address" ng-model="cartC.guestUser.street_address" rows="3"  ng-pattern="/^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$/"></textarea>
                                                     <div ng-messages="guestCheckoutForm.street_address.$error" role="alert">
                                                         <div ng-message-exp="['required', 'pattern']">
                                                             Your address must include street name and number.
@@ -422,12 +422,12 @@
                                             <div class="col-sm-4 form-group">
                                                 <md-input-container class="md-block">
                                                     <label>City</label><i class="fa fa-building" aria-hidden="true"></i>
-                                                    <input type="text" required="" name="city" ng-model="cartC.guestUser.city" ng-pattern="/^.+@.+\..+$/">
-                                                    <!--<div ng-messages="guestCheckoutForm.city.$error" role="alert">-->
-                                                    <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
-                                                    <!--Your city's name must be between 1 and 50 characters long.-->
-                                                    <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
-                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                    <input type="text" required="" name="city" ng-model="cartC.guestUser.city" ng-pattern="/^[a-zA-Z]+[\. - ']?(?:[\s-][a-zA-Z]+)*$/">
+                                                    <div ng-messages="guestCheckoutForm.city.$error" role="alert">
+                                                    <div ng-message-exp="['required','pattern']">
+                                                    Your correct city's name is required.
+                                                    </div><!-- <div ng-message-exp -->
+                                                    </div><!--  ng-messages -->
                                                 </md-input-container>
                                             </div><!-- class="col-sm-4 form group -->
 
