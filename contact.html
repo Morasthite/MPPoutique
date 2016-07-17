@@ -14,7 +14,7 @@
                     <md-input-container class="md-block">
                             <!--<div class="col-sm-12 form-group">-->
 
-                                <label>Your Email Address</label>
+                                <label>Your Email Address</label><i class="fa fa-envelope" aria-hidden="true"></i>
 
                                 <input type="email" name="contactEmail" required="" id="contactEmail" ng-model="user.contactEmail" minlength="8" maxlength="100" ng-pattern="/^.+@.+\..+$/">
 
@@ -28,7 +28,7 @@
 
                     <md-input-container class="md-block">
                     <div class="col-sm-12 form-group">
-                        <label>Your Name</label>
+                        <label>Your Name</label><i class="fa fa-user" aria-hidden="true"></i>
                         <input type="text" name="contactName" ng-model="user.contactName" minlength="2" required="">
                         <div ng-messages="contactForm.contactName.$error" role="alert">
                             <div ng-message-exp="['required', 'minlength']">Your name is required and must be at least 2 characters.</div>
@@ -40,7 +40,7 @@
 
                     <md-input-container class="md-block">
                         <div class="col-sm-12 form-group">
-                            <label>Your Comment</label>
+                            <label>Your Comment</label><i class="fa fa-commenting" aria-hidden="true"></i>
                             <textarea type="text" name="contactComment" ng-model="user.contactComment" minlength="10" required=""></textarea>
                         </div>
                         <div ng-messages="contactForm.contactName.$error" role="alert">
@@ -71,23 +71,23 @@
         <!--<p>Send your questions, comments and flavor suggestions or place an order</p>-->
         <div class="panel-group" id="accordion">
             <div class="panel">
-                <div class="panel-heading">
+                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#contact_collapse1">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" data-target="#contact_collapse1"><i class="fa fa-info-circle" aria-hidden="true"></i> Our Contact Information</a>
+                        <i class="fa fa-info-circle" aria-hidden="true"></i> <a data-toggle="collapse" data-parent="#accordion" data-target="#contact_collapse1">Our Contact Information</a>
                     </h4>
                 </div>
                 <div id="contact_collapse1" class="panel-collapse collapse in">
                     <div class="panel-body">
-                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> 1625 Post St, San Francisco, CA 94115</p>
-                        <p><i class="fa fa-volume-control-phone" aria-hidden="true"></i> 949 800-3111</p>
-                        <p><i class="fa fa-envelope" aria-hidden="true"></i><a id="contact_user_email"> order@MPoutique.com</a></p>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i> 1625 Post St, San Francisco, CA 94115<p></p>
+                        <i class="fa fa-volume-control-phone" aria-hidden="true"></i>949-800-3111<p></p>
+                        <i class="fa fa-envelope" aria-hidden="true"></i> <a id="contact_user_email"> order@MPoutique.com</a><p></p>
                     </div>
                 </div>
             </div>
             <div class="panel">
-                <div class="panel-heading">
+                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse2">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse2"><i class="fa fa-clock-o" aria-hidden="true"></i> Business Hours</a>
+                        <i class="fa fa-clock-o" aria-hidden="true"></i><a data-toggle="collapse" data-parent="#accordion" data-target="#collapse2"></i> Business Hours</a>
                     </h4>
                 </div>
                 <div id="collapse2" class="panel-collapse collapse">
@@ -100,15 +100,47 @@
                 </div>
             </div>
             <div class="panel">
-                <div class="panel-heading">
+                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse3">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse3"><i class="fa fa-question-circle-o" aria-hidden="true"></i> FAQ</a>
                     </h4>
                 </div>
                 <div id="collapse3" class="panel-collapse collapse">
-                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                    <div class="panel-body">
+                        <pre>
+1.  What is a macaron?
+        A  macaron is a sweet meringue-based cookie made with egg whites, sugar, almond flour, and is filled with either a buttercream, jam, or chocolate ganache.
+2.  What are the ingredients in each macaron?
+        Ingredients: almond flour, butter, sugar, white eggs, fresh fruits, fruit puree, heavy cream, cocoa, Pistachio, coconut, coffee, vanilla natural, Natural lavender emulsion, natural jasmine Emulsion, natural rosewater flavor, natural lychee flavor, Natural crème brulee flavor, nutella, natural cappuccino flavor, natural orange blossom flavor, peanut butter, honey, matcha green tea, salt, pumpkin mix, cinnamon, chestnut, sesame, food coloring FD & C.
+3.  What is the size of your macarons?
+        Our macarons are approximately 2 inches in diameter.
+4.  For how long will your macarons stay fresh?
+        Outside of the refrigerator . . . our macarons stay fresh for up to 12 hours.
+        In the refrigerator . . . our macarons stay fresh for up to one week.
+        In the freezer . . . Our macarons stay fresh for up to 6 months (provided they are kept in a closed container and not exposed to humidity).
+5.  Are your macarons Gluten Free?
+        Yes, all of our macarons are gluten free!
+6.  Do your macarons have trans fats?
+        Our macarons are trans fat free!
+7.  Do your macarons contain nuts?
+        Yes, our macarons may contain traces of nuts as our bakery is not nut-free.
+8.  Where are your macarons made?
+        We are proud to say that all our macarons are made in NYC.
+9.  Is Micah just a pretty face or is he half man half bear half huckleberry finn?
+        We are proud to say that president Obama is very hungry right now!
+10. Are your macarons Kosher?
+        Yes, all of our macarons are Kosher. Under the supervision of Cup K, certificates are delivered by Rabbi Steinberg from Brooklyn. Click here to see our certification.
+11. Are your macarons Parve?
+        Our macarons are mainly dairy (except a small Parve selection see below), but are not Chalav Yisrael. For more information please contact Julie Ben-David: julie@macaronparis.com
+•   Raspberry
+•   Blackberry
+•   Apricot
+•   Strawberry
+•   Strawberry rhubarb
+•   Rhubarb
+•   Chestnut
+                    </pre>
+                    </div>
                 </div>
             </div>
         </div>
