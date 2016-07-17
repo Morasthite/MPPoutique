@@ -12,6 +12,14 @@
     width: 100%;
     height: 5vh;
     display: block;
+    min-width: 230px;
+}
+
+#log-in-btn:hover,
+#sign-up-btn:hover,
+#guest-checkout-btn:hover {
+    color: #00fbe3;
+    background-color: rgb(211, 31, 127)!important;
 }
 
 .mdl-button--raised {
@@ -28,9 +36,9 @@
 .well,
 #contact-form-submit-btn,
 #shipto-form {
-    -webkit-border-radius: 1px;
-    -moz-border-radius: 1px;
-    border-radius: 1px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
 }
 
 .mdl-button {
@@ -48,26 +56,50 @@
     /*background-color: #00695c!important;*/
     background-color: #8a105a!important;
 }
-.btn:hover, .btn-large:hover {
-    #background-color: red;
-}
 .btn {
     transition: 1s ease-out;
     background-color: rgb(158, 16, 92) !important;
 }
+#proceed-to-checkout button,
+#place-your-order-btn button{
+    height: 5vh;
+}
 #login-form-submit-btn,
 #signup-form-submit-btn,
-#guest-checkout-form-submit-btn,
-#proceed-to-checkout button,
-#place-your-order-btn button
- {
+#guest-checkout-form-submit-btn{
+/*#proceed-to-checkout button,*/
+/*#place-your-order-btn button {*/
     /*background-color: rgb(158, 16, 92) !important;*/
-    background-color: #387904 !important;
+    color: #00fbe3;
+    background-color: rgb(158, 16, 92)  !important;
+    min-width: 230px;
+    margin-bottom: 2vh;
+}
+#login-form-submit-btn:hover,
+#signup-form-submit-btn:hover,
+#guest-checkout-form-submit-btn:hover{
+/*#proceed-to-checkout button,*/
+/*#place-your-order-btn button{*/
+    height: 4vh;
+    color: #00fbe3;
+    background-color: rgb(112, 17, 68) !important;
 }
 #proceed-to-checkout button,
 #place-your-order-btn button{
-    color: #e2ff00 !important;
+    background-color: rgb(158, 16, 92) !important;
+    color: #00fbe3 !important;
     box-shadow: 3px 2px 5px 1px rgba(0, 0, 0, 0.38)!important;
+}
+#proceed-to-checkout button:hover,
+#place-your-order-btn button:hover {
+    background-color: rgb(211, 31, 127)!important;
+    box-shadow: 3px 2px 5px 1px rgba(26, 194, 255, 0.88)!important;
+}
+#guest-checkout-btn2, #sign-up-btn2 {
+    margin-left:10%;
+}
+#log-in-btn-ctn{
+    margin-left:15%;
 }
 .mdl-button--raised:focus:not(:active) {
     /*background-color: rgba(33, 193, 243, 0.47);*/
@@ -79,9 +111,13 @@
 }
 #proceed-to-checkout {
     bottom: 1vh;
+    /*background-color: transparent;*/
 }
+/*#proceed-to-checkout:hover {*/
+    /*background-color: transparent;*/
+/*}*/
 #proceed-to-checkout button {
-    margin-left: 25%;
+    padding-left: 10px;
 }
 .cart {
     min-height: 80vh;
@@ -123,13 +159,22 @@
     position: relative;
     /*background-color: rgb(163, 243, 235);*/
     box-shadow: 2px 2px 4px 4px rgba(0, 105, 92, 0.38);
+    background-color: #f3f3f3;
+}
+#shipto-form {
+    /*background-color: rgb(163, 243, 235);*/
     background-color: #F8F2DA;
+    box-shadow: 2px 2px 4px 4px rgba(0, 105, 92, 0.38);
+}
+.signup-form .row,
+.guest-checkout-form .row {
+    overflow: hidden;
 }
 .show-message{
     box-shadow: 2px 2px 4px 4px rgba(0, 0, 0 , 0);
 }
 #empty-cart-message{
-    margin-top: -2vh;
+    margin-top: -4vh;
 }
  form div {
      background-color: white;
@@ -206,16 +251,17 @@ md-option {
 md-datepicker-calendar-icon {
     color: green;
 }
-#shipto-form {
-    /*background-color: rgb(163, 243, 235);*/
-    background-color: #F8F2DA;
-    box-shadow: 2px 2px 4px 4px rgba(0, 105, 92, 0.38);
 
-}
 /********************************   END CART - page 2 - w/login forms   ***************************************/
 /** Media Query **/
 @media screen and (max-width: 640px) {
     #cart-table {
         font-size: 8px;
+    }
+    #guest-checkout-btn2, #sign-up-btn2 {
+        margin-left: 16.66666667%;
+    }
+    #log-in-btn-ctn{
+        margin-left: 16.66666667%;
     }
 }
