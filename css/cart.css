@@ -172,8 +172,16 @@
     overflow: hidden;
 }
 .show-message{
-    box-shadow: 2px 2px 4px 4px rgba(0, 0, 0 , 0);
+    #box-shadow: 2px 2px 4px 4px rgba(0, 0, 0 , 0);
+    background: #edf0f2;
 }
+.login-failed-header {
+    color: red;
+}
+.login-success-header {
+    color: green;
+}
+
 #empty-cart-message{
     margin-top: -4vh;
 }

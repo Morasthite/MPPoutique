@@ -286,7 +286,8 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                     var data = response.data;
                         console.log("cartC.loginBtnValidation received  response from login.php" +"\n"+ "response.data = : ",data);
                     if(data === "Login Failed"){
-                        $scope.showLoginFailedMessage = true;
+                        // $scope.showLoginFailedMessage = true;
+                        $scope.openOffscreen($scope.login.id.fail,$scope.message_logInFail);
                         user.isLoggedIn = false;   //cart.customerLoggedIn
                     }else{
                         self.hideLoginButtons();
@@ -295,7 +296,8 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                         user.firstNameColored = "<span style='color: yellow'>"+user.firstName+"</span>";
                         console.log("user.isLoggedIn = ", user.isLoggedIn);
                         console.log("user.firstName = ", data['firstName']);
-                        $scope.showThnxLoginMessage = true;
+                        $scope.openOffscreen($scope.login.id.thnx,$scope.message_logInOK);
+                        //$scope.showThnxLoginMessage = true;
                         $scope.showLoginFailedMessage = false;
                         $scope.showPlzLoginMessage = false;
                     }
@@ -507,43 +509,87 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         console.log("self.finalizedOrder.orderTime = ",self.finalizedOrder.orderTime,"self.finalizedOrder.orderNumber = ",self.finalizedOrder.orderNumber,"self.finalizedOrder.Cart = ",self.finalizedOrder.Cart, "cart  = ",cart );
     };//self.emptyCart
 
-    // user.logOut = function (){
-    //     console.log("self.logOut is running");
-    // };//self.logOut
-
 /** **********************  ANGULAR MDL FUNCTIONS  ********************** **/
-    $scope.newDate = new Date();
 
+    $scope.newDate = new Date();
     $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
     'MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI ' +
     'WY').split(' ').map(function(state) {
-        return {abbrev: state};    });
+        return {abbrev: state};
+    });
     $scope.showHints = true;
+    $scope.status = '  ';
+    $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+    $scope.login = {
+        id: {
+            thnx: 'thnx-login-message',
+            fail: 'login-failed-message',
+            plzlogin: 'user-exists-login-message'
+        }
+    };
+
+    $scope.openFromLeft = function() {
+        $mdDialog.show(
+            $mdDialog.alert()
+                .clickOutsideToClose(true)
+                .title('Opening from the left')
+                .textContent('Closing to the right!')
+                .ariaLabel('Left to right demo')
+                .ok('Nice!')
+                // You can specify either sting with query selector
+                .openFrom('#left')
+                // or an element
+                .closeTo(angular.element(document.querySelector('#right')))
+        );
+    };
+
+    $scope.openOffscreen = function(loginID,loginMessage) {
+        $mdDialog.show({
+            clickOutsideToClose: true,
+            scope: $scope,
+            preserveScope: true,
+            template: loginMessage
+            // '<md-dialog>' +
+            // '  <md-dialog-content>' +
+            // '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
+            // '     <div class=" login-form">' +
+            // '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
+            // // '            <h5 class="login-header" style="text-align: center">Thanks For Logging In {{cartC.user.firstName}} ! You\'re exceptionally good looking today!</h5>' +
+            // '{{loginMessage}}' +
+            // '       </div>' +
+            // '     </div>' +
+            // '   </div>   ' +
+            // '  </md-dialog-content>' +
+            // '</md-dialog>'
+        });
+    };
+
+    $scope.message_logInOK =
+        '<md-dialog>' +
+        '  <md-dialog-content>' +
+        '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
+        '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
+        '            <h5 class="login-success-header" style="text-align: center">Thanks For Logging In {{cartC.user.firstName}} ! You\'re exceptionally good looking today!</h5>' +
+        '       </div>' +
+        '   </div>   ' +
+        '  </md-dialog-content>' +
+        '</md-dialog>';
+
+    $scope.message_logInFail =
+        '<md-dialog>' +
+        '  <md-dialog-content>' +
+        '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
+        '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
+        '            <h5 class="login-failed-header" style="text-align: center">Login Error: Username or Password is Incorrect!</h5>' +
+        '       </div>' +
+        '   </div>   ' +
+        '  </md-dialog-content>' +
+        '</md-dialog>';
 
 
-    // $scope.showAlert = function(ev) {
-    //     // Appending dialog to document.body to cover sidenav in docs app
-    //     // Modal dialogs should fully cover application
-    //     // to prevent interaction outside of dialog
-    //     $mdDialog.show(
-    //         $mdDialog.alert()
-    //             .parent(angular.element(document.querySelector('#login-message')))
-    //             .clickOutsideToClose(true)
-    //             .title('This is an alert title')
-    //             .textContent('<div ng-show="showPlzLoginMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="login-message">
-    //                 <div class=" login-form">
-    //         <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-    //         <h4 class="login-header" style="text-align: center">Please Choose Login, Sign Up, or Checkout As Guest First</h4>
-    //     </div>
-    //     </div>
-    //     </div>')
-    //             .ariaLabel('Alert Dialog Demo')
-    //             .ok('Got it!')
-    //             .targetEvent(ev)
-    //     );
-    // };
 
 
- }]);
+
+}]);///Cart Controller
 
 

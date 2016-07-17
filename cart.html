@@ -56,24 +56,41 @@
                 </div>
             </div><!-- End Please Log in Message -->
 
-            <!-- Login Failed Message-->
-            <div ng-show="showLoginFailedMessage" class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="login-failed-message">
-                <div class=" login-form">
-                    <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h6 class="login-header" style="text-align: center">Login Error: Username or Password is Incorrect!</h6>
-                    </div>
-                </div>
-            </div><!-- End Login Failed Message -->
+            <!--&lt;!&ndash; Login Failed Message&ndash;&gt;-->
+            <!--<div ng-show="showLoginFailedMessage" class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="login-failed-message">-->
+                <!--<div class=" login-form">-->
+                    <!--<div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">-->
+                        <!--<h6 class="login-header" style="text-align: center">Login Error: Username or Password is Incorrect!</h6>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>&lt;!&ndash; End Login Failed Message &ndash;&gt;-->
+
+            <!--&lt;!&ndash; Thanks For Logging In Message&ndash;&gt;-->
+            <!--<div ng-show="showThnxLoginMessage" class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="thnx-login-message">-->
+                <!--<div class=" login-form">-->
+                    <!--<div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">-->
+                        <!--<h6 class="login-header" style="text-align: center">Thanks For Logging In {{cartC.user.firstName}} ! You're very good looking today!</h6>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            <!--</div>&lt;!&ndash; End Thanks For For Logging In Message &ndash;&gt;-->
 
             <!-- Thanks For Logging In Message-->
-            <div ng-show="showThnxLoginMessage" class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="thnx-login-message">
-                <div class=" login-form">
-                    <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h6 class="login-header" style="text-align: center">Thanks For Logging In {{cartC.user.firstName}} ! You're very good looking today!</h6>
-                    </div>
-                </div>
 
-            </div><!-- End Thanks For For Logging In Message -->
+
+            <!--<div layout="column" layout-align="center start" layout-padding="" flex="">-->
+                <!--<div class="" layout="column" layout-align="center center" style="width:100%">-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+            <!--<div ng-show="showThnxLoginMessage" class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="thnx-login-message" >-->
+                <!--<div class=" login-form">-->
+                    <!--<div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">-->
+                    <!--<h6 class="login-header" style="text-align: center">Thanks For Logging In {{cartC.user.firstName}} ! You're very good looking today!</h6>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>&lt;!&ndash; End Thanks For For Logging In Message &ndash;&gt;-->
 
             <!-- Thanks For Signing Up Message-->
             <div ng-show="showThanksSigningUpMessage" class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="signing-up-message">
@@ -148,7 +165,7 @@
             <div layout="column" ng-cloak=""  ng-show="showSignUpForm" class =" inputdemoErrors login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="signup-form">
                 <div class=" signup-form">
                     <div class="col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h3 class="login-header"><i class="fa fa-user-plus" aria-hidden="true"></i>Sign Up Form - This will be a breeze</h3>
+                        <h3 class="login-header"><i class="fa fa-user-plus" aria-hidden="true"></i>Sweet, Let's Sign You Up - This will be a breeze</h3>
                         <div class="row">
                             <md-content layout-padding="">
                                 <form name="signUpForm">
@@ -325,7 +342,7 @@
                                                         <!--<md-input-container class="md-block">-->
  <div class="datepicker">                                  <i class="fa fa-credit-card"  id="signup-cc-fa" aria-hidden="true"></i> <label id="signup-form-cc-exp">Expiration Date</label>
      <!--<i class="fa fa-calendar" aria-hidden="true"></i>-->
-                                                            <md-datepicker ng-model="cartC.newUser.c_card_exp; newDate" md-placeholder="Enter date">                                                            </md-datepicker>
+                                                            <md-datepicker ng-model="cartC.newUser.c_card_exp" md-placeholder="Enter date">                                                            </md-datepicker>
  </div>
 
                                                         <!--<div ng-messages="signUpForm.first_name.$error" role="alert">-->
@@ -548,7 +565,7 @@
                                                 <!--<md-input-container class="md-block">-->
                                                 <i class="fa fa-credit-card" id="guest-checkout-cc-fa" aria-hidden="true"></i><label id="guest-checkout-form-cc-exp">Expiration Date</label>
                                                 <!--<i class="fa fa-calendar" aria-hidden="true"></i>-->
-                                                <md-datepicker ng-model="cartC.guestUser.c_card_exp;newDate" md-placeholder="Enter date" >
+                                                <md-datepicker ng-model="cartC.guestUser.c_card_exp" md-placeholder="Enter date" >
                                                     <!--<input type="date" required="" id="signup-credit-card-exp" ng-model="cartC.guestUser.c_card_exp">-->
                                                 </md-datepicker>
 
