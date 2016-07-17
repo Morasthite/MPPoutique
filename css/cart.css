@@ -8,7 +8,8 @@
 #log-in-btn,
 #sign-up-btn,
 #guest-checkout-btn,
-#proceed-to-checkout{
+#proceed-to-checkout,
+#place-your-order {
     width: 100%;
     height: 5vh;
     display: block;
@@ -203,6 +204,9 @@
 .checkout-buttons {
     color: white !important;
 }
+#proceed-to-checkout button {
+    min-width: 260px;
+}
 
 md-input-container label:not(._md-container-ignore) {
     left: 45px;
@@ -251,7 +255,27 @@ md-option {
 md-datepicker-calendar-icon {
     color: green;
 }
-
+.md-datepicker-calendar {
+    width: 300px;
+}
+.md-calendar-date.md-calendar-selected-date .md-calendar-date-selection-indicator {
+    background: rgb(154, 23, 23);
+    color: rgb(7, 235, 215);
+}
+#guest-checkout-form-cc-exp,
+#signup-form-cc-exp {
+    font-size:16px;
+    color: rgb(35, 58, 33);
+}
+#guest-checkout-cc-fa,
+#signup-cc-fa {
+    padding-right:10px;
+    color: green;
+}
+#items-table-header,
+#totals-table-header-total{
+    background: #c3ecf4;
+}
 /********************************   END CART - page 2 - w/login forms   ***************************************/
 /** Media Query **/
 @media screen and (max-width: 640px) {

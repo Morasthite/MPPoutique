@@ -212,7 +212,7 @@
                                                     <md-input-container class="md-block" flex-gt-sm="">
                                                         <label>State</label><i class="fa fa-map-marker" aria-hidden="true"></i>
                                                         <md-select ng-model="cartC.newUser.state">
-                                                            <md-option ng-repeat="state in states" value="{{state.abbrev}}">{{states.abbrev}}</md-option>
+                                                            <md-option ng-repeat="state in states" value="{{state.abbrev}}">{{state.abbrev}}</md-option>
                                                         </md-select>
                                                         <!--<input type="text" required="" name="state" ng-model="cartC.newUser.state" ng-pattern="/^.+@.+\..+$/">-->
                                                         <!--<div ng-messages="signUpForm.state.$error" role="alert">-->
@@ -323,10 +323,10 @@
 
 
                                                         <!--<md-input-container class="md-block">-->
-                                                        <label>Expiration Date</label><i class="fa fa-calendar" aria-hidden="true"></i>
-                                                            <md-datepicker ng-model="cartC.newUser.c_card_exp" md-placeholder="Enter date">
-                                                                <!--<input type="date" required="" id="signup-credit-card-exp" ng-model="cartC.newUser.c_card_exp">-->
-                                                            </md-datepicker>
+ <div class="datepicker">                                  <i class="fa fa-credit-card"  id="signup-cc-fa" aria-hidden="true"></i> <label id="signup-form-cc-exp">Expiration Date</label>
+     <!--<i class="fa fa-calendar" aria-hidden="true"></i>-->
+                                                            <md-datepicker ng-model="cartC.newUser.c_card_exp; newDate" md-placeholder="Enter date">                                                            </md-datepicker>
+ </div>
 
                                                         <!--<div ng-messages="signUpForm.first_name.$error" role="alert">-->
                                                             <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
@@ -435,7 +435,7 @@
                                                 <md-input-container class="md-block" flex-gt-sm="">
                                                     <label>State</label><i class="fa fa-map-marker" aria-hidden="true"></i>
                                                     <md-select ng-model="cartC.guestUser.state">
-                                                        <md-option ng-repeat="state in states" value="{{state.abbrev}}">{{states.abbrev}}</md-option>
+                                                        <md-option ng-repeat="state in states" value="{{state.abbrev}}">{{state.abbrev}}</md-option>
                                                     </md-select>
                                                     <!--<input type="text" required="" name="state" ng-model="cartC.guestUser.state" ng-pattern="/^.+@.+\..+$/">-->
                                                     <!--<div ng-messages="guestCheckoutForm.state.$error" role="alert">-->
@@ -546,8 +546,9 @@
 
 
                                                 <!--<md-input-container class="md-block">-->
-                                                <label>Expiration Date</label><i class="fa fa-calendar" aria-hidden="true"></i>
-                                                <md-datepicker ng-model="cartC.guestUser.c_card_exp" md-placeholder="Enter date">
+                                                <i class="fa fa-credit-card" id="guest-checkout-cc-fa" aria-hidden="true"></i><label id="guest-checkout-form-cc-exp">Expiration Date</label>
+                                                <!--<i class="fa fa-calendar" aria-hidden="true"></i>-->
+                                                <md-datepicker ng-model="cartC.guestUser.c_card_exp;newDate" md-placeholder="Enter date" >
                                                     <!--<input type="date" required="" id="signup-credit-card-exp" ng-model="cartC.guestUser.c_card_exp">-->
                                                 </md-datepicker>
 
@@ -634,7 +635,7 @@
                 <!-- Items Table-->
                 <table class="table-striped col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table mdl-js-data-table  mdl-shadow--2dp" id="cart-table"><!-- mdl-data-table--selectable -->
                     <thead>
-                        <tr>
+                        <tr id="items-table-header">
                             <th class="mdl-data-table__cell--non-numeric cart-header">Flavor</th>
                             <th class="cart-header">Quantity</th>
                             <th class="cart-header">Unit Price</th>
@@ -668,7 +669,7 @@
                             <td class="cart-header col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell--non-numeric">Shipping</td>
                             <td class="cart-header">$ {{cartC.shipping}}</td>
                         </tr><!-- Shipping -->
-                        <tr>
+                        <tr id="totals-table-header-total">
                             <td class="cart-header col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell--non-numeric">Total</td>
                             <td class="cart-header">$ {{cartC.cart.totalCost}}</td>
                         </tr><!-- Total -->
