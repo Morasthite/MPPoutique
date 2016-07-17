@@ -24,6 +24,7 @@ html.md-default-theme, html, body.md-default-theme, #contact_info, #contact_emai
     /*background-color: #00695c;*/
     /*background-color: #c51162;*/
     /*background-color: #484452;*/
+    /*background-color: #C9A798;*/
     color: white;
 }
 #nav a{
@@ -34,7 +35,8 @@ html.md-default-theme, html, body.md-default-theme, #contact_info, #contact_emai
 }
 /*******************EXPERIMENT*****************/
 #nav a:hover {
-    color: rgb(0, 251, 255)!important;
+    /*color: rgb(0, 251, 255)!important;*/
+    color: #C7AFBD!important;
     font-size: 120%;
 }
 .mdl-badge[data-badge]:after {
@@ -165,7 +167,10 @@ ul li {
     box-shadow: 3px 3px 8px lightgreen;
 }
 #main_content {
-    background-color: #bbf8f2;
+    /*background-color: #bbf8f2;*/
+    /*background-color: #F8F2DA;*/
+    /*background-color: #C7AFBD;*/
+    background-color: #DDECEF;
 }
 nav ul li.active {
     background-color: rgba(0, 0, 0, 0);
