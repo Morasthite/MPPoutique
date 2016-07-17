@@ -26,6 +26,7 @@ html.md-default-theme, html, body.md-default-theme, #contact_info, #contact_emai
     background-color: #484452;
     /*background-color: #C9A798;*/
     color: white;
+    margin-bottom: 5%;
 }
 #nav a{
     color: white;
@@ -66,7 +67,7 @@ html.md-default-theme, html, body.md-default-theme, #contact_info, #contact_emai
     width: 95%;
     margin: auto;
     height: auto;
-    background-color: #0a6ebd;
+    background-color: transparent;
 }
 #banner img {
     margin-top: 5%;
@@ -99,7 +100,8 @@ footer {
     box-sizing: border-box;
     padding: 10px;
     /*background-color: #00695c;*/
-    background-color: #880e4f;
+    /*background-color: #880e4f;*/
+    background-color: #0f1721;
     position: relative;
     min-height: 10vh;
     #margin-top: 25vh;
@@ -195,7 +197,7 @@ nav ul li.active {
 /*////////////////contact page////////////////////////*/
 #map {
     width: 95%;
-    margin: auto;
+    margin:5% auto auto auto;
     height: 70vh;
     /*border: 1px solid black;*/
 }
