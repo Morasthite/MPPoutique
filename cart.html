@@ -43,7 +43,7 @@
                                                 <div class="col-sm-offset-2 col-sm-8 form-group">
                                                     <label>Your Email Address</label>
                                                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                                                    <input type="email" required=""  name="user_name" id="user_name" minlength="8" maxlength="100" ng-pattern="/^.+@.+\..+$/">
+                                                    <input type="email" required=""  name="user_name" id="user_name" minlength="8" maxlength="100" ng-pattern="/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/">
 
                                                     <div ng-messages="loginForm.user_name.$error" role="alert">
                                                         <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
@@ -58,11 +58,11 @@
                                                 <div class="col-sm-offset-2 col-sm-8 form-group">
                                                     <label>Password</label>
                                                     <i class="fa fa-lock" aria-hidden="true"></i>
-                                                    <input type="password" name="password" id="password" minlength="2" required="">
+                                                    <input type="password" name="password" id="password" minlength="8" required="" ng-pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}">
 
                                                     <div ng-messages="loginForm.password.$error" role="alert">
-                                                        <div ng-message-exp="['required', 'minlength']">
-                                                            Your password is required and must be at least 2 characters.
+                                                        <div ng-message-exp="['required', 'minlength','pattern']">
+                                                            Your password is required and must be Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet, 1 Number and 1 Special Character.
                                                         </div>
                                                     </div>
                                                 </div>
@@ -93,24 +93,24 @@
                                                 <md-input-container class="md-block">
                                                     <label>First Name</label>
                                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                                    <input type="text" required="" name="first_name"  ng-model="cartC.newUser.first_name" minlength="1" maxlength="50" ng-pattern="/^.+@.+\..+$/">
-                                                    <!--<div ng-messages="signUpForm.first_name.$error" role="alert">-->
-                                                        <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
-                                                            <!--Your first name must be between 1 and 50 characters long.-->
-                                                        <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
-                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                    <input type="text" required="" name="first_name"  ng-model="cartC.newUser.first_name" minlength="1" maxlength="12" ng-pattern="/^[a-zA-Z]+(([\'\,\.\-][a-zA-Z])?[a-zA-Z]*)*$/">
+                                                    <div ng-messages="signUpForm.first_name.$error" role="alert">
+                                                        <div ng-message-exp="['required', 'minlength', 'maxlength','pattern']">
+                                                            Your first name must be between 1 and 12 characters long.
+                                                        </div><!-- <div ng-message-exp -->
+                                                    </div><!--  ng-messages -->
                                                 </md-input-container>
                                             </div><!-- class="col-sm-6 form group -->
                                             <div class="col-sm-6 form-group">
                                                 <md-input-container class="md-block">
                                                     <label>Last Name</label>
                                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                                    <input type="text" required="" name="last_name"  ng-model="cartC.newUser.last_name"  ng-pattern="/^.+@.+\..+$/">
-                                                    <!--<div ng-messages="signUpForm.last_name.$error" role="alert">-->
-                                                        <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
-                                                            <!--Your last name must be between 1 and 50 characters long.-->
-                                                        <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
-                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                    <input type="text" required="" name="last_name"  ng-model="cartC.newUser.last_name" minlength="1" maxlength="15" ng-pattern="/^[a-zA-Z]+(([\'\,\.\-][a-zA-Z])?[a-zA-Z]*)*$/">
+                                                    <div ng-messages="signUpForm.last_name.$error" role="alert">
+                                                        <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                                            Your last name must be between 1 and 15 characters long.
+                                                        </div><!-- <div ng-message-exp -->
+                                                    </div><!--  ng-messages -->
                                                 </md-input-container>
                                             </div><!-- class="col-sm-6 form group -->
                                         </div><!--row-name-->
@@ -119,7 +119,7 @@
                                             <div class="form-group">
                                                 <md-input-container class="md-block">
                                                     <label>Address</label><i class="fa fa-map-marker" aria-hidden="true"></i>
-                                                    <textarea  required="" name="street_address" ng-model="cartC.newUser.street_address" rows="3"  ng-pattern="/^.+@.+\..+$/"></textarea>
+                                                    <textarea  required="" name="street_address" ng-model="cartC.newUser.street_address" rows="3"  ng-pattern="/^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$/"></textarea>
                                                     <div ng-messages="signUpForm.street_address.$error" role="alert">
                                                         <div ng-message-exp="['required', 'pattern']">
                                                             Your address must include street name and number.
@@ -133,39 +133,39 @@
                                                 <div class="col-sm-4 form-group">
                                                     <md-input-container class="md-block">
                                                         <label>City</label><i class="fa fa-building" aria-hidden="true"></i>
-                                                        <input type="text" required="" name="city" ng-model="cartC.newUser.city" ng-pattern="/^.+@.+\..+$/">
-                                                        <!--<div ng-messages="signUpForm.city.$error" role="alert">-->
-                                                            <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
-                                                                <!--Your city's name must be between 1 and 50 characters long.-->
-                                                            <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
-                                                        <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                        <input type="text" required="" name="city" ng-model="cartC.newUser.city" ng-pattern="/^[a-zA-Z]+[\. - ']?(?:[\s-][a-zA-Z]+)*$/">
+                                                        <div ng-messages="signUpForm.city.$error" role="alert">
+                                                            <div ng-message-exp="['required', 'pattern']">
+                                                                Your correct city's name is required.
+                                                            </div><!-- <div ng-message-exp -->
+                                                        </div><!--  ng-messages -->
                                                     </md-input-container>
                                                 </div><!-- class="col-sm-4 form group -->
 
                                                 <div class="col-sm-4 form-group">
                                                     <md-input-container class="md-block" flex-gt-sm="">
                                                         <label>State</label><i class="fa fa-map-marker" aria-hidden="true"></i>
-                                                        <md-select ng-model="cartC.newUser.state">
+                                                        <md-select name="state" ng-model="cartC.newUser.state" required="">
                                                             <md-option ng-repeat="state in states" value="{{state.abbrev}}">{{state.abbrev}}</md-option>
                                                         </md-select>
                                                         <!--<input type="text" required="" name="state" ng-model="cartC.newUser.state" ng-pattern="/^.+@.+\..+$/">-->
-                                                        <!--<div ng-messages="signUpForm.state.$error" role="alert">-->
-                                                            <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
-                                                                <!--Your state's name must be between 2 and 50 characters long.-->
-                                                            <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
-                                                        <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                        <div ng-messages="signUpForm.state.$error" role="alert">
+                                                            <div ng-message-exp="['required']">
+                                                                Your state's name is required.
+                                                            </div><!-- <div ng-message-exp -->
+                                                        </div><!--  ng-messages -->
                                                     </md-input-container>
                                                 </div><!-- class="col-sm-4 form group -->
 
                                                 <div class="col-sm-4 form-group">
                                                     <md-input-container class="md-block">
                                                         <label>Zip</label><i class="fa fa-map-marker" aria-hidden="true"></i>
-                                                        <input type="number" required="" name="zip" ng-model="cartC.newUser.zip" minlength="5" maxlength="5" ng-pattern="/^.+@.+\..+$/">
-                                                        <!--<div ng-messages="signUpForm.zip.$error" role="alert">-->
-                                                            <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
-                                                                <!--Your zipcode must be 5 numbers.-->
-                                                            <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
-                                                        <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                        <input type="number" required="" name="zip" ng-model="cartC.newUser.zip" minlength="5" maxlength="5" ng-pattern="/^\d{5}(?:[-\s]\d{4})?$/">
+                                                        <div ng-messages="signUpForm.zip.$error" role="alert">
+                                                            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                                                Your zipcode must be 5 numbers.
+                                                            </div><!-- <div ng-message-exp -->
+                                                        </div><!--  ng-messages -->
                                                     </md-input-container>
                                                 </div><!-- class="col-sm-4 form group -->
                                         </div><!--row-city-state-zip-->
@@ -175,12 +175,12 @@
                                                     <md-input-container class="md-block">
                                                         <label>Company</label>
                                                         <i class="fa fa-building-o" aria-hidden="true"></i>
-                                                        <input type="text" name="company" ng-model="cartC.newUser.company">
-                                                        <!--<div ng-messages="signUpForm.first_name.$error" role="alert">-->
-                                                            <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
-                                                                <!--Your first name must be between 1 and 50 characters long.-->
-                                                            <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
-                                                        <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                        <input type="text" name="company" ng-model="cartC.newUser.company" minlength="2" maxlength="20">
+                                                        <div ng-messages="signUpForm.first_name.$error" role="alert">
+                                                            <div ng-message-exp="[ 'minlength', 'maxlength', 'pattern']">
+                                                                Your company's name must be between 2 and 20 characters long.
+                                                            </div><!-- <div ng-message-exp -->
+                                                        </div><!--  ng-messages -->
                                                     </md-input-container>
                                                 </div><!-- class="col-sm-6 form group -->
                                                 <div class="col-sm-6 form-group">
@@ -200,32 +200,32 @@
                                             <div class="col-sm-6 form-group">
                                                 <md-input-container class="md-block">
                                                     <label>Phone Number</label><i class="fa fa-phone-square" aria-hidden="true"></i>
-                                                    <input type="number" required="" name="phone_number" ng-model="cartC.newUser.phone" minlength="10" maxlength="16" ng-pattern="/^[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}$/" >
-                                                    <!--<div ng-messages="signUpForm.phone_number.$error" role="alert">-->
-                                                        <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
-                                                            <!--Your phone number must be between 10 and 16 characters long.-->
-                                                        <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
-                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                    <input type="number" required="" name="phone_number" ng-model="cartC.newUser.phone" minlength="10" maxlength="16" ng-pattern="/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/" >
+                                                    <div ng-messages="signUpForm.phone_number.$error" role="alert">
+                                                        <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                                            Your phone number needs to be in a valid form.
+                                                        </div><!-- <div ng-message-exp -->
+                                                    </div><!--  ng-messages -->
                                                 </md-input-container>
                                             </div><!-- class="col-sm-6 form group -->
                                             <div class="col-sm-6 form-group">
                                                 <md-input-container class="md-block">
                                                     <label>Email Address</label><i class="fa fa-envelope" aria-hidden="true"></i>
-                                                    <input type="email" required="" name="email" ng-model="cartC.newUser.email" minlength="8" maxlength="100" ng-pattern="/^.+@.+\..+$/">
-                                                    <!--<div ng-messages="signUpForm.email.$error" role="alert">-->
-                                                        <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
-                                                            <!--Your first name must be between 8 and 100 characters long.-->
-                                                        <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
-                                                    <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                    <input type="email" required="" name="email" ng-model="cartC.newUser.email" minlength="8" maxlength="100" ng-pattern="/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/">
+                                                    <div ng-messages="signUpForm.email.$error" role="alert">
+                                                        <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                                            Your correct email address is required.
+                                                        </div><!-- <div ng-message-exp -->
+                                                    </div><!--  ng-messages -->
                                                 </md-input-container>
                                             </div><!-- class="col-sm-6 form group -->
                                             <div class="col-sm-offset-3 col-sm-6 form-group">
                                                 <md-input-container class="md-block">
                                                     <label>Password:</label><i class="fa fa-key" aria-hidden="true"></i>
-                                                    <input type="password" required="" name="password" ng-model="cartC.newUser.password" minlength="8" maxlength="100" ng-pattern="/^.+@.+\..+$/">
+                                                    <input type="password" required="" name="password" ng-model="cartC.newUser.password" minlength="8" maxlength="100" ng-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/">
                                                     <div ng-messages="signUpForm.password.$error" role="alert">
                                                         <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                                                            Your password must be between 100 and 500 characters long, must include letters, numbers, crazy characters, your dna, your first child's arm, and cold hard cash.
+                                                            Your password is required and must be Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet, 1 Number and 1 Special Character.
                                                         </div><!-- <div ng-message-exp -->
                                                     </div><!--  ng-messages -->
                                                 </md-input-container>
@@ -237,12 +237,12 @@
                                                 <div class="col-sm-6 form-group">
                                                         <md-input-container class="md-block">
                                                         <label>Card Number:</label><i class="fa fa-credit-card" aria-hidden="true"></i>
-                                                        <input type="number" required="" id="signup-creditcard-number" name="c_card"  ng-model="cartC.newUser.c_card" minlength="15" maxlength="25" ng-pattern="/^.+@.+\..+$/">
-                                                        <!--<div ng-messages="signUpForm.c_card.$error" role="alert">-->
-                                                            <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
-                                                                <!--Your credit card number must be between 15 and 19 characters long.-->
-                                                            <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
-                                                        <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                        <input type="number" required="" id="signup-creditcard-number" name="c_card"  ng-model="cartC.newUser.c_card" minlength="15" maxlength="25" ng-pattern="/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/">
+                                                        <div ng-messages="signUpForm.c_card.$error" role="alert">
+                                                            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                                                Your credit card number must be between 15 and 19 characters long.
+                                                            </div><!-- <div ng-message-exp -->
+                                                        </div><!--  ng-messages -->
                                                         </md-input-container>
 
                                                         <!--<md-input-container class="md-block">-->
@@ -273,12 +273,12 @@
                                                 <div class="col-sm-6 form-group">
                                                     <md-input-container class="md-block">
                                                         <label>Name On Card</label><i class="fa fa-user" aria-hidden="true"></i>
-                                                        <input type="text" required="" id="signup-name-on-card" ng-model="cartC.newUser.name_on_card" minlength="2" maxlength="100" ng-pattern="/^.+@.+\..+$/">
-                                                        <!--<div ng-messages="signUpForm.name_on_card.$error" role="alert">-->
-                                                            <!--<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">-->
-                                                                <!--Your name must be between 2 and 100 characters long.-->
-                                                            <!--</div>&lt;!&ndash; <div ng-message-exp &ndash;&gt;-->
-                                                        <!--</div>&lt;!&ndash;  ng-messages &ndash;&gt;-->
+                                                        <input type="text" required="" id="signup-name-on-card" ng-model="cartC.newUser.name_on_card" minlength="2" maxlength="100" ng-pattern="/^([A-z\'\.-ᶜ]*(\s))+[A-z\'\.-ᶜ]*$/">
+                                                        <div ng-messages="signUpForm.name_on_card.$error" role="alert">
+                                                            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                                                This field is required..
+                                                            </div><!-- <div ng-message-exp -->
+                                                        </div><!--  ng-messages -->
                                                     </md-input-container>
 
                                                     <md-input-container class="md-block">
@@ -316,7 +316,7 @@
                                                 <md-input-container class="md-block">
                                                     <label>First Name</label>
                                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                                    <input type="text" required="" name="first_name"  ng-model="cartC.guestUser.first_name" minlength="1" maxlength="12">
+                                                    <input type="text" required="" name="first_name"  ng-model="cartC.guestUser.first_name" minlength="1" maxlength="12" ng-pattern="/^[a-zA-Z]+(([\'\,\.\-][a-zA-Z])?[a-zA-Z]*)*$/">
                                                     <div ng-messages="guestCheckoutForm.first_name.$error" role="alert">
                                                     <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
                                                     Your first name must be between 1 and 12 characters long.
@@ -328,9 +328,9 @@
                                                 <md-input-container class="md-block">
                                                     <label>Last Name</label>
                                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                                    <input type="text" required="" name="last_name"  ng-model="cartC.guestUser.last_name" minlength="1" maxlength="15">
+                                                    <input type="text" required="" name="last_name"  ng-model="cartC.guestUser.last_name" minlength="1" maxlength="15" ng-pattern="/^[a-zA-Z]+(([\'\,\.\-][a-zA-Z])?[a-zA-Z]*)*$/">
                                                     <div ng-messages="guestCheckoutForm.last_name.$error" role="alert">
-                                                    <div ng-message-exp="['required', 'minlength', 'maxlength']">
+                                                    <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
                                                     Your last name must be between 1 and 15 characters long.
                                                     </div><!-- <div ng-message-exp -->
                                                     </div><!--  ng-messages -->
@@ -460,7 +460,7 @@
                                             <div class="col-sm-6 form-group">
                                                 <md-input-container class="md-block">
                                                     <label>Card Number:</label><i class="fa fa-credit-card" aria-hidden="true"></i>
-                                                    <input type="number" required="" id="guest-creditcard-number" name="c_card"  ng-model="cartC.guestUser.c_card" minlength="15" maxlength="25" ng-pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$">
+                                                    <input type="number" required="" id="guest-creditcard-number" name="c_card"  ng-model="cartC.guestUser.c_card" minlength="15" maxlength="25" ng-pattern="/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/">
                                                     <div ng-messages="guestCheckoutForm.c_card.$error" role="alert">
                                                     <div ng-message-exp="['required', 'minlength', 'maxlength','pattern']">
                                                     Your credit card number must be between 15 and 19 characters long.
