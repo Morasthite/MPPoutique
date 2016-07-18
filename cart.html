@@ -27,89 +27,6 @@
                 </button>
             </div><!-- End Checkout As Guest Button-->
 
-        <!-----------LOG IN MESSAGES -------- showCurrentUserPlzLoginMessage------->
-
-            <!-- Buy Empty Cart Message-->
-            <div ng-show="showYouCantBuyFromAnEmptyCartMessage" class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="buy-empty-cart-message">
-                <div class=" login-form">
-                    <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h6 class="login-header" style="text-align: center">You Can Not Buy From an Empty Cart!!!</h6>
-                    </div>
-                </div>
-            </div><!-- End Buy Empty Cart Message -->
-
-            <!-- Please Log In Message-->
-            <div ng-show="showPlzLoginMessage" class ="login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="login-message">
-                <div class=" login-form">
-                    <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h6 class="login-header" style="text-align: center">Please Choose Login, Sign Up, or Checkout As Guest First</h6>
-                    </div>
-                </div>
-            </div><!-- End Please Log in Message -->
-
-            <!-- Please Log In Message-->
-            <div ng-show="showCurrentUserPlzLoginMessage" class ="login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="user-exists-login-message">
-                <div class=" login-form">
-                    <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h6 class="login-header" style="text-align: center">It looks like you've already registered, please log in using your email and password.</h6>
-                    </div>
-                </div>
-            </div><!-- End Please Log in Message -->
-
-            <!--&lt;!&ndash; Login Failed Message&ndash;&gt;-->
-            <!--<div ng-show="showLoginFailedMessage" class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="login-failed-message">-->
-                <!--<div class=" login-form">-->
-                    <!--<div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">-->
-                        <!--<h6 class="login-header" style="text-align: center">Login Error: Username or Password is Incorrect!</h6>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>&lt;!&ndash; End Login Failed Message &ndash;&gt;-->
-
-            <!--&lt;!&ndash; Thanks For Logging In Message&ndash;&gt;-->
-            <!--<div ng-show="showThnxLoginMessage" class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="thnx-login-message">-->
-                <!--<div class=" login-form">-->
-                    <!--<div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">-->
-                        <!--<h6 class="login-header" style="text-align: center">Thanks For Logging In {{cartC.user.firstName}} ! You're very good looking today!</h6>-->
-                    <!--</div>-->
-                <!--</div>-->
-
-            <!--</div>&lt;!&ndash; End Thanks For For Logging In Message &ndash;&gt;-->
-
-            <!-- Thanks For Logging In Message-->
-
-
-            <!--<div layout="column" layout-align="center start" layout-padding="" flex="">-->
-                <!--<div class="" layout="column" layout-align="center center" style="width:100%">-->
-                <!--</div>-->
-            <!--</div>-->
-
-
-            <!--<div ng-show="showThnxLoginMessage" class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="thnx-login-message" >-->
-                <!--<div class=" login-form">-->
-                    <!--<div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">-->
-                    <!--<h6 class="login-header" style="text-align: center">Thanks For Logging In {{cartC.user.firstName}} ! You're very good looking today!</h6>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>&lt;!&ndash; End Thanks For For Logging In Message &ndash;&gt;-->
-
-            <!-- Thanks For Signing Up Message-->
-            <div ng-show="showThanksSigningUpMessage" class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="signing-up-message">
-                <div class=" login-form">
-                    <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h6 class="login-header" style="text-align: center">Thanks For Signing Up {{cartC.user.firstName}} ! You're very good looking today!</h6>
-                    </div>
-                </div>
-            </div><!-- End Thanks For Signing Up Message -->
-
-            <!-- Thanks For Guest Checkout Message-->
-            <div ng-show="showGuestCheckOutMessage" class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="guest-checkout-message">
-                <div class=" login-form">
-                    <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h6 class="login-header" style="text-align: center">Thanks {{cartC.user.firstName}} ! You're very good looking today!</h6>
-                    </div>
-                </div>
-            </div><!-- End Thanks For Guest Checkout Message -->
-
         <!-----------LOG IN FORMS --------------->
 
             <!--Log In Form-->
@@ -692,15 +609,6 @@
                         </tr><!-- Total -->
                     </tbody>
                 </table> <!-- End Totals Table-->
-
-                <!-- Empty Cart Message-->
-                <div ng-hide="cartC.cart.subTotal > 0" class =" login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="empty-cart-message">
-                    <div class=" login-form">
-                        <div class=" col-sm-offset-1 col-sm-10 col-xs-12 well">
-                            <h6 class="login-header" style="text-align: center">You Can Not Buy From an Empty Cart. Feed It Some Delicious Macarons!!!</h6>
-                        </div>
-                    </div>
-                </div><!-- End Empty Cart Message -->
 
                 <!-- Checkout Buttons-->
                 <div ng-show="showProceedToCheckoutButton" id="proceed-to-checkout">
