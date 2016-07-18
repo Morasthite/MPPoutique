@@ -74,16 +74,18 @@ Order ID:</strong> ".$request -> orderNumber."<br>
 <td width='117'><div align='center'><span class='letrachicablbold'>NAME</span></div></td>
 <td width='93'><div align='center'><span class='letrachicablbold'>PRICE</span></div></td>
 <td width='98'><div align='center'><span class='letrachicablbold'>TOTAL</span></div></td>
-</tr>
-<?php
- foreach ($cart as $mac) {?>
-  <tr bgcolor='#EAEAEA'>
+</tr>";
+
+foreach ($cart as $mac) {
+    $mail->Body .= "<tr bgcolor='#EAEAEA'>
        <td height='21'><span class='letramenu5'>&nbsp; ".$mac -> ordered."</span></td>
        <td><span class='letramenu5'>&nbsp;".$mac -> name."</span></td>
       <td><span class='letramenu5'> &nbsp;$&nbsp;".number_format($mac -> price,2,'.',',')."</span></td>
-        <td><span class='letramenu5'>&nbsp;&nbsp;$ ".number_format($request['(forders.qty * forders.price)'],2,'.',',')."</span></td>
-   </tr>
-<? } ?></table>
+        <td><span class='letramenu5'>&nbsp;&nbsp;$ ".number_format($mac -> id,2,'.',',')."</span></td>
+   </tr>";
+}
+
+$mail->Body .= "</table>
 </form>
 <table width='199' border='0' align='right' cellpadding='0' cellspacing='1'>
    <tr><BR>
