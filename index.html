@@ -2,7 +2,7 @@
  <html ng-app="mainApp" ng-controller="mainController as mainC">
 <head >
     <title>MPoutique</title>
-    <link rel="icon" href="images/favicon-p.png">
+    <link rel="icon" href="assets/icons/favicon-p.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" >
     <meta name="author" content="Pearl Micah">
@@ -55,6 +55,7 @@
 <div id="main_content">
     <div id="banner" class="">
            <img class="header-img col-xs-12" ng-src="{{mainC.config.banner}}" ng-hide="mainC.config.banner == 'assets/images/contact-image.png' ? 'true':''">
+        {{mainC.config.bannerTest}}
     </div>
     <div id="tmp_content">
         <div ng-view></div>
