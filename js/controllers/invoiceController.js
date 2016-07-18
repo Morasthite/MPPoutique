@@ -1,5 +1,5 @@
 
-app.controller('invoiceController',["$scope","config","invoice","$location","cart",function ($scope,config,invoice,$location,cart) {
+app.controller('invoiceController',["$scope","config","invoice","$location","cart","$http",function ($scope,config,invoice,$location,cart,$http) {
     config.banner = "assets/images/contact-image.png";
     config.menuIndice = 12;
     //console.log("invoice controller");
@@ -16,4 +16,20 @@ app.controller('invoiceController',["$scope","config","invoice","$location","car
         $location.path('/cart');
     } /////////////end of if
 
-}]);
+    var invoice_mail = {
+        cart: invoice.cart,
+        customer: invoice.customer,
+        orderNumber: invoice.orderNumber,
+        date: $scope.date,
+        subtotal: cart.subTotal,
+        tax: cart.tax,
+        shipping: 7,
+        total: cart.totalCost
+    };
+  console.log("invoice_mail info : ", invoice_mail);
+    $http({
+        method: 'POST',
+        data : invoice_mail,
+        url: 'php/invoice_mail.php'
+    })
+}]);///end of controller

@@ -10,7 +10,8 @@ app.controller('contactController',["$scope","config","$http",function ($scope,c
     this.user = {
         contactName : "",
         contactEmail : "",
-        contactComment : ""
+        contactComment : "",
+        contactNumber : ""
     };
     //console.log("contact_email: ",$scope.user);
     //////////////submit button for contact form

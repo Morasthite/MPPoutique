@@ -36,7 +36,16 @@
                             <div ng-message-exp="['required', 'minlength']">Your name is required and must be at least 2 characters.</div>
                         </div>
                     </div>
+                    </md-input-container>
 
+                    <md-input-container class="md-block">
+                        <div class="col-sm-12 form-group">
+                            <label>Your Order Number</label><i class="contact_fa fa fa-user" aria-hidden="true"></i>
+                            <input type="text" name="orderNumber" ng-model="user.orderNumber" minlength="5">
+                            <div ng-messages="contactForm.orderNumber.$error" role="alert">
+                                <div ng-message-exp="['minlength']">Your order number must be at least 5 characters.</div>
+                            </div>
+                        </div>
                     </md-input-container>
 
 
@@ -53,7 +62,7 @@
                 </div>
             </div>
             <div class="contact_submit col-sm-12 form-group">
-                <button id="contact-form-submit-btn" type="submit" class="btn btn-lg btn-info" ng-disabled="contactForm.$invalid" >Submit <i class="contact_fa fa fa-paper-plane" aria-hidden="true"></i></button>
+                <button id="contact-form-submit-btn" type="submit" class="btn btn-lg btn-info" ng-disabled="contactForm.$invalid" >Submit <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                 <!--ng-click="contactC.submit()"-->
             </div>
         </form>
@@ -61,16 +70,6 @@
     </div>
     <div id="contact_info" class="contact col-sm-7 col-xs-12">
         <h4>Visit us!</h4>
-        <!--<p>Monday - Friday | 10am - 9pm</p>-->
-        <!--<p>Saturday | 10am - 8pm</p>-->
-        <!--<p>Sunday | 11am - 7pm</p>-->
-        <!--<p class="off_days">Closed Thanksgiving Day, Christmas Day, and Easter Day</p>-->
-        <!--<br>-->
-        <!--<p><i class="fa fa-map-marker" aria-hidden="true"></i> 1625 Post St, San Francisco, CA 94115</p>-->
-        <!--<p><i class="fa fa-volume-control-phone" aria-hidden="true"></i> 949 800-3111</p>-->
-        <!--<p><i class="fa fa-envelope" aria-hidden="true"></i><a id="contact_user_email"> order@MPoutique.com</a></p>-->
-        <!--<br>-->
-        <!--<p>Send your questions, comments and flavor suggestions or place an order</p>-->
         <div class="panel-group" id="accordion">
             <div class="panel">
                 <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#contact_collapse1">
@@ -79,7 +78,7 @@
                     </h4>
                 </div>
                 <div id="contact_collapse1" class="panel-collapse collapse in">
-                    <div class="panel-body">
+                    <div class="panel-body panel_body_info">
                         <i class="contact_in_fa fa fa-map-marker" aria-hidden="true"></i> 1625 Post St, San Francisco, CA 94115<p></p>
                         <i class="contact_in_fa fa fa-volume-control-phone" aria-hidden="true"></i>949-800-3111<p></p>
                         <i class="contact_in_fa fa fa-envelope" aria-hidden="true"></i> <a id="contact_user_email"> order@MPoutique.com</a><p></p>
