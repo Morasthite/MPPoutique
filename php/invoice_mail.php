@@ -81,7 +81,7 @@ foreach ($cart as $mac) {
        <td height='21'><span class='letramenu5'>&nbsp; ".$mac -> ordered."</span></td>
        <td><span class='letramenu5'>&nbsp;".$mac -> name."</span></td>
       <td><span class='letramenu5'> &nbsp;$&nbsp;".number_format($mac -> price,2,'.',',')."</span></td>
-        <td><span class='letramenu5'>&nbsp;&nbsp;$ ".number_format($mac -> id,2,'.',',')."</span></td>
+        <td><span class='letramenu5'>&nbsp;&nbsp;$ ".number_format(($mac -> price)*($mac -> ordered),2,'.',',')."</span></td>
    </tr>";
 }
 
