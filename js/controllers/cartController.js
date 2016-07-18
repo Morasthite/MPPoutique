@@ -32,7 +32,6 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
 /** **********************  CHECKOUT FUNCTIONS  ********************** **/
     self.finalizedOrder = [];
     self.finalizedOrder.Cart = [];
-    self.finalizedOrder.Cart = [];
     self.finalizedOrder.customer = [];
     self.finalizedOrder.orderNumber = "";
     self.finalizedOrder.orderTime = "";
@@ -46,20 +45,23 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
             }
         }
     };
-    self.lowInventoryMacarons = function(lowMac) {
-        for(var graznech = 0; graznech < lowMac.length; graznech++){
-            
+    self.lowMacArray = [];
+    self.lowMacList = "";
+    self.lowInventoryMacarons = function(lowMacArray) {
+        for(var graznech = 0; graznech < lowMacArray.length; graznech++){
+            self.lowMacList += lowMacArray[graznech]+", ";
         }
+        console.log("lowmaclist = ",self.lowMacList);
+        return self.lowMacList;
     };
 
     self.proceedToCheckout = function() {
                 console.log('cartC.proceedToCheckout is running');
         if(self.cartEmptyCheck() == false){
-            console.log('showYouCantBuyFromAnEmptyCartMessage');
-            $scope.showPlzLoginMessage = true;
+            //console.log('YouCantBuyFromAnEmptyCart');
+            $scope.openAlertOffscreen($scope.login.id.emptyCart, $scope.message_emptyCart);
         }else {
             self.dbCart = [];
-            $scope.showLoginFailedMessage = false;
             $http({
                 url: "php/checkout.php",
                 method: "post",
@@ -73,10 +75,10 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                         self.dbCart = data[1];
                         console.log("cartC.proceedToCheckout received response from checkout.php, response = : ", data);
                         if (data === 'Login') {
-                            $scope.showPlzLoginMessage = true;
+                            $scope.openAlertOffscreen($scope.login.id.loginOrSignup,$scope.message_PlzLogin);
                         }
                         else {
-                            if (user.isLoggedIn = true) { //cart.customerLoggedIn
+                            if (user.isLoggedIn = true) {
                                 for (var mikolajczyk = 0; mikolajczyk < self.dbCart.length; mikolajczyk++) {
                                     for (var grodezteszky = 0; grodezteszky < self.cart.macaron_array.length; grodezteszky++) {
                                         if (self.cart.macaron_array[grodezteszky].ordered > 0) {
@@ -85,19 +87,20 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                                                 self.finalizedOrder.Cart.push(self.cart.macaron_array[mikolajczyk]);
                                                 /*TODO: Create & Display "thanks for your order form here */
                                             }
-                                            else if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered > self.dbCart[mikolajczyk].amount)) {    /*TODO: Create & Display "Not enough inventory form here */
-                                                $scope.showLowInventoryMessage = true;
-                                                console.log("Display this to DOM: " + "We be sorry Willis. There are only " + self.dbCart[mikolajczyk].amount + " " + self.dbCart[mikolajczyk].name + " macarons left." + "\n" + "  Please go back and lower the number of " + self.dbCart[mikolajczyk].name + " macarons in your order");
-
+                                            else if ((self.cart.macaron_array[grodezteszky].name == self.dbCart[mikolajczyk].name) && (self.cart.macaron_array[grodezteszky].ordered > 0) && (self.cart.macaron_array[grodezteszky].ordered > self.dbCart[mikolajczyk].amount)) {
+                                                self.lowMacArray.push(self.cart.macaron_array[grodezteszky].name);
+                                                //console.log("Display this to DOM: " + "We be sorry Willis. There are only " + self.dbCart[mikolajczyk].amount + " " + self.dbCart[mikolajczyk].name + " macarons left." + "\n" + "  Please go back and lower the number of " + self.dbCart[mikolajczyk].name + " macarons in your order");
                                             }
                                         }//end if(self.cart.macaron_array[grodezteszky].ordered > 0)
                                     }//end for(var grodezteszky = 0
                                 }//end for(var mikolajczyk=0
+                                self.lowInventoryMacarons(self.lowMacArray);
+                                console.log("lowMacList",self.lowMacList);
+                                $scope.openAlertOffscreen($scope.login.lowInventory, $scope.message_lowInventory);
                                 console.log("self.finalizedOrder = ", self.finalizedOrder);
                                 self.showShipToForm();
                                 self.displayToShipToForm(response);
                                 $scope.showPlaceYourOrderButton = true;
-                                $scope.showThnxLoginMessage = false;
                             }
                         }//else//if(user.isLoggedIn = true)
                     },
@@ -140,7 +143,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
     self.placeYourOrder = function (){
             console.log('self.placeYourOrder is running');
         if(self.finalizedOrder.Cart.length == 0){
-            console.log('showYouCantBuyFromAnEmptyCartMessage');
+            //console.log('You Cant Buy From An Empty Cart');
         }else {
         self.generateOrderNumber();
         invoice.showContent = true;
@@ -154,7 +157,6 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
             method: "post",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             data: $.param(invoice),
-            // data : invoice.cart,
             cache: false
         })
             .then(
@@ -179,7 +181,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
             $scope.showLoginButtonDefault = true;
             return false;
         }
-    };  //cart.customerLoggedIn
+    };
     self.showSignUpButton = function() {
         if(user.isLoggedIn) {
             $scope.showSignUpButtonDefault = true;
@@ -193,11 +195,12 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         }
     };
     self.showLogoutLink =  function() {
-        if(user.isLoggedIn) {  //cart.customerLoggedIn
+        if(user.isLoggedIn) {
             $scope.showLogoutLinkDefault = true;
             return false;
         }
     };
+
         self.showProceedToCheckoutButton = false;
         $scope.showLoginButtonDefault = false;
         $scope.showSignUpButtonDefault = false;
@@ -207,16 +210,16 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         $scope.showSignUpForm = false;
         $scope.showGuestCheckoutForm = false;
         $scope.showPlaceYourOrderButton = false;
-        $scope.showPlzLoginMessage = false;
         $scope.showShipToForm = false;
-        $scope.showThanksSigningUpMessage = false;
-        $scope.showGuestCheckOutMessage = false;
-        $scope.showThnxLoginMessage = false;
-        $scope.showLoginFailedMessage = false;
         $scope.showLogoutLinkDefault = false;
-        $scope.showLowInventoryMessage = false;
-        $scope.showYouCantBuyFromAnEmptyCartMessage = false;
-        $scope.showCurrentUserPlzLoginMessage = false;
+        //$scope.showPlzLoginMessage = false;
+        //$scope.showThanksSigningUpMessage = false;
+        //$scope.showGuestCheckOutMessage = false;
+        //$scope.showThnxLoginMessage = false;
+        //$scope.showLoginFailedMessage = false;
+        //$scope.showLowInventoryMessage = false;
+        //$scope.showYouCantBuyFromAnEmptyCartMessage = false;
+        //$scope.showCurrentUserPlzLoginMessage = false;
 
 /** **********************  LOGIN - SIGN UP - GUEST CHECKOUT - SHIP-TO FORM NG-CLICK **/
     self.hideLoginButtons = function(){
@@ -286,7 +289,8 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                     var data = response.data;
                         console.log("cartC.loginBtnValidation received  response from login.php" +"\n"+ "response.data = : ",data);
                     if(data === "Login Failed"){
-                        $scope.showLoginFailedMessage = true;
+                        // $scope.showLoginFailedMessage = true;
+                        $scope.openAlertOffscreen($scope.login.id.fail,$scope.message_logInFail);
                         user.isLoggedIn = false;   //cart.customerLoggedIn
                     }else{
                         self.hideLoginButtons();
@@ -295,9 +299,10 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                         user.firstNameColored = "<span style='color: yellow'>"+user.firstName+"</span>";
                         console.log("user.isLoggedIn = ", user.isLoggedIn);
                         console.log("user.firstName = ", data['firstName']);
-                        $scope.showThnxLoginMessage = true;
-                        $scope.showLoginFailedMessage = false;
-                        $scope.showPlzLoginMessage = false;
+                        $scope.openAlertOffscreen($scope.login.id.thnx,$scope.message_logInOK);
+                        //$scope.showThnxLoginMessage = true;
+                        //$scope.showLoginFailedMessage = false;
+                        //$scope.showPlzLoginMessage = false;
                     }
                 },
                 function error(response) {
@@ -360,15 +365,17 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                     var data = response.data;
                     console.log("cartC.signUpFormSubmission received  response from sign_up.php" +"\n"+ "response.data = : ",data);
                     if (data === 'User Already Exists') {
-                        $scope.showCurrentUserPlzLoginMessage = true;
+                        // $scope.showCurrentUserPlzLoginMessage = true;
+                        $scope.openAlertOffscreen($scope.login.id.plzlogin,$scope.message_currentUser_PlzLogin);
                     }else {
                         self.hideLoginButtons();
                         user.isLoggedIn = true;    //cart.customerLoggedIn
                         user.firstName = self.newUser.first_name;
                         console.log("user.isLoggedIn = ", user.isLoggedIn);
                         console.log("user.firstName = ", user.firstName);
-                        $scope.showPlzLoginMessage = false;
-                        $scope.showThanksSigningUpMessage = true;
+                        $scope.openAlertOffscreen($scope.login.id.signedUp,$scope.message_thnxSigningUp);
+                        //$scope.showPlzLoginMessage = false;
+                        //$scope.showThanksSigningUpMessage = true;
                     }
                 },
                 function error(response) {
@@ -396,7 +403,8 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                     user.firstName = self.guestUser.first_name;
                     console.log("user.isLoggedIn = ", user.isLoggedIn);
                     console.log("user.firstName = ", user.firstName);
-                    $scope.showGuestCheckOutMessage = true;
+                    $scope.openAlertOffscreen($scope.login.id.guestCheckout,$scope.message_guestCheckoutSubmit);
+                    //$scope.showGuestCheckOutMessage = true;
                 },
                 function error(response) {
                     console.log("Oops, something went wrong", response);
@@ -507,43 +515,153 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         console.log("self.finalizedOrder.orderTime = ",self.finalizedOrder.orderTime,"self.finalizedOrder.orderNumber = ",self.finalizedOrder.orderNumber,"self.finalizedOrder.Cart = ",self.finalizedOrder.Cart, "cart  = ",cart );
     };//self.emptyCart
 
-    // user.logOut = function (){
-    //     console.log("self.logOut is running");
-    // };//self.logOut
-
 /** **********************  ANGULAR MDL FUNCTIONS  ********************** **/
-    $scope.newDate = new Date();
 
+    $scope.newDate = new Date();
     $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
     'MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI ' +
     'WY').split(' ').map(function(state) {
-        return {abbrev: state};    });
+        return {abbrev: state};
+    });
     $scope.showHints = true;
+    $scope.status = '  ';
+    $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+    $scope.login = {
+        id: {
+            thnx: 'thnx-login-message',
+            fail: 'login-failed-message',
+            plzlogin: 'user-exists-login-message',
+            signedUp: 'signing-up-message',
+            guestCheckout: 'guest-checkout-message',
+            loginOrSignup: 'login-message',
+            emptyCart: 'empty-cart-message',
+            lowInventory: 'low-db-inventory'
 
+        }
+    };
+    
+    $scope.openAlertFromLeft = function() {
+        $mdDialog.show(
+            $mdDialog.alert()
+                .clickOutsideToClose(true)
+                .title('Opening from the left')
+                .textContent('Closing to the right!')
+                .ariaLabel('Left to right demo')
+                .ok('Nice!')
+                // You can specify either sting with query selector
+                .openFrom('#left')
+                // or an element
+                .closeTo(angular.element(document.querySelector('#right')))
+        );
+    };
 
-    // $scope.showAlert = function(ev) {
-    //     // Appending dialog to document.body to cover sidenav in docs app
-    //     // Modal dialogs should fully cover application
-    //     // to prevent interaction outside of dialog
-    //     $mdDialog.show(
-    //         $mdDialog.alert()
-    //             .parent(angular.element(document.querySelector('#login-message')))
-    //             .clickOutsideToClose(true)
-    //             .title('This is an alert title')
-    //             .textContent('<div ng-show="showPlzLoginMessage" class =" login-forms col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="login-message">
-    //                 <div class=" login-form">
-    //         <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">
-    //         <h4 class="login-header" style="text-align: center">Please Choose Login, Sign Up, or Checkout As Guest First</h4>
-    //     </div>
-    //     </div>
-    //     </div>')
-    //             .ariaLabel('Alert Dialog Demo')
-    //             .ok('Got it!')
-    //             .targetEvent(ev)
-    //     );
-    // };
+    $scope.openAlertOffscreen = function(loginID,loginMessage) {
+        $mdDialog.show({
+            clickOutsideToClose: true,
+            scope: $scope,
+            preserveScope: true,
+            template: loginMessage
+            // '<md-dialog>' +
+            // '  <md-dialog-content>' +
+            // '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
+            // '     <div class=" login-form">' +
+            // '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
+            // // '            <h5 class="login-header" style="text-align: center">Thanks For Logging In {{cartC.user.firstName}} ! You\'re exceptionally good looking today!</h5>' +
+            // '{{loginMessage}}' +
+            // '       </div>' +
+            // '     </div>' +
+            // '   </div>   ' +
+            // '  </md-dialog-content>' +
+            // '</md-dialog>'
+        });
+    };
+    $scope.message_logInOK =
+        '<md-dialog>' +
+        '  <md-dialog-content>' +
+        '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
+        '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
+        '            <h5 class="login-success-header" style="text-align: center">Thanks For Logging In {{cartC.user.firstName}} ! You\'re exceptionally good looking today!</h5>' +
+        '       </div>' +
+        '   </div>   ' +
+        '  </md-dialog-content>' +
+        '</md-dialog>';
 
+    $scope.message_logInFail =
+        '<md-dialog>' +
+        '  <md-dialog-content>' +
+        '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
+        '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
+        '            <h5 class="login-failed-header" style="text-align: center">Login Error: Username or Password is Incorrect!</h5>' +
+        '       </div>' +
+        '   </div>   ' +
+        '  </md-dialog-content>' +
+        '</md-dialog>';
 
- }]);
+    $scope.message_currentUser_PlzLogin =
+        '<md-dialog>' +
+        '  <md-dialog-content>' +
+        '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
+        '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
+        '            <h5 class="signup-fail-header" style="text-align: center">It looks like you\'ve already registered, please log in using your email and password</h5>' +
+        '       </div>' +
+        '   </div>' +
+        '  </md-dialog-content>' +
+        '</md-dialog>';
+
+    $scope.message_thnxSigningUp =
+        '<md-dialog>' +
+        '  <md-dialog-content>' +
+        '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
+        '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
+        '            <h5 class="signup-success-header" style="text-align: center">Thanks For Signing Up {{cartC.user.firstName}} ! We\'ve been waiting for you!</h5>' +
+        '       </div>' +
+        '   </div>' +
+        '  </md-dialog-content>' +
+        '</md-dialog>';
+
+    $scope.message_guestCheckoutSubmit =
+        '<md-dialog>' +
+        '  <md-dialog-content>' +
+        '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
+        '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
+        '            <h5 class="guest-checkout-success-header" style="text-align: center">Thanks For Shopping with Us, {{cartC.user.firstName}} ! You\'re exceptionally good looking today!</h5>' +
+        '       </div>' +
+        '   </div>' +
+        '  </md-dialog-content>' +
+        '</md-dialog>';
+
+    $scope.message_PlzLogin =
+        '<md-dialog>' +
+        '  <md-dialog-content>' +
+        '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
+        '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
+        '            <h5 class="proceed2checkout-fail-header" style="text-align: center">Please Choose Login, Sign Up, or Checkout As Guest First</h5>' +
+        '       </div>' +
+        '   </div>' +
+        '  </md-dialog-content>' +
+        '</md-dialog>';
+
+    $scope.message_emptyCart =
+        '<md-dialog>' +
+        '  <md-dialog-content>' +
+        '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
+        '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
+        '            <h5 class="proceed2checkout-cartEmpty-header" style="text-align: center">Your cart is empty!!!  Put some macarons in there before checkout.</h5>' +
+        '       </div>' +
+        '   </div>' +
+        '  </md-dialog-content>' +
+        '</md-dialog>';
+    $scope.message_lowInventory =
+        '<md-dialog>' +
+        '  <md-dialog-content>' +
+        '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
+        '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
+        '            <h5 class="proceed2checkout-lowInv-header" style="text-align: center">We\'re sorry, .  There are not enough of the following macarons left to complete your order: {{cartC.lowMacList}} . Please go back to the macarons page and adjust the number of {{cartC.lowMacList}} macarons, or complete the order without those macarons.  Thanks.</h5>' +
+        '       </div>' +
+        '   </div>' +
+        '  </md-dialog-content>' +
+        '</md-dialog>';
+
+}]);///Cart Controller
 
 

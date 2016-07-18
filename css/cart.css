@@ -172,8 +172,21 @@
     overflow: hidden;
 }
 .show-message{
-    box-shadow: 2px 2px 4px 4px rgba(0, 0, 0 , 0);
+    #box-shadow: 2px 2px 4px 4px rgba(0, 0, 0 , 0);
+    background: #edf0f2;
 }
+.login-failed-header,
+.signup-fail-header,
+.proceed2checkout-fail-header,
+.proceed2checkout-cartEmpty-header {
+    color: red;
+}
+.login-success-header,
+.signup-success-header,
+.guest-checkout-success-header {
+    color: green;
+}
+
 #empty-cart-message{
     margin-top: -4vh;
 }
