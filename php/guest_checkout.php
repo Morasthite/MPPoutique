@@ -3,7 +3,7 @@ session_start();
 require_once('mysql_connect.php');
 
 if(!empty($_POST)){
-
+//   print_r($_POST);
     $fname = "'".$_POST['first_name']."'";
     $lname = "'".$_POST['last_name']."'";
     //$password = "'".sha1($_POST['password'])."'";
@@ -11,7 +11,7 @@ if(!empty($_POST)){
     $city = "'".$_POST['city']."'";
     $zip = "'".$_POST['zip']."'";
     $state = "'".$_POST['state']."'";
-    $phone = "'".$_POST['phone_number']."'";
+    $phone = "'".$_POST['phone']."'";
     $email = "'".$_POST['email']."'";
     $c_card = "'".$_POST['c_card']."'";
     $c_card_exp = "'".$_POST['c_card_exp']."'";
@@ -30,7 +30,7 @@ if(!empty($_POST)){
     }
     print_r($_POST);
     $query = "INSERT INTO `customer`(`username`, `password`, `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email`, `c_card`, `c_card_exp`, `name_on_card`,`card_billing_address`) VALUES ('Guest','',$fname,$lname,$street,$city,$state,$zip,$company,$attn,$phone,$email,$c_card,$c_card_exp,$name_on_card, $card_billing_address)";
-
+   print query;
     if (mysqli_query($conn, $query)) {
         $last_id = mysqli_insert_id($conn);
         //echo "<br> last id: ".$last_id;
