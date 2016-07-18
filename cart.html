@@ -44,22 +44,18 @@
                                                     <label>Your Email Address</label>
                                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                                     <input type="email" required=""  name="user_name" id="user_name" minlength="8" maxlength="100" ng-pattern="/^.+@.+\..+$/">
-
                                                     <div ng-messages="loginForm.user_name.$error" role="alert">
                                                         <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
                                                              Your email must be between 8 and 100 characters long and look like an e-mail address.
                                                         </div>
                                                     </div>
-
                                                 </div>
-
                                             </md-input-container>
                                             <md-input-container class="md-block">
                                                 <div class="col-sm-offset-2 col-sm-8 form-group">
                                                     <label>Password</label>
                                                     <i class="fa fa-lock" aria-hidden="true"></i>
                                                     <input type="password" name="password" id="password" minlength="2" required="">
-
                                                     <div ng-messages="loginForm.password.$error" role="alert">
                                                         <div ng-message-exp="['required', 'minlength']">
                                                             Your password is required and must be at least 2 characters.
@@ -69,7 +65,6 @@
                                             </md-input-container>
                                         </div><!--row-->
                                         <button id="login-form-submit-btn" type="button" class="col-sm-offset-4 col-sm-4 col-xs-12 btn btn-lg btn-info" ng-click="cartC.hideLoginForm(); cartC.loginBtnValidation()">Submit<i class="fa fa-arrow-circle-right fa-submit" aria-hidden="true"></i></button>
-
                                     </div>
                                 </form>
                             </md-content>
