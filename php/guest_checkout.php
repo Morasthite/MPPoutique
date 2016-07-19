@@ -29,8 +29,9 @@ if(!empty($_POST)){
         $attn = "'NULL'";
     }
     print_r($_POST);
-    $query = "INSERT INTO `customer`(`username`, `password`, `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email`, `c_card`, `c_card_exp`, `name_on_card`,`card_billing_address`) VALUES ('Guest','',$fname,$lname,$street,$city,$state,$zip,$company,$attn,$phone,$email,$c_card,$c_card_exp,$name_on_card, $card_billing_address)";
-   print query;
+    $query = "INSERT INTO `customer`(`username`, `password`, `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email`, `c_card`, `c_card_exp`, `name_on_card`,`card_billing_address`) VALUES ('Guest','guest',$fname,$lname,$street,$city,$state,$zip,$company,$attn,$phone,$email,$c_card,$c_card_exp,$name_on_card, $card_billing_address)";
+    echo "<br> query <br>";
+    print_r($query);
     if (mysqli_query($conn, $query)) {
         $last_id = mysqli_insert_id($conn);
         //echo "<br> last id: ".$last_id;
