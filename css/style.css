@@ -104,7 +104,8 @@ footer {
     padding: 10px;
     /*background-color: #00695c;*/
     /*background-color: #880e4f;*/
-    background-color: #C7AFBD;
+    /*background-color: #C7AFBD;*/
+    background-color: #330033;
     position: relative;
     min-height: 10vh;
     #margin-top: 25vh;
@@ -115,6 +116,9 @@ footer .fa {
 ul li {
     list-style-type: none;
     display: inline;
+}
+.footer_fa, .fa-envelope.footer_fa {
+  color: white;
 }
 
 /*//////////////////our macaron page///////////////////////////*/
@@ -220,7 +224,7 @@ nav ul li.active {
 }
 #contact_user_email {
     font-weight: bold;
-    color : #5e112d;
+    color : #003366;
 }
 .contact_submit {
     margin-top: 10%;
@@ -284,13 +288,16 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
  color: rgb(158, 16, 92)  !important;
 }
 .contact_in_fa {
-   color: #8db1b7 !important;
+   color: #4FD5D6 !important;
 }
 #contact_thanks {
     /*padding: 1%;*/
     background-color: #F8F2DA;
     /*box-shadow: 3px 3px 10px gray;*/
     /*margin-top: 2%;*/
+}
+.panel_body_info {
+    padding: 7% 5%;
 }
 /*//////////////////////////invoice page/////////////////////////////*/
 #invoice_page {

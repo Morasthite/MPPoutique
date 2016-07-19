@@ -10,7 +10,7 @@ if (!empty ($_POST)){
     $city = "'".$_POST['city']."'";
     $zip = "'".$_POST['zip']."'";
     $state = "'".$_POST['state']."'";
-    $phone = "'".$_POST['phone_number']."'";
+    $phone = "'".$_POST['phone']."'";
     $email = "'".$_POST['email']."'";
     $c_card = "'".$_POST['c_card']."'";
     $c_card_exp = "'".$_POST['c_card_exp']."'";

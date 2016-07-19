@@ -12,7 +12,11 @@ require('phpmailer/PHPMailer/PHPMailerAutoload.php');
 $postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
 //print_r($request);
-
+if (isset ($request -> orderNumber)) {
+    $ordernum = $request->orderNumber;
+}else {
+    $ordernum = "no orderNumber";
+}
 ////php mailer
 $mail = new PHPMailer;
 $mail->SMTPDebug = 0;                               // Enable verbose debug output
@@ -38,7 +42,7 @@ $mail->FromName = $request -> contactName;//your email sending account name
 $mail->addAddress('mozafarian.mo@gmail.com', $request -> contactName);     // Add a recipient
 $mail->isHTML(true);                                  // Set email format to HTML
 
-$mail->Body    = $request -> contactComment;
+$mail->Body    = ("ORDER NUMBER: ".$ordernum."<br> MESSAGE: ".$request -> contactComment);
 $mail->name = trim($request ->contactName);
 $mail->email  =trim($request -> contactEmail);
 $mail->message = trim($request -> contactComment);

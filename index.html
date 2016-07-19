@@ -6,139 +6,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Pearl Micah">
-
     <!-- Roboto  Font -->
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel="stylesheet">
 
     <!-- Google MDL -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
     <!-- Bootstrap -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <!-- Style Sheets -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet"
-          href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <link href="css/cart.css" rel="stylesheet" type="text/css">
-    <link href="css/materialize.css" rel="stylesheet" type="text/css">
-    <link ng-href="{{style}}" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/cart.css" rel="stylesheet" type="text/css">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link href="css/materialize.css" rel="stylesheet" type="text/css">
+        <link ng-href="{{style}}" rel="stylesheet" type="text/css">
 </head>
 <body>
-<!--------------------  NAV BAR ---------------------->
-<nav class="navbar navbar-default navbar-fixed-top" id="nav">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><img src="assets/images/logo.png"></a>
+    <!--------------------  NAV BAR ---------------------->
+        <nav class="navbar navbar-default navbar-fixed-top" id="nav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="assets/images/logo.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar" ng-init="menuIndice = 1">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- ng-class: if mainC...ind == 1, print class=active, else print empty-->
+                    <li ng-class="mainC.config.menuIndice == 1 ? 'active':''"><a href="#welcome" class="n-link">WELCOME
+                        <span style="color:yellow">  {{ mainC.user.isLoggedIn ? mainC.user.firstName : ''}}</span></a></li>
+                    <li ng-class="mainC.config.menuIndice == 2 ? 'active':''"><a href="#macarons" class="n-link">OUR
+                        MACARONS</a></li>
+                    <li ng-class="mainC.config.menuIndice == 3 ? 'active':''"><a href="#gifts" class="n-link">GIFTS &amp;
+                        PARTIES</a></li>
+                    <li ng-class="mainC.config.menuIndice == 4 ? 'active':''"><a href="#contact" class="n-link">CONTACT</a>
+                    </li>
+                    <li ng-class="mainC.config.menuIndice == 5 ? 'active':''"><a
+                            class="n_link mdl-badge mdl-badge--overlap nav-badge" data-badge="{{mainC.cart.total}} "
+                            href="#cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                    <li ng-hide="!mainC.user.isLoggedIn"><a href="php/logout.php" class="n-link">LOG OUT</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar" ng-init="menuIndice = 1">
-            <ul class="nav navbar-nav navbar-right">
-                <!-- ng-class: if mainC...ind == 1, print class=active, else print empty-->
-                <li ng-class="mainC.config.menuIndice == 1 ? 'active':''"><a href="#welcome" class="n-link">WELCOME
-                    <span style="color:yellow">  {{ mainC.user.isLoggedIn ? mainC.user.firstName : ''}}</span></a></li>
-                <li ng-class="mainC.config.menuIndice == 2 ? 'active':''"><a href="#macarons" class="n-link">OUR
-                    MACARONS</a></li>
-                <li ng-class="mainC.config.menuIndice == 3 ? 'active':''"><a href="#gifts" class="n-link">GIFTS &amp;
-                    PARTIES</a></li>
-                <li ng-class="mainC.config.menuIndice == 4 ? 'active':''"><a href="#contact" class="n-link">CONTACT</a>
-                </li>
-                <li ng-class="mainC.config.menuIndice == 5 ? 'active':''"><a
-                        class="n_link mdl-badge mdl-badge--overlap nav-badge" data-badge="{{mainC.cart.total}} "
-                        href="#cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
-                <li ng-hide="!mainC.user.isLoggedIn"><a href="php/logout.php" class="n-link">LOG OUT</a></li>
+    </nav><!-- End nav bar-->
 
+    <!--------------------  MAIN CONTENT ------------------>
+        <div id="main_content">
+        <!--<div id="banner" ng-bind-html="carousel">-->
+        <div id="banner-carousel" ng-bind-html="carousel" ng-show="mainC.config.menuIndice == 1 ? 'true':''">
+        </div>
+        <div id="banner-others" ng-hide="mainC.config.menuIndice == 1 ? 'true':''">
+            <img class="header-img col-xs-12" ng-src="{{mainC.config.banner}}" ng-hide="mainC.config.banner == 'assets/images/contact-image.png' ? 'true':''">
+        </div>
+        <div id="tmp_content">
+            <div ng-view></div>
+        </div>
+    </div><!--End Main Content-->
+
+    <!--------------------  FOOTER ---------------------->
+        <footer class="col-sm-12 col-xs-12">
+        <div class="col-sm-4 col-xs-12">
+            <ul>
+                <li><i class="fa fa-phone" aria-hidden="true"></i></li>
+                <li><i class="fa fa-envelope" aria-hidden="true"></i></li>
+                <li><i class="fa fa-map" aria-hidden="true"></i></li>
             </ul>
         </div>
-    </div>
-</nav><!-- End nav bar-->
+        <div class="col-sm-4 col-xs-12" id="right">
+            <p class="copyright">Copyright &copy; 2015 MBoutique. All rights reserved</p>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <ul>
+                <li><i class="footer_fa fa fa-facebook" aria-hidden="true"></i></li>
+                <li><i class="footer_fa fa fa-instagram" aria-hidden="true"></i></li>
+                <li><i class="footer_fa fa fa-twitter" aria-hidden="true"></i></li>
+                <li><i class="footer_fa fa fa-pinterest" aria-hidden="true"></i></li>
+                <li><i class="footer_fa fa fa-google" aria-hidden="true"></i></li>
+            </ul>
+        </div>
+    </footer><!--End Footer-->
 
-<!--------------------  MAIN CONTENT ------------------>
-<div id="main_content">
-    <!--<div id="banner" ng-bind-html="carousel">-->
-    <div id="banner-carousel" ng-bind-html="carousel" ng-show="mainC.config.menuIndice == 1 ? 'true':''">
-    </div>
-    <div id="banner-others" ng-hide="mainC.config.menuIndice == 1 ? 'true':''">
-        <img class="header-img col-xs-12" ng-src="{{mainC.config.banner}}" ng-hide="mainC.config.banner == 'assets/images/contact-image.png' ? 'true':''">
-    </div>
-    <div id="tmp_content">
-        <div ng-view></div>
-    </div>
-</div><!--End Main Content-->
+    <!---------------------------------- Scripts -------------------------------------------->
 
-<!--------------------  FOOTER ---------------------->
-<footer class="col-sm-12 col-xs-12">
-    <div class="col-sm-4 col-xs-12">
-        <ul>
-            <li><i class="fa fa-phone" aria-hidden="true"></i></li>
-            <li><i class="fa fa-envelope" aria-hidden="true"></i></li>
-            <li><i class="fa fa-map" aria-hidden="true"></i></li>
-        </ul>
-    </div>
-    <div class="col-sm-4 col-xs-12" id="right">
-        <p class="copyright">Copyright &copy; 2015 MBoutique. All rights reserved</p>
-    </div>
-    <div class="col-sm-4 col-xs-12">
-        <ul>
-            <li><i class="fa fa-facebook" aria-hidden="true"></i></li>
-            <li><i class="fa fa-instagram" aria-hidden="true"></i></li>
-            <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
-            <li><i class="fa fa-pinterest" aria-hidden="true"></i></li>
-            <li><i class="fa fa-google" aria-hidden="true"></i></li>
-        </ul>
-    </div>
-</footer><!--End Footer-->
-
-<!---------------------------------- Scripts -------------------------------------------->
-
-<!---------------- ANGULAR ---------------->
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script><!-- Plugin For MDL Cart Buttons-->
-<!-- AngularJS Sanitize CDN -->
-<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-sanitize.js"></script>-->
-<script src="https://code.angularjs.org/1.5.3/angular-sanitize.min.js"></script>
-<!-- Angular Material - required Angular.js Libraries -->
-<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>-->
-<!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>-->
-<!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>-->
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
-<script src="http://ngmaterial.assets.s3.amazonaws.com/svg-assets-cache.js"></script>
-<!-- Angular Material Library -->
-<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
-<!-- Routing -->
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
-<script src="js/routing/route.js"></script>
-<!-- Controllers -->
-<script src="js/controllers/cartController.js"></script>
-<script src="js/controllers/contactController.js"></script>
-<script src="js/controllers/giftController.js"></script>
-<script src="js/controllers/macaronController.js"></script>
-<script src="js/controllers/mainController.js"></script>
-<script src="js/controllers/welcomeController.js"></script>
-<script src="js/controllers/invoiceController.js"></script>
-<script src="js/controllers/logoutController.js"></script>
-<!-- Directives -->
-<!--<script src="js/directives/activeLink.js"></script>-->
-<!-- Services -->
-<script src="js/services/cart_service.js"></script>
-<script src="js/services/config.js"></script>
-<script src="js/services/invoice.js"></script>
-<script src="js/services/user.js"></script>
-<!--Main Script-->
-<script src="js/main.js"></script>
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-
+    <!---------------- ANGULAR ---------------->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+        <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script><!-- Plugin For MDL Cart Buttons-->
+    <!-- AngularJS Sanitize CDN -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-sanitize.js"></script>-->
+        <script src="https://code.angularjs.org/1.5.3/angular-sanitize.min.js"></script>
+    <!-- Angular Material - required Angular.js Libraries -->
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>-->
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>-->
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>-->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+        <script src="http://ngmaterial.assets.s3.amazonaws.com/svg-assets-cache.js"></script>
+    <!-- Angular Material Library -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+    <!-- Routing -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+        <script src="js/routing/route.js"></script>
+    <!-- Controllers -->
+        <script src="js/controllers/cartController.js"></script>
+        <script src="js/controllers/contactController.js"></script>
+        <script src="js/controllers/giftController.js"></script>
+        <script src="js/controllers/macaronController.js"></script>
+        <script src="js/controllers/mainController.js"></script>
+        <script src="js/controllers/welcomeController.js"></script>
+        <script src="js/controllers/invoiceController.js"></script>
+        <script src="js/controllers/logoutController.js"></script>
+    <!-- Directives -->
+        <!--<script src="js/directives/activeLink.js"></script>-->
+    <!-- Services -->
+        <script src="js/services/cart_service.js"></script>
+        <script src="js/services/config.js"></script>
+        <script src="js/services/invoice.js"></script>
+        <script src="js/services/user.js"></script>
+    <!--Main Script-->
+        <script src="js/main.js"></script>
+    <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 
 </body>
 </html>
