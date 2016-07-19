@@ -26,7 +26,7 @@ html.md-default-theme, html, body.md-default-theme, #contact_info, #contact_emai
     background-color: #484452;
     /*background-color: #C9A798;*/
     color: white;
-    margin-bottom: 5%;
+    #margin-bottom: 5%;
 }
 #nav a{
     color: white;
@@ -192,6 +192,8 @@ nav ul li.active {
 /*///////////////////welcome page/////////////////////////////*/
 .welcome_section-main-content-para , .gifts-party-main-content{
     padding: 2% 10%;
+    height: 50vh;
+    margin-top: 13vh;
 }
 .welcome_section-title {
     font-size: 2em;
@@ -347,8 +349,14 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     /*margin: 0;*/
     /*width: 100%;*/
 /*}*/
-#welcome-carousel {
-
+#welcome-carousel, #banner-others {
+    height: 500px;
+}
+#banner-others img {
+    height: 50vh;
+    padding-top: 9vh;
+    padding-left: 120px;
+    padding-right: 120px;
 }
 .carousel-inner {
     position: absolute;
@@ -362,12 +370,19 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     height: 100%;
     margin: auto;
 }
-
+.carousel-caption {
+    position: absolute;
+    top: 25%;
+}
 /*///////////////////////media query for portrait///////////////*/
 @media screen and (orientation: portrait) {
+    /*#main_content {*/
+        /*height: auto;*/
+        /*min-height:79vh;*/
+    /*}*/
     #main_content {
-        height: auto;
-        min-height:79vh;
+        height: 35vh;
+        min-height: 37vh;
     }
 }
 /*/////////////////media query for mobile////////////*/
@@ -386,6 +401,6 @@ footer {
     }
     /*welcome page*/
     .welcome_section-main-content-para, .gifts-party-main-content {
-        padding: 2%;
+        padding: 8%;
     }
 }

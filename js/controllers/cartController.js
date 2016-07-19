@@ -7,7 +7,7 @@
  *          **/
 
 app.controller('cartController',["$scope","$http","config","cart", "invoice", "user", "$mdDialog", "$mdMedia", function ($scope, $http, config,cart,invoice,user,$mdDialog, $mdMedia) {
-    config.banner = "assets/images/contact-image.png";
+    config.banner = "assets/images/our-macarons-image.png";
     config.menuIndice = 5;
     var self = this;
 /** **********************  CART DISPLAY  ********************** **/

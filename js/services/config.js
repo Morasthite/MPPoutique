@@ -9,18 +9,26 @@ app.factory("config",function () {
             '       <div class="item active">' +
             '           <img src="assets/welcome/welcome-image-1.png">' +
             '           <div class="carousel-caption">' +
-            '               <h3>Life is like a box of macarons...</h3>' +
-            '               <p>..you just never know what you gunna done get...</p>' +
+            '               <h3>Life...</h3>' +
             '           </div>' +
             '       </div>' +
             '       <div class="item">' +
             '               <img src="assets/welcome/welcome-image-2.png">' +
+            '           <div class="carousel-caption">' +
+            '               <h3>..is like a box of macarons...</h3>' +
+            '           </div>' +
             '       </div>' +
             '       <div class="item">' +
             '           <img src="assets/welcome/welcome-image-3.png">' +
+            '           <div class="carousel-caption">' +
+            '               <h3>beautiful and delicious...</h3>' +
+            '           </div>' +
             '       </div>' +
             '       <div class="item">' +
             '           <img src="assets/welcome/welcome-image-4.png">' +
+            '           <div class="carousel-caption">' +
+            '               <h3>Sooooo lets order some life...</h3>' +
+            '           </div>' +
             '       </div>' +
             '   </div>' +
             ' </div>',
