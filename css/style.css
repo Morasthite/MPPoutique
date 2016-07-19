@@ -198,6 +198,9 @@ nav ul li.active {
     height: 50vh;
     margin-top: 13vh;
 }
+.gifts-party-main-content{
+    margin-top: 25vh
+}
 .welcome_section-title {
     font-size: 2em;
 }
@@ -449,7 +452,9 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     height: 100%;
     width: 70%;
 }
-
+.macaron_text {
+    margin-top:6vh;
+}
 /*///////////////////////media query for portrait///////////////*/
 @media screen and (orientation: portrait) {
     /*#main_content {*/
