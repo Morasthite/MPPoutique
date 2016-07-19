@@ -1,7 +1,7 @@
 /**  **/
 app.factory("config",function () {
     return {
-        banner:"assets/images/banners/welcome-image.jpg",
+        banner:"assets/images/banners/welcome-image.png",
         menuIndice : 1,
         bannerWelcome:
             '<div class="carousel slide" id="welcome-carousel" data-ride="carousel">' +
