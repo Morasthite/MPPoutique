@@ -36,6 +36,12 @@ app.factory("config",function () {
             '               <h3 class="carousel-caption-text5">..but apparently, all the hipsters love it...</h3>' +
             '           </div>' +
             '       </div>' +
+            '       <div class="item">' +
+            '           <img src="assets/welcome/welcome-image-6.png">' +
+            '           <div class="carousel-caption-div">' +
+            '               <h3 class="carousel-caption-text5">..So, eat macarons, it\'s what life is all aboot...</h3>' +
+            '           </div>' +
+            '       </div>' +
             '   </div>' +
             ' </div>',
         bannerMacarons:
