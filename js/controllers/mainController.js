@@ -1,6 +1,6 @@
 /** Main controller functions:  check date for predefined holidays and changes stylesheets accordingly **/
 
-app.controller('mainController',["$log","$scope","config","cart", "user", '$sce', function ($log,$scope, config,cart, user, $sce) {
+app.controller('mainController',["$log","$scope","config","cart", "user", '$sce',function ($log,$scope, config,cart, user, $sce) {
     var self = this;
     // banner
     self.config = config;
@@ -38,4 +38,23 @@ app.controller('mainController',["$log","$scope","config","cart", "user", '$sce'
             //$log.log("style: ",$scope.style);
         }
     }
+
+    /////footer
+    $scope.isOpen = false;
+
+    $scope.demo = {
+        isOpen: false,
+        count: 0,
+        selectedDirection: 'left'
+    };
+    this.topDirections = ['left', 'up'];
+    this.bottomDirections = ['down', 'right'];
+
+    this.isOpen = false;
+
+    this.availableModes = ['md-fling', 'md-scale'];
+    this.selectedMode = 'md-fling';
+
+    this.availableDirections = ['up', 'down', 'left', 'right'];
+    this.selectedDirection = 'up';
 }]);

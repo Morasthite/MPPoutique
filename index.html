@@ -72,27 +72,116 @@
     </div><!--End Main Content-->
 
     <!--------------------  FOOTER ---------------------->
-        <footer class="col-sm-12 col-xs-12">
-        <div class="col-sm-4 col-xs-12">
-            <ul>
-                <li><i class="fa fa-phone" aria-hidden="true"></i></li>
-                <li><i class="fa fa-envelope" aria-hidden="true"></i></li>
-                <li><i class="fa fa-map" aria-hidden="true"></i></li>
-            </ul>
-        </div>
-        <div class="col-sm-4 col-xs-12" id="right">
-            <p class="copyright">Copyright &copy; 2015 MBoutique. All rights reserved</p>
-        </div>
-        <div class="col-sm-4 col-xs-12">
-            <ul>
-                <li><i class="footer_fa fa fa-facebook" aria-hidden="true"></i></li>
-                <li><i class="footer_fa fa fa-instagram" aria-hidden="true"></i></li>
-                <li><i class="footer_fa fa fa-twitter" aria-hidden="true"></i></li>
-                <li><i class="footer_fa fa fa-pinterest" aria-hidden="true"></i></li>
-                <li><i class="footer_fa fa fa-google" aria-hidden="true"></i></li>
-            </ul>
-        </div>
-    </footer><!--End Footer-->
+        <!--<footer class="col-sm-12 col-xs-12">-->
+        <!--<div class="col-sm-4 col-xs-12">-->
+            <!--<ul>-->
+                <!--<li><i class="fa fa-phone" aria-hidden="true"></i></li>-->
+                <!--<li><i class="fa fa-envelope" aria-hidden="true"></i></li>-->
+                <!--<li><i class="fa fa-map" aria-hidden="true"></i></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<div class="col-sm-4 col-xs-12" id="right">-->
+            <!--<p class="copyright">Copyright &copy; 2015 MBoutique. All rights reserved</p>-->
+        <!--</div>-->
+        <!--<div class="col-sm-4 col-xs-12">-->
+            <!--<ul>-->
+                <!--<li><i class="footer_fa fa fa-facebook" aria-hidden="true"></i></li>-->
+                <!--<li><i class="footer_fa fa fa-instagram" aria-hidden="true"></i></li>-->
+                <!--<li><i class="footer_fa fa fa-twitter" aria-hidden="true"></i></li>-->
+                <!--<li><i class="footer_fa fa fa-pinterest" aria-hidden="true"></i></li>-->
+                <!--<li><i class="footer_fa fa fa-google" aria-hidden="true"></i></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</footer>&lt;!&ndash;End Footer&ndash;&gt;-->
+
+    <!--<div ng-cloak="" class="fabToolbardemoBasicUsage">-->
+        <!--<md-content class="md-padding">-->
+            <!--<p>-->
+                <!--You can use the fabToolbar with a trigger and regular toolbar.-->
+            <!--</p>-->
+<!--///////////////////////////////////////////-->
+
+        <md-fab-toolbar md-open="demo.isOpen" count="demo.count" md-direction="{{demo.selectedDirection}}">
+            <md-fab-trigger class="align-with-text">
+                <md-button aria-label="menu" class="md-fab md-primary">
+                    <md-icon md-svg-src="img/icons/menu.svg"></md-icon>
+                </md-button>
+            </md-fab-trigger>
+            <md-toolbar>
+                <md-fab-actions class="md-toolbar-tools">
+
+
+                    <div layout="row" layout-xs="column">
+                        <div flex>
+                            <ul>
+                                <li><i class="footer_fa fa fa-facebook" aria-hidden="true"></i></li>
+                                <li><i class="footer_fa fa fa-instagram" aria-hidden="true"></i></li>
+                                <li><i class="footer_fa fa fa-twitter" aria-hidden="true"></i></li>
+                                <li><i class="footer_fa fa fa-pinterest" aria-hidden="true"></i></li>
+                                <li><i class="footer_fa fa fa-google" aria-hidden="true"></i></li>
+                                </ul>
+                        </div>
+                        <div flex>
+                            <p class="copyright">Copyright &copy; 2015 MBoutique. All rights reserved</p>
+                        </div>
+                    </div>
+
+<!--//////here-->
+                    <!--<div class="container">-->
+                        <!--<div class="row">-->
+                            <!--<div class="col 16 s12">-->
+                                <!--<p class="white-text">Footer Content</p>-->
+                                <!--<p class="grey-text text-lighten-4"></p>-->
+                            <!--</div>-->
+                            <!--<div class="col 16 s12">-->
+                                <!--<md-button aria-label="Twitter" class="md-fab md-raised md-mini">-->
+                                <!--<md-icon md-svg-src="img/icons/twitter.svg" aria-label="Twitter"></md-icon>-->
+                                <!--</md-button>-->
+                                <!--<md-button aria-label="Facebook" class="md-fab md-raised md-mini">-->
+                                <!--<md-icon md-svg-src="img/icons/facebook.svg" aria-label="Facebook"></md-icon>-->
+                                <!--</md-button>-->
+                                <!--<md-button aria-label="Google Hangout" class="md-fab md-raised md-mini">-->
+                                <!--<md-icon md-svg-src="img/icons/hangout.svg" aria-label="Google Hangout"></md-icon>-->
+                                <!--</md-button>-->
+                            <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="footer-copyright">-->
+                        <!--<div class="container">-->
+                            <!--© 2014 Copyright Text-->
+                            <!--<a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                   <!--</div>-->
+
+
+
+
+
+
+                    <!--<md-button aria-label="Twitter" class="md-fab md-raised md-mini">-->
+                        <!--<md-icon md-svg-src="img/icons/twitter.svg" aria-label="Twitter"></md-icon>-->
+                    <!--</md-button>-->
+                    <!--<md-button aria-label="Facebook" class="md-fab md-raised md-mini">-->
+                        <!--<md-icon md-svg-src="img/icons/facebook.svg" aria-label="Facebook"></md-icon>-->
+                    <!--</md-button>-->
+                    <!--<md-button aria-label="Google Hangout" class="md-fab md-raised md-mini">-->
+                        <!--<md-icon md-svg-src="img/icons/hangout.svg" aria-label="Google Hangout"></md-icon>-->
+                    <!--</md-button>-->
+                    <!--<md-button aria-label="" class="md-fab md-raised md-mini">-->
+                        <!--<md-icon md-svg-src="/android.svg" aria-label="android "></md-icon>-->
+                    <!--</md-button>-->
+                    <!--<md-content layout-align="start center" flex layout-padding>-->
+                        <!--<p>Copyright &copy; 2015 MBoutique. All rights reserved</p>-->
+                        <!--</md-content>-->
+
+                    <!--///here-->
+                </div>
+                </md-fab-actions>
+            </md-toolbar>
+        </md-fab-toolbar>
+            </div>
+        </md-content>
+    </div>
 
     <!---------------------------------- Scripts -------------------------------------------->
 

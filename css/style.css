@@ -120,6 +120,28 @@ ul li {
 .footer_fa, .fa-envelope.footer_fa {
   color: white;
 }
+.fabToolbardemoBasicUsage md-fab-toolbar.md-right md-fab-trigger.align-with-text {
+    left: 7px; }
+md-fab-toolbar {
+    min-height: 70px;
+    line-height: 18px;
+}
+.fabSpeedDialdemoBasicUsage .text-capitalize {
+    text-transform: capitalize; }
+
+.fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {
+    background-color: #000 !important; }
+
+.fabSpeedDialdemoBasicUsage p.note {
+    font-size: 1.2rem; }
+
+.fabSpeedDialdemoBasicUsage .lock-size {
+    min-width: 300px;
+    min-height: 300px;
+    width: 300px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto; }
 
 /*//////////////////our macaron page///////////////////////////*/
 .macaron_text {
