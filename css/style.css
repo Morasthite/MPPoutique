@@ -126,22 +126,38 @@ md-fab-toolbar {
     min-height: 70px;
     line-height: 18px;
 }
-.fabSpeedDialdemoBasicUsage .text-capitalize {
-    text-transform: capitalize; }
+.footer_row {
+    min-width: 300px !important;
+    margin-right: 23vw !important;
+}
+.footer_row ul {
+    padding-left: 5px;
+    margin-top: 2px !important;
+    margin-bottom: 0px !important;
+}
+.copyright {
+    padding-left: .5px;
+}
+md-fab-toolbar md-toolbar .md-toolbar-tools {
+    padding: 0 20px;
+    margin-top: 10px;
+}
+/*.fabSpeedDialdemoBasicUsage .text-capitalize {*/
+    /*text-transform: capitalize; }*/
 
-.fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {
-    background-color: #000 !important; }
+/*.fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {*/
+    /*background-color: #000 !important; }*/
 
-.fabSpeedDialdemoBasicUsage p.note {
-    font-size: 1.2rem; }
+/*.fabSpeedDialdemoBasicUsage p.note {*/
+    /*font-size: 1.2rem; }*/
 
-.fabSpeedDialdemoBasicUsage .lock-size {
-    min-width: 300px;
-    min-height: 300px;
-    width: 300px;
-    height: 300px;
-    margin-left: auto;
-    margin-right: auto; }
+/*.fabSpeedDialdemoBasicUsage .lock-size {*/
+    /*min-width: 300px;*/
+    /*min-height: 300px;*/
+    /*width: 300px;*/
+    /*height: 300px;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto; }*/
 
 /*//////////////////our macaron page///////////////////////////*/
 .macaron_text {
@@ -402,6 +418,23 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
 footer {
      text-align: center;
  }
+    md-fab-toolbar {
+        min-height: 70px;
+        line-height: 18px;
+    }
+    .footer_row {
+        margin-right: 0px !important;
+        min-width: 300px !important;
+    }
+    .footer_row ul {
+        text-align: center;
+        padding-left: 5px;
+        margin-top: 2px !important;
+        margin-bottom: 0px !important;
+    }
+    .copyright {
+        padding-left: .5px;
+    }
 /*macaron page*/
     #macaron_shop {
         padding: 4%;
