@@ -395,6 +395,62 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     color: #842013;
 }
 
+
+/********************** GIFTS & PARTIES SECTION ************************/
+
+.card .card-image.card-gift {
+    position: relative;
+    height:40vh;
+}
+.card.card-gift{
+    box-shadow: 3px 2px 5px 1px rgba(0, 0, 0, 0.38);
+}
+.card-image.card-gift {
+    background-color: #ddecef;
+}
+.card-title {
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.activator  {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+#gifts-card-img1,
+#gifts-card-img2,
+#gifts-card-img3,
+#gifts-card-img4,
+#gifts-card-img5,
+#gifts-card-img6 {
+    -webkit-background-size:cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+#gifts-card-img1 {
+    background-image: url('../assets/gifts/box_2.png');
+}
+#gifts-card-img2 {
+    background-image: url('../assets/gifts/assorted_bowl.png');
+}
+#gifts-card-img3 {
+    background-image: url('../assets/gifts/gift-small-box.jpg');
+}
+#gifts-card-img4 {
+    background-image: url('../assets/gifts/assorted_3tiers.png');
+    width: 70%;
+}
+#gifts-card-img5 {
+    background-image: url('../assets/gifts/box_allstar.png');
+}
+#gifts-card-img6 {
+    background-image: url('../assets/gifts/flower_tower.png');
+    height: 100%;
+    width: 70%;
+}
+
 /*///////////////////////media query for portrait///////////////*/
 @media screen and (orientation: portrait) {
     /*#main_content {*/
