@@ -1,12 +1,16 @@
 /** Main controller functions:  check date for predefined holidays and changes stylesheets accordingly **/
 
-app.controller('mainController',["$log","$scope","config","cart", "user", function ($log,$scope, config,cart, user) {
+app.controller('mainController',["$log","$scope","config","cart", "user", '$sce', function ($log,$scope, config,cart, user, $sce) {
     var self = this;
     // banner
     self.config = config;
     // self.banner = "assets/images/welcome-image.png";
+
     // nav active class
     self.menuIndice = 1;
+
+
+    $scope.carousel = $sce.trustAsHtml(config.bannerWelcome);
 
     // cart service
     self.cart = cart;
