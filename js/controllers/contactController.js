@@ -1,6 +1,6 @@
 /**  **/
 app.controller('contactController',["$scope","config","$http",function ($scope,config,$http) {
-    config.banner = "assets/images/contact-image.png";
+    config.banner = "assets/images/banners/contact-image.png";
     config.menuIndice = 4;
     /////////////variable to show the form
     var self = this;

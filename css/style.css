@@ -124,7 +124,10 @@ ul li {
 /*//////////////////our macaron page///////////////////////////*/
 .macaron_text {
     position: relative;
-    padding: 5%;
+    padding-bottom: 1%;
+    padding-top: 9%;
+    padding-left: 6%;
+    padding-right: 6%;
 }
 .macaron_text h3 {
     font-size: 2em;
@@ -191,7 +194,7 @@ nav ul li.active {
 /*******************EXPERIMENT*****************/
 /*///////////////////welcome page/////////////////////////////*/
 .welcome_section-main-content-para , .gifts-party-main-content{
-    padding: 2% 10%;
+    padding: 2.5% 6%;
     height: 50vh;
     margin-top: 13vh;
 }
@@ -353,7 +356,7 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     height: 500px;
 }
 #banner-others img {
-    height: 50vh;
+    height: 63vh;
     padding-top: 9vh;
     padding-left: 120px;
     padding-right: 120px;
@@ -370,10 +373,28 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     height: 100%;
     margin: auto;
 }
-.carousel-caption {
+.carousel-caption-div {
     position: absolute;
-    top: 25%;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
 }
+.carousel-caption-text1 {
+    color: #7ba219 ;
+}
+.carousel-caption-text2 {
+    color: #a13a3d;
+}
+.carousel-caption-text3 {
+    color: #fcad5f;
+}
+.carousel-caption-text4 {
+    color: #bba748;
+}
+.carousel-caption-text5 {
+    color: #842013;
+}
+
 /*///////////////////////media query for portrait///////////////*/
 @media screen and (orientation: portrait) {
     /*#main_content {*/

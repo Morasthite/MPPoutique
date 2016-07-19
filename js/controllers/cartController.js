@@ -7,7 +7,7 @@
  *          **/
 
 app.controller('cartController',["$scope","$http","config","cart", "invoice", "user", "$mdDialog", "$mdMedia", function ($scope, $http, config,cart,invoice,user,$mdDialog, $mdMedia) {
-    config.banner = "assets/images/our-macarons-image.png";
+    config.banner = "assets/images/banners/cart-banner.png";
     config.menuIndice = 5;
     var self = this;
 /** **********************  CART DISPLAY  ********************** **/
@@ -662,6 +662,5 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         '  </md-dialog-content>' +
         '</md-dialog>';
 
+
 }]);///Cart Controller
-
-

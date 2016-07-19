@@ -1,6 +1,6 @@
 
 app.controller('invoiceController',["$scope","config","invoice","$location","cart","$http",function ($scope,config,invoice,$location,cart,$http) {
-    config.banner = "assets/images/contact-image.png";
+    config.banner = "assets/images/banners/contact-image.png";
     config.menuIndice = 12;
     //console.log("invoice controller");
     $scope.date = new Date();
@@ -11,7 +11,7 @@ app.controller('invoiceController',["$scope","config","invoice","$location","car
     this.addSubTotall = function(count, price){
         return  parseFloat((parseInt(count) * parseFloat(price)).toFixed(2)) ;
     };
-    /////////////if invoice in empty
+    /////////////if invoice is empty
     if (!invoice.showContent){
         $location.path('/cart');
     } /////////////end of if
