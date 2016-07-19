@@ -1,6 +1,8 @@
 app.factory("user", ["$http", function($http){
     return {
         firstName: "",
-        isLoggedIn: false
+        isLoggedIn: false,
+        user_name: "",
+        password: ""
     }
 }]);

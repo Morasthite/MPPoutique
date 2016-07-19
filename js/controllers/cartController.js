@@ -269,11 +269,9 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
 /**  **********************  LOGIN VALIDATION  **/
     self.loginBtnValidation = function() {
         console.log('cartC.loginBtnValidation is running');
-        var username = $("#user_name").val();
-        var password = $("#password").val();
         var credentials = {
-            user_name: username,
-            password: password
+            user_name: user.user_name,
+            password: user.password
         };
         console.log("sending name/pw: ", credentials);
         $http({
@@ -313,6 +311,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
     };//end loginBtnValidation
 
 /** **********************  SIGN UP AND GUEST CHECKOUT FORMS TO DATABASE **/
+
     self.newUser = {
             first_name: "",
             last_name: "",
