@@ -60,16 +60,12 @@
 
     <!--------------------  MAIN CONTENT ------------------>
         <div id="main_content">
-        <!--<div id="banner" ng-bind-html="carousel">-->
-        <div id="banner-carousel" ng-bind-html="carousel" ng-show="mainC.config.menuIndice == 1 ? 'true':''">
+        <div id="banner-carousel" ng-bind-html="carousel" ng-show="mainC.config.menuIndice == 1 ? 'true':''"></div>
+        <div id="banner-others" ng-hide="mainC.config.menuIndice == 1 || mainC.config.menuIndice == 4 ? 'true':''">
+            <img class="header-img col-xs-12" ng-src="{{mainC.config.banner}}" ng-hide="mainC.config.banner == 'assets/images/banners/contact-image.png' ? 'true':''">
         </div>
-        <div id="banner-others" ng-hide="mainC.config.menuIndice == 1 ? 'true':''">
-            <img class="header-img col-xs-12" ng-src="{{mainC.config.banner}}" ng-hide="mainC.config.banner == 'assets/images/contact-image.png' ? 'true':''">
-        </div>
-        <div id="tmp_content">
-            <div ng-view></div>
-        </div>
-    </div><!--End Main Content-->
+        <div ng-view></div>
+        </div><!--End Main Content-->
 
     <!--------------------  FOOTER ---------------------->
         <!--<footer class="col-sm-12 col-xs-12">-->
@@ -93,7 +89,6 @@
             <!--</ul>-->
         <!--</div>-->
     <!--</footer>&lt;!&ndash;End Footer&ndash;&gt;-->
-
     <!--<div ng-cloak="" class="fabToolbardemoBasicUsage">-->
         <!--<md-content class="md-padding">-->
             <!--<p>-->
@@ -185,8 +180,7 @@
         </md-content>
     </div>
 
-    <!---------------------------------- Scripts -------------------------------------------->
-
+<!---------------------------------- Scripts -------------------------------------------->
     <!---------------- ANGULAR ---------------->
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
         <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script><!-- Plugin For MDL Cart Buttons-->

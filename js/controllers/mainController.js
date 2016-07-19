@@ -10,7 +10,8 @@ app.controller('mainController',["$log","$scope","config","cart", "user", '$sce'
     self.menuIndice = 1;
 
 
-    $scope.carousel = $sce.trustAsHtml(config.bannerWelcome);
+    // $scope.carousel = $sce.trustAsHtml(config.bannerWelcome);
+    $scope.carousel = $sce.trustAsHtml(config.bannerWelcome); //if config.menuIndice == 1, else if ==2 $sce.trustAsHtml(config.bannerWelcome)
 
     // cart service
     self.cart = cart;

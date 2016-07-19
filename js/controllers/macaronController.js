@@ -6,7 +6,7 @@
 app.controller('macaronController', ["$scope", "$timeout", "config","cart", "user", function ($scope, $timeout, config, cart, user) {
     var self = this;
     self.user = user;
-    config.banner = "assets/images/our-macarons-image.png";
+    config.banner = "assets/images/banners/our-macarons-banner.png";
     config.menuIndice = 2;
     self.inventory = cart.inventory;
     // console.log("cart inventory @ beginning of macaronController: ",cart.inventory);

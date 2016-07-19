@@ -7,7 +7,7 @@
  *          **/
 
 app.controller('cartController',["$scope","$http","config","cart", "invoice", "user", "$mdDialog", "$mdMedia", function ($scope, $http, config,cart,invoice,user,$mdDialog, $mdMedia) {
-    config.banner = "assets/images/contact-image.png";
+    config.banner = "assets/images/banners/cart-banner.png";
     config.menuIndice = 5;
     var self = this;
 /** **********************  CART DISPLAY  ********************** **/
@@ -269,11 +269,9 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
 /**  **********************  LOGIN VALIDATION  **/
     self.loginBtnValidation = function() {
         console.log('cartC.loginBtnValidation is running');
-        var username = $("#user_name").val();
-        var password = $("#password").val();
         var credentials = {
-            user_name: username,
-            password: password
+            user_name: user.user_name,
+            password: user.password
         };
         console.log("sending name/pw: ", credentials);
         $http({
@@ -313,6 +311,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
     };//end loginBtnValidation
 
 /** **********************  SIGN UP AND GUEST CHECKOUT FORMS TO DATABASE **/
+
     self.newUser = {
             first_name: "",
             last_name: "",
@@ -662,6 +661,5 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         '  </md-dialog-content>' +
         '</md-dialog>';
 
+
 }]);///Cart Controller
-
-
