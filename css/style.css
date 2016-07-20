@@ -142,6 +142,16 @@ md-fab-toolbar md-toolbar .md-toolbar-tools {
     padding: 0 20px;
     margin-top: 10px;
 }
+._md-fab-toolbar-background {
+    background-color: #9D538E !important;
+}
+.md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-primary.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-primary.md-fab:not([disabled]):hover {
+background-color: #9D538E !important;
+}
+.md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab {
+    color: rgba(255,255,255,0.87);
+    background-color: #9D538E !important;
+}
 /*.fabSpeedDialdemoBasicUsage .text-capitalize {*/
     /*text-transform: capitalize; }*/
 
@@ -509,7 +519,7 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     }
 }
 /*/////////////////media query for mobile////////////*/
-@media screen and (max-width: 640px){
+@media screen and (max-width: 767px){
     .mdl-badge.mdl-badge--overlap:after {
         top:0px;
         right: 80%;
@@ -518,6 +528,9 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
 footer {
      text-align: center;
  }
+#myNavbar {
+    background-color: #9D538E ;
+}
     md-fab-toolbar {
         min-height: 70px;
         line-height: 18px;
