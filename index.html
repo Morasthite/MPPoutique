@@ -22,8 +22,8 @@
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="css/cart.css" rel="stylesheet" type="text/css">
-        <link href="css/style.css" rel="stylesheet" type="text/css">
         <link href="css/materialize.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
         <link ng-href="{{style}}" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -96,10 +96,12 @@
             <!--</p>-->
 <!--///////////////////////////////////////////-->
 
-        <md-fab-toolbar md-open="demo.isOpen" count="demo.count" md-direction="{{demo.selectedDirection}}">
+        <md-fab-toolbar md-open="demo.isOpen" count="demo.count" md-direction="{{demo.selectedDirection}}" class="md-fab md-fab-bottom-right" style="position:fixed !important; z-index: 5 !important;">
             <md-fab-trigger class="align-with-text">
                 <md-button aria-label="menu" class="md-fab md-primary">
-                    <md-icon md-svg-src="img/icons/menu.svg"></md-icon>
+                    <md-icon ng-style="{color: white}" aria-label="question_answer" class="material-icons step">
+                        question_answer
+                    </md-icon>
                 </md-button>
             </md-fab-trigger>
             <md-toolbar>

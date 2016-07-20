@@ -18,7 +18,7 @@
 
                                 <label>Your Email Address</label><i class="contact_fa fa fa-envelope" aria-hidden="true"></i>
 
-                                <input type="email" name="contactEmail" required="" id="contactEmail" ng-model="user.contactEmail" minlength="8" maxlength="100" ng-pattern="/^.+@.+\..+$/">
+                                <input type="email" name="contactEmail" required="" id="contactEmail" ng-model="user.contactEmail" minlength="8" maxlength="100">
 
                                 <div ng-messages="contactForm.contactEmail.$error" role="alert">
                                     <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
@@ -40,7 +40,7 @@
 
                     <md-input-container class="md-block">
                         <div class="col-sm-12 form-group">
-                            <label>Your Order Number</label><i class="contact_fa fa fa-user" aria-hidden="true"></i>
+                            <label>Your Order Number</label><i class="contact_fa fa fa-tags" aria-hidden="true"></i></i>
                             <input type="text" name="orderNumber" ng-model="user.orderNumber" minlength="5">
                             <div ng-messages="contactForm.orderNumber.$error" role="alert">
                                 <div ng-message-exp="['minlength']">Your order number must be at least 5 characters.</div>

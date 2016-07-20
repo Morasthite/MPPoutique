@@ -1,12 +1,58 @@
 /** July 4th Theme StyleSheet **/
 nav {
-    background-color: #4183D7;
+    background:#4183D7 url("../assets/images/holidays/4th.png") no-repeat !important;
+    background-size: cover !important;
 }
 
 nav li a {
     color: #ffffff;
 }
-
-footer {
-    background-color: #F22613;
+#nav a:hover {
+    /*color: rgb(0, 251, 255)!important;*/
+    /*color: #C7AFBD!important;*/
+    color: red!important;
+    text-shadow: 2px 2px 5px black !important;
+    font-size: 120%;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a > i {
+    background-color: inherit !important;
+    color: darkblue !important;
+    text-shadow: 2px 2px 5px black !important;
+    height: 10vh;
+}
+/*////////////footer*/
+._md-fab-toolbar-background {
+    background-color: #4183D7 !important;
+}
+.md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-primary.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-primary.md-fab:not([disabled]):hover {
+    background-color: #4183D7 !important;
+}
+.md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab {
+    color: rgba(255,255,255,0.87);
+    background-color: #4183D7 !important;
+}
+/*///////////////caresel///////////////////////*/
+#gifts-card-img1 {
+    background-image: url('../assets/images/holidays/n1.jpg') !important;
+}
+#gifts-card-img2 {
+    background-image: url('../assets/images/holidays/n2.jpg') !important;
+}
+#gifts-card-img3 {
+    background-image: url('../assets/images/holidays/n3.jpg') !important;
+}
+/*#gifts-card-img4 {*/
+    /*background-image: url('../assets/images/holidays/n4.jpg') !important;*/
+    /*width: 70%;*/
+/*}*/
+#gifts-card-img5 {
+    background-image: url('../assets/images/holidays/n5.jpg') !important;
+}
+#gifts-card-img6 {
+    background-image: url('../assets/gifts/flower_tower.png');
+    height: 100%;
+    width: 70%;
 }
