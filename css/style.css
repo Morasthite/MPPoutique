@@ -173,7 +173,7 @@ background-color: rgb(211, 31, 127) !important;
 .macaron_text {
     position: relative;
     padding-bottom: 1%;
-    padding-top: 9%;
+    padding-top: 3%;
     padding-left: 6%;
     padding-right: 6%;
 }
@@ -247,7 +247,7 @@ nav ul li.active {
     margin-top: 13vh;
 }
 .gifts-party-main-content{
-    margin-top: 25vh
+    margin-top: 64px;
 }
 .welcome_section-title {
     font-size: 2em;
@@ -265,9 +265,9 @@ nav ul li.active {
 }
 #map {
     width: 95%;
-    margin: auto;
+    margin:64px auto 0 auto;
     /*margin:5% auto auto auto;*/
-    height: 70vh;
+    height: 60vh;
     /*border: 1px solid black;*/
 }
 .contact {
@@ -404,7 +404,8 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     /*width: 100%;*/
 /*}*/
 #welcome-carousel, #banner-others {
-    height: 500px;
+    margin-top: 64px;
+    height: 380px;
 }
 #banner-others img {
     height: 63vh;
@@ -505,7 +506,7 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     width: 70%;
 }
 .macaron_text {
-    margin-top:6vh;
+    margin-top:0vh;
 }
 /*///////////////////////media query for portrait///////////////*/
 @media screen and (orientation: portrait) {
