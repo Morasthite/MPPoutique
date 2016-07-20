@@ -11,7 +11,8 @@ app.controller('mainController',["$log","$scope","config","cart", "user", '$sce'
 
 
     // $scope.carousel = $sce.trustAsHtml(config.bannerWelcome);
-    $scope.carousel = $sce.trustAsHtml(config.bannerWelcome); //if config.menuIndice == 1, else if ==2 $sce.trustAsHtml(config.bannerWelcome)
+   // $scope.carousel = $sce.trustAsHtml(config.bannerWelcome); //if config.menuIndice == 1, else if ==2 $sce.trustAsHtml(config.bannerWelcome)
+    //$scope.bannerJuly4th = $sce.trustAsHtml(config.bannerJuly4th);
 
     // cart service
     self.cart = cart;
@@ -39,7 +40,15 @@ app.controller('mainController',["$log","$scope","config","cart", "user", '$sce'
             //$log.log("style: ",$scope.style);
         }
     }
-
+   if ($scope.style == "css/christmas.css") {
+       $scope.carousel = $sce.trustAsHtml(config.bannerChristmas);
+   }else if ($scope.style == "css/july4th.css") {
+       $scope.carousel = $sce.trustAsHtml(config.bannerJuly4th);
+   }else if ($scope.style == "css/newyear.css") {
+       $scope.carousel = $sce.trustAsHtml(config.bannerNewyear);
+   }else {
+       $scope.carousel = $sce.trustAsHtml(config.bannerWelcome);
+   }
     /////footer
     $scope.isOpen = false;
 
