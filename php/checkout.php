@@ -15,6 +15,7 @@ if (empty($_SESSION["id"])) {
     $result2 = mysqli_query($conn, $customerQuery);
     if (mysqli_num_rows($result2) > 0) {
         while ($row1 = mysqli_fetch_assoc($result2)) {
+            $row1['c_card_exp'] = date("Y-m-d", $row1['c_card_exp']);
             array_push($user, $row1);
         } ///end of while
     }

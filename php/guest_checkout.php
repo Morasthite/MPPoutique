@@ -14,7 +14,7 @@ if(!empty($_POST)){
     $phone = "'".$_POST['phone']."'";
     $email = "'".$_POST['email']."'";
     $c_card = "'".$_POST['c_card']."'";
-    $c_card_exp = "'".$_POST['c_card_exp']."'";
+    $c_card_exp = $_POST['c_card_exp'];
     $name_on_card = "'".$_POST['name_on_card']."'";
     $card_billing_address = "'".$_POST['card_billing_address']."'";
     
@@ -28,7 +28,8 @@ if(!empty($_POST)){
     }else{
         $attn = "'NULL'";
     }
-    print_r($_POST);
+    //print_r($_POST);
+    $c_card_exp = strtotime($c_card_exp);
     $query = "INSERT INTO `customer`(`username`, `password`, `firstName`, `lastName`, `street`, `city`, `state`, `zip`, `company`, `attn`, `phone`, `email`, `c_card`, `c_card_exp`, `name_on_card`,`card_billing_address`) VALUES ('Guest','guest',$fname,$lname,$street,$city,$state,$zip,$company,$attn,$phone,$email,$c_card,$c_card_exp,$name_on_card, $card_billing_address)";
     echo "<br> query <br>";
     print_r($query);

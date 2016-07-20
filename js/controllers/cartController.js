@@ -49,7 +49,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
     self.lowMacList = "";
     self.lowInventoryMacarons = function(lowMacArray) {
         for(var graznech = 0; graznech < lowMacArray.length; graznech++){
-            self.lowMacList += lowMacArray[graznech]+", ";
+            self.lowMacList += lowMacArray[graznech];
         }
         console.log("lowmaclist = ",self.lowMacList);
         return self.lowMacList;
@@ -94,9 +94,12 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                                         }//end if(self.cart.macaron_array[grodezteszky].ordered > 0)
                                     }//end for(var grodezteszky = 0
                                 }//end for(var mikolajczyk=0
-                                self.lowInventoryMacarons(self.lowMacArray);
-                                console.log("lowMacList",self.lowMacList);
-                                $scope.openAlertOffscreen($scope.login.lowInventory, $scope.message_lowInventory);
+                                if(self.lowMacArray.length > 0) {
+                                    self.lowInventoryMacarons(self.lowMacArray);
+                                    console.log("lowMacList", self.lowMacList);
+                                    $scope.openAlertOffscreen($scope.login.lowInventory, $scope.message_lowInventory);
+                                    return;
+                                }
                                 console.log("self.finalizedOrder = ", self.finalizedOrder);
                                 self.showShipToForm();
                                 self.displayToShipToForm(response);
@@ -392,7 +395,11 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
     };//end signUpFormSubmission
     self.guestCheckoutFormSubmission = function(){
         console.log('cartC.guestCheckoutFormSubmission is running');
-        console.log("sending newUser-info to db: ", self.guestUser);
+        self.guestUser.c_card_exp = self.guestUser.c_card_exp.toString();
+        console.log("card_exp", self.guestUser.c_card_exp);
+        self.guestUser.c_card_exp = self.guestUser.c_card_exp.slice(0,33);
+        console.log("new self.guestUser.c_card_exp = ", self.guestUser.c_card_exp);
+        console.log("sending guestUser-info to db: ", self.guestUser);
         $http({
             url: "php/guest_checkout.php",
             method: "post",
@@ -663,7 +670,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         '  <md-dialog-content>' +
         '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
         '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
-        '            <h5 class="proceed2checkout-lowInv-header" style="text-align: center">We\'re sorry, .  There are not enough of the following macarons left to complete your order: {{cartC.lowMacList}} . Please go back to the macarons page and adjust the number of {{cartC.lowMacList}} macarons, or complete the order without those macarons.  Thanks.</h5>' +
+        '            <h5 class="proceed2checkout-lowInv-header" style="text-align: center">We\'re sorry, .  There are not enough of the following macarons left to complete your order: {{cartC.lowMacList}} . Please go back to the macarons page and adjust the number of {{cartC.lowMacList}} macarons, or complete the order without {{cartC.lowMacList}} macarons.  Thanks.</h5>' +
         '       </div>' +
         '   </div>' +
         '  </md-dialog-content>' +
