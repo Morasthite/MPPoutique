@@ -346,9 +346,17 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
             card_billing_address: ""
         };
 
+
     self.signUpFormSubmission = function(){
         console.log('cartC.signUpFormSubmission is running');
         self.newUser.user_name = self.newUser.email;
+        console.log("self.newUser.c_card_exp = ", self.newUser.c_card_exp);
+        self.newUser.c_card_exp = self.newUser.c_card_exp.toString();
+        console.log("card_exp", self.newUser.c_card_exp);
+        self.newUser.c_card_exp = self.newUser.c_card_exp.slice(0,33);
+        console.log("new self.newUser.c_card_exp = ", self.newUser.c_card_exp);
+
+
         console.log("newUser: ", self.newUser);
         console.log("sending newUser-info to db: ", self.newUser);
         $http({
