@@ -349,7 +349,6 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
             card_billing_address: ""
         };
 
-
     self.signUpFormSubmission = function(){
         console.log('cartC.signUpFormSubmission is running');
         self.newUser.user_name = self.newUser.email;
@@ -530,7 +529,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
     };//self.emptyCart
 
 /** **********************  ANGULAR MDL FUNCTIONS  ********************** **/
-
+    
     $scope.newDate = new Date();
     $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
     'MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI ' +

@@ -428,7 +428,7 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
 }
 .carousel-caption-div {
     position: absolute;
-    top: 35%;
+    top: 50%;
     left: 50%;
     transform: translateX(-50%);
 }

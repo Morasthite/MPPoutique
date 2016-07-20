@@ -63,7 +63,7 @@
 }
 #proceed-to-checkout button,
 #place-your-order-btn button{
-    height: 5vh;
+    min-height: 7vh;
 }
 #login-form-submit-btn,
 #signup-form-submit-btn,
@@ -75,6 +75,7 @@
     background-color: rgb(158, 16, 92)  !important;
     min-width: 230px;
     margin-bottom: 2vh;
+    min-height: 7vh;
 }
 #login-form-submit-btn:hover,
 #signup-form-submit-btn:hover,
@@ -224,7 +225,7 @@
 md-input-container label:not(._md-container-ignore) {
     left: 45px;
     font-size: 13px;
-    color: green;
+    #color: green;
 }
 
 /** FORM ICONS  **/
@@ -289,6 +290,12 @@ md-datepicker-calendar-icon {
 #items-table-header,
 #totals-table-header-total{
     background: #c3ecf4;
+}
+md-dialog-content {
+    background: #edf0f2;
+}
+.show-message .well {
+    background: #edf0f2;
 }
 
 /********************************   END CART - page 2 - w/login forms   ***************************************/
