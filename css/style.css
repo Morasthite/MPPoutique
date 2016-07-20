@@ -143,14 +143,14 @@ md-fab-toolbar md-toolbar .md-toolbar-tools {
     margin-top: 10px;
 }
 ._md-fab-toolbar-background {
-    background-color: #9D538E !important;
+    background-color: rgb(211, 31, 127) !important;
 }
 .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-primary.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-primary.md-fab:not([disabled]):hover {
-background-color: #9D538E !important;
+background-color: rgb(211, 31, 127) !important;
 }
 .md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab {
     color: rgba(255,255,255,0.87);
-    background-color: #9D538E !important;
+    background-color: rgb(211, 31, 127) !important;
 }
 /*.fabSpeedDialdemoBasicUsage .text-capitalize {*/
     /*text-transform: capitalize; }*/
