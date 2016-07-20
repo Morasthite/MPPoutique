@@ -283,7 +283,8 @@ nav ul li.active {
     color : #003366;
 }
 .contact_submit {
-    margin-top: 10%;
+    margin-top: 5%;
+    padding-bottom: 10%;
 }
 .required_field {
     color: red;

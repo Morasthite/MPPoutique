@@ -18,7 +18,7 @@
 
                                 <label>Your Email Address</label><i class="contact_fa fa fa-envelope" aria-hidden="true"></i>
 
-                                <input type="email" name="contactEmail" required="" id="contactEmail" ng-model="user.contactEmail" minlength="8" maxlength="100" ng-pattern="/^.+@.+\..+$/">
+                                <input type="email" name="contactEmail" required="" id="contactEmail" ng-model="user.contactEmail" minlength="8" maxlength="100">
 
                                 <div ng-messages="contactForm.contactEmail.$error" role="alert">
                                     <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
