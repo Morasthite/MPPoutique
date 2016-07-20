@@ -406,7 +406,7 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
 /*}*/
 #welcome-carousel, #banner-others {
     margin-top: 64px;
-    height: 380px;
+    height: 54vh;
 }
 #banner-others img {
     height: 63vh;
