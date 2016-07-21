@@ -217,6 +217,7 @@
 }
 .checkout-buttons {
     color: white !important;
+    width: auto;
 }
 #proceed-to-checkout button {
     min-width: 260px;
