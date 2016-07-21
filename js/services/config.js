@@ -9,37 +9,37 @@ app.factory("config",function () {
             '       <div class="item active">' +
             '           <img id="welcome-img-1" src="assets/welcome/welcome-image-1.png">' +
             '           <div class="carousel-caption-div">' +
-            '               <h3 class="carousel-caption-text1">Life...</h3>' +
+            '               <h3 class="carousel-caption-text1">Welcome...Kick back, relax, enjoy some macarons, you deserve it.</h3>' +
             '           </div>' +
             '       </div>' +
             '       <div class="item">' +
             '               <img id="welcome-img-2" src="assets/welcome/welcome-image-2.png">' +
             '           <div class="carousel-caption-div">' +
-            '               <h3 class="carousel-caption-text2">..is like a box of macarons...</h3>' +
+            // '               <h3 class="carousel-caption-text2">..is like a box of macarons...</h3>' +
             '           </div>' +
             '       </div>' +
             '       <div class="item">' +
             '           <img id="welcome-img-3" src="assets/welcome/welcome-image-3.png">' +
             '           <div class="carousel-caption-div">' +
-            '               <h3 class="carousel-caption-text3">..it makes no sense...</h3>' +
+            // '               <h3 class="carousel-caption-text3">..sweet, delicious...</h3>' +
             '           </div>' +
             '       </div>' +
             '       <div class="item">' +
             '           <img id="welcome-img-4" src="assets/welcome/m2.jpg">' +
             '           <div class="carousel-caption-div">' +
-            '               <h3 class="carousel-caption-text4">..it tastes no good...</h3>' +
+            // '               <h3 class="carousel-caption-text4">..and...</h3>' +
             '           </div>' +
             '       </div>' +
             '       <div class="item">' +
             '           <img id="welcome-img-5" src="assets/welcome/welcome-image-5.png">' +
             '           <div class="carousel-caption-div">' +
-            '               <h3 class="carousel-caption-text5">..but apparently, all the hipsters love it...</h3>' +
+            // '               <h3 class="carousel-caption-text5">..the more, the merrier...</h3>' +
             '           </div>' +
             '       </div>' +
             '       <div class="item">' +
             '           <img id="welcome-img-6" src="assets/welcome/m3.jpg">' +
             '           <div class="carousel-caption-div">' +
-            '               <h3 class="carousel-caption-text5">..So, eat macarons, it\'s what life is all aboot...</h3>' +
+            // '               <h3 class="carousel-caption-text5">..So, eat macarons...</h3>' +
             '           </div>' +
             '       </div>' +
             '   </div>' +
