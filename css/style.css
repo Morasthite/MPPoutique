@@ -521,35 +521,55 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     }
 }
 /*/////////////////media query for mobile////////////*/
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767px) {
     .mdl-badge.mdl-badge--overlap:after {
-        top:0px;
+        top: 0px;
         right: 80%;
     }
+
     /*footer*/
-footer {
-     text-align: center;
- }
-#myNavbar {
-    background-color: #9D538E ;
-}
+    footer {
+        text-align: center;
+    }
+
+    #myNavbar {
+        background-color: #9D538E;
+    }
+
     md-fab-toolbar {
         min-height: 70px;
         line-height: 18px;
     }
+
     .footer_row {
         margin-right: 0px !important;
         min-width: 300px !important;
     }
+
     .footer_row ul {
         text-align: center;
         padding-left: 5px;
         margin-top: 2px !important;
         margin-bottom: 0px !important;
     }
+
     .copyright {
         padding-left: .5px;
     }
+    .md-fab.md-fab-bottom-right{
+        position:fixed !important; z-index: 5 !important; width: 100vw!important;right: 0!important;bottom: 0!important;
+    }
+    /*md-fab-toolbar.md-is-open,*/
+    /*.md-fab-toolbar.md-left,*/
+    /*md-fab-toolbar.md-left,*/
+    /*._md-fab-toolbar-wrapper{*/
+        /*top: auto!important;*/
+        /*right: 0!important;*/
+        /*bottom: 0!important;*/
+        /*left: auto!important;*/
+        /*position: absolute!important;*/
+        /*width: 100vw!important;*/
+    /*}*/
 /*macaron page*/
     #macaron_shop {
         padding: 4%;

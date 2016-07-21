@@ -52,7 +52,7 @@ app.controller('mainController',["$log","$scope","config","cart", "user", '$sce'
     /////footer
     $scope.isOpen = false;
 
-    $scope.demo = {
+    $scope.footer = {
         isOpen: false,
         count: 0,
         selectedDirection: 'left'
