@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html ng-app="mainApp" ng-controller="mainController as mainC">
+<head>
+    <title>MPoutique</title>
+    <link rel="icon" href="assets/icons/favicon-p.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Pearl Micah">
+    <!-- Roboto  Font -->
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel="stylesheet">
+
+    <!-- Google MDL -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+    <!-- Bootstrap -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- Style Sheets -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/cart.css" rel="stylesheet" type="text/css">
+        <link href="css/materialize.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link ng-href="{{style}}" rel="stylesheet" type="text/css">
+</head>
+<body id="main-content">
+    <!--------------------  NAV BAR ---------------------->
+        <nav class="navbar navbar-default navbar-fixed-top" id="nav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img class="navbar-brand" src="assets/images/logo.png">
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar" ng-init="menuIndice = 1">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- ng-class: if mainC...ind == 1, print class=active, else print empty-->
+                    <li ng-class="mainC.config.menuIndice == 1 ? 'active':''"><a href="#welcome" class="n-link">WELCOME
+                        <span style="color:yellow">  {{ mainC.user.isLoggedIn ? mainC.user.firstName : ''}}</span></a></li>
+                    <li ng-class="mainC.config.menuIndice == 2 ? 'active':''"><a href="#macarons" class="n-link">OUR
+                        MACARONS</a></li>
+                    <li ng-class="mainC.config.menuIndice == 3 ? 'active':''"><a href="#gifts" class="n-link">GIFTS &amp;
+                        PARTIES</a></li>
+                    <li ng-class="mainC.config.menuIndice == 4 ? 'active':''"><a href="#contact" class="n-link">CONTACT</a>
+                    </li>
+                    <li ng-class="mainC.config.menuIndice == 5 ? 'active':''"><a
+                            class="n_link mdl-badge mdl-badge--overlap nav-badge" data-badge="{{mainC.cart.total}} "
+                            href="#cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                    <li ng-hide="!mainC.user.isLoggedIn"><a href="php/logout.php" class="n-link">LOG OUT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav><!-- End nav bar-->
+
+    <!--------------------  MAIN CONTENT ------------------>
+        <div id="main_content">
+        <div id="banner-carousel" ng-bind-html="carousel" ng-show="mainC.config.menuIndice == 1 ? 'true':''"></div>
+        <div id="banner-others" ng-hide="mainC.config.menuIndice == 1 || mainC.config.menuIndice == 4 ? 'true':''">
+            <img class="header-img col-xs-12" ng-src="{{mainC.config.banner}}" ng-hide="mainC.config.banner == 'assets/images/banners/contact-image.png' ? 'true':''">
+        </div>
+        <div ng-view></div>
+            <!--Sign Up Form-->
+            <div layout="column" ng-cloak=""  class =" inputdemoErrors login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="addressUpdateForm">
+                <div class=" signup-form">
+                    <div class="col-sm-offset-1 col-sm-10 col-xs-12 well">
+                        <h3 class="login-header"><i class="fa fa-user-plus" aria-hidden="true"></i>Sweet, Please Enter A New Shipping Address</h3>
+                        <div class="row">
+                            <md-content layout-padding="">
+                                <form name="addressUpdateForm">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>Address</label><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                    <textarea  required="" name="street_address" ng-model="cartC.finalizedOrder.customer.street_address" rows="3"  ng-pattern="/^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$/"></textarea>
+                                                    <div ng-messages="addressUpdateForm.street_address.$error" role="alert">
+                                                        <div ng-message-exp="['required', 'pattern']">
+                                                            Your address must include street name and number, like this: 12345 Street Name.
+                                                        </div><!-- <div ng-message-exp -->
+                                                    </div><!--  ng-messages -->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-6 form group -->
+                                        </div><!--row-address-->
+
+                                        <div class="row">
+                                            <div class="col-sm-4 form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>City</label><i class="fa fa-building" aria-hidden="true"></i>
+                                                    <input type="text" required="" name="city" ng-model="cartC.finalizedOrder.customer.city" ng-pattern="/^[a-zA-Z]+[\. - ']?(?:[\s-][a-zA-Z]+)*$/">
+                                                    <div ng-messages="addressUpdateForm.city.$error" role="alert">
+                                                        <div ng-message-exp="['required', 'pattern']">
+                                                            Your correct city's name is required.
+                                                        </div><!-- <div ng-message-exp -->
+                                                    </div><!--  ng-messages -->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-4 form group -->
+
+                                            <div class="col-sm-4 form-group">
+                                                <md-input-container class="md-block" flex-gt-sm="">
+                                                    <label>State</label><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                    <md-select name="state" ng-model="cartC.finalizedOrder.customer.state" required="">
+                                                        <md-option ng-repeat="state in states" value="{{state.abbrev}}">{{state.abbrev}}</md-option>
+                                                    </md-select>
+                                                    <!--<input type="text" required="" name="state" ng-model="cartC.finalizedOrder.customer.state" ng-pattern="/^.+@.+\..+$/">-->
+                                                    <div ng-messages="addressUpdateForm.state.$error" role="alert">
+                                                        <div ng-message-exp="['required']">
+                                                            Your state's name is required.
+                                                        </div><!-- <div ng-message-exp -->
+                                                    </div><!--  ng-messages -->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-4 form group -->
+
+                                            <div class="col-sm-4 form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>Zip</label><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                    <input type="number" required="" name="zip" ng-model="cartC.finalizedOrder.customer.zip" minlength="5" maxlength="5" ng-pattern="/^\d{5}(?:[-\s]\d{4})?$/">
+                                                    <div ng-messages="addressUpdateForm.zip.$error" role="alert">
+                                                        <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                                            Your zipcode must be 5 numbers.
+                                                        </div><!-- <div ng-message-exp -->
+                                                    </div><!--  ng-messages -->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-4 form group -->
+                                        </div><!--row-city-state-zip-->
+
+                                        <div class="row">
+                                            <div class="col-sm-6 form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>Company</label>
+                                                    <i class="fa fa-building-o" aria-hidden="true"></i>
+                                                    <input type="text" name="company" ng-model="cartC.finalizedOrder.customer.company" minlength="2" maxlength="40">
+                                                    <div ng-messages="addressUpdateForm.first_name.$error" role="alert">
+                                                        <div ng-message-exp="[ 'minlength', 'maxlength', 'pattern']">
+                                                            Your company's name must be between 2 and 40 characters long.
+                                                        </div><!-- <div ng-message-exp -->
+                                                    </div><!--  ng-messages -->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-6 form group -->
+                                            <div class="col-sm-6 form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>Attn:</label><i class="fa fa-user" aria-hidden="true"></i>
+                                                    <input type="text" name="attn" ng-model="cartC.finalizedOrder.customer.attn">
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-6 form group -->
+                                        </div><!--row-company-attn-->
+
+                                        <div class="row">
+                                            <div class="col-sm-6 form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>Phone Number</label><i class="fa fa-phone-square" aria-hidden="true"></i>
+                                                    <input type="number" required="" name="phone_number" ng-model="cartC.finalizedOrder.customer.phone" minlength="10" maxlength="16" ng-pattern="/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/" >
+                                                    <div ng-messages="addressUpdateForm.phone_number.$error" role="alert">
+                                                        <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                                            Your phone number needs to be in a valid form, digits only, like this: 9495557748.
+                                                        </div><!-- <div ng-message-exp -->
+                                                    </div><!--  ng-messages -->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-6 form group -->
+                                            <div class="col-sm-6 form-group">
+                                                <md-input-container class="md-block">
+                                                    <label>Email Address</label><i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    <input type="email" required="" name="email" ng-model="cartC.finalizedOrder.customer.email" minlength="8" maxlength="100" ng-pattern="/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/">
+                                                    <div ng-messages="addressUpdateForm.email.$error" role="alert">
+                                                        <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                                            A valid email address is required, like this: john@gmail.com
+                                                        </div><!-- <div ng-message-exp -->
+                                                    </div><!--  ng-messages -->
+                                                </md-input-container>
+                                            </div><!-- class="col-sm-6 form group -->
+                                        </div><!--row-phone-email -->
+
+                                        <button id="signup-form-submit-btn" type="button" class="col-sm-offset-4 col-sm-4 col-xs-12 btn btn-lg btn-info" ng-click="cartC.hideSignUpForm(); cartC.hideLoginButtons(); cartC.signUpFormSubmission()" ng-disabled="signUpForm.$invalid">Submit<i class="fa fa-arrow-circle-right fa-submit" aria-hidden="true"></i></button>
+                                    </div>
+                                </form>
+                            </md-content>
+                        </div><!--row-->
+                    </div>
+                </div>
+            </div><!-- End Sign Up form -->
+        </div><!--End Main Content-->
+
+    <!--------------------  FOOTER ---------------------->
+        <!--<footer class="col-sm-12 col-xs-12">-->
+        <!--<div class="col-sm-4 col-xs-12">-->
+            <!--<ul>-->
+                <!--<li><i class="fa fa-phone" aria-hidden="true"></i></li>-->
+                <!--<li><i class="fa fa-envelope" aria-hidden="true"></i></li>-->
+                <!--<li><i class="fa fa-map" aria-hidden="true"></i></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<div class="col-sm-4 col-xs-12" id="right">-->
+            <!--<p class="copyright">Copyright &copy; 2015 MBoutique. All rights reserved</p>-->
+        <!--</div>-->
+        <!--<div class="col-sm-4 col-xs-12">-->
+            <!--<ul>-->
+                <!--<li><i class="footer_fa fa fa-facebook" aria-hidden="true"></i></li>-->
+                <!--<li><i class="footer_fa fa fa-instagram" aria-hidden="true"></i></li>-->
+                <!--<li><i class="footer_fa fa fa-twitter" aria-hidden="true"></i></li>-->
+                <!--<li><i class="footer_fa fa fa-pinterest" aria-hidden="true"></i></li>-->
+                <!--<li><i class="footer_fa fa fa-google" aria-hidden="true"></i></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</footer>&lt;!&ndash;End Footer&ndash;&gt;-->
+    <!--<div ng-cloak="" class="fabToolbardemoBasicUsage">-->
+        <!--<md-content class="md-padding">-->
+            <!--<p>-->
+                <!--You can use the fabToolbar with a trigger and regular toolbar.-->
+            <!--</p>-->
+<!--///////////////////////////////////////////-->
+
+        <md-fab-toolbar md-open="footer.isOpen" count="footer.count" md-direction="{{footer.selectedDirection}}" class="md-fab md-fab-bottom-right" style="position:fixed !important; z-index: 5 !important; width: 100vw!important; right: 0!important; bottom: 0!important;">
+            <md-fab-trigger class="align-with-text">
+                <md-button aria-label="menu" class="md-fab md-primary">
+                    <md-icon ng-style="{color: white}" aria-label="question_answer" class="material-icons step">
+                        question_answer
+                    </md-icon>
+                </md-button>
+            </md-fab-trigger>
+            <md-toolbar>
+                <md-fab-actions class="md-toolbar-tools">
+
+
+                    <div layout="row" layout-xs="column">
+                        <div flex class="footer_row">
+                            <ul>
+                                <li><a href="https://www.facebook.com/login/"><i class="footer_fa fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.instagram.com/accounts/login/"><i class="footer_fa fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="https://twitter.com/?lang=en"><i class="footer_fa fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="https://hangouts.google.com/"><i class="footer_fa fa fa-google" aria-hidden="true"></i></a></li>
+                                <li><a href="#contact"><i class="footer_fa fa fa-envelope" aria-hidden="true"></i></a></li>
+
+                                <li><a href="tel:555-555-1212"><i class="footer_fa fa fa-phone" aria-hidden="true"></i></a></li>
+                                </ul>
+                        </div>
+                        <div flex class="footer_row">
+                            <p class="copyright">Copyright &copy; 2015 MBoutique. All rights reserved</p>
+                        </div>
+                    </div>
+
+<!--//////here-->
+                    <!--<div class="container">-->
+                        <!--<div class="row">-->
+                            <!--<div class="col 16 s12">-->
+                                <!--<p class="white-text">Footer Content</p>-->
+                                <!--<p class="grey-text text-lighten-4"></p>-->
+                            <!--</div>-->
+                            <!--<div class="col 16 s12">-->
+                                <!--<md-button aria-label="Twitter" class="md-fab md-raised md-mini">-->
+                                <!--<md-icon md-svg-src="img/icons/twitter.svg" aria-label="Twitter"></md-icon>-->
+                                <!--</md-button>-->
+                                <!--<md-button aria-label="Facebook" class="md-fab md-raised md-mini">-->
+                                <!--<md-icon md-svg-src="img/icons/facebook.svg" aria-label="Facebook"></md-icon>-->
+                                <!--</md-button>-->
+                                <!--<md-button aria-label="Google Hangout" class="md-fab md-raised md-mini">-->
+                                <!--<md-icon md-svg-src="img/icons/hangout.svg" aria-label="Google Hangout"></md-icon>-->
+                                <!--</md-button>-->
+                            <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="footer-copyright">-->
+                        <!--<div class="container">-->
+                            <!--© 2014 Copyright Text-->
+                            <!--<a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                   <!--</div>-->
+
+
+
+
+
+
+                    <!--<md-button aria-label="Twitter" class="md-fab md-raised md-mini">-->
+                        <!--<md-icon md-svg-src="img/icons/twitter.svg" aria-label="Twitter"></md-icon>-->
+                    <!--</md-button>-->
+                    <!--<md-button aria-label="Facebook" class="md-fab md-raised md-mini">-->
+                        <!--<md-icon md-svg-src="img/icons/facebook.svg" aria-label="Facebook"></md-icon>-->
+                    <!--</md-button>-->
+                    <!--<md-button aria-label="Google Hangout" class="md-fab md-raised md-mini">-->
+                        <!--<md-icon md-svg-src="img/icons/hangout.svg" aria-label="Google Hangout"></md-icon>-->
+                    <!--</md-button>-->
+                    <!--<md-button aria-label="" class="md-fab md-raised md-mini">-->
+                        <!--<md-icon md-svg-src="/android.svg" aria-label="android "></md-icon>-->
+                    <!--</md-button>-->
+                    <!--<md-content layout-align="start center" flex layout-padding>-->
+                        <!--<p>Copyright &copy; 2015 MBoutique. All rights reserved</p>-->
+                        <!--</md-content>-->
+
+                    <!--///here-->
+                </div>
+                </md-fab-actions>
+            </md-toolbar>
+        </md-fab-toolbar>
+            </div>
+        </md-content>
+    </div>
+
+<!---------------------------------- Scripts -------------------------------------------->
+    <!---------------- ANGULAR ---------------->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+        <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script><!-- Plugin For MDL Cart Buttons-->
+    <!-- AngularJS Sanitize CDN -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-sanitize.js"></script>-->
+        <script src="https://code.angularjs.org/1.5.3/angular-sanitize.min.js"></script>
+    <!-- Angular Material - required Angular.js Libraries -->
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>-->
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>-->
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>-->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+        <script src="http://ngmaterial.assets.s3.amazonaws.com/svg-assets-cache.js"></script>
+    <!-- Angular Material Library -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+    <!-- Routing -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+        <script src="js/routing/route.js"></script>
+    <!-- Controllers -->
+        <script src="js/controllers/cartController.js"></script>
+        <script src="js/controllers/contactController.js"></script>
+        <script src="js/controllers/giftController.js"></script>
+        <script src="js/controllers/macaronController.js"></script>
+        <script src="js/controllers/mainController.js"></script>
+        <script src="js/controllers/welcomeController.js"></script>
+        <script src="js/controllers/invoiceController.js"></script>
+        <script src="js/controllers/logoutController.js"></script>
+    <!-- Directives -->
+        <!--<script src="js/directives/activeLink.js"></script>-->
+    <!-- Services -->
+        <script src="js/services/cart_service.js"></script>
+        <script src="js/services/config.js"></script>
+        <script src="js/services/invoice.js"></script>
+        <script src="js/services/user.js"></script>
+    <!--Main Script-->
+        <script src="js/main.js"></script>
+    <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+</body>
+</html>

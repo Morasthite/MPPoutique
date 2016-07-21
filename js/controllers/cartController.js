@@ -215,6 +215,8 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         $scope.showPlaceYourOrderButton = false;
         $scope.showShipToForm = false;
         $scope.showLogoutLinkDefault = false;
+        $scope.showAddressUpdateForm = false;
+        $scope.showcCardUpdateForm = false;
         //$scope.showPlzLoginMessage = false;
         //$scope.showThanksSigningUpMessage = false;
         //$scope.showGuestCheckOutMessage = false;
@@ -267,6 +269,18 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         $scope.showGuestCheckoutForm = false;
         self.hideLoginButtons();
         $scope.showProceedToCheckoutButton = false;
+    };
+    self.showAddressUpdateFormToggle = function () {
+        $scope.showAddressUpdateForm = !$scope.showAddressUpdateForm;
+    };
+    self.addressUpdateFormConfirm = function () {
+        $scope.openAlertOffscreen($scope.login.id.addressUpdated,$scope.message_addressUpdated);
+    };
+    self.showcCardUpdateFormToggle = function () {
+        $scope.showcCardUpdateForm = !$scope.showcCardUpdateForm;
+    };
+    self.cCardUpdateFormConfirm = function () {
+        $scope.openAlertOffscreen($scope.login.id.cCardUpdated,$scope.message_cCardUpdated);
     };
 
 /**  **********************  LOGIN VALIDATION  **/
@@ -426,112 +440,113 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
     };//end guestCheckoutFormSubmission
 
 /** **********************  CLEARING CART AND LOG OUT **/
-    self.emptyCart = function (){
+    self.emptyCart = function () {
         console.log("self.emptyCart is running, cart.macaron_array = ", cart.macaron_array);
         self.finalizedOrder.Cart = [];
         self.finalizedOrder.orderNumber = "";
         self.finalizedOrder.orderTime = "";
-        self.cart.total=0;
+        self.cart.total = 0;
         self.cart.macaron_array[7].ordered = 0;
         self.cart = {
             //customerLoggedIn: true, //cart.customerLoggedIn
             total: 0,
-            subTotal : 0,
-            tax : 0,
+            subTotal: 0,
+            tax: 0,
             totalCost: 0,
-            inventory : $http.post("php/macaron_inventory_call.php"),
-            macaron_array : [
+            inventory: $http.post("php/macaron_inventory_call.php"),
+            macaron_array: [
                 {
                     name: "Chocolate",
                     description: "chocolate, macaron and ...",
                     source: "assets/images/chocolate.png",
-                    price : 3.5,
-                    ordered : 0
+                    price: 3.5,
+                    ordered: 0
                 },
                 {
                     name: "Almond",
                     description: "almond, macaron and ...",
                     source: "assets/images/almond.png",
-                    price : 3,
-                    ordered : 0
+                    price: 3,
+                    ordered: 0
                 },
                 {
                     name: "Caramel",
                     description: "caramel, macaron and ...",
                     source: "assets/images/caramel.png",
-                    price : 2.99,
-                    ordered : 0
+                    price: 2.99,
+                    ordered: 0
                 },
                 {
                     name: "Coconut",
                     description: "coconut, macaron and ...",
                     source: "assets/images/coconut.png",
-                    price : 3,
-                    ordered : 0
+                    price: 3,
+                    ordered: 0
                 },
                 {
                     name: "Coffee",
                     description: "coffee, macaron and ...",
                     source: "assets/images/coffee.png",
-                    price : 3.45,
-                    ordered : 0
+                    price: 3.45,
+                    ordered: 0
                 },
                 {
                     name: "Lemon",
                     description: "lemon, macaron and ...",
                     source: "assets/images/Lemon.png",
-                    price : 3.5,
-                    ordered : 0
+                    price: 3.5,
+                    ordered: 0
                 },
                 {
                     name: "Passion Fruit",
                     description: "fruit, macaron and ...",
                     source: "assets/images/passion-fruit.png",
-                    price : 3.23,
-                    ordered : 0
+                    price: 3.23,
+                    ordered: 0
                 },
                 {
                     name: "Pistachio",
                     description: "pistachio, macaron and ...",
                     source: "assets/images/pistachio.png",
-                    price : 3,
-                    ordered : 0
+                    price: 3,
+                    ordered: 0
                 },
                 {
                     name: "Raspbery",
                     description: "rasbery, macaron and ...",
                     source: "assets/images/raspbery.png",
-                    price : 3.45,
-                    ordered : 0
+                    price: 3.45,
+                    ordered: 0
                 },
                 {
                     name: "Rose",
                     description: "rose, macaron and ...",
                     source: "assets/images/rose.png",
-                    price : 3.25,
-                    ordered : 0
+                    price: 3.25,
+                    ordered: 0
                 },
                 {
                     name: "Rose",
                     description: "rose, macaron and ...",
                     source: "assets/images/rose.png",
-                    price : 3.25,
-                    ordered : 0
+                    price: 3.25,
+                    ordered: 0
                 },
                 {
                     name: "Rose",
                     description: "rose, macaron and ...",
                     source: "assets/images/rose.png",
-                    price : 3.25,
-                    ordered : 0
+                    price: 3.25,
+                    ordered: 0
                 }
-            ]};
-        console.log("self.finalizedOrder.orderTime = ",self.finalizedOrder.orderTime,"self.finalizedOrder.orderNumber = ",self.finalizedOrder.orderNumber,"self.finalizedOrder.Cart = ",self.finalizedOrder.Cart, "cart  = ",cart );
+            ]
+        };
+        console.log("self.finalizedOrder.orderTime = ", self.finalizedOrder.orderTime, "self.finalizedOrder.orderNumber = ", self.finalizedOrder.orderNumber, "self.finalizedOrder.Cart = ", self.finalizedOrder.Cart, "cart  = ", cart);
         console.log("cart after empty: ", cart);
-    };//self.emptyCart
+    };
 
 /** **********************  ANGULAR MDL FUNCTIONS  ********************** **/
-    
+
     $scope.newDate = new Date();
     $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
     'MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI ' +
@@ -550,8 +565,9 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
             guestCheckout: 'guest-checkout-message',
             loginOrSignup: 'login-message',
             emptyCart: 'empty-cart-message',
-            lowInventory: 'low-db-inventory'
-
+            lowInventory: 'low-db-inventory',
+            cCardUpdated: 'cCard-updated',
+            addressUpdated: 'address-updated'
         }
     };
     
@@ -576,18 +592,6 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
             scope: $scope,
             preserveScope: true,
             template: loginMessage
-            // '<md-dialog>' +
-            // '  <md-dialog-content>' +
-            // '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
-            // '     <div class=" login-form">' +
-            // '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
-            // // '            <h5 class="login-header" style="text-align: center">Thanks For Logging In {{cartC.user.firstName}} ! You\'re exceptionally good looking today!</h5>' +
-            // '{{loginMessage}}' +
-            // '       </div>' +
-            // '     </div>' +
-            // '   </div>   ' +
-            // '  </md-dialog-content>' +
-            // '</md-dialog>'
         });
     };
     $scope.message_logInOK =
@@ -676,6 +680,24 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         '   </div>' +
         '  </md-dialog-content>' +
         '</md-dialog>';
-
-
+    $scope.message_addressUpdated =
+        '<md-dialog>' +
+        '  <md-dialog-content>' +
+        '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
+        '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
+        '            <h5 class="proceed2checkout-cartEmpty-header" style="text-align: center">Awesome!  Your macarons will be shipped to {{cartC.finalizedOrder.customer.address}} </h5>' +
+        '       </div>' +
+        '   </div>' +
+        '  </md-dialog-content>' +
+        '</md-dialog>';
+    $scope.message_cCardUpdated =
+        '<md-dialog>' +
+        '  <md-dialog-content>' +
+        '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
+        '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
+        '            <h5 class="proceed2checkout-cartEmpty-header" style="text-align: center">Sweet! Your Credit Card Is Updated...Buy...Buy...Buy</h5>' +
+        '       </div>' +
+        '   </div>' +
+        '  </md-dialog-content>' +
+        '</md-dialog>';
 }]);///Cart Controller

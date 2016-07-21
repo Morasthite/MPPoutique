@@ -12,9 +12,17 @@ h3 {
 button {
     outline: none;
 }
-html.md-default-theme, html, body.md-default-theme, #contact_info, #contact_email {
+/*html.md-default-theme, html, body.md-default-theme, #contact_info, #contact_email {*/
+    /*color:  #6A6969 ;*/
+     /*background-color: #F8F2DA;*/
+/*}*/
+html {
+    background-color: #DDECEF;
+}
+ #contact_info, #contact_email {
     color:  #6A6969 ;
-     background-color: #F8F2DA;
+     /*background-color: #F8F2DA;*/
+     background-color: #DDECEF;
 }
 #contact_info #accordion, #contact_email md-content {
     box-shadow: 3px 2px 5px 1px rgba(0, 0, 0, 0.38);
@@ -94,12 +102,13 @@ html.md-default-theme, html, body.md-default-theme, #contact_info, #contact_emai
     padding: 5vh 5vw;
 }
 .welcome_section-main-content-para {
-    background-color: whitesmoke;
+    /*background-color: whitesmoke;*/
+    background-color: #DDECEF;
 }
 .gifts-party-main-content,
 .contacts-section
 {
-    background-color: #F8F2DA;
+    background-color: #DDECEF;
 }
 /*///////////////////////footer////////////////*/
 footer {
@@ -246,8 +255,10 @@ nav ul li.active {
 /*///////////////////welcome page/////////////////////////////*/
 .gifts-party-main-content{
     padding: 2% 6%;
-    height: 50vh;
+    /*height: 50vh;*/
+    height: auto;
     margin-top: 64px;
+
 }
 .welcome_section-main-content-para{
     padding: 0 6%;
@@ -264,7 +275,8 @@ nav ul li.active {
 }
 /*////////////////contact page////////////////////////*/
 #map_container {
-    background-color:#F8F2DA;
+    /*background-color:#F8F2DA;*/
+    background-color:#DDECEF;
     height: auto;
     padding-top: 5%;
 }
@@ -472,7 +484,8 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     box-shadow: 3px 2px 5px 1px rgba(0, 0, 0, 0.38);
 }
 .card-image.card-gift {
-    background-color: #ddecef;
+    /*background-color: #ddecef;*/
+    background-color: rgb(244, 243, 244);
 }
 .card-title {
     text-align: center;
@@ -502,7 +515,7 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     background-image: url('../assets/gifts/assorted_bowl.png');
 }
 #gifts-card-img3 {
-    background-image: url('../assets/gifts/gift-small-box.jpg');
+    background-image: url('../assets/gifts/gift-small-box.png');
 }
 #gifts-card-img4 {
     background-image: url('../assets/gifts/assorted_3tiers.png');
