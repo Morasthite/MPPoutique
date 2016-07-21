@@ -526,7 +526,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                 }
             ]};
         console.log("self.finalizedOrder.orderTime = ",self.finalizedOrder.orderTime,"self.finalizedOrder.orderNumber = ",self.finalizedOrder.orderNumber,"self.finalizedOrder.Cart = ",self.finalizedOrder.Cart, "cart  = ",cart );
-        
+
     };//self.emptyCart
 
 /** **********************  ANGULAR MDL FUNCTIONS  ********************** **/
@@ -575,18 +575,6 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
             scope: $scope,
             preserveScope: true,
             template: loginMessage
-            // '<md-dialog>' +
-            // '  <md-dialog-content>' +
-            // '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
-            // '     <div class=" login-form">' +
-            // '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
-            // // '            <h5 class="login-header" style="text-align: center">Thanks For Logging In {{cartC.user.firstName}} ! You\'re exceptionally good looking today!</h5>' +
-            // '{{loginMessage}}' +
-            // '       </div>' +
-            // '     </div>' +
-            // '   </div>   ' +
-            // '  </md-dialog-content>' +
-            // '</md-dialog>'
         });
     };
     $scope.message_logInOK =
@@ -675,6 +663,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         '   </div>' +
         '  </md-dialog-content>' +
         '</md-dialog>';
+    
 
 
 }]);///Cart Controller

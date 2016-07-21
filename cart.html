@@ -210,7 +210,7 @@
                                                     <input type="email" required="" name="email" ng-model="cartC.newUser.email" minlength="8" maxlength="100" ng-pattern="/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/">
                                                     <div ng-messages="signUpForm.email.$error" role="alert">
                                                         <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                                                            A lavid email address is required, like this: john@gmail.com
+                                                            A valid email address is required, like this: john@gmail.com
                                                         </div><!-- <div ng-message-exp -->
                                                     </div><!--  ng-messages -->
                                                 </md-input-container>
@@ -435,7 +435,7 @@
                                                     <input type="email" required="" name="email" ng-model="cartC.guestUser.email" minlength="8" maxlength="100" ng-pattern="/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/">
                                                     <div ng-messages="guestCheckoutForm.email.$error" role="alert">
                                                     <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                                                        A lavid email address is required, like this: john@gmail.com
+                                                        A valid email address is required, like this: john@gmail.com
                                                     </div><!-- <div ng-message-exp -->
                                                     </div><!--  ng-messages -->
                                                 </md-input-container>
@@ -523,24 +523,24 @@
                                     <div class="row">
                                         <div class="col-sm-6 form-group">
                                             <h5> Shipping Info: </h5>
-                                            <i class="fa fa-user" aria-hidden="true"></i><label>Ship To</label>
-                                            <input type="text" class="form-control" id="shipto-name" ng-model="cartC.finalizedOrder.customer.name">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i><label>Address</label><a href="?"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
-                                            <input class="form-control" id="shipto-address" placeholder="12345 Parksingide Road, City, State, Zipcode" ng-model="cartC.finalizedOrder.customer.address">
+                                            <i class="fa fa-user" aria-hidden="true"></i><label>Ship To</label><a href="?"><i class=" edit-info fa fa-pencil-square" aria-hidden="true"></i></a>
+                                            <input type="text" class="form-control" id="shipto-name" ng-model="cartC.finalizedOrder.customer.name" disabled="disabled">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i><label>Address</label>
+                                            <input class="form-control" id="shipto-address" placeholder="12345 Parksingide Road, City, State, Zipcode" ng-model="cartC.finalizedOrder.customer.address" disabled="disabled">
                                             <i class="fa fa-user" aria-hidden="true"></i><label>Attention To:</label>
-                                            <input class="form-control" id="shipto-attn" placeholder="attn:/ Micah Grodezetsky" ng-model="cartC.finalizedOrder.customer.attn">
+                                            <input class="form-control" id="shipto-attn" placeholder="attn:/ Micah Grodezetsky" ng-model="cartC.finalizedOrder.customer.attn" disabled="disabled" >
                                             <i class="fa fa-building-o" aria-hidden="true"></i><label>Company</label>
-                                            <input class="form-control" id="shipto-company" placeholder=" Learning Fuze " ng-model="cartC.finalizedOrder.customer.company">
+                                            <input class="form-control" id="shipto-company" placeholder=" Learning Fuze " ng-model="cartC.finalizedOrder.customer.company"disabled="disabled">
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <h5> Credit Card On File </h5>
-                                            <i class="fa fa-credit-card" aria-hidden="true"></i><label>Card Number:</label>
-                                            <input class="form-control" id="shipto-creditcard-number" placeholder="****4353" ng-model="cartC.finalizedOrder.customer.c_card_display">
+                                            <i class="fa fa-credit-card" aria-hidden="true"></i><label>Card Number:</label><a href="?"><i class=" edit-info fa fa-pencil-square" aria-hidden="true"></i></a>
+                                            <input class="form-control" id="shipto-creditcard-number" placeholder="****4353" ng-model="cartC.finalizedOrder.customer.c_card_display" disabled="disabled">
                                             <i class="fa fa-calendar" aria-hidden="true"></i><label>Expiration Date</label>
-                                            <input class="form-control" id="shipto-credit-card-exp" placeholder="12/2019" ng-model="cartC.finalizedOrder.customer.c_card_exp">
+                                            <input class="form-control" id="shipto-credit-card-exp" placeholder="12/2019" ng-model="cartC.finalizedOrder.customer.c_card_exp" disabled="disabled">
 
                                             <i class="fa fa-user" aria-hidden="true"></i><label>Name On Card</label>
-                                            <input class="form-control" id="shipto-name-on-card" placeholder="Micah Grodezetsky" ng-model="cartC.finalizedOrder.customer.name_on_card">
+                                            <input class="form-control" id="shipto-name-on-card" placeholder="Micah Grodezetsky" ng-model="cartC.finalizedOrder.customer.name_on_card" disabled="disabled">
                                         </div>
                                     </div>
                                 </div>

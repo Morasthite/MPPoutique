@@ -297,6 +297,22 @@ md-dialog-content {
 .show-message .well {
     background: #edf0f2;
 }
+#shipto-name,
+#shipto-address,
+#shipto-attn,
+#shipto-company,
+#shipto-creditcard-number,
+#shipto-credit-card-exp,
+#shipto-name-on-card {
+    color: black;
+}
+.edit-info {
+    position: absolute;
+    right: 5px;
+}
+#shipto-form .fa-pencil-square{
+    color: purple;
+}
 
 /********************************   END CART - page 2 - w/login forms   ***************************************/
 /** Media Query **/
