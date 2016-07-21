@@ -215,6 +215,8 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         $scope.showPlaceYourOrderButton = false;
         $scope.showShipToForm = false;
         $scope.showLogoutLinkDefault = false;
+        $scope.showAddressUpdateForm = false;
+        $scope.showcCardUpdateForm = false;
         //$scope.showPlzLoginMessage = false;
         //$scope.showThanksSigningUpMessage = false;
         //$scope.showGuestCheckOutMessage = false;
@@ -267,6 +269,18 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         $scope.showGuestCheckoutForm = false;
         self.hideLoginButtons();
         $scope.showProceedToCheckoutButton = false;
+    };
+    self.showAddressUpdateFormToggle = function () {
+        $scope.showAddressUpdateForm = !$scope.showAddressUpdateForm;
+    };
+    self.addressUpdateFormConfirm = function () {
+        $scope.openAlertOffscreen($scope.login.id.addressUpdated,$scope.message_addressUpdated);
+    };
+    self.showcCardUpdateFormToggle = function () {
+        $scope.showcCardUpdateForm = !$scope.showcCardUpdateForm;
+    };
+    self.cCardUpdateFormConfirm = function () {
+        $scope.openAlertOffscreen($scope.login.id.cCardUpdated,$scope.message_cCardUpdated);
     };
 
 /**  **********************  LOGIN VALIDATION  **/
@@ -549,8 +563,9 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
             guestCheckout: 'guest-checkout-message',
             loginOrSignup: 'login-message',
             emptyCart: 'empty-cart-message',
-            lowInventory: 'low-db-inventory'
-
+            lowInventory: 'low-db-inventory',
+            cCardUpdated: 'cCard-updated',
+            addressUpdated: 'address-updated'
         }
     };
     
@@ -663,7 +678,27 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         '   </div>' +
         '  </md-dialog-content>' +
         '</md-dialog>';
-    
+    $scope.message_addressUpdated =
+        '<md-dialog>' +
+        '  <md-dialog-content>' +
+        '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
+        '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
+        '            <h5 class="proceed2checkout-cartEmpty-header" style="text-align: center">Awesome!  Your macarons will be shipped to {{cartC.finalizedOrder.customer.address}} </h5>' +
+        '       </div>' +
+        '   </div>' +
+        '  </md-dialog-content>' +
+        '</md-dialog>';
+    $scope.message_cCardUpdated =
+        '<md-dialog>' +
+        '  <md-dialog-content>' +
+        '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
+        '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
+        '            <h5 class="proceed2checkout-cartEmpty-header" style="text-align: center">Sweet! Your Credit Card Is Updated...Buy...Buy...Buy</h5>' +
+        '       </div>' +
+        '   </div>' +
+        '  </md-dialog-content>' +
+        '</md-dialog>';
+
 
 
 }]);///Cart Controller

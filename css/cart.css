@@ -312,6 +312,7 @@ md-dialog-content {
 }
 #shipto-form .fa-pencil-square{
     color: purple;
+    outline: none
 }
 
 /********************************   END CART - page 2 - w/login forms   ***************************************/
