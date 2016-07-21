@@ -431,8 +431,9 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         self.finalizedOrder.Cart = [];
         self.finalizedOrder.orderNumber = "";
         self.finalizedOrder.orderTime = "";
-
-        cart = {
+        self.cart.total=0;
+        self.cart.macaron_array[7].ordered = 0;
+        self.cart = {
             //customerLoggedIn: true, //cart.customerLoggedIn
             total: 0,
             subTotal : 0,
@@ -526,6 +527,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                 }
             ]};
         console.log("self.finalizedOrder.orderTime = ",self.finalizedOrder.orderTime,"self.finalizedOrder.orderNumber = ",self.finalizedOrder.orderNumber,"self.finalizedOrder.Cart = ",self.finalizedOrder.Cart, "cart  = ",cart );
+        console.log("cart after empty: ", cart);
     };//self.emptyCart
 
 /** **********************  ANGULAR MDL FUNCTIONS  ********************** **/

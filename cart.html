@@ -564,7 +564,7 @@
                         </tr>
                     </thead>
                     <!--cartC.user.isLoggedIn ? macaron.name : 'macaron.name + showLowInventory'-->
-                    <tbody>
+                    <tbody id="cart_current_content">
                         <tr ng-repeat="macaron in cartC.cart.macaron_array | filter: filter" >
                             <td class="mdl-data-table__cell--non-numeric" ng-id="{{macaron.name}}" >{{macaron.name}}</td>
                             <td ng-id="{{macaron.ordered}}" >{{macaron.ordered}}</td>
