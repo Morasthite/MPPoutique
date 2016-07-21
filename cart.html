@@ -525,7 +525,7 @@
                                             <h5> Shipping Info: </h5>
                                             <i class="fa fa-user" aria-hidden="true"></i><label>Ship To</label>
                                             <input type="text" class="form-control" id="shipto-name" ng-model="cartC.finalizedOrder.customer.name">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i><label>Address</label>
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i><label>Address</label><a href="?"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
                                             <input class="form-control" id="shipto-address" placeholder="12345 Parksingide Road, City, State, Zipcode" ng-model="cartC.finalizedOrder.customer.address">
                                             <i class="fa fa-user" aria-hidden="true"></i><label>Attention To:</label>
                                             <input class="form-control" id="shipto-attn" placeholder="attn:/ Micah Grodezetsky" ng-model="cartC.finalizedOrder.customer.attn">
@@ -564,7 +564,7 @@
                         </tr>
                     </thead>
                     <!--cartC.user.isLoggedIn ? macaron.name : 'macaron.name + showLowInventory'-->
-                    <tbody>
+                    <tbody id="cart_current_content">
                         <tr ng-repeat="macaron in cartC.cart.macaron_array | filter: filter" >
                             <td class="mdl-data-table__cell--non-numeric" ng-id="{{macaron.name}}" >{{macaron.name}}</td>
                             <td ng-id="{{macaron.ordered}}" >{{macaron.ordered}}</td>
