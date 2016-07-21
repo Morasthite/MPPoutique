@@ -9,6 +9,9 @@ h6, h5 {
 h3 {
     font-size: 2em;
 }
+button {
+    outline: none;
+}
 html.md-default-theme, html, body.md-default-theme, #contact_info, #contact_email {
     color:  #6A6969 ;
      background-color: #F8F2DA;
