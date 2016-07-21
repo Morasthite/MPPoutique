@@ -266,7 +266,7 @@ nav ul li.active {
     padding-top: 5%;
 }
 #map {
-    width: 95%;
+    width: 90%;
     margin:64px auto 0 auto;
     /*margin:5% auto auto auto;*/
     height: 60vh;
@@ -412,9 +412,11 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
 }
 #banner-others img {
     height: 63vh;
-    padding-top: 9vh;
-    padding-left: 120px;
-    padding-right: 120px;
+    padding: 9vh  0 0 0;
+    /*padding-left: 64px;*/
+    /*padding-right: 64px;*/
+    width: 90%;
+    margin: 0 5%;
 }
 .carousel-inner {
     position: absolute;
@@ -452,10 +454,10 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
 .carousel-caption-text5 {
     color: #842013;
 }
-#welcome-img-6{
-    width: 100%;
-    height: 80vh;
-}
+/*#welcome-img-6{*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+/*}*/
 
 /********************** GIFTS & PARTIES SECTION ************************/
 
@@ -531,7 +533,9 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
         top: 0px;
         right: 80%;
     }
-
+    .carousel-caption-text1 {
+                font-size: 1em;
+            }
     /*footer*/
     footer {
         text-align: center;
