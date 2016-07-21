@@ -507,7 +507,7 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     width: 70%;
 }
 .macaron_text {
-    margin-top:0vh;
+    margin-top:5vh;
 }
 /*///////////////////////media query for portrait///////////////*/
 @media screen and (orientation: portrait) {
