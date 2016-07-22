@@ -102,7 +102,7 @@ app.factory("cart",["$http",function ($http) {
                     price : 3.25,
                     ordered : 0
                 }
-            ]
+            ]////end of macaron array
         };///end of return
 
 }]);////end of factory

@@ -167,13 +167,13 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                     //console.log("response = ",response);
                     var data = response.data;
                     console.log("self.placeYourOrder received  response from save_order.php" +"\n"+ "response.data = : ", data);
+                    self.emptyCart();
                 },
                 function error(response) {
                     console.log("Oops, something went wrong", response);
                 }
             );//then
         self.resetInvoice(invoice);
-        self.emptyCart();
         self.showProceedToCheckoutButton = true;
         }
     };//end self.placeYourOrder
@@ -445,7 +445,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         self.finalizedOrder.Cart = [];
         self.finalizedOrder.orderNumber = "";
         self.finalizedOrder.orderTime = "";
-        console.log("macaron array before getting empty: ",self.cart.macaron_array);
+        console.log("macaron array before getting empty: ",cart.macaron_array);
         self.cart.total = 0;
         self.cart.subTotal = 0;
         self.cart.tax = 0;
@@ -543,11 +543,11 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
             var macaron_array = [];
             macaron_array.push(response.data);
             // console.log("macaron array after getting empty: ",self.cart.macaron_array);
-            self.cart.macaron_array =[];
+            cart.macaron_array =[];
             for(var i=0; i<response.data.length;i++){
-                self.cart.macaron_array.push(response.data[i]);
+                cart.macaron_array.push(response.data[i]);
             }
-            console.log("macaron array after getting empty and then filled with new data: ",self.cart.macaron_array);
+            console.log("macaron array after getting empty and then filled with new data: ",cart.macaron_array);
         });/////end of http call
         //console.log("self.finalizedOrder.orderTime = ", self.finalizedOrder.orderTime, "self.finalizedOrder.orderNumber = ", self.finalizedOrder.orderNumber, "self.finalizedOrder.Cart = ", self.finalizedOrder.Cart, "cart  = ", cart);
         console.log("cart after empty: ", cart);
