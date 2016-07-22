@@ -103,7 +103,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                                 }
                                 console.log("self.finalizedOrder = ", self.finalizedOrder);
                                 self.showShipToForm();
-                                self.displayToShipToForm(response);
+                                self.displayToShipToForm();
                                 $scope.showPlaceYourOrderButton = true;
                             }
                         }//else//if(user.isLoggedIn = true)
@@ -120,14 +120,19 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         console.log("self.displayToShipToForm is running, self.finalizedOrder.customer = ", self.finalizedOrder.customer);
         //self.finalizedOrder.customer = data[0][0];
         self.finalizedOrder.customer.name = self.finalizedOrder.customer.firstName + " " +self.finalizedOrder.customer.lastName;
-        self.finalizedOrder.customer.c_card_display = "************"+self.finalizedOrder.customer.c_card.slice(12,16);
+        var displayCC = " "+self.finalizedOrder.customer.c_card;
+        console.log ("displayCC",displayCC, "type", typeof displayCC);
+        displayCC = displayCC.slice(12,16);
+        console.log ("displayCC",displayCC);
+        self.finalizedOrder.customer.c_card_display = "************"+displayCC;
         self.finalizedOrder.customer.zip = parseInt(self.finalizedOrder.customer.zip);
         self.finalizedOrder.customer.phone = parseInt(self.finalizedOrder.customer.phone);
         self.finalizedOrder.customer.c_card = parseInt(self.finalizedOrder.customer.c_card);
         self.finalizedOrder.customer.c_card_exp = self.finalizedOrder.customer.c_card_exp.toString();
-        console.log("self.finalizedOrder.customer.c_card_exp", self.finalizedOrder.customer.c_card_exp, typeof self.finalizedOrder.customer.c_card_exp);
-        self.finalizedOrder.customer.c_card_exp_new = self.finalizedOrder.customer.c_card_exp_new.slice(0,33);
-        console.log("card_exp", self.finalizedOrder.customer.c_card_exp);
+        console.log("self.finalizedOrder.customer.c_card_exp = ", self.finalizedOrder.customer.c_card_exp,"self.finalizedOrder.customer.c_card_exp type = ",  typeof self.finalizedOrder.customer.c_card_exp);
+        var stringMeAlongBaby = self.finalizedOrder.customer.c_card_exp;
+        self.finalizedOrder.customer.c_card_exp = stringMeAlongBaby.slice(0,33);
+        console.log("Processed card_exp = ", self.finalizedOrder.customer.c_card_exp);
         self.finalizedOrder.customer.address = self.finalizedOrder.customer.street+ " " +self.finalizedOrder.customer.city+ " " +self.finalizedOrder.customer.state+ " " +self.finalizedOrder.customer.zip;
 
     };//end displayToShipToForm
@@ -358,7 +363,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
     self.guestUser = {
             first_name: "",
             last_name: "",
-            street_address: "",
+            street: "",
             city: "",
             state: "",
             zip: "",
@@ -453,17 +458,13 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         console.log("self.emptyCart is running, cart.macaron_array = ", cart.macaron_array);
         self.finalizedOrder.Cart = [];
         self.finalizedOrder.orderNumber = "";
-         self.finalizedOrder.orderTime = "";
+        self.finalizedOrder.orderTime = "";
+        console.log("macaron array before getting empty: ",self.cart.macaron_array);
         self.cart.total = 0;
-        self.cart.macaron_array[7].ordered = 0;
-        self.cart = {
-            //customerLoggedIn: true, //cart.customerLoggedIn
-            total: 0,
-            subTotal: 0,
-            tax: 0,
-            totalCost: 0,
-            inventory: $http.post("php/macaron_inventory_call.php"),
-            macaron_array: [
+        self.cart.subTotal = 0;
+        self.cart.tax = 0;
+        self.cart.totalCost = 0;
+        self.cart.macaron_array = [
                 {
                     name: "Chocolate",
                     description: "chocolate, macaron and ...",
@@ -548,11 +549,25 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                     price: 3.25,
                     ordered: 0
                 }
-            ]
-        };
-        console.log("self.finalizedOrder.orderTime = ", self.finalizedOrder.orderTime, "self.finalizedOrder.orderNumber = ", self.finalizedOrder.orderNumber, "self.finalizedOrder.Cart = ", self.finalizedOrder.Cart, "cart  = ", cart);
+            ];
+        $http({
+            url: "php/macaron_inventory_call.php",
+            method: 'POST'
+        }).then(function (response) {
+            var macaron_array = [];
+            macaron_array.push(response.data);
+            // console.log("macaron array after getting empty: ",self.cart.macaron_array);
+            self.cart.macaron_array =[];
+            for(var i=0; i<response.data.length;i++){
+                self.cart.macaron_array.push(response.data[i]);
+            }
+            console.log("macaron array after getting empty and then filled with new data: ",self.cart.macaron_array);
+        });/////end of http call
+        // $("#cart_current_content>tr>td").val() = '';
+        //console.log("self.finalizedOrder.orderTime = ", self.finalizedOrder.orderTime, "self.finalizedOrder.orderNumber = ", self.finalizedOrder.orderNumber, "self.finalizedOrder.Cart = ", self.finalizedOrder.Cart, "cart  = ", cart);
         console.log("cart after empty: ", cart);
     };
+
 
 /** **********************  ANGULAR MDL FUNCTIONS  ********************** **/
 
