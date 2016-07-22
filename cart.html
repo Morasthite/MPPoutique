@@ -612,7 +612,7 @@
                                             <div class="col-sm-6 form-group">
                                                 <md-input-container class="md-block">
                                                     <label>Email Address</label><i class="fa fa-envelope" aria-hidden="true"></i>
-                                                    <input type="email" required="" name="email" ng-model="cartC.finalizedOrder.customer.email" minlength="8" maxlength="100" ng-pattern="/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/">
+                                                    <input type="email" required="" name="email" ng-model="cartC.finalizedOrder.customer.email" minlength="8" maxlength="100" ng-pattern="/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/" disabled="disabled">
                                                     <div ng-messages="addressUpdateForm.email.$error" role="alert">
                                                         <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
                                                             A valid email address is required, like this: john@gmail.com
@@ -622,7 +622,7 @@
                                             </div><!-- class="col-sm-6 form group -->
                                         </div><!--row-phone-email -->
 
-                                        <button id="addressUpdate-form-submit-btn" type="button" class="col-sm-offset-4 col-sm-4 col-xs-12 btn btn-lg btn-info" ng-click="cartC.showAddressUpdateFormToggle(); cartC.addressUpdateFormConfirm()" ng-disabled="addressUpdateForm.$invalid">Submit<i class="fa fa-arrow-circle-right fa-submit" aria-hidden="true"></i></button>
+                                        <button id="addressUpdate-form-submit-btn" type="button" class="col-sm-offset-4 col-sm-4 col-xs-12 btn btn-lg btn-info" ng-click="cartC.showAddressUpdateFormToggle(); cartC.addressUpdateFormConfirm(); cartC.displayToShipToForm()" ng-disabled="addressUpdateForm.$invalid">Submit<i class="fa fa-arrow-circle-right fa-submit" aria-hidden="true"></i></button>
                                     </div>
                                 </form>
                             </md-content>
@@ -635,7 +635,7 @@
             <div layout="column" ng-cloak=""  ng-show="showcCardUpdateForm" class =" inputdemoErrors login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="cCardUpdateForm">
                 <div class=" cCardUpdate-form">
                     <div class="col-sm-offset-1 col-sm-10 col-xs-12 well">
-                        <h3 class="login-header"><i class="fa fa-credit-card" aria-hidden="true"></i>No Problemo, Please Enter Your Credit Card Information</h3>
+                        <h3 class="login-header"><i class="fa fa-credit-card" id="header-fa" aria-hidden="true"></i>No Problemo, Please Enter Your Credit Card Information</h3>
                         <div class="row">
                             <md-content layout-padding="">
                                 <form name="cCardUpdateForm">
@@ -689,7 +689,7 @@
                                             </div><!-- class="col-sm-6 form group -->
 
                                         </div><!--row Credit Card Info-->
-                                        <button id="cCardUpdate-form-submit-btn" type="button" class="col-sm-offset-4 col-sm-4 col-xs-12 btn btn-lg btn-info" ng-click="cartC.showcCardUpdateFormToggle(); cartC.cCardUpdateFormConfirm()" ng-disabled="cCardUpdateForm.$invalid">Submit<i class="fa fa-arrow-circle-right fa-submit" aria-hidden="true"></i></button>
+                                        <button id="cCardUpdate-form-submit-btn" type="button" class="col-sm-offset-4 col-sm-4 col-xs-12 btn btn-lg btn-info" ng-click="cartC.showcCardUpdateFormToggle(); cartC.cCardUpdateFormConfirm(); cartC.displayToShipToForm()" ng-disabled="cCardUpdateForm.$invalid">Submit<i class="fa fa-arrow-circle-right fa-submit" aria-hidden="true"></i></button>
                                     </div>
                                 </form>
                             </md-content>
@@ -701,7 +701,7 @@
             <!-- Ship-to Form -->
             <div ng-show="showShipToForm" class ="login-forms col-sm-offset-2 col-sm-8 col-xs-12 " id="shipto-form">
                 <div class=" shipto-form">
-                    <h4 class="well">Awesome! Please Verify Your Shipping And Payment Info: </h4>
+                    <h3 class="well">Awesome! Please Verify Your Shipping And Payment Info: </h3>
                     <div class="col-lg-12 well">
                         <div class="row">
                             <form>
@@ -712,7 +712,7 @@
                                             <i class="fa fa-user" aria-hidden="true"></i><label>Ship To</label><i ng-click="cartC.showAddressUpdateFormToggle()" class=" edit-info fa fa-pencil-square" aria-hidden="true"></i>
                                             <input type="text" class="form-control" id="shipto-name" placeholder="{{cartC.finalizedOrder.customer.firstName + ' ' +cartC.finalizedOrder.customer.lastName}}" disabled="disabled">
                                             <i class="fa fa-map-marker" aria-hidden="true"></i><label>Address</label>
-                                            <input class="form-control" id="shipto-address" placeholder="{{cartC.finalizedOrder.customer.street_address+ ' ' +cartC.finalizedOrder.customer.city+ ' ' +cartC.finalizedOrder.customer.state+ ' ' +cartC.finalizedOrder.customer.zip}}"  disabled="disabled">
+                                            <input class="form-control" id="shipto-address" placeholder="{{cartC.finalizedOrder.customer.street+ ' ' +cartC.finalizedOrder.customer.city+ ' ' +cartC.finalizedOrder.customer.state+ ' ' +cartC.finalizedOrder.customer.zip}}"  disabled="disabled">
                                             <i class="fa fa-user" aria-hidden="true"></i><label>Attention To:</label>
                                             <input class="form-control" id="shipto-attn" placeholder="{{cartC.finalizedOrder.customer.attn}}" disabled="disabled" >
                                             <i class="fa fa-building-o" aria-hidden="true"></i><label>Company</label>
@@ -723,7 +723,7 @@
                                             <i class="fa fa-credit-card" aria-hidden="true"></i><label>Card Number:</label><i class=" edit-info fa fa-pencil-square" aria-hidden="true"ng-click="cartC.showcCardUpdateFormToggle()"></i>
                                             <input class="form-control" id="shipto-creditcard-number" placeholder="{{cartC.finalizedOrder.customer.c_card_display}}" disabled="disabled">
                                             <i class="fa fa-calendar" aria-hidden="true"></i><label>Expiration Date</label>
-                                            <input class="form-control" id="shipto-credit-card-exp" placeholder="12/2019" ng-model="cartC.finalizedOrder.customer.c_card_exp" disabled="disabled">
+                                            <input class="form-control" id="shipto-credit-card-exp" ng-model="cartC.finalizedOrder.customer.c_card_exp" disabled="disabled">
 
                                             <i class="fa fa-user" aria-hidden="true"></i><label>Name On Card</label>
                                             <input class="form-control" id="shipto-name-on-card" placeholder="{{cartC.finalizedOrder.customer.name_on_card}}" disabled="disabled">

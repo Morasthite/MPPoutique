@@ -41,6 +41,9 @@
     -moz-border-radius: 2px;
     border-radius: 2px;
 }
+#shipto-form h3{
+    font-size: 2em;
+}
 
 .mdl-button {
     color: white;
@@ -306,6 +309,7 @@ md-dialog-content {
 #shipto-name-on-card {
     color: black;
 }
+
 .edit-info {
     position: absolute;
     right: 5px;
@@ -313,6 +317,10 @@ md-dialog-content {
 #shipto-form .fa-pencil-square{
     color: purple;
     outline: none
+}
+#header-fa {
+    padding-right:10px;
+    color: green;
 }
 
 /********************************   END CART - page 2 - w/login forms   ***************************************/

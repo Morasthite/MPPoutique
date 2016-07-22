@@ -79,6 +79,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                         }
                         else {
                             if (user.isLoggedIn = true) {
+                                self.finalizedOrder.customer = data[0][0];
                                 for (var mikolajczyk = 0; mikolajczyk < self.dbCart.length; mikolajczyk++) {
                                     for (var grodezteszky = 0; grodezteszky < self.cart.macaron_array.length; grodezteszky++) {
                                         if (self.cart.macaron_array[grodezteszky].ordered > 0) {
@@ -114,15 +115,23 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         }//else
     };//end proceedToCheckOut
 
-    self.displayToShipToForm = function(response){
-        var data = response.data;
-        console.log("self.displayToShipToForm is running, cartC.proceedToCheckout received successful response from checkout.php, response = : ", data);
-        //self.dbCart = data[1];
-        self.finalizedOrder.customer = data[0][0];
+    self.displayToShipToForm = function(){
+        //var data = response.data;
+        console.log("self.displayToShipToForm is running, self.finalizedOrder.customer = ", self.finalizedOrder.customer);
+        //self.finalizedOrder.customer = data[0][0];
         self.finalizedOrder.customer.name = self.finalizedOrder.customer.firstName + " " +self.finalizedOrder.customer.lastName;
         self.finalizedOrder.customer.c_card_display = "************"+self.finalizedOrder.customer.c_card.slice(12,16);
+        self.finalizedOrder.customer.zip = parseInt(self.finalizedOrder.customer.zip);
+        self.finalizedOrder.customer.phone = parseInt(self.finalizedOrder.customer.phone);
+        self.finalizedOrder.customer.c_card = parseInt(self.finalizedOrder.customer.c_card);
+        self.finalizedOrder.customer.c_card_exp = self.finalizedOrder.customer.c_card_exp.toString();
+        console.log("self.finalizedOrder.customer.c_card_exp", self.finalizedOrder.customer.c_card_exp, typeof self.finalizedOrder.customer.c_card_exp);
+        self.finalizedOrder.customer.c_card_exp_new = self.finalizedOrder.customer.c_card_exp_new.slice(0,33);
+        console.log("card_exp", self.finalizedOrder.customer.c_card_exp);
         self.finalizedOrder.customer.address = self.finalizedOrder.customer.street+ " " +self.finalizedOrder.customer.city+ " " +self.finalizedOrder.customer.state+ " " +self.finalizedOrder.customer.zip;
+
     };//end displayToShipToForm
+    //$scope.c_card_exp_new =
     self.generateOrderNumber = function(){
         var orderDay = new Date();
         var orderTime = orderDay.getTime();
@@ -683,7 +692,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         '  <md-dialog-content>' +
         '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
         '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
-        '            <h5 class="proceed2checkout-cartEmpty-header" style="text-align: center">Awesome!  Your macarons will be shipped to {{cartC.finalizedOrder.customer.address}} </h5>' +
+        '            <h5 class="proceed2checkout-cartEmpty-header" style="text-align: center">Awesome!  Your macarons will be shipped to {{cartC.finalizedOrder.customer.street_address+ " " +cartC.finalizedOrder.customer.city+ " " +cartC.finalizedOrder.customer.state+ " " +cartC.finalizedOrder.customer.zip}} </h5>' +
         '       </div>' +
         '   </div>' +
         '  </md-dialog-content>' +
