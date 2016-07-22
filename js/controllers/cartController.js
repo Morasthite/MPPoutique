@@ -181,13 +181,14 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                     //console.log("response = ",response);
                     var data = response.data;
                     console.log("self.placeYourOrder received  response from save_order.php" +"\n"+ "response.data = : ", data);
+                    self.emptyCart();
                 },
                 function error(response) {
                     console.log("Oops, something went wrong", response);
                 }
             );//then
         self.resetInvoice(invoice);
-        self.emptyCart();
+
         self.showProceedToCheckoutButton = true;
         }
     };//end self.placeYourOrder

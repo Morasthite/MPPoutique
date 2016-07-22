@@ -166,11 +166,7 @@
     box-shadow: 2px 2px 4px 4px rgba(0, 105, 92, 0.38);
     background-color: #f3f3f3;
 }
-/*#shipto-form {*/
-    /*!*background-color: rgb(163, 243, 235);*!*/
-    /*background-color: #f3f3f3;*/
-    /*box-shadow: 2px 2px 4px 4px rgba(0, 105, 92, 0.38);*/
-}
+
 .signup-form .row,
 .guest-checkout-form .row {
     overflow: hidden;
