@@ -1,11 +1,15 @@
 /** July 4th Theme StyleSheet **/
 nav {
-    background:#4183D7 url("../assets/images/holidays/4th.png") no-repeat !important;
-    background-size: cover !important;
+    background:#3399CC url("../assets/images/holidays/4th1.png") no-repeat !important;
+    background-size: contain !important;
 }
 
 nav li a {
-    color: #ffffff;
+    color: #fff !important;
+    text-shadow: 4px 4px 8px black !important;
+}
+.n-link {
+    color: dodgerblue;
 }
 #nav a:hover {
     /*color: rgb(0, 251, 255)!important;*/
@@ -19,7 +23,7 @@ nav li a {
 .navbar-default .navbar-nav > .active > a:focus,
 .navbar-default .navbar-nav > .active > a > i {
     background-color: inherit !important;
-    color: darkblue !important;
+    color: red !important;
     text-shadow: 2px 2px 5px black !important;
     height: 10vh;
 }
@@ -36,20 +40,20 @@ nav li a {
 }
 /*///////////////caresel///////////////////////*/
 #gifts-card-img1 {
-    background-image: url('../assets/images/holidays/n1.jpg') !important;
+    background-image: url('../assets/images/holidays/gift2.jpg') !important;
 }
 #gifts-card-img2 {
-    background-image: url('../assets/images/holidays/n2.jpg') !important;
+    /*background-image: url('../assets/images/holidays/n2.jpg') !important;*/
 }
 #gifts-card-img3 {
-    background-image: url('../assets/images/holidays/n3.jpg') !important;
+    background-image: url('../assets/images/holidays/gift1.jpg') !important;
 }
 /*#gifts-card-img4 {*/
     /*background-image: url('../assets/images/holidays/n4.jpg') !important;*/
     /*width: 70%;*/
 /*}*/
 #gifts-card-img5 {
-    background-image: url('../assets/images/holidays/n5.jpg') !important;
+    /*background-image: url('../assets/images/holidays/n5.jpg') !important;*/
 }
 #gifts-card-img6 {
     background-image: url('../assets/gifts/flower_tower.png');

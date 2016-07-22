@@ -79,7 +79,6 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                         }
                         else {
                             if (user.isLoggedIn = true) {
-                                self.finalizedOrder.customer = data[0][0];
                                 for (var mikolajczyk = 0; mikolajczyk < self.dbCart.length; mikolajczyk++) {
                                     for (var grodezteszky = 0; grodezteszky < self.cart.macaron_array.length; grodezteszky++) {
                                         if (self.cart.macaron_array[grodezteszky].ordered > 0) {
@@ -115,23 +114,15 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         }//else
     };//end proceedToCheckOut
 
-    self.displayToShipToForm = function(){
-        //var data = response.data;
-        console.log("self.displayToShipToForm is running, self.finalizedOrder.customer = ", self.finalizedOrder.customer);
-        //self.finalizedOrder.customer = data[0][0];
+    self.displayToShipToForm = function(response){
+        var data = response.data;
+        console.log("self.displayToShipToForm is running, cartC.proceedToCheckout received successful response from checkout.php, response = : ", data);
+        //self.dbCart = data[1];
+        self.finalizedOrder.customer = data[0][0];
         self.finalizedOrder.customer.name = self.finalizedOrder.customer.firstName + " " +self.finalizedOrder.customer.lastName;
         self.finalizedOrder.customer.c_card_display = "************"+self.finalizedOrder.customer.c_card.slice(12,16);
-        self.finalizedOrder.customer.zip = parseInt(self.finalizedOrder.customer.zip);
-        self.finalizedOrder.customer.phone = parseInt(self.finalizedOrder.customer.phone);
-        self.finalizedOrder.customer.c_card = parseInt(self.finalizedOrder.customer.c_card);
-        self.finalizedOrder.customer.c_card_exp = self.finalizedOrder.customer.c_card_exp.toString();
-        console.log("self.finalizedOrder.customer.c_card_exp", self.finalizedOrder.customer.c_card_exp, typeof self.finalizedOrder.customer.c_card_exp);
-        self.finalizedOrder.customer.c_card_exp_new = self.finalizedOrder.customer.c_card_exp_new.slice(0,33);
-        console.log("card_exp", self.finalizedOrder.customer.c_card_exp);
         self.finalizedOrder.customer.address = self.finalizedOrder.customer.street+ " " +self.finalizedOrder.customer.city+ " " +self.finalizedOrder.customer.state+ " " +self.finalizedOrder.customer.zip;
-
     };//end displayToShipToForm
-    //$scope.c_card_exp_new =
     self.generateOrderNumber = function(){
         var orderDay = new Date();
         var orderTime = orderDay.getTime();
@@ -453,104 +444,112 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         console.log("self.emptyCart is running, cart.macaron_array = ", cart.macaron_array);
         self.finalizedOrder.Cart = [];
         self.finalizedOrder.orderNumber = "";
-         self.finalizedOrder.orderTime = "";
+        self.finalizedOrder.orderTime = "";
+        console.log("macaron array before getting empty: ",self.cart.macaron_array);
         self.cart.total = 0;
-        self.cart.macaron_array[7].ordered = 0;
-        self.cart = {
-            //customerLoggedIn: true, //cart.customerLoggedIn
-            total: 0,
-            subTotal: 0,
-            tax: 0,
-            totalCost: 0,
-            inventory: $http.post("php/macaron_inventory_call.php"),
-            macaron_array: [
-                {
-                    name: "Chocolate",
-                    description: "chocolate, macaron and ...",
-                    source: "assets/images/chocolate.png",
-                    price: 3.5,
-                    ordered: 0
-                },
-                {
-                    name: "Almond",
-                    description: "almond, macaron and ...",
-                    source: "assets/images/almond.png",
-                    price: 3,
-                    ordered: 0
-                },
-                {
-                    name: "Caramel",
-                    description: "caramel, macaron and ...",
-                    source: "assets/images/caramel.png",
-                    price: 2.99,
-                    ordered: 0
-                },
-                {
-                    name: "Coconut",
-                    description: "coconut, macaron and ...",
-                    source: "assets/images/coconut.png",
-                    price: 3,
-                    ordered: 0
-                },
-                {
-                    name: "Coffee",
-                    description: "coffee, macaron and ...",
-                    source: "assets/images/coffee.png",
-                    price: 3.45,
-                    ordered: 0
-                },
-                {
-                    name: "Lemon",
-                    description: "lemon, macaron and ...",
-                    source: "assets/images/Lemon.png",
-                    price: 3.5,
-                    ordered: 0
-                },
-                {
-                    name: "Passion Fruit",
-                    description: "fruit, macaron and ...",
-                    source: "assets/images/passion-fruit.png",
-                    price: 3.23,
-                    ordered: 0
-                },
-                {
-                    name: "Pistachio",
-                    description: "pistachio, macaron and ...",
-                    source: "assets/images/pistachio.png",
-                    price: 3,
-                    ordered: 0
-                },
-                {
-                    name: "Raspbery",
-                    description: "rasbery, macaron and ...",
-                    source: "assets/images/raspbery.png",
-                    price: 3.45,
-                    ordered: 0
-                },
-                {
-                    name: "Rose",
-                    description: "rose, macaron and ...",
-                    source: "assets/images/rose.png",
-                    price: 3.25,
-                    ordered: 0
-                },
-                {
-                    name: "Rose",
-                    description: "rose, macaron and ...",
-                    source: "assets/images/rose.png",
-                    price: 3.25,
-                    ordered: 0
-                },
-                {
-                    name: "Rose",
-                    description: "rose, macaron and ...",
-                    source: "assets/images/rose.png",
-                    price: 3.25,
-                    ordered: 0
-                }
-            ]
-        };
-        console.log("self.finalizedOrder.orderTime = ", self.finalizedOrder.orderTime, "self.finalizedOrder.orderNumber = ", self.finalizedOrder.orderNumber, "self.finalizedOrder.Cart = ", self.finalizedOrder.Cart, "cart  = ", cart);
+        self.cart.subTotal = 0;
+        self.cart.tax = 0;
+        self.cart.totalCost = 0;
+        self.cart.macaron_array = [
+            {
+                name: "Chocolate",
+                description: "chocolate, macaron and ...",
+                source: "assets/images/chocolate.png",
+                price: 3.5,
+                ordered: 0
+            },
+            {
+                name: "Almond",
+                description: "almond, macaron and ...",
+                source: "assets/images/almond.png",
+                price: 3,
+                ordered: 0
+            },
+            {
+                name: "Caramel",
+                description: "caramel, macaron and ...",
+                source: "assets/images/caramel.png",
+                price: 2.99,
+                ordered: 0
+            },
+            {
+                name: "Coconut",
+                description: "coconut, macaron and ...",
+                source: "assets/images/coconut.png",
+                price: 3,
+                ordered: 0
+            },
+            {
+                name: "Coffee",
+                description: "coffee, macaron and ...",
+                source: "assets/images/coffee.png",
+                price: 3.45,
+                ordered: 0
+            },
+            {
+                name: "Lemon",
+                description: "lemon, macaron and ...",
+                source: "assets/images/Lemon.png",
+                price: 3.5,
+                ordered: 0
+            },
+            {
+                name: "Passion Fruit",
+                description: "fruit, macaron and ...",
+                source: "assets/images/passion-fruit.png",
+                price: 3.23,
+                ordered: 0
+            },
+            {
+                name: "Pistachio",
+                description: "pistachio, macaron and ...",
+                source: "assets/images/pistachio.png",
+                price: 3,
+                ordered: 0
+            },
+            {
+                name: "Raspbery",
+                description: "rasbery, macaron and ...",
+                source: "assets/images/raspbery.png",
+                price: 3.45,
+                ordered: 0
+            },
+            {
+                name: "Rose",
+                description: "rose, macaron and ...",
+                source: "assets/images/rose.png",
+                price: 3.25,
+                ordered: 0
+            },
+            {
+                name: "Rose",
+                description: "rose, macaron and ...",
+                source: "assets/images/rose.png",
+                price: 3.25,
+                ordered: 0
+            },
+            {
+                name: "Rose",
+                description: "rose, macaron and ...",
+                source: "assets/images/rose.png",
+                price: 3.25,
+                ordered: 0
+            }
+        ];
+        $http({
+            url: "php/macaron_inventory_call.php",
+            method: 'POST'
+        }).then(function (response) {
+            var macaron_array = [];
+            macaron_array.push(response.data);
+            // console.log("macaron array after getting empty: ",self.cart.macaron_array);
+            self.cart.macaron_array =[];
+            for(var i=0; i<response.data.length;i++){
+                self.cart.macaron_array.push(response.data[i]);
+            }
+            console.log("macaron array after getting empty and then filled with new data: ",self.cart.macaron_array);
+        });/////end of http call
+        //console.log("self.finalizedOrder.orderTime = ", self.finalizedOrder.orderTime, "self.finalizedOrder.orderNumber = ", self.finalizedOrder.orderNumber, "self.finalizedOrder.Cart = ", self.finalizedOrder.Cart, "cart  = ", cart);
         console.log("cart after empty: ", cart);
     };
 
@@ -694,7 +693,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         '  <md-dialog-content>' +
         '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
         '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
-        '            <h5 class="proceed2checkout-cartEmpty-header" style="text-align: center">Awesome!  Your macarons will be shipped to {{cartC.finalizedOrder.customer.street_address+ " " +cartC.finalizedOrder.customer.city+ " " +cartC.finalizedOrder.customer.state+ " " +cartC.finalizedOrder.customer.zip}} </h5>' +
+        '            <h5 class="proceed2checkout-cartEmpty-header" style="text-align: center">Awesome!  Your macarons will be shipped to {{cartC.finalizedOrder.customer.address}} </h5>' +
         '       </div>' +
         '   </div>' +
         '  </md-dialog-content>' +

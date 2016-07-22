@@ -1,8 +1,62 @@
 /** NewYear Theme StyleSheet **/
-nav{
-    background: #F4D03F;
+nav {
+    background:#3399CC url("../assets/images/holidays/4th1.png") no-repeat !important;
+    background-size: contain !important;
 }
 
-footer{
-    background: #212121;
+nav li a {
+    color: #fff !important;
+    text-shadow: 4px 4px 8px black !important;
+}
+.n-link {
+    color: dodgerblue;
+}
+#nav a:hover {
+    /*color: rgb(0, 251, 255)!important;*/
+    /*color: #C7AFBD!important;*/
+    color: red!important;
+    text-shadow: 2px 2px 5px black !important;
+    font-size: 120%;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a > i {
+    background-color: inherit !important;
+    color: red !important;
+    text-shadow: 2px 2px 5px black !important;
+    height: 10vh;
+}
+/*////////////footer*/
+._md-fab-toolbar-background {
+    background-color: #4183D7 !important;
+}
+.md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-primary.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-primary.md-fab:not([disabled]):hover {
+    background-color: #4183D7 !important;
+}
+.md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab {
+    color: rgba(255,255,255,0.87);
+    background-color: #4183D7 !important;
+}
+/*///////////////caresel///////////////////////*/
+#gifts-card-img1 {
+    background-image: url('../assets/images/holidays/gift2.jpg') !important;
+}
+#gifts-card-img2 {
+    /*background-image: url('../assets/images/holidays/n2.jpg') !important;*/
+}
+#gifts-card-img3 {
+    background-image: url('../assets/images/holidays/gift1.jpg') !important;
+}
+/*#gifts-card-img4 {*/
+/*background-image: url('../assets/images/holidays/n4.jpg') !important;*/
+/*width: 70%;*/
+/*}*/
+#gifts-card-img5 {
+    /*background-image: url('../assets/images/holidays/n5.jpg') !important;*/
+}
+#gifts-card-img6 {
+    background-image: url('../assets/gifts/flower_tower.png');
+    height: 100%;
+    width: 70%;
 }

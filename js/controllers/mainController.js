@@ -51,11 +51,13 @@ app.controller('mainController',["$log","$scope","config","cart", "user", '$sce'
    }
     /////footer
     $scope.isOpen = false;
-
     $scope.footer = {
         isOpen: false,
         count: 0,
         selectedDirection: 'left'
+    };
+    $scope.footer_click = function () {
+        console.log("footer open? ", $scope.footer.isOpen);
     };
     this.topDirections = ['left', 'up'];
     this.bottomDirections = ['down', 'right'];

@@ -61,7 +61,7 @@
     <!--------------------  MAIN CONTENT ------------------>
         <div id="main_content">
         <div id="banner-carousel" ng-bind-html="carousel" ng-show="mainC.config.menuIndice == 1 ? 'true':''"></div>
-        <div id="banner-others" ng-hide="mainC.config.menuIndice == 1 || mainC.config.menuIndice == 4 ? 'true':''">
+        <div id="banner-others" ng-hide="mainC.config.menuIndice == 1 || mainC.config.menuIndice == 4 || mainC.config.menuIndice == 12 ? 'true':''">
             <img class="header-img col-xs-12" ng-src="{{mainC.config.banner}}" ng-hide="mainC.config.banner == 'assets/images/banners/contact-image.png' ? 'true':''">
         </div>
         <div ng-view></div>
@@ -96,8 +96,8 @@
             <!--</p>-->
 <!--///////////////////////////////////////////-->
 
-        <md-fab-toolbar md-open="footer.isOpen" count="footer.count" md-direction="{{footer.selectedDirection}}" class="md-fab md-fab-bottom-right" style="position:fixed !important; z-index: 5 !important; width: 100vw!important; right: 0!important; bottom: 0!important;">
-            <md-fab-trigger class="align-with-text">
+        <md-fab-toolbar md-open="footer.isOpen" count="footer.count" md-direction="{{footer.selectedDirection}}" class="md-fab md-fab-bottom-right" style="position:fixed !important;!important; right: 0!important; bottom: 0!important; z-index: 5 !important;">
+            <md-fab-trigger class="align-with-text" style="z-index: 5 !important;">
                 <md-button aria-label="menu" class="md-fab md-primary">
                     <md-icon ng-style="{color: white}" aria-label="question_answer" class="material-icons step">
                         question_answer
@@ -203,7 +203,8 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
         <script src="js/routing/route.js"></script>
     <!-- Controllers -->
-        <script src="js/controllers/cartController.js"></script>
+        <!--<script src="js/controllers/cartController.js"></script>-->
+        <script src="js/controllers/cartController3.js"></script>
         <script src="js/controllers/contactController.js"></script>
         <script src="js/controllers/giftController.js"></script>
         <script src="js/controllers/macaronController.js"></script>
