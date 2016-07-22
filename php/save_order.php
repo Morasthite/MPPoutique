@@ -24,7 +24,6 @@ foreach ($data as $item) {
            }///end of while
         }///end of if
     $upDateInventoryQuery = "UPDATE `inventory` SET `amount` = amount-$quantity WHERE `id` = $name";
-
         echo "update inventory: query =";
         echo "<br>";
         print_r($query);
@@ -37,14 +36,13 @@ foreach ($data as $item) {
         }
 }/////end of for loop
 
-$street = "'".$_POST['customer']['street_address']."'";
+$street = "'".$_POST['customer']['street']."'";
 $city = "'".$_POST['customer']['city']."'";
 $zip = "'".$_POST['customer']['zip']."'";
 $state = "'".$_POST['customer']['state']."'";
 $phone = "'".$_POST['customer']['phone']."'";
 $email = "'".$_POST['customer']['email']."'";
 $c_card = "'".$_POST['customer']['c_card']."'";
-//$c_card_exp_new = $_POST['customer']['c_card_exp_new'];
 $c_card_exp = $_POST['customer']['c_card_exp'];
 $name_on_card = "'".$_POST['customer']['name_on_card']."'";
 $card_billing_address = "'".$_POST['customer']['card_billing_address']."'";
@@ -58,8 +56,12 @@ if (!empty($_POST['customer']['attn'])) {
 }else{
     $attn = "'NULL'";
 }
-//$c_card_exp = strtotime($c_card_exp_new);
-$c_card_exp = strtotime($c_card_exp);
+echo $_POST['customer']['c_card_exp'];
+echo '<br>';
+echo 'echo $c_card_exp;'.$c_card_exp;
+$c_card_exp =  substr($c_card_exp,0,34);
+$c_card_exp =  strtotime($c_card_exp);
+echo 'echo $c_card_exp;'.$c_card_exp;
 
 $upDateCustomerInfoQuery = "UPDATE `customer` SET `street` = $street, `city` = $city, `state` = $state, `zip` = $zip, `company` = $company, `attn` = $attn, `phone` = $phone, `email` = $email, `c_card` = $c_card, `c_card_exp` = $c_card_exp, `name_on_card` = $name_on_card,`card_billing_address` = $card_billing_address WHERE `username` = $email";
     echo "upDateCustomerInfoQuery = ";

@@ -6,7 +6,8 @@ if (!empty ($_POST)){
     $fname = "'".$_POST['first_name']."'";
     $lname = "'".$_POST['last_name']."'";
     $password = "'".sha1($_POST['password'])."'";
-    $street = "'".$_POST['street_address']."'";
+    $street = "'".$_POST['street']."'";
+//    $street = "'".$_POST['street_address']."'";
     $city = "'".$_POST['city']."'";
     $zip = "'".$_POST['zip']."'";
     $state = "'".$_POST['state']."'";

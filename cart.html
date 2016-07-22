@@ -101,7 +101,8 @@
                                                 <md-input-container class="md-block">
                                                     <label>Last Name</label>
                                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                                    <input type="text" required="" name="last_name"  ng-model="cartC.newUser.last_name" minlength="1" maxlength="45" ng-pattern="/^[a-zA-Z]+(([\'\,\.\-][a-zA-Z])?[a-zA-Z]*)*$/">
+                                                    <input type="text" required="" name="last_name"  ng-model="cartC.newUser.last_name" minlength="1" maxlength="45" ng-pattern="/^[0-9a-zA-Z. ]+$/">
+                                                    <!--<input type="text" required="" name="last_name"  ng-model="cartC.newUser.last_name" minlength="1" maxlength="45" ng-pattern="/^[a-zA-Z]+(([\'\,\.\-][a-zA-Z])?[a-zA-Z]*)*$/">-->
                                                     <div ng-messages="signUpForm.last_name.$error" role="alert">
                                                         <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
                                                             Your last name must be between 1 and 45 characters long.
@@ -115,7 +116,8 @@
                                             <div class="form-group">
                                                 <md-input-container class="md-block">
                                                     <label>Address</label><i class="fa fa-map-marker" aria-hidden="true"></i>
-                                                    <textarea  required="" name="street_address" ng-model="cartC.newUser.street_address" rows="3"  ng-pattern="/^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$/"></textarea>
+                                                    <textarea  required="" name="street" ng-model="cartC.newUser.street" rows="3"  ng-pattern="/^[0-9a-zA-Z. ]+$/"></textarea>
+                                                    <!--<textarea  required="" name="street_address" ng-model="cartC.newUser.street_address" rows="3"  ng-pattern="/^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$/"></textarea>-->
                                                     <div ng-messages="signUpForm.street_address.$error" role="alert">
                                                         <div ng-message-exp="['required', 'pattern']">
                                                             Your address must include street name and number, like this: 12345 Street Name.
@@ -340,8 +342,8 @@
                                             <div class="form-group">
                                                 <md-input-container class="md-block">
                                                     <label>Address</label><i class="fa fa-map-marker" aria-hidden="true"></i>
-                                                    <textarea  required="" name="street_address" ng-model="cartC.guestUser.street_address" rows="3"  ng-pattern="/^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$/"></textarea>
-                                                    <div ng-messages="guestCheckoutForm.street_address.$error" role="alert">
+                                                    <textarea  required="" name="street" ng-model="cartC.guestUser.street" rows="3"  ng-pattern="/^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$/"></textarea>
+                                                    <div ng-messages="guestCheckoutForm.street.$error" role="alert">
                                                         <div ng-message-exp="['required', 'pattern']">
                                                             Your address must include street name and number, like this: 12345 Street Name.
                                                         </div><!-- <div ng-message-exp -->
@@ -525,8 +527,9 @@
                                             <div class="form-group">
                                                 <md-input-container class="md-block">
                                                     <label>Address</label><i class="fa fa-map-marker" aria-hidden="true"></i>
-                                                    <textarea  required="" name="street" ng-model="cartC.finalizedOrder.customer.street_address" rows="3"  ng-pattern="/^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$/"></textarea>
-                                                    <div ng-messages="addressUpdateForm.street_address.$error" role="alert">
+                                                    <textarea  required="" name="street" ng-model="cartC.finalizedOrder.customer.street" rows="3"  ng-pattern="/^[0-9a-zA-Z. ]+$/"></textarea>
+                                                    <!--<textarea  required="" name="street" ng-model="cartC.finalizedOrder.customer.street_address" rows="3"  ng-pattern="/^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$/"></textarea>-->
+                                                    <div ng-messages="addressUpdateForm.street.$error" role="alert">
                                                         <div ng-message-exp="['required', 'pattern']">
                                                             Your address must include street name and number, like this: 12345 Street Name.
                                                         </div><!-- <div ng-message-exp -->
@@ -633,7 +636,7 @@
 
             <!--cCard Update Form-->
             <div layout="column" ng-cloak=""  ng-show="showcCardUpdateForm" class =" inputdemoErrors login-forms col-sm-offset-1 col-sm-10 col-xs-12" id="cCardUpdateForm">
-                <div class=" cCardUpdate-form">
+                <div class=" cCardUpdate-form signup-form">
                     <div class="col-sm-offset-1 col-sm-10 col-xs-12 well">
                         <h3 class="login-header"><i class="fa fa-credit-card" id="header-fa" aria-hidden="true"></i>No Problemo, Please Enter Your Credit Card Information</h3>
                         <div class="row">
@@ -667,7 +670,10 @@
                                                     <i class="fa fa-credit-card"  id="cCardUpdate-cc-fa" aria-hidden="true"></i>
                                                     <label id="cCardUpdate-form-cc-exp">Expiration Date</label>
                                                     <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                    <md-datepicker ng-model="cartC.finalizedOrder.customer.c_card_exp"  md-min-date="newDate" md-placeholder="Enter date"></md-datepicker>
+                                                    <!--<input type="date" ng-model="cartC.finalizedOrder.customer.c_card_exp"  md-min-date="newDate" md-placeholder="Enter date">-->
+
+                                                    <md-datepicker ng-model="cartC.finalizedOrder.customer.c_card_exp"  md-min-date="newDate" md-placeholder="{{cartC.finalizedOrder.customer.c_card_exp}}"></md-datepicker>
+                                                    <!--<md-datepicker ng-model="cartC.finalizedOrder.customer.c_card_exp"  md-min-date="newDate" md-placeholder="Enter date"></md-datepicker>-->
                                                 </div>
                                             </div><!-- class="col-sm-6 form group -->
 
@@ -696,7 +702,7 @@
                         </div><!--row-->
                     </div>
                 </div>
-            </div><!-- cCard Update Form -->
+            </div><!-- End cCard Update Form -->
 
             <!-- Ship-to Form -->
             <div ng-show="showShipToForm" class ="login-forms col-sm-offset-2 col-sm-8 col-xs-12 " id="shipto-form">
@@ -720,10 +726,10 @@
                                         </div>
                                         <div class="col-sm-6 form-group">
                                             <h5> Credit Card On File </h5>
-                                            <i class="fa fa-credit-card" aria-hidden="true"></i><label>Card Number:</label><i class=" edit-info fa fa-pencil-square" aria-hidden="true"ng-click="cartC.showcCardUpdateFormToggle()"></i>
+                                            <i class="fa fa-credit-card" aria-hidden="true"></i><label>Card Number:</label><i class=" edit-info fa fa-pencil-square" aria-hidden="true" ng-click="cartC.showcCardUpdateFormToggle()"></i>
                                             <input class="form-control" id="shipto-creditcard-number" placeholder="{{cartC.finalizedOrder.customer.c_card_display}}" disabled="disabled">
                                             <i class="fa fa-calendar" aria-hidden="true"></i><label>Expiration Date</label>
-                                            <input class="form-control" id="shipto-credit-card-exp" ng-model="cartC.finalizedOrder.customer.c_card_exp" disabled="disabled">
+                                            <input class="form-control" id="shipto-credit-card-exp" placeholder={{cartC.finalizedOrder.customer.c_card_exp}} disabled="disabled">
 
                                             <i class="fa fa-user" aria-hidden="true"></i><label>Name On Card</label>
                                             <input class="form-control" id="shipto-name-on-card" placeholder="{{cartC.finalizedOrder.customer.name_on_card}}" disabled="disabled">
