@@ -29,15 +29,14 @@ html {
 }
 /*////////////////////////nav bar///////////////////////////////////*/
 #nav {
-    /*background-color: #b22a5e;*/
+    background-color: #b22a5e;
     /*background-color: #5e112d;*/
-    background-color: #880e4f;
+    /*background-color: #880e4f;*/
     /*background-color: #00695c;*/
     /*background-color: #c51162;*/
     /*background-color: #484452;*/
     /*background-color: #C9A798;*/
     color: white;
-    #margin-bottom: 5%;
 }
 #nav a{
     color: white;
@@ -61,6 +60,7 @@ html {
 /*/cart badge in nav/*/
 .mdl-badge.mdl-badge--overlap:after {
     top:2px;
+    color: rgb(0, 255, 188)!important;
 }
 /*cart tab*/
 .fa-shopping-cart {
@@ -75,6 +75,10 @@ html {
     color: rgb(0, 251, 255)!important;
     height: 10vh;
 }
+.navbar-default .navbar-nav > .active > a {
+    color: rgb(0, 255, 188)!important;
+}
+
 /*///////////////////////banner///////////////////////////*/
 #banner-carousel {
     #padding-top: 5%;
@@ -161,7 +165,14 @@ md-fab-toolbar md-toolbar .md-toolbar-tools {
     background-color: rgb(211, 31, 127) !important;
 }
 .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-primary.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-primary.md-fab:not([disabled]):hover {
-background-color: rgb(211, 31, 127) !important;
+    background-color: rgb(211, 31, 127) !important;
+}
+.md-button.md-primary.md-fab:not([disabled]) {
+    background-color: rgb(178, 42, 94) !important;
+}
+.md-button.md-primary.md-fab:not([disabled]):hover {
+    background-color: rgb(211, 31, 127)!important;
+    box-shadow: 3px 2px 5px 1px rgba(26, 194, 255, 0.88)!important;
 }
 .md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab {
     color: rgba(255,255,255,0.87);

@@ -21,6 +21,7 @@
 #guest-checkout-btn:hover {
     color: #00fbe3;
     background-color: rgb(211, 31, 127)!important;
+    box-shadow: 3px 2px 5px 1px rgba(26, 194, 255, 0.88)!important;
 }
 
 .mdl-button--raised {
@@ -88,6 +89,7 @@
     height: 4vh;
     color: #00fbe3;
     background-color: rgb(112, 17, 68) !important;
+    box-shadow: 3px 2px 5px 1px rgba(26, 194, 255, 0.88)!important;
 }
 #proceed-to-checkout button,
 #place-your-order-btn button{
