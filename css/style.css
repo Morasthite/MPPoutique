@@ -31,9 +31,9 @@ html {
 #nav {
     /*background-color: #b22a5e;*/
     /*background-color: #5e112d;*/
-    /*background-color: #880e4f;*/
+    background-color: #880e4f;
     /*background-color: #00695c;*/
-    background-color: #c51162;
+    /*background-color: #c51162;*/
     /*background-color: #484452;*/
     /*background-color: #C9A798;*/
     color: white;
@@ -53,6 +53,9 @@ html {
 }
 .mdl-badge[data-badge]:after {
     top: 1px;
+}
+#macarons-li {
+    padding-left:0;
 }
 /*******************EXPERIMENT*****************/
 /*/cart badge in nav/*/

@@ -160,7 +160,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
     self.placeYourOrder = function (){
             console.log('self.placeYourOrder is running');
         if(self.finalizedOrder.Cart.length == 0){
-            //console.log('You Cant Buy From An Empty Cart');
+            $scope.openAlertOffscreen($scope.login.id.emptyCart, $scope.message_emptyCart);
         }else {
         self.generateOrderNumber();
         invoice.showContent = true;
@@ -181,14 +181,13 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                     //console.log("response = ",response);
                     var data = response.data;
                     console.log("self.placeYourOrder received  response from save_order.php" +"\n"+ "response.data = : ", data);
-                    self.emptyCart();
                 },
                 function error(response) {
                     console.log("Oops, something went wrong", response);
                 }
             );//then
         self.resetInvoice(invoice);
-
+        //self.emptyCart();
         self.showProceedToCheckoutButton = true;
         }
     };//end self.placeYourOrder
@@ -504,7 +503,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                 {
                     name: "Lemon",
                     description: "lemon, macaron and ...",
-                    source: "assets/images/Lemon.png",
+                    source: "assets/images/lemon.png",
                     price: 3.5,
                     ordered: 0
                 },

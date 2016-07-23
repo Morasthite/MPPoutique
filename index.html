@@ -42,8 +42,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- ng-class: if mainC...ind == 1, print class=active, else print empty-->
                     <li ng-class="mainC.config.menuIndice == 1 ? 'active':''"><a href="#welcome" class="n-link">WELCOME
-                        <span style="color:yellow">  {{ mainC.user.isLoggedIn ? mainC.user.firstName : ''}}</span></a></li>
-                    <li ng-class="mainC.config.menuIndice == 2 ? 'active':''"><a href="#macarons" class="n-link">OUR
+                        <span style="color:yellow; padding-left: 10px;"> {{ mainC.user.isLoggedIn ? mainC.user.firstName : ''}}</span></a></li>
+                    <li ng-class="mainC.config.menuIndice == 2 ? 'active':''"><a href="#macarons" class="n-link" id="macarons-li">OUR
                         MACARONS</a></li>
                     <li ng-class="mainC.config.menuIndice == 3 ? 'active':''"><a href="#gifts" class="n-link">GIFTS &amp;
                         PARTIES</a></li>
@@ -68,33 +68,6 @@
         </div><!--End Main Content-->
 
     <!--------------------  FOOTER ---------------------->
-        <!--<footer class="col-sm-12 col-xs-12">-->
-        <!--<div class="col-sm-4 col-xs-12">-->
-            <!--<ul>-->
-                <!--<li><i class="fa fa-phone" aria-hidden="true"></i></li>-->
-                <!--<li><i class="fa fa-envelope" aria-hidden="true"></i></li>-->
-                <!--<li><i class="fa fa-map" aria-hidden="true"></i></li>-->
-            <!--</ul>-->
-        <!--</div>-->
-        <!--<div class="col-sm-4 col-xs-12" id="right">-->
-            <!--<p class="copyright">Copyright &copy; 2015 MBoutique. All rights reserved</p>-->
-        <!--</div>-->
-        <!--<div class="col-sm-4 col-xs-12">-->
-            <!--<ul>-->
-                <!--<li><i class="footer_fa fa fa-facebook" aria-hidden="true"></i></li>-->
-                <!--<li><i class="footer_fa fa fa-instagram" aria-hidden="true"></i></li>-->
-                <!--<li><i class="footer_fa fa fa-twitter" aria-hidden="true"></i></li>-->
-                <!--<li><i class="footer_fa fa fa-pinterest" aria-hidden="true"></i></li>-->
-                <!--<li><i class="footer_fa fa fa-google" aria-hidden="true"></i></li>-->
-            <!--</ul>-->
-        <!--</div>-->
-    <!--</footer>&lt;!&ndash;End Footer&ndash;&gt;-->
-    <!--<div ng-cloak="" class="fabToolbardemoBasicUsage">-->
-        <!--<md-content class="md-padding">-->
-            <!--<p>-->
-                <!--You can use the fabToolbar with a trigger and regular toolbar.-->
-            <!--</p>-->
-<!--///////////////////////////////////////////-->
 
         <md-fab-toolbar md-open="footer.isOpen" count="footer.count" md-direction="{{footer.selectedDirection}}" class="md-fab md-fab-bottom-right" style="position:fixed !important;!important; right: 0!important; bottom: 0!important; z-index: 5 !important;">
             <md-fab-trigger class="align-with-text" style="z-index: 5 !important;">
@@ -111,69 +84,19 @@
                     <div layout="row" layout-xs="column">
                         <div flex class="footer_row">
                             <ul>
-                                <li><a href="https://www.facebook.com/login/"><i class="footer_fa fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="https://www.instagram.com/accounts/login/"><i class="footer_fa fa fa-instagram" aria-hidden="true"></i></a></li>
-                                <li><a href="https://twitter.com/?lang=en"><i class="footer_fa fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="https://hangouts.google.com/"><i class="footer_fa fa fa-google" aria-hidden="true"></i></a></li>
-                                <li><a href="#contact"><i class="footer_fa fa fa-envelope" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.facebook.com/login/" target="_blank" ><i class="footer_fa fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.instagram.com/accounts/login/" target="_blank" ><i class="footer_fa fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="https://twitter.com/?lang=en" target="_blank" ><i class="footer_fa fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="https://hangouts.google.com/" target="_blank" ><i class="footer_fa fa fa-google" aria-hidden="true"></i></a></li>
+                                <li><a href="#contact" target="_blank" ><i class="footer_fa fa fa-envelope" aria-hidden="true"></i></a></li>
 
-                                <li><a href="tel:555-555-1212"><i class="footer_fa fa fa-phone" aria-hidden="true"></i></a></li>
+                                <li><a href="tel:555-555-1212" target="_blank>"> <i class="footer_fa fa fa-phone" aria-hidden="true"></i></a></li>
                                 </ul>
                         </div>
                         <div flex class="footer_row">
-                            <p class="copyright">Copyright &copy; 2015 MBoutique. All rights reserved</p>
+                            <p class="copyright">Copyright &copy; 2015 MPoutique. All rights reserved</p>
                         </div>
                     </div>
-
-<!--//////here-->
-                    <!--<div class="container">-->
-                        <!--<div class="row">-->
-                            <!--<div class="col 16 s12">-->
-                                <!--<p class="white-text">Footer Content</p>-->
-                                <!--<p class="grey-text text-lighten-4"></p>-->
-                            <!--</div>-->
-                            <!--<div class="col 16 s12">-->
-                                <!--<md-button aria-label="Twitter" class="md-fab md-raised md-mini">-->
-                                <!--<md-icon md-svg-src="img/icons/twitter.svg" aria-label="Twitter"></md-icon>-->
-                                <!--</md-button>-->
-                                <!--<md-button aria-label="Facebook" class="md-fab md-raised md-mini">-->
-                                <!--<md-icon md-svg-src="img/icons/facebook.svg" aria-label="Facebook"></md-icon>-->
-                                <!--</md-button>-->
-                                <!--<md-button aria-label="Google Hangout" class="md-fab md-raised md-mini">-->
-                                <!--<md-icon md-svg-src="img/icons/hangout.svg" aria-label="Google Hangout"></md-icon>-->
-                                <!--</md-button>-->
-                            <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="footer-copyright">-->
-                        <!--<div class="container">-->
-                            <!--© 2014 Copyright Text-->
-                            <!--<a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                   <!--</div>-->
-
-
-
-
-
-
-                    <!--<md-button aria-label="Twitter" class="md-fab md-raised md-mini">-->
-                        <!--<md-icon md-svg-src="img/icons/twitter.svg" aria-label="Twitter"></md-icon>-->
-                    <!--</md-button>-->
-                    <!--<md-button aria-label="Facebook" class="md-fab md-raised md-mini">-->
-                        <!--<md-icon md-svg-src="img/icons/facebook.svg" aria-label="Facebook"></md-icon>-->
-                    <!--</md-button>-->
-                    <!--<md-button aria-label="Google Hangout" class="md-fab md-raised md-mini">-->
-                        <!--<md-icon md-svg-src="img/icons/hangout.svg" aria-label="Google Hangout"></md-icon>-->
-                    <!--</md-button>-->
-                    <!--<md-button aria-label="" class="md-fab md-raised md-mini">-->
-                        <!--<md-icon md-svg-src="/android.svg" aria-label="android "></md-icon>-->
-                    <!--</md-button>-->
-                    <!--<md-content layout-align="start center" flex layout-padding>-->
-                        <!--<p>Copyright &copy; 2015 MBoutique. All rights reserved</p>-->
-                        <!--</md-content>-->
-
-                    <!--///here-->
                 </div>
                 </md-fab-actions>
             </md-toolbar>
@@ -203,8 +126,8 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
         <script src="js/routing/route.js"></script>
     <!-- Controllers -->
-        <!--<script src="js/controllers/cartController.js"></script>-->
-        <script src="js/controllers/cartController3.js"></script>
+        <script src="js/controllers/cartController.js"></script>
+        <!--<script src="js/controllers/cartController3.js"></script>-->
         <script src="js/controllers/contactController.js"></script>
         <script src="js/controllers/giftController.js"></script>
         <script src="js/controllers/macaronController.js"></script>
