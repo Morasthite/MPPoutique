@@ -11,7 +11,8 @@ app.controller('invoiceController',["$scope","config","invoice","$location","car
     this.addSubTotall = function(count, price){
         return  parseFloat((parseInt(count) * parseFloat(price)).toFixed(2)) ;
     };
-    /////////////if invoice is empty
+    this.invoice.customer.phoneDisplay = ((invoice.customer.phone).toString()).slice(0,3)+"-"+
+    ((invoice.customer.phone).toString()).slice(3,6)+"-"+((invoice.customer.phone).toString()).slice(6,9);
     if (!invoice.showContent){
         $location.path('/cart');
     } /////////////end of if
