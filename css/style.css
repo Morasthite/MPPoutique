@@ -139,8 +139,14 @@ ul li {
 .footer_fa, .fa-envelope.footer_fa {
   color: white;
 }
+.footer_fa:hover,
+.fa-envelope.footer_fa:hover {
+    color: #00fbff !important;
+}
+
 .fabToolbardemoBasicUsage md-fab-toolbar.md-right md-fab-trigger.align-with-text {
-    left: 7px; }
+    left: 7px;
+}
 md-fab-toolbar {
     min-height: 70px;
     line-height: 18px;
@@ -162,7 +168,8 @@ md-fab-toolbar md-toolbar .md-toolbar-tools {
     margin-top: 10px;
 }
 ._md-fab-toolbar-background {
-    background-color: rgb(211, 31, 127) !important;
+    background-color: #b22a5e !important;
+    /*background-color: rgb(211, 31, 127) !important;*/
 }
 .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-primary.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-primary.md-fab:not([disabled]):hover {
     background-color: rgb(211, 31, 127) !important;
