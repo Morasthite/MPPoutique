@@ -199,7 +199,8 @@
      height: 0;
  }
  .cart-header {
-     color: #9c27b0 !important;
+     /*color: #9c27b0 !important;*/
+     color: #b22a5e !important;
      font-size: 1.2em !important;
      font-weight: bold;
  }
@@ -291,7 +292,13 @@ md-datepicker-calendar-icon {
 }
 #items-table-header,
 #totals-table-header-total{
-    background: #c3ecf4;
+    background: #b1bed1;
+    /*background:darkgray;*/
+    /*background: #c3ecf4;*/
+}
+#cart_current_content{
+    color: black;
+    font-size: 14px;
 }
 md-dialog-content {
     background: #edf0f2;
