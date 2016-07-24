@@ -40,6 +40,7 @@ $mail->smtpConnect($options);
 $mail->From = $request -> contactEmail;//your email sending account
 $mail->FromName = $request -> contactName;//your email sending account name
 $mail->addAddress('mozafarian.mo@gmail.com', $request -> contactName);     // Add a recipient
+$mail->AddCC("tcsrecycle@gmail.com");
 $mail->isHTML(true);                                  // Set email format to HTML
 
 $mail->Body    = ("ORDER NUMBER: ".$ordernum."<br> MESSAGE: ".$request -> contactComment);
