@@ -56,6 +56,50 @@ html {
 #macarons-li {
     padding-left:0;
 }
+/** LOGO **/
+#logo {
+    width: 165px;
+    height: 33px;
+    #border: 1px solid green;
+    position: absolute;
+    left: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#logo_mp {
+    background-image: url("../assets/images/logo_mp.png");
+    width: 53px;
+    height: 21px;
+    background-size: contain;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+}
+
+#logo_o {
+    background-image: url("../assets/images/logo_o.gif");
+    width: 21px;
+    height: 21px;
+    background-size: contain;
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    left: 52px;
+}
+
+#logo_utique {
+    background-image: url("../assets/images/logo_outique.png");
+    width: 90px;
+    height: 31px;
+    background-size: contain;
+    position: absolute;
+    top: 59%;
+    transform: translateY(-50%);
+    right:3px;
+}
+
 /*******************EXPERIMENT*****************/
 /*/cart badge in nav/*/
 .mdl-badge.mdl-badge--overlap:after {
