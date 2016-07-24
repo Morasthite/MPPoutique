@@ -2,7 +2,7 @@
 <html ng-app="mainApp" ng-controller="mainController as mainC">
 <head>
     <title>MPoutique</title>
-    <link rel="icon" href="assets/icons/favicon-p.png">
+    <link rel="icon" href="../assets/icons/favicon-p.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Pearl Micah">
@@ -18,12 +18,12 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <!-- Style Sheets -->
-        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="../css/bootstrap.css">
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="css/cart.css" rel="stylesheet" type="text/css">
-        <link href="css/materialize.css" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link href="../css/cart.css" rel="stylesheet" type="text/css">
+        <link href="../css/materialize.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
         <link ng-href="{{style}}" rel="stylesheet" type="text/css">
 </head>
 <body id="main-content">
@@ -36,7 +36,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img class="navbar-brand" src="assets/images/logo.png">
+                <img class="navbar-brand" src="../assets/images/logo.png">
             </div>
             <div class="collapse navbar-collapse" id="myNavbar" ng-init="menuIndice = 1">
                 <ul class="nav navbar-nav navbar-right">
@@ -52,7 +52,7 @@
                     <li ng-class="mainC.config.menuIndice == 5 ? 'active':''"><a
                             class="n_link mdl-badge mdl-badge--overlap nav-badge" data-badge="{{mainC.cart.total}} "
                             href="#cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
-                    <li ng-hide="!mainC.user.isLoggedIn"><a href="php/logout.php" class="n-link">LOG OUT</a></li>
+                    <li ng-hide="!mainC.user.isLoggedIn"><a href="../php/logout.php" class="n-link">LOG OUT</a></li>
                 </ul>
             </div>
         </div>
@@ -319,25 +319,25 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
     <!-- Routing -->
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
-        <script src="js/routing/route.js"></script>
+        <script src="../js/routing/route.js"></script>
     <!-- Controllers -->
-        <script src="js/controllers/cartController.js"></script>
-        <script src="js/controllers/contactController.js"></script>
-        <script src="js/controllers/giftController.js"></script>
-        <script src="js/controllers/macaronController.js"></script>
-        <script src="js/controllers/mainController.js"></script>
-        <script src="js/controllers/welcomeController.js"></script>
-        <script src="js/controllers/invoiceController.js"></script>
-        <script src="js/controllers/logoutController.js"></script>
+        <script src="../js/controllers/cartController.js"></script>
+        <script src="../js/controllers/contactController.js"></script>
+        <script src="../js/controllers/giftController.js"></script>
+        <script src="../js/controllers/macaronController.js"></script>
+        <script src="../js/controllers/mainController.js"></script>
+        <script src="../js/controllers/welcomeController.js"></script>
+        <script src="../js/controllers/invoiceController.js"></script>
+        <script src="../js/controllers/logoutController.js"></script>
     <!-- Directives -->
         <!--<script src="js/directives/activeLink.js"></script>-->
     <!-- Services -->
-        <script src="js/services/cart_service.js"></script>
-        <script src="js/services/config.js"></script>
-        <script src="js/services/invoice.js"></script>
-        <script src="js/services/user.js"></script>
+        <script src="../js/services/cart_service.js"></script>
+        <script src="../js/services/config.js"></script>
+        <script src="../js/services/invoice.js"></script>
+        <script src="../js/services/user.js"></script>
     <!--Main Script-->
-        <script src="js/main.js"></script>
+        <script src="../js/main.js"></script>
     <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 
