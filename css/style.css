@@ -19,13 +19,18 @@ button {
 html {
     background-color: #DDECEF;
 }
+body {
+    background-color: #DDECEF;
+}
  #contact_info, #contact_email {
     color:  #6A6969 ;
      /*background-color: #F8F2DA;*/
      background-color: #DDECEF;
+     padding-top: 0;
 }
 #contact_info #accordion, #contact_email md-content {
     box-shadow: 3px 2px 5px 1px rgba(0, 0, 0, 0.38);
+    cursor: pointer;
 }
 /*////////////////////////nav bar///////////////////////////////////*/
 #nav {
@@ -349,6 +354,7 @@ nav ul li.active {
     background-color:#DDECEF;
     height: auto;
     padding-top: 5%;
+    margin-bottom:5vh;
 }
 #map {
     width: 90%;

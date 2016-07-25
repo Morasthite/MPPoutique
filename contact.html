@@ -7,10 +7,10 @@
         <p>We will contact you as soon as possible!</p>
     </div>
     <div layout="column" ng-cloak="" class="inputdemoErrors col-sm-5 col-xs-12" id="contact_email" ng-hide="contactC.show_thank">
+        <h4>Contact us!</h4>
         <md-content layout-padding="">
         <form class="contact col-xs-12" method="post" id="contact-form" name="contactForm" ng-show="contactC.show_form" ng-submit="contactC.submit(userForm.$valid)" >
             <!--novalidate novalidate prevents HTML5 validation since we will be validating ourselves-->
-            <h4>Contact us!</h4>
             <div class="col-sm-12">
                 <div class="row">
                     <md-input-container class="md-block">
@@ -68,6 +68,7 @@
         </form>
     </md-content>
     </div>
+
     <div id="contact_info" class="contact col-sm-7 col-xs-12">
         <h4>Visit us!</h4>
         <div class="panel-group" id="accordion">
@@ -192,12 +193,14 @@
                 ///mpoutigue marker
                 var mpoutique=new google.maps.Marker({
                     position: {lat: 33.653326, lng:-117.752502},
+                    icon: "assets/icons/my-location.png",
                     animation:google.maps.Animation.BOUNCE
                 });
                 mpoutique.setMap(map);
                 ///geolocation marker
                 var user=new google.maps.Marker({
-                    position:pos
+                    position:pos,
+                    icon: "assets/icons/your-location.png"
                 });
                 user.setMap(map);
                 ///user info window
