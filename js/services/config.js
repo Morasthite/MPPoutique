@@ -4,7 +4,7 @@ app.factory("config",function () {
         banner:"assets/images/banners/welcome-image.png",
         menuIndice : 1,
         bannerWelcome:
-            '<div class="carousel slide" id="welcome-carousel" data-ride="carousel">' +
+            '<div class="carousel" id="welcome-carousel" data-ride="carousel">' +
             '    <div class="carousel-inner" role="listbox">' +
             '       <div class="item active">' +
             '           <img id="welcome-img-1" src="assets/welcome/welcome-image-1.png">' +

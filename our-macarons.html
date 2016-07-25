@@ -21,7 +21,7 @@
                 <div class="card-content mac_content">
                     <span class="card-title activator grey-text text-darken-4 mac_name">{{macaron.name}}<i class="material-icons right">more_vert</i></span>
                     <p class="mac_price">{{"Price: $ "+macaron.price}}</p>
-                    <h6>ADD to cart <p ng-show="macaron.amount <6  ? 'true':''" style="color: red">( Limited Quantity)</p></h6>
+                    <!--<h6>ADD to cart <p ng-show="macaron.amount <6  ? 'true':''" style="color: red">( Limited Quantity)</p></h6>-->
                 </div>
                 <div style="border-radius: 60px" class="card-reveal">
                     <span class="card-title grey-text text-darken-4">{{macaron.name}}<i class="material-icons right">close</i></span>
@@ -29,6 +29,7 @@
                 </div>
                 <div class="card-action">
                     <div class="row mrg-bt-0">
+                        <h6>ADD to cart <p ng-show="macaron.amount <6  ? 'true':''" style="color: red">( Limited Quantity)</p></h6>
                         <div class="col s4"><a class="waves-effect waves-teal btn-flat" ng-class="macaron.name" ng-click="mc.add(macaron)"><i class="material-icons" ng-class="[macaron.name]">add</i></a></div>
                         <div class="col s4"><a class="waves-effect waves-teal btn-flat" ng-click="mc.minus(macaron)" ng-class="[macaron.name]"><i class="material-icons">remove</i></a></div>
                         <div class="col s4"><a class="waves-effect waves-teal btn-flat" ng-class="[macaron.name]"><span>{{macaron.ordered}}</span></a></div>
