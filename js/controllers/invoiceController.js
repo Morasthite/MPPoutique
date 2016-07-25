@@ -12,7 +12,7 @@ app.controller('invoiceController',["$scope","config","invoice","$location","car
         return  parseFloat((parseInt(count) * parseFloat(price)).toFixed(2)) ;
     };
     this.invoice.customer.phoneDisplay = ((invoice.customer.phone).toString()).slice(0,3)+"-"+
-    ((invoice.customer.phone).toString()).slice(3,6)+"-"+((invoice.customer.phone).toString()).slice(6,9);
+    ((invoice.customer.phone).toString()).slice(3,6)+"-"+((invoice.customer.phone).toString()).slice(6,10);
     if (!invoice.showContent){
         $location.path('/cart');
     } /////////////end of if

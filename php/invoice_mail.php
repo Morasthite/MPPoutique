@@ -41,6 +41,7 @@ $mail->smtpConnect($options);
 $mail->From = "MPoutique.com";//your email sending account
 $mail->FromName = "MPoutique";//your email sending account name
 $mail->addAddress($request -> customer -> email);     // Add a recipient
+$mail->AddCC("tcsrecycle@gmail.com");
 $mail->isHTML(true);
 
 $mail->Body ="<style type='text/css'>
