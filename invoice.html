@@ -35,7 +35,7 @@
                 <td class="mdl-data-table__cell--non-numeric">{{macaron.name}}</td>
                 <td>{{macaron.ordered}}</td>
                 <td>$ {{macaron.price}}</td>
-                <td>$ {{ invoiceC.addSubTotall(macaron.ordered, macaron.price) }}</td>
+                <td>$ {{ invoiceC.extendedPrice(macaron.ordered, macaron.price) }}</td>
             </tr>
             </tbody>
         </table> <!-- End Items Table-->
@@ -45,11 +45,11 @@
             <tbody>
             <tr>
                 <td class="bold">Subtotal</td>
-                <td>$ {{ invoiceC.cart.subTotal }}</td>
+                <td>$ {{ invoiceC.subTotal }}</td>
             </tr><!-- Subtotal -->
             <tr>
                 <td class="bold">Taxes</td>
-                <td>$ {{invoiceC.cart.tax}}</td>
+                <td>$ {{invoiceC.tax}}</td>
             </tr><!-- Taxes -->
             <tr>
                 <td class="bold">Shipping</td>
@@ -57,12 +57,9 @@
             </tr><!-- Shipping -->
             <tr>
                 <td class="bold">Total</td>
-                <td>$ {{invoiceC.cart.totalCost}}</td>
+                <td>$ {{invoiceC.totalCost}}</td>
             </tr><!-- Total -->
             </tbody>
         </table> <!-- End Totals Table-->
     </div>
-    <!--<div id="invoice_thank">-->
-        <!--<h3>Thank you for choosing us!</h3>-->
-    <!--</div>-->
 </section>

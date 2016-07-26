@@ -7,8 +7,17 @@ app.controller('invoiceController',["$scope","config","invoice","$location","car
     this.invoice = invoice;
     this.shipping = 7;
     this.cart = cart;
+    this.subTotal = cart.subTotal;
+    this.tax = cart.tax;
+    this.totalCost = cart.totalCost;
+
     console.log("show content in invoice: ",invoice);
-    this.addSubTotall = function(count, price){
+    console.log("invoiceC.shipping", this.shipping);
+    console.log("invoiceC.subTotal", this.subTotal);
+    console.log("invoiceC.tax", this.tax);
+    console.log("invoiceC.totalCost", this.totalCost);
+
+    this.extendedPrice = function(count, price){
         return  parseFloat((parseInt(count) * parseFloat(price)).toFixed(2)) ;
     };
     this.invoice.customer.phoneDisplay = ((invoice.customer.phone).toString()).slice(0,3)+"-"+
@@ -27,10 +36,10 @@ app.controller('invoiceController',["$scope","config","invoice","$location","car
         shipping: 7,
         total: cart.totalCost
     };
-  console.log("invoice_mail info : ", invoice_mail);
-    $http({
-        method: 'POST',
-        data : invoice_mail,
-        url: 'php/invoice_mail.php'
-    })
+  // console.log("invoice_mail info : ", invoice_mail);
+    // $http({
+    //     method: 'POST',
+    //     data : invoice_mail,
+    //     url: 'php/invoice_mail.php'
+    // })
 }]);///end of controller

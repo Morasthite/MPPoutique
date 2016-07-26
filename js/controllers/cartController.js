@@ -168,7 +168,24 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         invoice.cart = self.finalizedOrder.Cart;
         invoice.orderNumber = self.finalizedOrder.orderNumber;
         invoice.orderTime = self.finalizedOrder.orderTime;
-            console.log("invoice = ", invoice);
+
+        invoice.cart.subTotal = self.finalizedOrder.Cart.subTotal;
+        invoice.cart.tax = self.finalizedOrder.Cart.tax;
+        invoice.cart.shipping = self.finalizedOrder.Cart.shipping;
+        invoice.cart.totalCost = self.finalizedOrder.Cart.totalCost;
+
+        $scope.date = new Date();
+        var invoice_mail = {
+            cart: invoice.cart,
+            customer: invoice.customer,
+            orderNumber: invoice.orderNumber,
+            date: $scope.date,
+            subtotal: cart.subTotal,
+            tax: cart.tax,
+            shipping: 7,
+            total: cart.totalCost
+        };
+            console.log("invoice = ", invoice, "invoice_mail", invoice_mail);
         $http({
             url: "php/save_order.php",
             method: "post",
@@ -181,13 +198,19 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                     //console.log("response = ",response);
                     var data = response.data;
                     console.log("self.placeYourOrder received  response from save_order.php" +"\n"+ "response.data = : ", data);
+                    $http({
+                        method: 'POST',
+                        data : invoice_mail,
+                        url: 'php/invoice_mail.php'
+                    });
+                    console.log("sent invoice_mail to invoice_mail.php");
+                    self.resetInvoice(invoice);
+                    self.emptyCart();
                 },
                 function error(response) {
                     console.log("Oops, something went wrong", response);
                 }
             );//then
-        self.resetInvoice(invoice);
-        //self.emptyCart();
         self.showProceedToCheckoutButton = true;
         }
     };//end self.placeYourOrder
