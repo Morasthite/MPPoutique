@@ -6,12 +6,13 @@
  *          database >>>>> else, display error message.
  *          **/
 
-app.controller('cartController',["$scope","$http","config","cart", "invoice", "user", "$mdDialog", "$mdMedia", function ($scope, $http, config,cart,invoice,user,$mdDialog, $mdMedia) {
+app.controller('cartController',["$scope","$http","config","cart", "invoice", "user", "$mdDialog", "$mdMedia","invoiceDisplay", function ($scope, $http, config,cart,invoice,user,$mdDialog, $mdMedia, invoiceDisplay) {
     config.banner = "assets/images/banners/cart-banner.png";
     config.menuIndice = 5;
     var self = this;
 /** **********************  CART DISPLAY  ********************** **/
     self.invoice = invoice;
+    self.invoiceDisplay = invoiceDisplay;
     self.user = user;
     self.shipping = 7;
     self.subexists = parseInt(cart.subTotal);
@@ -478,7 +479,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
 
 /** **********************  CLEARING CART AND LOG OUT **/
     self.emptyCart = function () {
-        console.log("self.emptyCart is running, cart.macaron_array = ", cart.macaron_array);
+        console.log("self.emptyCart is running, cart.macaron_array before empty = ", cart.macaron_array);
         self.finalizedOrder.Cart = [];
         self.finalizedOrder.orderNumber = "";
         self.finalizedOrder.orderTime = "";
@@ -573,6 +574,8 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                     ordered: 0
                 }
             ];
+        console.log("self.cart.macaron_array",self.cart.macaron_array);
+        console.log("cart.macaron_array",cart.macaron_array);
         $http({
             url: "php/macaron_inventory_call.php",
             method: 'POST'
@@ -585,8 +588,12 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                 self.cart.macaron_array.push(response.data[i]);
             }
             console.log("macaron array after getting empty and then filled with new data: ",self.cart.macaron_array);
+            console.log("self.cart.macaron_array",self.cart.macaron_array);
+            console.log("cart.macaron_array",cart.macaron_array);
+            invoiceDisplay.invoice_sent = true;
         });/////end of http call
         console.log("cart after empty: ", cart);
+        console.log("cart.macaron_array",cart.macaron_array);
     };
 
 

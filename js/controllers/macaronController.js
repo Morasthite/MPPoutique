@@ -3,20 +3,30 @@
  * Scope is being passed in in case we use it later for another functionality,
  * cart is coming from cart_service.js, it passes in the total inventory, gets updated by this controller when add or minus is run
  **/
-app.controller('macaronController', ["$scope", "$timeout", "config","cart", "user", function ($scope, $timeout, config, cart, user) {
+app.controller('macaronController', ["$scope", "$timeout", "config","cart", "user","invoiceDisplay", function ($scope, $timeout, config, cart, user, invoiceDisplay) {
     var self = this;
     self.user = user;
     config.banner = "assets/images/banners/our-macarons-banner.png";
     config.menuIndice = 2;
     self.inventory = cart.inventory;
+    self.invoiceDisplay = invoiceDisplay;
     console.log("cart inventory @ beginning of macaronController: ",cart.inventory);
+    console.log("invoice_sent = ", invoiceDisplay.invoice_sent);
+
     cart.inventory.then(function (response) {
         console.log("inside cart.inventory.then");
+        self.cart = cart; console.log("self.cart", self.cart);
+
         var macaron_array = [];
         macaron_array.push(response.data);
         self.cart.macaron_array =[];
         for(var i=0; i<response.data.length;i++){
             self.cart.macaron_array.push(response.data[i]);
+            if(invoiceDisplay.invoice_sent){
+                //console.log("inside invoiceDisplay.invoice_sent");
+                //console.log("self.cart.macaron_array", self.cart.macaron_array);
+                self.cart.macaron_array[i].ordered = 0;
+            }
         }
          console.log("cart.macaron_array after adding: ",cart.macaron_array);
     });

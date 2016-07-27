@@ -1,5 +1,5 @@
 
-app.controller('invoiceController',["$scope","config","invoice","$location","cart","$http",function ($scope,config,invoice,$location,cart,$http) {
+app.controller('invoiceController',["$scope","config","invoice","$location","cart","$http","invoiceDisplay", function ($scope,config,invoice,$location,cart,$http,invoiceDisplay) {
     config.banner = "assets/images/banners/contact-image.png";
     config.menuIndice = 12;
     //console.log("invoice controller");

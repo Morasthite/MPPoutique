@@ -8,10 +8,8 @@ app.factory("cart",["$http",function ($http) {
     var self = this;
     var inventory = {};
     inventory.get = function () {
-
     };
     return {
-        //customerLoggedIn: false,
         total: 0,
         subTotal : 0,
         tax : 0,
