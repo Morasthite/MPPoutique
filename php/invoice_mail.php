@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: morvarid
- * Date: 7/17/2016
- * Time: 3:56 PM
- */
 require('phpmailer/PHPMailer/PHPMailerAutoload.php');
 ////Collect all Details from Angular HTTP Request.
 $postdata = file_get_contents("php://input");
@@ -59,7 +53,14 @@ text-decoration: none;
 }
 </style>
 <span class='letramenu5'>
-Dear <strong>".$request -> customer -> firstName." ".$request -> customer -> lastName."</strong>, Thank you for buying at <A HREF='www.MPoutique.com'>MPoutique.com</A>. Your order will be shipped as soon as possible.
+Dear <strong>".$request -> customer -> firstName." ".$request -> customer -> lastName."</strong>,<BR>
+Thank you for shopping at <A HREF='www.MPoutique.com'>MPoutique.com</A>.
+<BR> We're working on fulling your order and it will be shipped as soon as possible.
+<BR> If you have any questions or concerns, please don't hesitate to contact us.
+<BR><BR>
+<BR> Please have the order details below when you call.
+<BR> Thanks again,
+<BR> MPoutique
 </span><BR><BR>
 <table border='0' cellpadding='0' cellspacing='0'>
 <tr>
@@ -90,7 +91,7 @@ $mail->Body .= "</table>
 </form>
 <table width='199' border='0' align='right' cellpadding='0' cellspacing='1'>
    <tr><BR>
-       <td width='89' height='20' bgcolor='#999999'><div align='center'><span class='letrachicablbold'>SUBTOTAL</SPAN></div></td>
+       <td height='20' bgcolor='#999999'><div align='center'><span class='letrachicablbold'>SUBTOTAL</SPAN></div></td>
        <td width='107' bgcolor='#EAEAEA'><span class='letramenu5'>&nbsp;$ ".number_format($request -> subtotal,2,'.',',')."</span></td>
    </tr>
     <br>
