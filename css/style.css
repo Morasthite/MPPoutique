@@ -460,6 +460,7 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     /*border: 1px solid gray;*/
     padding : 2%;
     background: whitesmoke;
+    padding-top: 10vh;
 }
 #temp_content {
     background: #f8f2da;
