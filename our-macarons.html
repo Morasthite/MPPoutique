@@ -4,9 +4,9 @@
     </div>
     <p class="para-style para-fresh"> The vivid hues of our unique macarons reflect the natural flavors and essences
         that infuse the ganache filling of these delicious almond cookies – each has its own personality, and all
-        of them are made to savour for their delicacy and unique character.
+        of them are made to savour for their delicacy and unique.<br>
+        Shipping is only $7 flat.  Order as much as you want!
     </p>
-    <!--<h4> Go to town! Order as much as you want, shipping is only $7 flat fee!!! </h4>-->
 </section>
 <section id="shop">
     <!--<h5>SHOP ONLINE!</h5>-->
@@ -21,7 +21,7 @@
                 <div class="card-content mac_content">
                     <span class="card-title activator grey-text text-darken-4 mac_name">{{macaron.name}}<i class="material-icons right">more_vert</i></span>
                     <p class="mac_price">{{"Price: $ "+macaron.price}}</p>
-                    <!--<h6>ADD to cart <p ng-show="macaron.amount <6  ? 'true':''" style="color: red">( Limited Quantity)</p></h6>-->
+                    <p ng-show="macaron.amount <6  ? 'true':''" style="color: red">( Limited Quantity)</p>
                 </div>
                 <div style="border-radius: 60px" class="card-reveal">
                     <span class="card-title grey-text text-darken-4">{{macaron.name}}<i class="material-icons right">close</i></span>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="card-action">
                     <div class="row mrg-bt-0">
-                        <h6>ADD to cart <p ng-show="macaron.amount <6  ? 'true':''" style="color: red">( Limited Quantity)</p></h6>
+                        <h6>ADD to cart </h6>
                         <div class="col s4"><a class="waves-effect waves-teal btn-flat" ng-class="macaron.name" ng-click="mc.add(macaron)"><i class="material-icons" ng-class="[macaron.name]">add</i></a></div>
                         <div class="col s4"><a class="waves-effect waves-teal btn-flat" ng-click="mc.minus(macaron)" ng-class="[macaron.name]"><i class="material-icons">remove</i></a></div>
                         <div class="col s4"><a class="waves-effect waves-teal btn-flat" ng-class="[macaron.name]"><span>{{macaron.ordered}}</span></a></div>
@@ -37,27 +37,6 @@
                 </div>
             </div>
 
-        <!--<div ng-repeat="macaron in mc.cart.macaron_array" ng-id="macaron.name" class="mac col-sm-offset-1 col-md-2 col-sm-3 col-xs-12" ng-class="macaron.amount <6  ? 'limited':''">-->
-            <!--<img class="mac_img col-xs-12 " ng-src="{{macaron.source}}" >-->
-            <!--<div>-->
-                <!--<p class="mac_name">{{macaron.name}}</p>-->
-                <!--<p class="mac_description">{{macaron.description}}</p>-->
-                <!--<p class="mac_price">{{"Price: $ "+macaron.price}}</p>-->
-                <!--<h6>ADD to cart <span ng-show="macaron.amount <6  ? 'true':''" style="color: red">( Limited Quantity)</span></h6>-->
-
-                <!--<p>-->
-                    <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;fab mdl-button&#45;&#45;mini-fab mdl-button&#45;&#45;colored" ng-class="macaron.name" ng-click="mc.add(macaron)">-->
-                        <!--<i class="fa fa-plus" aria-hidden="true" ng-class="macaron.name"></i>-->
-                    <!--</button>-->
-                    <!--<button ng-class="macaron.name" class="mdl-button mdl-js-button mdl-button&#45;&#45;fab mdl-button&#45;&#45;mini-fab mdl-button&#45;&#45;colored" ng-click="mc.minus(macaron)">-->
-                         <!--<i class="fa fa-minus" aria-hidden="true" ng-class="macaron.name"></i>-->
-                    <!--</button>-->
-                    <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;fab mdl-button&#45;&#45;mini-fab mdl-button&#45;&#45;colored">-->
-                        <!--<span>{{macaron.ordered}}</span>-->
-                    <!--</button>-->
-                <!--</p>-->
-            <!--</div>-->
-        <!--</div>-->
 
         </div>
     </div>

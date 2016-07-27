@@ -42,10 +42,12 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
             if(cart.macaron_array[i].ordered > 0){
                 //self.finalizedOrder.Cart.push(cart.macaron_array[i]);
                 console.log('cartEmptyCheck returns true, something has been ordered');
+                $scope.cartEmpty = false;
                 return true;
             }
         }
     };
+    $scope.cartEmpty = true;
     self.lowMacArray = [];
     self.lowMacList = "";
     self.lowInventoryMacarons = function(lowMacArray) {
@@ -58,8 +60,8 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
 
     self.proceedToCheckout = function() {
                 console.log('cartC.proceedToCheckout is running');
-        if(self.cartEmptyCheck() == false){
-            //console.log('YouCantBuyFromAnEmptyCart');
+        if(!self.cartEmptyCheck()){
+            console.log('YouCantBuyFromAnEmptyCart');
             $scope.openAlertOffscreen($scope.login.id.emptyCart, $scope.message_emptyCart);
         }else {
             self.dbCart = [];
@@ -100,6 +102,8 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
                                     self.lowInventoryMacarons(self.lowMacArray);
                                     console.log("lowMacList", self.lowMacList);
                                     $scope.openAlertOffscreen($scope.login.lowInventory, $scope.message_lowInventory);
+                                    self.lowMacArray = [];
+                                    self.lowMacList = "";
                                     return;
                                 }
                                 console.log("self.finalizedOrder = ", self.finalizedOrder);
@@ -162,6 +166,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
             console.log('self.placeYourOrder is running');
         if(self.finalizedOrder.Cart.length == 0){
             $scope.openAlertOffscreen($scope.login.id.emptyCart, $scope.message_emptyCart);
+            return;
         }else {
         self.generateOrderNumber();
         invoice.showContent = true;
@@ -727,7 +732,7 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
         '  <md-dialog-content>' +
         '   <div class =" login-forms show-message col-sm-offset-1 col-sm-10 col-xs-12" id="{{loginID}}" >' +
         '        <div class=" col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 well">' +
-        '            <h5 class="proceed2checkout-lowInv-header" style="text-align: center">We\'re sorry, .  There are not enough of the following macarons left to complete your order: {{cartC.lowMacList}} . Please go back to the macarons page and adjust the number of {{cartC.lowMacList}} macarons, or complete the order without {{cartC.lowMacList}} macarons.  Thanks.</h5>' +
+        '            <h5 class="proceed2checkout-lowInv-header" style="text-align: center">We\'re sorry, .  There are not enough of the following macarons left to complete your order: {{cartC.lowMacList}} . Please go back to the macarons page and adjust the number of {{cartC.lowMacList}} macarons.  Thanks.</h5>' +
         '       </div>' +
         '   </div>' +
         '  </md-dialog-content>' +

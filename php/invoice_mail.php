@@ -53,7 +53,7 @@ text-decoration: none;
 }
 </style>
 <span class='letramenu5'>
-Dear <strong>".$request -> customer -> firstName." ".$request -> customer -> lastName."</strong>,<BR>
+Dear <strong>".$request -> customer -> firstName." ".$request -> customer -> lastName."</strong>,<BR><BR>
 Thank you for shopping at <A HREF='www.MPoutique.com'>MPoutique.com</A>.
 <BR> We're working on fulling your order and it will be shipped as soon as possible.
 <BR> If you have any questions or concerns, please don't hesitate to contact us.
@@ -61,6 +61,7 @@ Thank you for shopping at <A HREF='www.MPoutique.com'>MPoutique.com</A>.
 <BR> Please have the order details below when you call.
 <BR> Thanks again,
 <BR> MPoutique
+<BR> 949-123-4567
 </span><BR><BR>
 <table border='0' cellpadding='0' cellspacing='0'>
 <tr>
