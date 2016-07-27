@@ -692,6 +692,10 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
         position: absolute;
         bottom: 0;
     }
+    #banner-carousel {
+        width: 100vw;
+        top: 6vh;
+    }
 }
 @media screen and (max-width: 600px) {
     #banner-others img {
