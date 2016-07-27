@@ -105,7 +105,6 @@ body {
     right:3px;
 }
 
-/*******************EXPERIMENT*****************/
 /*/cart badge in nav/*/
 .mdl-badge.mdl-badge--overlap:after {
     top:2px;
@@ -244,6 +243,12 @@ md-fab-toolbar md-toolbar .md-toolbar-tools {
     width: 100vw !important;
 }
 
+[src~="https://www.micahpham.com/projects/MPoutique/assets/icons/comodo_secure_seal_100x85_transp.png"]{
+    position: fixed;
+    bottom: 0;
+    left:0;
+    z-index: 4;
+}
 /*//////////////////our macaron page///////////////////////////*/
 .macaron_text {
     position: relative;
@@ -519,18 +524,6 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     color: #527200;
     /*color: #7ba219 ;*/
 }
-.carousel-caption-text2 {
-    color: #a13a3d;
-}
-.carousel-caption-text3 {
-    color: #fcad5f;
-}
-.carousel-caption-text4 {
-    color: #bba748;
-}
-.carousel-caption-text5 {
-    color: #842013;
-}
 
 /********************** GIFTS & PARTIES SECTION ************************/
 
@@ -661,9 +654,13 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     /*macaron page*/
     #macaron_shop {
         padding: 4%;
+        margin-bottom: 10vh;
     }
     .card .card-content {
         padding: 20px;
+    }
+    .gift-box-para, .para-we-love-macaron{
+        margin-bottom:10vh;
     }
     p {
         font-size: 16px;
@@ -689,12 +686,26 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
         top: 16%;
     }
     [src~="https://www.micahpham.com/projects/MPoutique/assets/icons/comodo_secure_seal_100x85_transp.png"]{
-        position: absolute;
+        position: fixed;
         bottom: 0;
+        left: 15px;
+        z-index: 4;
     }
     #banner-carousel {
         width: 100vw;
         top: 6vh;
+    }
+    .carousel-inner {
+        height: 25vh;
+    }
+    .carousel-inner > .item > img{
+        height: 25vh;
+    }
+    .carousel-inner > .item.active {
+        height: 25vh;
+    }
+    #contact_info {
+        margin-bottom: 10vh;
     }
 }
 @media screen and (max-width: 600px) {
@@ -714,6 +725,6 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     .welcome_section-main-content-para {
         padding: 0 5%;
         height: 50vh;
-        margin-top: 0vh;
+        margin-top: 10vh;
     }
 }

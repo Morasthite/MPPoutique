@@ -28,22 +28,23 @@
 
     <!-- SSL -->
         <script type="text/javascript"> //<![CDATA[
+
+        console.log('Protocol:', window.location.protocol);
         var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.comodo.com/" : "http://www.trustlogo.com/");
-        document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
+        document.write(decodeURI("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
         //]]>
         </script>
 </head>
 <body id="main-content">
     <!--------------------  NAV BAR ---------------------->
-        <nav class="navbar navbar-default navbar-fixed-top" id="nav">
+        <nav class="navbar navbar-default navbar-fixed-top " id="nav">
         <div class="container-fluid">
-            <div class="navbar-header">
+            <div class="navbar-header"><!-- data-target="#myNavbar" -->
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <!--<img class="navbar-brand" src="assets/images/logo.png">-->
                 <a href="#welcome">
                     <div class="navbar-brand" id="logo">
                         <div id="logo_mp" style="background-image: url('assets/images/logo_mp.png');"></div>
@@ -57,15 +58,15 @@
                     <!-- ng-class: if mainC...ind == 1, print class=active, else print empty-->
                     <li ng-class="mainC.config.menuIndice == 1 ? 'active':''"><a href="#welcome" class="n-link">WELCOME
                         <span style="color: rgb(0, 255, 188); padding-left: 10px;"> {{ mainC.user.isLoggedIn ? mainC.user.firstName : ''}}</span></a></li>
-                    <li ng-class="mainC.config.menuIndice == 2 ? 'active':''"><a href="#macarons" class="n-link" id="macarons-li">OUR
+                    <li ng-class="mainC.config.menuIndice == 2 ? 'active':''"><a href="#macarons" data-toggle="collapse" data-target="#myNavbar" class="n-link" id="macarons-li">OUR
                         MACARONS</a></li>
-                    <li ng-class="mainC.config.menuIndice == 3 ? 'active':''"><a href="#gifts" class="n-link">GIFTS &amp;
+                    <li ng-class="mainC.config.menuIndice == 3 ? 'active':''"><a href="#gifts" data-toggle="collapse" data-target="#myNavbar"  class="n-link">GIFTS &amp;
                         PARTIES</a></li>
-                    <li ng-class="mainC.config.menuIndice == 4 ? 'active':''"><a href="#contact" class="n-link">CONTACT</a>
+                    <li ng-class="mainC.config.menuIndice == 4 ? 'active':''"><a href="#contact" data-toggle="collapse" data-target="#myNavbar"  class="n-link">CONTACT</a>
                     </li>
                     <li ng-class="mainC.config.menuIndice == 5 ? 'active':''"><a
                             class="n_link mdl-badge mdl-badge--overlap nav-badge" data-badge="{{mainC.cart.total}}" style="color: rgb(0, 255, 188)!important;"
-                            href="#cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                            href="#cart"  data-toggle="collapse" data-target="#myNavbar" ><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                     <li ng-hide="!mainC.user.isLoggedIn"><a href="php/logout.php" class="n-link">LOG OUT</a></li>
                 </ul>
             </div>
@@ -94,8 +95,6 @@
             </md-fab-trigger>
             <md-toolbar>
                 <md-fab-actions class="md-toolbar-tools">
-
-
                     <div layout="row" layout-xs="column">
                         <div flex class="footer_row">
                             <ul>
@@ -104,8 +103,7 @@
                                 <li><a href="https://twitter.com/?lang=en" target="_blank" ><i class="footer_fa fa fa-twitter" aria-hidden="true"></i></a></li>
                                 <li><a href="https://hangouts.google.com/" target="_blank" ><i class="footer_fa fa fa-google" aria-hidden="true"></i></a></li>
                                 <li><a href="#contact" target="_blank" ><i class="footer_fa fa fa-envelope" aria-hidden="true"></i></a></li>
-
-                                <li><a href="tel:555-555-1212" target="_blank>"> <i class="footer_fa fa fa-phone" aria-hidden="true"></i></a></li>
+                                <li><a href="tel:949-555-1212" target="_blank>"> <i class="footer_fa fa fa-phone" aria-hidden="true"></i></a></li>
                                 </ul>
                         </div>
                         <div flex class="footer_row">
@@ -146,8 +144,6 @@
         <script src="js/controllers/welcomeController.js"></script>
         <script src="js/controllers/invoiceController.js"></script>
         <script src="js/controllers/logoutController.js"></script>
-    <!-- Directives -->
-        <!--<script src="js/directives/activeLink.js"></script>-->
     <!-- Services -->
         <script src="js/services/cart_service.js"></script>
         <script src="js/services/config.js"></script>
@@ -161,7 +157,5 @@
     <script language="JavaScript" type="text/javascript">
         TrustLogo("https://www.micahpham.com/projects/MPoutique/assets/icons/comodo_secure_seal_100x85_transp.png", "CL1", "none");
     </script>
-
-
 </body>
 </html>
