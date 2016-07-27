@@ -9,16 +9,16 @@ app.controller('macaronController', ["$scope", "$timeout", "config","cart", "use
     config.banner = "assets/images/banners/our-macarons-banner.png";
     config.menuIndice = 2;
     self.inventory = cart.inventory;
-    // console.log("cart inventory @ beginning of macaronController: ",cart.inventory);
+    console.log("cart inventory @ beginning of macaronController: ",cart.inventory);
     cart.inventory.then(function (response) {
+        console.log("inside cart.inventory.then");
         var macaron_array = [];
         macaron_array.push(response.data);
-        // console.log("this one: ",macaron_array);
         self.cart.macaron_array =[];
         for(var i=0; i<response.data.length;i++){
             self.cart.macaron_array.push(response.data[i]);
         }
-        // console.log("cart.macaron_array after adding: ",cart.macaron_array);
+         console.log("cart.macaron_array after adding: ",cart.macaron_array);
     });
     self.cart = cart;
     console.log("cart: ",self.cart);

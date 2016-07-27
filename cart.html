@@ -756,15 +756,13 @@
                             <th class="cart-header">Extended Price</th>
                         </tr>
                     </thead>
-                    <!--cartC.user.isLoggedIn ? macaron.name : 'macaron.name + showLowInventory'-->
                     <tbody id="cart_current_content">
                         <tr ng-repeat="macaron in cartC.cart.macaron_array | filter: filter" >
                             <td class="mdl-data-table__cell--non-numeric" ng-id="{{macaron.name}}" >{{macaron.name}}</td>
                             <td ng-id="{{macaron.ordered}}" >{{macaron.ordered}}</td>
                             <td ng-id="{{macaron.price}}" >$ {{macaron.price}}</td>
-                            <td ng-id="{{macaron.price}}" >$ {{ cartC.addSubTotal(macaron.ordered, macaron.price) }}</td>
+                            <td ng-id="{{macaron.price}}" >$ {{cartC.addSubTotal(macaron.ordered, macaron.price)}}</td>
                         </tr>
-
                     </tbody>
                 </table> <!-- End Items Table-->
 
@@ -773,7 +771,7 @@
                     <tbody>
                         <tr>
                             <td class="cart-header col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell--non-numeric">Subtotal</td>
-                            <td class="cart-header">$ {{ cartC.cart.subTotal }}</td>
+                            <td class="cart-header">$ {{cartC.cart.subTotal }}</td>
                         </tr><!-- Subtotal -->
                         <tr>
                             <td class="cart-header col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12 mdl-data-table__cell--non-numeric">Taxes</td>

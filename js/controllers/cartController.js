@@ -586,8 +586,6 @@ app.controller('cartController',["$scope","$http","config","cart", "invoice", "u
             }
             console.log("macaron array after getting empty and then filled with new data: ",self.cart.macaron_array);
         });/////end of http call
-        // $("#cart_current_content>tr>td").val() = '';
-        //console.log("self.finalizedOrder.orderTime = ", self.finalizedOrder.orderTime, "self.finalizedOrder.orderNumber = ", self.finalizedOrder.orderNumber, "self.finalizedOrder.Cart = ", self.finalizedOrder.Cart, "cart  = ", cart);
         console.log("cart after empty: ", cart);
     };
 
