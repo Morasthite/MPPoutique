@@ -184,6 +184,8 @@ footer .fa {
 ul li {
     list-style-type: none;
     display: inline;
+    padding-left: 7px;
+    padding-right: 7px;
 }
 .footer_fa, .fa-envelope.footer_fa {
   color: white;
@@ -202,7 +204,8 @@ md-fab-toolbar {
 }
 .footer_row {
     min-width: 300px !important;
-    margin-right: 23vw !important;
+    /*margin-right: 23vw !important;*/
+    margin-right: 40vw !important;
 }
 .footer_row ul {
     padding-left: 5px;
@@ -240,22 +243,6 @@ md-fab-toolbar md-toolbar .md-toolbar-tools {
 .md-fab.md-fab-bottom-right.ng-isolate-scope._md-animations-ready.md-fab-toolbar.md-left.md-is-open {
     width: 100vw !important;
 }
-/*.fabSpeedDialdemoBasicUsage .text-capitalize {*/
-    /*text-transform: capitalize; }*/
-
-/*.fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {*/
-    /*background-color: #000 !important; }*/
-
-/*.fabSpeedDialdemoBasicUsage p.note {*/
-    /*font-size: 1.2rem; }*/
-
-/*.fabSpeedDialdemoBasicUsage .lock-size {*/
-    /*min-width: 300px;*/
-    /*min-height: 300px;*/
-    /*width: 300px;*/
-    /*height: 300px;*/
-    /*margin-left: auto;*/
-    /*margin-right: auto; }*/
 
 /*//////////////////our macaron page///////////////////////////*/
 .macaron_text {
@@ -301,7 +288,6 @@ md-fab-toolbar md-toolbar .md-toolbar-tools {
     border-color: #ee6e73;
     box-shadow: 3px 3px 8px #f3989b;
 }
-/*******************EXPERIMENT*************#26a69a;****/
 .mdl-button--fab {
     box-shadow: 0px 3px 05px 3px rgba(0, 0, 0, 0.16), 0 1px 1px 0 rgba(0, 0, 0, 0.72);
 }
@@ -327,7 +313,6 @@ md-fab-toolbar md-toolbar .md-toolbar-tools {
 nav ul li.active {
     background-color: rgba(0, 0, 0, 0);
 }
-/*******************EXPERIMENT*****************/
 /*///////////////////welcome page/////////////////////////////*/
 .gifts-party-main-content{
     padding: 2% 6%;
@@ -496,14 +481,7 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
 /*material design*/
 
 /*************************** ALL-PAGES - CAROUSEL  ****************************/
-/*#banner {*/
-    /*border: 1px solid red;*/
-    /*top: 64px;*/
-    /*position: relative;*/
-    /*padding: 0;*/
-    /*margin: 0;*/
-    /*width: 100%;*/
-/*}*/
+
 #welcome-carousel, #banner-others {
     margin-top: 64px;
     height: 54vh;
@@ -553,10 +531,6 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
 .carousel-caption-text5 {
     color: #842013;
 }
-/*#welcome-img-6{*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-/*}*/
 
 /********************** GIFTS & PARTIES SECTION ************************/
 
@@ -673,7 +647,7 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
         margin-top: 2px !important;
         margin-bottom: 0 !important;
         position: absolute;
-        left: 45%;
+        left: 40%;
         top: 0;
         transform: translate(-50%, -50%);
     }
@@ -702,13 +676,29 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     .macaron_text {
         #margin-top:10vh;
     }
+    .footer_row ul li {
+        list-style-type: none;
+        display: inline;
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+    #logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 16%;
+    }
+    [src~="https://www.micahpham.com/projects/MPoutique/assets/icons/comodo_secure_seal_100x85_transp.png"]{
+        position: absolute;
+        bottom: 0;
+    }
 }
 @media screen and (max-width: 600px) {
     #banner-others img {
         height: 30vh;
-        padding: 9vh  0 0 0;
-        width: 90vw;
-        margin: 0 4vw;
+        padding: 6vh  0 0 0;
+        width: 100vw;
+        margin: 0 0vw;
     }
     #welcome-carousel, #banner-others {
         margin-top: 20px;
