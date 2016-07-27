@@ -25,13 +25,13 @@ app.factory("cart",["$http",function ($http) {
                 price : 3.5,
                 ordered : 0
             },
-            {
-                name: "Almond",
-                description: "almond, macaron and ...",
-                source: "assets/images/almond-mac.png",
-                price : 3,
-                ordered : 0
-            },
+            // {
+            //     name: "Almond",
+            //     description: "almond, macaron and ...",
+            //     source: "assets/images/almond-mac.png",
+            //     price : 3,
+            //     ordered : 0
+            // },
             {
                 name: "Caramel",
                 description: "caramel, macaron and ...",
@@ -56,17 +56,17 @@ app.factory("cart",["$http",function ($http) {
             {
                 name: "Lemon",
                 description: "lemon, macaron and ...",
-                source: "assets/images/Lemon-mac.png",
+                source: "assets/images/lemon-mac.png",
                 price : 3.5,
                 ordered : 0
             },
-            {
-                name: "Passion Fruit",
-                description: "fruit, macaron and ...",
-                source: "assets/images/passion-fruit-mac.png",
-                price : 3.23,
-                ordered : 0
-            },
+            // {
+            //     name: "Passion Fruit",
+            //     description: "fruit, macaron and ...",
+            //     source: "assets/images/passion-fruit-mac.png",
+            //     price : 3.23,
+            //     ordered : 0
+            // },
             {
                 name: "Pistachio",
                 description: "pistachio, macaron and ...",
@@ -77,7 +77,7 @@ app.factory("cart",["$http",function ($http) {
             {
                 name: "Raspbery",
                 description: "rasbery, macaron and ...",
-                source: "assets/images/raspbery-mac.png",
+                source: "assets/images/raspberry-mac.png",
                 price : 3.45,
                 ordered : 0
             },
