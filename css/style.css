@@ -707,6 +707,22 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     #contact_info {
         margin-bottom: 10vh;
     }
+    /** Cart Page **/
+    #cart_current_content .mdl-data-table td:last-of-type, .mdl-data-table th:last-of-type {
+        padding-right: 4px;
+    }
+    .mdl-data-table th:first-of-type {
+        padding-left: 4px;
+    }
+    #cart_current_content td {
+        padding-right: 4px;
+        padding-left:4px;
+    }
+    #cart-table td {
+        padding-right: 4px;
+        padding-left: 4px;
+        text-align: center;
+    }
 }
 @media screen and (max-width: 600px) {
     #banner-others img {
