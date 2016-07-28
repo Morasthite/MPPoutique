@@ -56,7 +56,7 @@
             <div class="collapse navbar-collapse" id="myNavbar" ng-init="menuIndice = 1">
                 <ul class="nav navbar-nav navbar-right">
                     <!-- ng-class: if mainC...ind == 1, print class=active, else print empty-->
-                    <li ng-class="mainC.config.menuIndice == 1 ? 'active':''"><a href="#welcome" class="n-link">WELCOME
+                    <li ng-class="mainC.config.menuIndice == 1 ? 'active':''"><a href="#welcome"  data-toggle="collapse" data-target="#myNavbar" class="n-link">WELCOME
                         <span style="color: rgb(0, 255, 188); padding-left: 10px;"> {{ mainC.user.isLoggedIn ? mainC.user.firstName : ''}}</span></a></li>
                     <li ng-class="mainC.config.menuIndice == 2 ? 'active':''"><a href="#macarons" data-toggle="collapse" data-target="#myNavbar" class="n-link" id="macarons-li">OUR
                         MACARONS</a></li>
@@ -84,13 +84,12 @@
 
     <!--------------------  FOOTER ---------------------->
 
-        <md-fab-toolbar md-open="footer.isOpen" count="footer.count" md-direction="{{footer.selectedDirection}}" class="md-fab md-fab-bottom-right" style="position:fixed !important;!important; right: 0!important; bottom: 0!important; z-index: 5 !important;">
+        <md-fab-toolbar md-open="footer.isOpen" count="footer.count" md-direction="{{footer.selectedDirection}}" class="md-fab md-fab-bottom-right" style="position:fixed !important; right: 0!important; bottom: 0!important; z-index: 5 !important;">
             <md-fab-trigger class="align-with-text" style="z-index: 5 !important;">
                 <md-button aria-label="menu" class="md-fab md-primary">
                     <md-icon ng-style="{color: white}" aria-label="contact_mail" class="material-icons step">
                         contact_mail
                     </md-icon>
-                    <!--<i class="fa fa-envelope-o" aria-hidden="true" style="color: #00fbff;"></i>-->
                 </md-button>
             </md-fab-trigger>
             <md-toolbar>
@@ -104,19 +103,15 @@
                                 <li><a href="https://hangouts.google.com/" target="_blank" ><i class="footer_fa fa fa-google" aria-hidden="true"></i></a></li>
                                 <li><a href="#contact" target="_blank" ><i class="footer_fa fa fa-envelope" aria-hidden="true"></i></a></li>
                                 <li><a href="tel:949-555-1212" target="_blank>"> <i class="footer_fa fa fa-phone" aria-hidden="true"></i></a></li>
-                                </ul>
-                        </div>
+                            </ul>
+                        </div><!--Closing footer_row -->
                         <div flex class="footer_row">
                             <p class="copyright">Copyright &copy; 2015 MPoutique. All rights reserved</p>
-                        </div>
-                    </div>
-                </div>
+                        </div><!--Closing footer_row -->
+                    </div><!--Closing row -->
                 </md-fab-actions>
             </md-toolbar>
-        </md-fab-toolbar>
-            </div>
-        </md-content>
-    </div>
+        </md-fab-toolbar><!--Closing <md-fab-toolbar md-open="footer.isOpen" -->
 
 <!---------------------------------- Scripts -------------------------------------------->
     <!---------------- ANGULAR ---------------->
@@ -152,7 +147,6 @@
         <script src="js/services/invoice_display_serv.js"></script>
     <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-
     <!--SSL-->
     <script language="JavaScript" type="text/javascript">
         TrustLogo("https://www.micahpham.com/projects/MPoutique/assets/icons/comodo_secure_seal_100x85_transp.png", "CL1", "none");
