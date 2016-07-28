@@ -723,6 +723,9 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
         padding-left: 4px;
         text-align: center;
     }
+    #items-table-header th {
+        padding: 0 12px 12px 12px;
+    }
 }
 @media screen and (max-width: 600px) {
     #banner-others img {

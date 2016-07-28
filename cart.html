@@ -4,7 +4,7 @@
 
         <!-----------LOG IN BUTTONS --------------->
             <!--Log In Button-->
-            <div ng-show="cartC.showLoginButton()" ng-hide="showLoginButtonDefault" class="user-login col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8 pull-left" id="log-in-btn-ctn" >
+            <div ng-show="cartC.showLoginButton()" ng-hide="showLoginButtonDefault" class="user-login col-sm-offset-3 col-sm-2  col-xs-offset-2 col-xs-8 " id="log-in-btn-ctn" >
 
                 <button id="log-in-btn" class=" btn btn-lg btn-info" ng-click="cartC.showLoginFormToggle()">
                     Log In <i class="fa fa-sign-in" aria-hidden="true"></i>
@@ -12,7 +12,7 @@
             </div> <!-- End Log In Button-->
 
             <!-- Sign Up! Button-->
-            <div ng-show="cartC.showSignUpButton()" ng-hide="showSignUpButtonDefault" class="user-login col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="sign-up-btn2" >
+            <div ng-show="cartC.showSignUpButton()" ng-hide="showSignUpButtonDefault" class="user-login col-sm-offset-3 col-sm-2  col-xs-offset-2 col-xs-8" id="sign-up-btn2" >
 
                 <button id="sign-up-btn"  class=" btn btn-lg btn-info" ng-click="cartC.showSignUpFormToggle()">
                     Sign Up! <i class="fa fa-user-plus" aria-hidden="true"></i>
@@ -20,7 +20,7 @@
             </div> <!-- End Sign Up! Button-->
 
             <!-- Checkout As Guest Button-->
-            <div ng-show="cartC.showGuestCheckoutButton()" ng-hide="showGuestCheckoutButtonDefault" class="user-login  col-sm-offset-1 col-sm-offset-2 col-sm-2  col-xs-offset-2 col-xs-8" id="guest-checkout-btn2">
+            <div ng-show="cartC.showGuestCheckoutButton()" ng-hide="showGuestCheckoutButtonDefault" class="user-login  col-sm-offset-3 col-sm-2  col-xs-offset-2 col-xs-8" id="guest-checkout-btn2">
 
                 <button id="guest-checkout-btn" class=" btn btn-lg btn-info" ng-click="cartC.showGuestCheckoutFormToggle()">
                     Guest Checkout <i class="fa fa-user-secret" aria-hidden="true"></i>
@@ -789,15 +789,17 @@
                 </table> <!-- End Totals Table-->
 
                 <!-- Checkout Buttons-->
-                <div ng-show="showProceedToCheckoutButton" id="proceed-to-checkout">
-                    <button ng-show="showProceedToCheckoutButton" ng-hide="cartC.showProceedToCheckoutButton" class="col-sm-offset-5 col-sm-2 col-xs-offset-1 col-xs-10 btn btn-lg btn-info checkout-buttons" ng-click="cartC.proceedToCheckout()">
+                <div ng-show="showProceedToCheckoutButton" id="proceed-to-checkout" class="col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12">
+                    <button ng-show="showProceedToCheckoutButton" ng-hide="cartC.showProceedToCheckoutButton" class="col-sm-offset-5 col-sm-2 col-xs-offset-right-1 col-xs-10 btn btn-lg btn-info checkout-buttons" ng-click="cartC.proceedToCheckout()">
                         Proceed To Checkout <i class="fa fa-arrow-circle-right fa-submit" aria-hidden="true"></i>
                     </button>
                 </div>
-                <a href="#invoice#invoice_page"><div ng-show="showPlaceYourOrderButton"  class="checkout-buttons " id="place-your-order-btn">
-
-                    <button class="col-sm-offset-5 col-sm-2 col-xs-offset-1 col-xs-10 btn btn-lg btn-info checkout-buttons" ng-click="cartC.placeYourOrder()" ng-hide="cartEmpty">Place Your Order<i class="fa fa-arrow-circle-right fa-submit" aria-hidden="true"></i></button>
-                </div></a> <!-- End Checkout Buttons-->
+                <a href="#invoice#invoice_page">
+                    <div ng-show="showPlaceYourOrderButton"  class="checkout-buttons col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10 col-xs-12" id="place-your-order-btn">
+                        <button class="col-sm-offset-5 col-sm-2 col-xs-offset-1 col-xs-10 btn btn-lg btn-info checkout-buttons" ng-click="cartC.placeYourOrder()" ng-hide="cartEmpty">Place Your Order<i class="fa fa-arrow-circle-right fa-submit" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </a> <!-- End Checkout Buttons-->
             </div><!-- End CART TABLE-->
         </div><!-- row-->
     </div><!-- container -->
