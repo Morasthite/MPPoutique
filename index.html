@@ -54,17 +54,16 @@
             <div class="collapse navbar-collapse" id="myNavbar" ng-init="menuIndice = 1">
                 <ul class="nav navbar-nav navbar-right">
                     <!-- ng-class: if mainC...ind == 1, print class=active, else print empty-->
-                    <li ng-class="mainC.config.menuIndice == 1 ? 'active':''"><a href="#welcome"  data-toggle="collapse" data-target="#myNavbar" class="n-link">WELCOME
+                    <li ng-class="mainC.config.menuIndice == 1 ? 'active':''"><a href="#welcome" class="n-link">WELCOME
                         <span style="color: rgb(0, 255, 188); padding-left: 10px;"> {{ mainC.user.isLoggedIn ? mainC.user.firstName : ''}}</span></a></li>
-                    <li ng-class="mainC.config.menuIndice == 2 ? 'active':''"><a href="#macarons" data-toggle="collapse" data-target="#myNavbar" class="n-link" id="macarons-li">OUR
+                    <li ng-class="mainC.config.menuIndice == 2 ? 'active':''"><a href="#macarons" class="n-link" id="macarons-li">OUR
                         MACARONS</a></li>
-                    <li ng-class="mainC.config.menuIndice == 3 ? 'active':''"><a href="#gifts" data-toggle="collapse" data-target="#myNavbar"  class="n-link">GIFTS &amp;
+                    <li ng-class="mainC.config.menuIndice == 3 ? 'active':''"><a href="#gifts" class="n-link">GIFTS &amp;
                         PARTIES</a></li>
-                    <li ng-class="mainC.config.menuIndice == 4 ? 'active':''"><a href="#contact" data-toggle="collapse" data-target="#myNavbar"  class="n-link">CONTACT</a>
+                    <li ng-class="mainC.config.menuIndice == 4 ? 'active':''"><a href="#contact" class="n-link">CONTACT</a>
                     </li>
                     <li ng-class="mainC.config.menuIndice == 5 ? 'active':''"><a
-                            class="n_link mdl-badge mdl-badge--overlap nav-badge" data-badge="{{mainC.cart.total}}" style="color: rgb(0, 255, 188)!important;"
-                            href="#cart"  data-toggle="collapse" data-target="#myNavbar" ><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                            class="n_link mdl-badge mdl-badge--overlap nav-badge" data-badge="{{mainC.cart.total}}" style="color: rgb(0, 255, 188)!important;" href="#cart" ><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                     <li ng-hide="!mainC.user.isLoggedIn"><a href="php/logout.php" class="n-link">LOG OUT</a></li>
                 </ul>
             </div>
