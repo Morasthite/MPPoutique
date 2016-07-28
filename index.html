@@ -28,8 +28,6 @@
 
     <!-- SSL -->
         <script type="text/javascript"> //<![CDATA[
-
-        console.log('Protocol:', window.location.protocol);
         var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.comodo.com/" : "http://www.trustlogo.com/");
         document.write(decodeURI("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
         //]]>
@@ -94,8 +92,8 @@
             </md-fab-trigger>
             <md-toolbar>
                 <md-fab-actions class="md-toolbar-tools">
-                    <div layout="row" layout-xs="column">
-                        <div flex class="footer_row">
+                    <div layout="row" layout-xs="column" class="footer_icons_row">
+                        <div flex class="footer_row social_icons">
                             <ul>
                                 <li><a href="https://www.facebook.com/login/" target="_blank" ><i class="footer_fa fa fa-facebook" aria-hidden="true"></i></a></li>
                                 <li><a href="https://www.instagram.com/accounts/login/" target="_blank" ><i class="footer_fa fa fa-instagram" aria-hidden="true"></i></a></li>
@@ -105,7 +103,7 @@
                                 <li><a href="tel:949-555-1212" target="_blank>"> <i class="footer_fa fa fa-phone" aria-hidden="true"></i></a></li>
                             </ul>
                         </div><!--Closing footer_row -->
-                        <div flex class="footer_row">
+                        <div flex class="footer_row copy_right">
                             <p class="copyright">Copyright &copy; 2015 MPoutique. All rights reserved</p>
                         </div><!--Closing footer_row -->
                     </div><!--Closing row -->
