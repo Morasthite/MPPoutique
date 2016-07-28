@@ -118,11 +118,9 @@
 }
 #proceed-to-checkout {
     bottom: 1vh;
-    /*background-color: transparent;*/
+    padding-left: 0;
+    padding-right: 45px;
 }
-/*#proceed-to-checkout:hover {*/
-    /*background-color: transparent;*/
-/*}*/
 #proceed-to-checkout button {
     padding-left: 10px;
 }
@@ -340,6 +338,6 @@ md-dialog-content {
     }
     #log-in-btn-ctn{
         #margin-left: 16.66666667%;
-        padding-left: 0!important;
+        #padding-left: 0!important;
     }
 }

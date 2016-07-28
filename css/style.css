@@ -745,6 +745,19 @@ md-input-container.md-default-theme.md-input-invalid .md-input-message-animation
     #items-table-header th {
         padding: 0 12px 12px 12px;
     }
+    #proceed-to-checkout {
+        bottom: 1vh;
+        padding-left: 30px;
+        padding-right: 0px;
+    }
+    #guest-checkout-btn2, #sign-up-btn2 {
+        margin-left: 15%;
+        padding-right: 10px;
+    }
+    #log-in-btn-ctn {
+
+    }
+
     /** Footer **/
     .social_icons {
         min-width: 300px !important;
